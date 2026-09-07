@@ -15,6 +15,7 @@ export default function GateClient() {
   const [snapshot, setSnapshot] = useState<Snapshot>();
   const [localId, setLocalId] = useState(-1);
   const [operator, setOperator] = useState(false);
+  const [hasSession, setHasSession] = useState(false);
   const [rtt, setRtt] = useState<number | null>(null);
   const [notice, setNotice] = useState('');
   const [viewError, setViewError] = useState('');
@@ -23,7 +24,7 @@ export default function GateClient() {
     const connection = new BelayConnection(); connectionRef.current = connection;
     window.BELAY = connection.debugApi();
     const unregisterInspection = registerInspectionTool(window.BELAY);
-    connection.onChange = () => { setStatus(connection.status); setLocalId(connection.localId); setOperator(connection.operator); };
+    connection.onChange = () => { setStatus(connection.status); setLocalId(connection.localId); setOperator(connection.operator); setHasSession(connection.sessionNumber > 0); };
     let viewport: ReturnType<typeof createViewport> | undefined;
     try { viewport = createViewport(host.current!, connection); canvasRef.current = viewport.canvas; }
     catch {
@@ -32,6 +33,7 @@ export default function GateClient() {
       setViewError('This prototype requires WebGL2. Try a desktop browser with hardware acceleration enabled.');
     }
     const keys = new Set<string>();
+    connection.onInputReset = () => keys.clear();
     const movementKeys = ['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'];
     const update = () => {
       const horizontal = Number(keys.has('KeyD') || keys.has('ArrowRight')) - Number(keys.has('KeyA') || keys.has('ArrowLeft'));
@@ -42,7 +44,8 @@ export default function GateClient() {
         z: (-horizontal * Math.sin(angle) - vertical * Math.cos(angle)) / size, brace: keys.has('Space') };
     };
     const down = (event: KeyboardEvent) => {
-      if (!connection.room || !movementKeys.includes(event.code) || (event.target instanceof HTMLElement && event.target.closest('button,input,textarea,select'))) return;
+      if (!connection.acceptsMovement || !movementKeys.includes(event.code) || (event.repeat && !keys.has(event.code))
+        || (event.target instanceof HTMLElement && event.target.closest('button,input,textarea,select'))) return;
       event.preventDefault(); keys.add(event.code); update();
     };
     const up = (event: KeyboardEvent) => { if (movementKeys.includes(event.code)) { keys.delete(event.code); update(); } };
@@ -62,9 +65,7 @@ export default function GateClient() {
   const load = (family: Family) => run(() => connectionRef.current!.command('loadScene', { family }));
   const exportReport = () => run(async () => {
     const connection = connectionRef.current!;
-    const report = { generatedAt: new Date().toISOString(), userAgent: navigator.userAgent, phase: 1,
-      gateVerdict: 'NOT EVALUATED', tuning: TUNING, familyDefinitions: FAMILIES,
-      client: connection.networkCounters(), impairment: await window.BELAY.networkProfile(), server: await connection.command('counters'), state: connection.latest };
+    const report = await connection.captureReport();
     const url = URL.createObjectURL(new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' }));
     const a = document.createElement('a'); a.href = url; a.download = `belay-gate1-${Date.now()}.json`; a.click(); URL.revokeObjectURL(url);
   });
@@ -76,14 +77,13 @@ export default function GateClient() {
     </header>
     <div className="viewport" ref={host}>{viewError && <p className="view-error" role="alert">{viewError}</p>}</div>
     <section className="controls" aria-label="Rope controls"><div className="control-copy"><p>WASD / arrows — move &nbsp; Space — brace</p><small>{connected ? count < 2 ? 'Your partner can join the same local test. Remote access uses a temporary invitation.' : 'Pull against each other. Then try walking together.' : 'Join the rope, then invite a second player to the test.'}</small></div>
-      <div className="actions">{!connected ? <Button className="gate-button primary" onClick={join} disabled={status === 'Connecting' || Boolean(viewError)}>Join test rope</Button>
+      <div className="actions">{hasSession ? <Button className="gate-button" onClick={exportReport} disabled={status === 'Connecting'}>Save measurements</Button> : null}{!connected ? <Button className="gate-button primary" onClick={join} disabled={status === 'Connecting' || Boolean(viewError)}>Join test rope</Button>
         : <Button className="gate-button" onClick={() => void connectionRef.current?.leave()}>Leave rope</Button>}</div>
     </section>
     {operator && connected && <details className="bench"><summary>Operator test controls</summary><div className="bench-content">
       <div className="actions">{(Object.keys(FAMILIES) as Family[]).map(family => <Button key={family} className="gate-button" onClick={() => load(family)}>Load {family}</Button>)}</div>
       <Button className="gate-button" onClick={() => run(() => connectionRef.current!.command(snapshot?.paused ? 'resume' : 'pause'))}>{snapshot?.paused ? 'Resume' : 'Pause'}</Button>
       <Button className="gate-button" onClick={() => run(() => connectionRef.current!.command('stepTicks', 1))} disabled={!snapshot?.paused}>Step one tick</Button>
-      <Button className="gate-button" onClick={exportReport}>Save session measurements</Button>
       <span className="readouts">{snapshot?.family} · {snapshot?.tickHz} Hz · seed {snapshot?.seed} · tick {snapshot?.tick}<br/>Slack {snapshot?.rope.slackM.toFixed(2)} m · tension {Math.round((snapshot?.rope.tension ?? 0) * 100)}% · Gate 1 not evaluated</span>
     </div></details>}
     {notice && <p className="notice" role="alert">{notice}</p>}

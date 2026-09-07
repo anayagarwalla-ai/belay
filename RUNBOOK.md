@@ -8,24 +8,26 @@ Current scope is an invitation-only Phase 1 prototype. **No paid resource, hosti
 | Local Colyseus server | Loopback `127.0.0.1:2567`, one persistent two-player room; temporary independent rooms during integration checks | $0 | Ctrl+C in `npm run dev`; child process group stops and memory-only rooms vanish |
 | Local Vinext dev frontend | Loopback `127.0.0.1:5173` | $0 | Same dev shutdown |
 | Local operator gateway | Loopback `127.0.0.1:8787` | $0 | Same dev shutdown; removes `work/dev-session.json` |
-| `.tools/cloudflared` | Official macOS binary pinned/checksum-verified by `setup:tunnel`; downloading it creates no tunnel | $0 | Remove `.tools/cloudflared` and cached archive when unused |
+| `.tools/cloudflared` | Official macOS binary pinned/checksum-verified by `setup:tunnel`; public checksum receipt, no runtime credentials; downloading it creates no tunnel | $0 | Stop any owned tunnel first; remove `.tools/` when unused |
 | Temporary Quick Tunnel | Only while `npm run playtest:open` runs; forwarding to invitation-protected loopback gateway `:8788`, maximum two hours | $0, no account/card | `npm run playtest:stop` or Ctrl+C; kills cloudflared, closes gateway/sockets, discards per-session signing key, removes invitation files, writes teardown record |
 | Browser verification session | Local isolated `agent-browser` session `belay-check` | $0 | `npx --yes agent-browser --session belay-check close` |
 | Test reports/screenshots | Local `reports/` and ignored `work/` | $0 | Remove local artifacts when no longer needed; never commit session keys |
+| Parallel Codex project worktrees | Three project tasks for physics, operations and design preparation; changes reviewed and integrated into the primary checkout | No external service provisioned; existing account usage applies | Tasks are complete; keep their history for review, or remove their worktrees through Codex when no longer needed |
 
 Local machine electricity and bandwidth are not measured here. Quick Tunnel verification checks reachability/access control, not a service guarantee. No resource is authorized to incur metered spend at this phase. See `reports/phase1-remote.json` when present for the verification/teardown evidence; it contains no invitation secrets.
 
 ## Start and normal shutdown
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
-Open <http://127.0.0.1:8787>. Run the tunnel commands in a second terminal only for a scheduled invited test:
+Wait for **BELAY local preview ready**, then open <http://127.0.0.1:8787>. Run the tunnel commands in a second terminal only for a scheduled invited test:
 
 ```sh
 npm run setup:tunnel
+npm run playtest:preflight
 npm run playtest:open
 ```
 
@@ -35,7 +37,7 @@ Read `work/playtest-links.json` locally; manually send only the tester link to t
 npm run playtest:stop
 ```
 
-Then Ctrl+C in the dev terminal. The stop command verifies the recorded PID belongs to this project's playtest script before signaling it. If a terminal was force-killed, inspect the project process command/PID before stopping it; do not blindly kill unrelated Node processes. Inspect listeners with `lsof -nP -iTCP:2567 -iTCP:5173 -iTCP:8787 -iTCP:8788 -sTCP:LISTEN`. Remove stale `work/playtest-links.json` and `work/playtest-session.json` only after the owned tunnel and protected gateway have stopped. Restarting the dev process rotates its backend signing key too.
+Then Ctrl+C in the dev terminal, or run `npm run dev -- --stop`. Stop commands authenticate a loopback control request; they never signal a PID copied from disk. Owned process guardians stop descendants even after parent loss. Session files are atomic/private, and duplicate starts cannot replace another session's credentials. Preflight distinguishes stale, foreign and legacy records. Follow [playtest operations](docs/playtest-operations.md) for recovery and confirmed teardown; a missing teardown record is not proof of cleanup. Restarting dev rotates its backend signing key.
 
 ## Verification commands
 
@@ -54,7 +56,7 @@ Network checks require the dev server. `bench` does 1,000 deterministic, fixed-d
 
 ## Authority and operational limits
 
-Each Colyseus room owns its Rapier world, PBD rope, input state and telemetry. Phase 1 hard cap is two; the global design ceiling is six. Inputs are bounded and sequenced, and expire after 250 ms without a refresh. Debug mutations and room allocation require operator authorization. The protected gateway rejects unauthenticated HTTP assets/API/WebSocket upgrades and strips incoming privilege headers. It is a temporary test perimeter, not production identity or DDoS infrastructure. The development frontend must never be exposed directly.
+Each Colyseus room owns its Rapier world, PBD rope, input state and telemetry. Phase 1 hard cap is two; the global design ceiling is six. Inputs are bounded and sequenced, and expire after 250 ms without a refresh. Debug mutations and room allocation require operator authorization. The protected gateway rejects unauthenticated HTTP assets/API/WebSocket upgrades and strips incoming privilege headers. It also denies private runtime files and developer inspector routes to invited testers; Vite independently denies private files, including its `/@fs` path. The backend key is not passed to the frontend or tunnel process. This is a temporary test perimeter, not production identity or DDoS infrastructure. The development frontend must never be exposed directly.
 
 Telemetry rings, catch-up work and the accepted-input tape are bounded. Tapes preserve the first 20 minutes after scene reset, then mark truncation; simulation continues. Memory reports explicitly identify shared process RSS/heap, not pretend per-room memory. Ticks include serialization/send scheduling; wire delivery remains asynchronous. No 300-room capacity or reconnection target has been qualified. Production placement, scaling, observability and paid hosting await the Phase 6 proposal.
 

@@ -4,6 +4,7 @@ import vinext from 'vinext';
 import { defineConfig } from 'vite';
 import hostingConfig from './.openai/hosting.json';
 import { TUNING } from './tuning';
+import { PRIVATE_FILE_GLOBS } from './server/private-paths';
 
 const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
   '00000000-0000-4000-8000-000000000000';
@@ -51,6 +52,7 @@ export default defineConfig(async () => {
       host: TUNING.server.host,
       port: TUNING.server.webPort,
       strictPort: true,
+      fs: { strict: true, deny: PRIVATE_FILE_GLOBS },
       hmr: { path: '/__vite_hmr' },
       ...(isCodexSeatbeltSandbox ? { watch: { useFsEvents: false, usePolling: true } } : {}),
     },

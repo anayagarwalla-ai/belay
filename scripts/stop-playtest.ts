@@ -1,7 +1,9 @@
-import { readFile } from 'node:fs/promises';
-import { execFileSync } from 'node:child_process';
-const { pid } = JSON.parse(await readFile('work/playtest-session.json', 'utf8')) as { pid: number };
-const command = execFileSync('ps', ['-p', String(pid), '-o', 'command='], { encoding: 'utf8' });
-if (!command.includes('scripts/playtest.ts')) throw new Error('PID is not the BELAY playtest process; refusing to signal it.');
-process.kill(pid, 'SIGTERM');
-console.log('Teardown requested for the BELAY remote session.');
+import { failureMessage, isMain, projectRoot, stopSession } from './operations';
+
+if (isMain(import.meta.url)) {
+  try {
+    const result = await stopSession(projectRoot, 'playtest');
+    console.log(result.stale ? 'Removed stale remote-session metadata and invitations. No process was signaled; no teardown verdict was invented. Run preflight to check the protected port.'
+      : result.stopped ? 'Remote session teardown confirmed. See work/last-playtest-teardown.json.' : 'No remote session is recorded in this checkout.');
+  } catch (error) { console.error(failureMessage(error)); process.exitCode = 1; }
+}

@@ -1,4 +1,6 @@
-# Phase 0/1 verification — Gate 1 pending
+# Phase 0/1 initial verification — historical baseline
+
+This is the initial evidence recorded at GitHub commit `d194cb6`. The later [hardening report](phase1-hardening.md) supersedes its code/test counts; generated bot/network/stress files now describe the corrected implementation. Gate 1's stop was subsequently bypassed by user instruction, without a human playtest result. Phase 2 is authorized in `PLAN.md`.
 
 Measured on this Apple M4 development machine, 2026-09-07. No human tuning sessions have been evaluated. This is an invitation-only prototype, not production qualification.
 

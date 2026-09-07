@@ -2,15 +2,15 @@
 
 1000 deterministic 20-second two-bot flat trajectories. Not glacier runs and not a production room load test.
 
-Generated: 2026-09-07T21:12:14.787Z. CPU: Apple M4.
+Generated: 2026-09-07T22:13:08.267Z. CPU: Apple M4.
 
 | Family | Trajectories | Median distance per climber (m) | p95 maximum segment violation (m) | Worst span violation (m) | Median taut transitions |
 |---|---:|---:|---:|---:|---:|
-| balanced | 334 | 32.93 | 0.0160 | 0.0000 | 5 |
-| short | 333 | 32.41 | 0.0147 | 0.0000 | 5 |
-| loose | 333 | 33.47 | 0.0191 | 0.0000 | 4 |
+| balanced | 334 | 32.86 | 0.0100 | 0.0000 | 5 |
+| short | 333 | 32.42 | 0.0100 | 0.0000 | 5 |
+| loose | 333 | 33.42 | 0.0100 | 0.0000 | 4 |
 
-Isolated simulation tick: p50 0.029 ms; p95 0.035 ms. Excludes network, scheduling and serialization.
+Isolated simulation tick: p50 0.030 ms; p95 0.038 ms. Excludes network, scheduling and serialization.
 
 | Required later metric | Status |
 |---|---|

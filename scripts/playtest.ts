@@ -1,43 +1,121 @@
-import { readFile, writeFile, rm, access } from 'node:fs/promises';
-import { spawn } from 'node:child_process';
+import { rm } from 'node:fs/promises';
+import { join } from 'node:path';
 import { randomBytes } from 'node:crypto';
 import { createGateway } from '../server/gateway';
 import { issueAccess } from '../server/auth';
 import { TUNING } from '../tuning';
+import { LIMITS, OwnedProcess, Session, assertPortsFree, checkHttp, childEnvironment, control, failureMessage,
+  isMain, ownerIsAlive, projectRoot, readSession, waitFor, writePrivate } from './operations';
+import { validateTunnel } from './tunnel-installation';
 
-const local = JSON.parse(await readFile('work/dev-session.json', 'utf8')) as { secret: string };
-process.env.BELAY_SESSION_SECRET = local.secret;
-await access('.tools/cloudflared');
-const invitationKey = randomBytes(TUNING.server.tokenBytes).toString('hex');
-const gateway = createGateway(true, invitationKey);
-await new Promise<void>((resolve, reject) => { gateway.server.once('error', reject); gateway.server.listen(TUNING.server.protectedPort, TUNING.server.host, resolve); });
-const cloudflared = spawn('.tools/cloudflared', ['tunnel', '--config', '/dev/null', '--no-autoupdate', '--url', `http://${TUNING.server.host}:${TUNING.server.protectedPort}`], { stdio: ['ignore', 'pipe', 'pipe'] });
-let stopping = false, published = false;
-const openedAt = new Date().toISOString();
-await writeFile('work/playtest-session.json', JSON.stringify({ pid: process.pid, tunnelPid: cloudflared.pid, openedAt }), { mode: 0o600 });
-async function close(code = 0) {
-  if (stopping) return; stopping = true; clearTimeout(expiry);
-  cloudflared.kill('SIGTERM'); await gateway.close();
-  await rm('work/playtest-links.json', { force: true }); await rm('work/playtest-session.json', { force: true });
-  await writeFile('work/last-playtest-teardown.json', JSON.stringify({ openedAt, closedAt: new Date().toISOString(), invitationKeyDiscarded: true, cost: 0 }));
-  console.log('Remote test closed. Tunnel stopped, gateway closed, invitations invalidated. Cost: $0.');
-  process.exit(code);
+/** Chunk boundaries are arbitrary; keep a bounded tail and require actual connection registration. */
+export class TunnelOutput {
+  private tail: Buffer = Buffer.alloc(0);
+  url?: string;
+  registered = false;
+  add(chunk: Buffer) {
+    this.tail = Buffer.from(Buffer.concat([this.tail, chunk]).subarray(-LIMITS.maximumTunnelLogBytes));
+    const text = this.tail.toString();
+    this.url ??= text.match(/https:\/\/[a-z0-9-]+\.trycloudflare\.com(?=[\s|"/]|$)/)?.[0];
+    this.registered ||= text.includes('Registered tunnel connection') || /"message"\s*:\s*"Registered tunnel connection/.test(text);
+  }
 }
-const expiry = setTimeout(() => void close(), TUNING.server.sessionLifetimeSeconds * 1000);
-process.on('SIGINT', () => void close()); process.on('SIGTERM', () => void close());
-cloudflared.on('error', error => { console.error(error.message); void close(1); });
-cloudflared.on('exit', code => { if (!stopping) void close(code || 1); });
-const output = (chunk: Buffer) => {
-  const text = chunk.toString();
-  const url = text.match(/https:\/\/[a-z0-9-]+\.trycloudflare\.com/)?.[0];
-  if (!url || published) return; published = true;
-  const links = { openedAt, expiresInSeconds: TUNING.server.sessionLifetimeSeconds,
-    operator: `${url}/#${issueAccess('operator', invitationKey)}`,
-    tester: `${url}/#${issueAccess('tester', invitationKey)}` };
-  void writeFile('work/playtest-links.json', JSON.stringify(links, null, 2), { mode: 0o600 }).then(() => {
-    console.log(`Protected remote endpoint: ${url}`);
-    console.log('Private invitations saved in work/playtest-links.json. Share only with your invited partner.');
-    console.log('Ctrl+C or npm run playtest:stop ends the session. It also expires automatically after two hours.');
-  });
+
+type Gateway = ReturnType<typeof createGateway>;
+export type PlaytestOptions = {
+  root?: string; protectedPort?: number; tunnelCommand?: string[]; gatewayFactory?: (key: string) => Gateway;
+  verifyPublic?: (url: string) => Promise<boolean>; startupTimeoutMs?: number; lifetimeMs?: number;
 };
-cloudflared.stderr.on('data', output); cloudflared.stdout.on('data', output);
+export async function runPlaytest(options: PlaytestOptions = {}) {
+  const root = options.root ?? projectRoot;
+  const local = await readSession(root, 'dev');
+  if (!local || !await ownerIsAlive(local) || (await control(local)).state !== 'ready') throw new Error('This checkout has no ready local session. Start npm run dev, wait for “local preview ready”, then run npm run playtest:preflight.');
+  const session = await Session.create(root, 'playtest', { devSessionId: local.id,
+    expiresAt: new Date(Date.now() + (options.lifetimeMs ?? TUNING.server.sessionLifetimeSeconds * 1000)).toISOString() });
+  let gateway: Gateway | undefined, tunnel: OwnedProcess | undefined;
+  let watching: Promise<void> | undefined;
+  const invitationKey = randomBytes(TUNING.server.tokenBytes).toString('hex');
+  const expiry = setTimeout(() => { console.log('Session lifetime reached; closing remote access.'); session.stop(); },
+    Math.max(0, Date.parse(session.record.expiresAt!) - Date.now()));
+  const watch = setInterval(() => {
+    if (watching || session.abort.signal.aborted) return;
+    watching = (async () => {
+      const current = await readSession(root, 'dev');
+      if (current?.id !== local.id || !await ownerIsAlive(local) || (await control(local)).state !== 'ready') {
+        session.fail('The local dev owner stopped or changed; closing remote access.');
+      }
+    })().catch(() => session.fail('Lost the local dev owner; closing remote access.')).finally(() => { watching = undefined; });
+  }, LIMITS.pollMs);
+  try {
+    await rm(join(root, 'work', 'playtest-links.json'), { force: true });
+    const protectedPort = options.protectedPort ?? TUNING.server.protectedPort;
+    await assertPortsFree([protectedPort]);
+    const binary = options.tunnelCommand ? undefined : await validateTunnel(root);
+    session.abort.signal.throwIfAborted();
+    process.env.BELAY_SESSION_SECRET = local.secret;
+    gateway = options.gatewayFactory ? options.gatewayFactory(invitationKey) : createGateway(true, invitationKey);
+    gateway.server.on('error', () => session.fail('Protected gateway could not listen; no invitation was published.'));
+    await new Promise<void>((resolveListen, reject) => {
+      gateway!.server.once('error', reject);
+      gateway!.server.listen(protectedPort, TUNING.server.host, resolveListen);
+    });
+    session.abort.signal.throwIfAborted();
+    const output = new TunnelOutput();
+    tunnel = new OwnedProcess(options.tunnelCommand ?? [binary!, 'tunnel', '--config', '/dev/null', '--no-autoupdate', '--url',
+      `http://${TUNING.server.host}:${protectedPort}`], root, childEnvironment(),
+    () => session.fail('Tunnel process exited. Check connectivity and rerun preflight; no raw tunnel logs or credentials were printed.'), chunk => output.add(chunk));
+    await waitFor(async () => {
+      if (!output.url || !output.registered) return false;
+      if (options.verifyPublic) return options.verifyPublic(output.url);
+      const response = await fetch(`${output.url}/game/belay/config`, { redirect: 'error', signal: AbortSignal.any([session.abort.signal, AbortSignal.timeout(LIMITS.probeTimeoutMs)]) }).catch(() => undefined);
+      const protectedApi = response?.status === 401;
+      await response?.body?.cancel();
+      if (!protectedApi || !await checkHttp(output.url, body => body.includes('Session invitation'), {}, session.abort.signal)) return false;
+      // Prove both upstreams are usable through authenticated local access before publishing links.
+      const base = `http://${TUNING.server.host}:${protectedPort}`;
+      const cookie = `belay_test=${issueAccess('tester', invitationKey)}`;
+      if (!await checkHttp(`${base}/game/belay/config`, body => {
+        try { const config = JSON.parse(body); return Boolean(config.roomId) && config.operator === false; } catch { return false; }
+      }, { cookie }, session.abort.signal)) return false;
+      return checkHttp(base, body => body.includes('Join test rope'), { cookie }, session.abort.signal);
+    }, options.startupTimeoutMs ?? LIMITS.tunnelStartupTimeoutMs, session.abort.signal,
+    'Tunnel startup timed out before registration, access protection and upstream readiness were confirmed. Check internet access and retry; no invitation was published.');
+    session.abort.signal.throwIfAborted();
+    const links = { openedAt: session.record.openedAt, expiresAt: session.record.expiresAt,
+      expiresInSeconds: Math.max(0, Math.floor((Date.parse(session.record.expiresAt!) - Date.now()) / 1000)),
+      operator: `${output.url}/#${issueAccess('operator', invitationKey)}`, tester: `${output.url}/#${issueAccess('tester', invitationKey)}` };
+    await writePrivate(join(root, 'work', 'playtest-links.json'), links);
+    await session.ready();
+    console.log(`Protected remote endpoint ready: ${output.url}`);
+    console.log('Private invitations saved in work/playtest-links.json. Share only the tester link with your invited partner.');
+    console.log(`Expires at ${session.record.expiresAt}. Ctrl+C or npm run playtest:stop confirms teardown.`);
+    await session.done;
+  } catch (error) {
+    if (!session.abort.signal.aborted) session.fail(failureMessage(error));
+  } finally {
+    session.stop(session.code); clearTimeout(expiry); clearInterval(watch);
+    await watching;
+    const cleanup = await Promise.allSettled([
+      rm(join(root, 'work', 'playtest-links.json'), { force: true }), tunnel?.stop(), gateway?.close(),
+    ]);
+    let confirmed = cleanup.every(result => result.status === 'fulfilled');
+    if (!confirmed) session.code = 1;
+    delete process.env.BELAY_SESSION_SECRET;
+    try {
+      await writePrivate(join(root, 'work', 'last-playtest-teardown.json'), {
+        openedAt: session.record.openedAt, closedAt: new Date().toISOString(), invitationKeyDiscarded: true,
+        tunnelStopped: Boolean(tunnel) && cleanup[1].status === 'fulfilled', gatewayClosed: Boolean(gateway) && cleanup[2].status === 'fulfilled',
+        cleanupConfirmed: confirmed, exitCode: session.code, cost: 0,
+      });
+    } catch { confirmed = false; session.code = 1; console.error('Could not save the teardown record; resource cleanup still ran.'); }
+    await session.dispose(confirmed);
+    console.log(confirmed ? 'Remote test closed. Owned tunnel stopped, gateway closed, invitations invalidated. Cost: $0.'
+      : 'Remote cleanup was not fully confirmed. Session metadata was retained for preflight; inspect the teardown record.');
+  }
+  return session.code;
+}
+
+if (isMain(import.meta.url)) {
+  try { process.exitCode = await runPlaytest(); }
+  catch (error) { console.error(failureMessage(error)); process.exitCode = 1; }
+}

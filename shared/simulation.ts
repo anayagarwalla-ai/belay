@@ -42,6 +42,9 @@ export class BelaySimulation {
     this.tape = { version: TUNING.version, seed: this.seed, family: this.family, tickHz: this.tickHz, truncated: false, frames: [] };
     this.world = new RAPIER.World({ x: 0, y: -TUNING.gravity, z: 0 });
     this.world.timestep = 1 / TUNING.physicsHz;
+    // Rapier's default 2 mm predictive contact range misses moderate-speed crossings.
+    // Cover relative travel during a fixed substep without changing shape size or friction.
+    this.world.integrationParameters.normalizedPredictionDistance = TUNING.body.contactPredictionM;
     this.floor = this.world.createCollider(RAPIER.ColliderDesc.cuboid(TUNING.terrain.halfExtent, TUNING.body.height / 2, TUNING.terrain.halfExtent)
       .setTranslation(0, -TUNING.body.height / 2, 0).setFriction(TUNING.body.groundFriction));
     for (let i = 0; i < TUNING.players; i++) {
@@ -107,7 +110,7 @@ export class BelaySimulation {
       this.previous[i] = old;
     }
     const segmentLength = this.length / TUNING.rope.segments;
-    for (let iteration = 0; iteration < TUNING.solverIterations; iteration++) {
+    for (let iteration = 0; iteration < TUNING.maximumSolverIterations; iteration++) {
       for (let k = 0; k < last; k++) {
         const i = iteration % 2 ? last - k - 1 : k;
         this.constrain(i, i + 1, segmentLength);
@@ -120,6 +123,17 @@ export class BelaySimulation {
         this.constrain(i, last, (last - i) * segmentLength);
       }
       for (let i = 1; i < last; i++) this.points[i].y = Math.max(TUNING.rope.floorHeight, this.points[i].y);
+      // Keep the usual eight passes when they converge. A hard iteration ceiling bounds
+      // pathological work, while residual-driven passes fix the demonstrated circling stretch.
+      if (iteration + 1 >= TUNING.solverIterations) {
+        let converged = true;
+        for (let i = 0; i < last; i++) {
+          if (distance(this.points[i], this.points[i + 1]) > segmentLength + TUNING.rope.solverToleranceM) {
+            converged = false; break;
+          }
+        }
+        if (converged) break;
+      }
     }
     let force = 0;
     for (let i = 0; i < this.bodies.length; i++) {

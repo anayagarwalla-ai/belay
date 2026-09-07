@@ -1,18 +1,18 @@
 # BELAY playtests
 
-**Gate 1: WAITING FOR USER VERDICT. Human sessions evaluated: 0/6.**
+**Gate 1: implementation stop bypassed by user instruction on 2026-09-07. Human sessions evaluated: 0/6; human feel remains unmeasured.**
 
-Phases 0 and 1 are the only implemented gameplay scope. Automated evidence in `reports/` cannot establish whether dragging a partner is funny. Phase 2 must not begin without the user's explicit pass.
+Phase 2 is now authorized by that instruction. Automated evidence in `reports/` cannot establish whether dragging a partner is funny. The human protocol below remains available; no answers are inferred from the authorization to continue.
 
 ## Prepare a real two-person session
 
-1. Run `npm install` then `npm run dev`. Open <http://127.0.0.1:8787> on the host. This grants operator controls locally.
+1. Run `npm ci` then `npm run dev`. Wait for **BELAY local preview ready**, then open <http://127.0.0.1:8787> on the host. This grants operator controls locally. See [operations](docs/playtest-operations.md) for setup failures and stale sessions.
 2. Once per checkout, run `npm run setup:tunnel` to install the checksum-verified official cloudflared binary locally. No account/card.
-3. For a session, run `npm run playtest:open` in a second terminal. Copy the **tester** invitation from `work/playtest-links.json` to the invited partner yourself. The operator invitation is only for the host if testing the same remote path. Keep this ignored file private. The link expires after two hours or earlier teardown. Do not post it publicly.
+3. Run `npm run playtest:preflight`; resolve any blocked prerequisites. For the appointed session, run `npm run playtest:open` in a second terminal and wait for **Protected remote endpoint ready**. Copy the **tester** invitation from `work/playtest-links.json` to the invited partner yourself. The operator invitation is only for the host if testing the same remote path. Keep this ignored file private. Use its recorded expiry (at most two hours, or earlier teardown). Do not post it publicly.
 4. The partner uses a desktop browser and joins the rope. Use another city/Wi-Fi for a remote verdict; log any hotspot trial. A second local browser or the bot is useful for setup but is not that remote evidence.
 5. Both players click Join test rope. WASD/arrows move relative to the camera; hold Space to brace. Click the canvas after using developer tools. Keyboard blur/tab hiding releases movement.
 6. Load a family in Operator test controls. Loading resets the flat world and accepted-input tape, preserving the connection. Default authority is 30 Hz. Leave devtools closed during free play. Take ten minutes to tug, drag, circle and then try moving together quickly.
-7. Before resetting the scene, use **Save session measurements** on the operator and save `window.BELAY.counters()` from the partner. Record the answers below, actual RTT and its variability. Downloaded report includes parameters, server timing, current physical state and the active added-delay profile. Save the tape separately if diagnosing a moment. Tape recording preserves the first 20 minutes after reset, then reports `truncated: true`; reset between sessions.
+7. Before resetting the scene, both players use **Save session measurements**. The operator report includes server timing; the tester can save their client evidence, including after a dropped connection. Record the answers below, actual RTT and its variability. Reports freeze their starting scene/session and flag any change during collection; do not combine changed scenes into one measurement. Save the tape separately if diagnosing a moment. Tape recording preserves the first 20 minutes after reset, then reports `truncated: true`; reset between sessions.
 8. At the end run `npm run playtest:stop` (or Ctrl+C in its terminal). Confirm the teardown message and `work/last-playtest-teardown.json`. The gateway and tunnel close; its invitation signing key is discarded. Stop `npm run dev` with Ctrl+C when done locally.
 
 Do not leave a tunnel running while waiting for a verdict. One temporary session is not a production service. No mic permission, account or name is requested by the prototype.

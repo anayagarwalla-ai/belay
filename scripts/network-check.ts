@@ -64,6 +64,21 @@ try {
   const admitted = await fetch(base + '/game/belay/config', { headers: { cookie, 'x-belay-role': 'operator' } });
   assert.equal(admitted.status, 200); assert.equal((await admitted.json() as { operator: boolean }).operator, false);
   checks.push('Gateway protects HTTP, validates invitations, and strips spoofed privilege headers.');
+  const privatePaths = ['/work/dev-session.json', '/work/dev-session.json?raw', '/w%6frk/dev-session.json',
+    '/w%256frk/dev-session.json', `/@fs${process.cwd()}/work/dev-session.json`, '/.git/config', '/.env',
+    '/__debug', '/__open-in-editor?file=work/dev-session.json', '/__inspect'];
+  for (const path of privatePaths) {
+    const response = await fetch(base + path, { headers: { cookie } });
+    assert.equal(response.status, 403, `Private gateway path was not blocked: ${path}`);
+    assert(!(await response.text()).includes(key), 'Private credential appeared in a response.');
+  }
+  checks.push('Authenticated testers cannot read runtime credentials, Git internals or developer inspector routes, including encoded and /@fs paths.');
+  for (const path of [privatePaths[0], privatePaths[1], privatePaths[2], privatePaths[4]]) {
+    const response = await fetch(`http://${TUNING.server.host}:${TUNING.server.webPort}${path}`);
+    assert([403, 404].includes(response.status), `Frontend private-file backstop failed: ${path}`);
+    assert(!(await response.text()).includes(key), 'Private credential appeared in a frontend response.');
+  }
+  checks.push('Vite itself denies runtime credential files through direct, raw, encoded and /@fs requests.');
   const status = await new Promise<number>((resolve, reject) => {
     const socket = new WebSocket(`ws://${TUNING.server.host}:${port}/game/anything`);
     socket.on('unexpected-response', (_req, res) => { resolve(res.statusCode!); socket.terminate(); });

@@ -2,7 +2,7 @@
  * Changes are recorded by the reports' full configuration and simulation version.
  * Nothing here is a human Gate 1 verdict. */
 export const TUNING = {
-  version: 'phase1-1',
+  version: 'phase1-2',
   phase: 1,
   seed: 1701, // Reproducible default flat test surface; no hazards are generated.
   players: 2, // Gate 1 is exactly two bodies. Later phases must still respect hardCap.
@@ -10,6 +10,7 @@ export const TUNING = {
   tickHz: 30 as 30 | 60, // Six tuning sessions use 30; 60 is the separate contingency.
   physicsHz: 60, // Identical internal steps in both authority-rate profiles.
   solverIterations: 8, // Initial PBD work budget; benchmark before increasing.
+  maximumSolverIterations: 32, // Bounded extra projection only when the base eight leave a segment outside tolerance.
   maximumCatchupTicks: 4, // Bound work after a stall; report discarded wall time explicitly.
   gravity: 9.81,
   body: {
@@ -21,6 +22,7 @@ export const TUNING = {
     braceFriction: 1.6, // Coulomb ground traction on the sole Phase 1 surface.
     braceMassMultiplier: 6, // Effective mass in rope constraints, never an animation flag.
     groundFriction: 0.08, // Low walking-contact friction; brace traction supplies anchoring.
+    contactPredictionM: 0.12, // Covers two climbers closing at 3.1 m/s over 1/60 s (0.103 m); prevents measured 3.25 cm overlaps.
     harnessHeight: 0.42,
     maximumInputAgeMs: 250, // A stalled client must not keep walking indefinitely.
   },
@@ -37,6 +39,7 @@ export const TUNING = {
     initialSpacing: 2.5,
     initialSag: 0.35,
     initialBend: 0.6,
+    solverToleranceM: 0.01, // Refine residuals above 1 cm; the regression ceiling is 2 cm, previously exceeded while circling.
   },
   terrain: {
     halfExtent: 500, // Flat contact patch follows the team, so no edge can end this test.
@@ -73,6 +76,11 @@ export const TUNING = {
     maximumFrameBytes: 4096,
     telemetrySamples: 2048,
     debugTimeoutMs: 5000,
+    joinTimeoutMs: 10000, // A failed join must return control instead of leaving an endless disabled button.
+    maximumPendingDebugCommands: 8, // Bound operator promises/timers during a slow connection.
+    maximumDebugCommandsPerSecond: 12, // Pause/reset/report bursts fit; repeated tape/step requests cannot monopolize a room.
+    maximumSnapshotBufferedBytes: 64 * 1024, // Skip obsolete snapshots for a slow reader instead of accumulating a long playback queue.
+    maximumDebugResponseBytes: 16 * 1024 * 1024, // Fits the bounded 20-minute 60 Hz input tape; never enqueue unbounded diagnostic replies.
     hudUpdateMs: 250, // Readouts need not rerender React at simulation frequency.
     maximumStepTicks: 3600,
     rttBracketsMs: [30, 60, 100, 150, 250],
@@ -101,6 +109,21 @@ export const TUNING = {
     benchmarkRuns: 1000,
     benchmarkSeconds: 20, // Phase 1 diagnostic trajectories, not invented glacier runs.
   },
+  physicsDiagnostics: {
+    scenarioSeconds: 60, // Repeated contacts and tugs, independent of a human feel session.
+    longWalkSeconds: 1200, // Cross the original 500 m floor extent and fill the entire tape budget.
+    crossingRadiansPerSecond: 0.6,
+    circlingRadiansPerSecond: 2,
+    circlingPhaseRadians: 1,
+    circleBracePeriodsTicks: [100, 70], circleBraceTicks: 20,
+    togglePeriodsTicks: [2, 3], // Deliberately switch brace as often as individual authority ticks.
+    randomActionSeconds: 0.1, randomBraceChance: 0.25,
+    maximumBodyOverlapM: 0.005, // 5 mm contact budget; catches centimetre-scale visible interpenetration.
+    maximumFloorErrorM: 0.001, // Rapier's metre-scale contact tolerance, including float32 roundoff.
+    maximumSpanErrorM: 0.01, maximumSegmentErrorM: 0.02, // Preserve the existing rope regression tolerances.
+    maximumSpeedMultiplier: 4, // Explosion guard only; a rope catch may exceed walking speed.
+    minimumWalkSpeedFraction: 0.8, // Broad correctness guard for long travel, not a feel target.
+  },
   clip: {
     seconds: 15, width: 1280, height: 720, fps: 24,
     videoBitsPerSecond: 800000, audioBitsPerSecond: 48000,
@@ -120,6 +143,16 @@ export const TUNING = {
     freePlayMinutes: 10,
   },
   tools: {
+    operations: {
+      startupTimeoutMs: 120000, // Allow the first frontend compile, but never announce an unready session.
+      tunnelStartupTimeoutMs: 90000, // A missing tunnel registration must fail closed, not hang indefinitely.
+      probeTimeoutMs: 3000, pollMs: 250, // Bound local readiness requests and keep shutdown responsive.
+      shutdownGraceMs: 3000, // Give owned children time to exit, then kill their isolated process group.
+      stopTimeoutMs: 15000, // Includes child shutdown and gateway/socket cleanup before reporting success.
+      downloadTimeoutMs: 120000, // A stalled installer must leave the previous binary intact.
+      maximumTunnelLogBytes: 16384, // Bound private diagnostic parsing; raw tunnel output is never printed.
+      maximumDownloadBytes: 64 * 1024 * 1024, // Bound official archive downloads in memory.
+    },
     cloudflaredVersion: '2026.8.3', // Pinned official release; no account or card required for Quick Tunnels.
     cloudflaredSha256: {
       arm64: '40c9144d86df8937c5b43293a1f7d2d2107029aa74725023dd46b1b27154352f',

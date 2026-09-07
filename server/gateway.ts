@@ -3,6 +3,7 @@ import type { Duplex } from 'node:stream';
 import { TUNING } from '../tuning';
 import { secret, verifyAccess } from './auth';
 import { DelayedStream, parseNetworkProfile, type NetworkProfile } from './impairment';
+import { isPrivateDevRequest } from './private-paths';
 
 const loginPage = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>BELAY — invited test</title>
 <style>body{font:16px monospace;max-width:36rem;margin:12vh auto;padding:24px;background:#ddd;color:#222}input,button{font:inherit;padding:12px;margin:8px 0;width:100%;box-sizing:border-box}p{line-height:1.6}</style>
@@ -57,6 +58,7 @@ export function createGateway(protectedMode = false, invitationKey = secret()) {
       else res.writeHead(401).end('A session invitation is required.');
       return;
     }
+    if (isPrivateDevRequest(req.url ?? '/')) { res.writeHead(403).end('Private development files are unavailable.'); return; }
     if (req.url === '/test-network') {
       res.setHeader('Content-Type', 'application/json');
       if (req.method === 'GET') { res.end(JSON.stringify({ ...profile, kind: 'Added ordered-stream delay; not total RTT or packet loss.' })); return; }
@@ -82,6 +84,7 @@ export function createGateway(protectedMode = false, invitationKey = secret()) {
   server.on('upgrade', (req, socket, head) => {
     const identity = access(req);
     if (!identity) { socket.end('HTTP/1.1 401 Unauthorized\r\nConnection: close\r\nContent-Length: 0\r\n\r\n'); return; }
+    if (isPrivateDevRequest(req.url ?? '/')) { socket.end('HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 0\r\n\r\n'); return; }
     connections.add(socket); socket.on('close', () => connections.delete(socket)); socket.on('error', () => socket.destroy());
     const destination = target(req.url);
     const upstream = http.request({ hostname: TUNING.server.host, ...destination,

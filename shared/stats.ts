@@ -2,6 +2,7 @@ import { TUNING } from '../tuning';
 export class Samples {
   private values: number[] = [];
   private cursor = 0;
+  clear() { this.values = []; this.cursor = 0; }
   add(value: number) {
     if (!Number.isFinite(value)) return;
     if (this.values.length < TUNING.network.telemetrySamples) this.values.push(value);

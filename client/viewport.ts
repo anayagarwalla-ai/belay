@@ -52,7 +52,7 @@ export function createViewport(host: HTMLElement, connection: BelayConnection) {
     const dt = Math.min((now - previousAt) / 1000, TUNING.network.maximumPredictionMs / 1000); previousAt = now;
     const snapshot = connection.latest;
     let renderState: Snapshot | undefined;
-    if (snapshot) {
+    if (snapshot && connection.history.length) {
       const samples = connection.history, at = now - TUNING.network.interpolationMs;
       let a = samples[0], b = samples.at(-1)!;
       for (let i = 1; i < samples.length; i++) if (samples[i].at >= at) { a = samples[i - 1]; b = samples[i]; break; }
@@ -110,6 +110,13 @@ export function createViewport(host: HTMLElement, connection: BelayConnection) {
         segment.scale.y = direction.length(); segment.quaternion.setFromUnitVectors(up, direction.normalize());
       });
       ropeMaterial.color.setScalar(0.3 - renderState.rope.tension * 0.25);
+    } else {
+      predicted = undefined; predictedVelocity = undefined; predictedTick = -1; predictedEpoch = -1;
+      correction.set(0, 0, 0); ropeSegments.forEach(segment => { segment.visible = false; });
+      boxes.forEach((box, i) => {
+        box.position.set((i - 0.5) * TUNING.rope.initialSpacing, TUNING.body.height / 2, 0);
+        box.scale.y = 1; labels[i].textContent = String(i + 1);
+      });
     }
     centroid.set(0, 0, 0); boxes.forEach(b => centroid.add(b.position)); centroid.divideScalar(boxes.length);
     target.copy(centroid);

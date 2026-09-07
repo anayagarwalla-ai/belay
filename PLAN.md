@@ -1,6 +1,6 @@
 # BELAY — approved implementation contract
 
-Current authorization: implement Phases 0 and 1, then STOP for the user's Gate 1 verdict. No human gate is passed. This file records the approved scope and subsequent corrections; it does not authorize further phases.
+Current authorization (2026-09-07): the user instructed us to continue as if Gate 1 is good and proceed, while managing parallel project tasks. **Gate 1's implementation stop is bypassed by the user's instruction; human sessions remain 0/6 and fun/remote-feel evidence is unmeasured.** Phase 2 implementation is now authorized. The other phase checks, cost controls and two open items remain unchanged; this is not a fabricated playtest pass. The original Gate 1 stop below is superseded by this instruction; its human protocol remains available.
 
 ## Outcome and core
 

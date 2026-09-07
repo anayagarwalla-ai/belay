@@ -1,4 +1,4 @@
-import { Room, type Client } from '@colyseus/core';
+import { Room, ClientState, type Client } from '@colyseus/core';
 import { performance } from 'node:perf_hooks';
 import { TUNING, isFamily } from '../tuning';
 import { REST, parseInput, type Move, type SceneOptions, type DebugCommand } from '../shared/protocol';
@@ -7,10 +7,11 @@ import { Samples } from '../shared/stats';
 import { verifyAccess, type Access } from './auth';
 
 type Seat = { id: number; input: Move; seq: number; receivedAt: number; operator: boolean; bot: boolean;
-  windowStarted: number; messages: number };
+  windowStarted: number; messages: number; debugWindowStarted: number; debugCommands: number };
 
 export class BelayRoom extends Room {
   maxClients = TUNING.players;
+  maxMessagesPerSecond = TUNING.network.maximumMessagesPerSecond; // Includes ping, identify, and debug messages as well as movement.
   autoDispose = false;
   private sim!: BelaySimulation;
   private seats = new Map<string, Seat>();
@@ -24,6 +25,8 @@ export class BelayRoom extends Room {
   private snapshotBytes = 0;
   private rejectedInputs = 0;
   private droppedWallMs = 0;
+  private skippedSnapshots = 0;
+  private rejectedDebugCommands = 0;
 
   async onCreate(options: SceneOptions & { token?: string; persistent?: boolean } = {}) {
     if (verifyAccess(options.token)?.role !== 'operator') throw new Error('Only the test operator can create a room.');
@@ -51,12 +54,13 @@ export class BelayRoom extends Room {
     const id = this.sim.bodies.findIndex((_, i) => !used.has(i));
     if (id < 0) throw new Error('This Phase 1 rope already has two players.');
     this.seats.set(client.sessionId, { id, input: { ...REST }, seq: -1, receivedAt: 0,
-      operator: auth.role === 'operator', bot: options.bot === true, windowStarted: performance.now(), messages: 0 });
+      operator: auth.role === 'operator', bot: options.bot === true, windowStarted: performance.now(), messages: 0,
+      debugWindowStarted: performance.now(), debugCommands: 0 });
     client.send('seat', { id, operator: auth.role === 'operator' });
     this.sendSnapshot();
   }
   onLeave(client: Client) { this.seats.delete(client.sessionId); this.sendSnapshot(); }
-  onDispose() { clearTimeout(this.timer); this.sim.dispose(); }
+  onDispose() { clearTimeout(this.timer); this.sim?.dispose(); }
 
   private receiveInput(client: Client, value: unknown) {
     const seat = this.seats.get(client.sessionId);
@@ -108,13 +112,22 @@ export class BelayRoom extends Room {
     return snapshot;
   }
   private sendSnapshot() {
+    if (!this.clients.length) return;
     const snapshot = this.snapshot();
     this.snapshotBytes = Buffer.byteLength(JSON.stringify(snapshot));
-    this.broadcast('snapshot', snapshot);
+    for (const client of this.clients) {
+      // A joining client receives its first snapshot on the next tick after its handshake.
+      // Colyseus otherwise enqueues every snapshot while it waits for that acknowledgement.
+      if (client.state !== ClientState.JOINED) continue;
+      const socket = client.ref as typeof client.ref & { bufferedAmount?: number };
+      if ((socket.bufferedAmount ?? 0) > TUNING.network.maximumSnapshotBufferedBytes) { this.skippedSnapshots++; continue; }
+      client.send('snapshot', snapshot);
+    }
   }
   private report() {
     return { physics: this.sim.counters, tickExecutionMs: this.tickTimes.summary(), schedulingLatenessMs: this.scheduling.summary(),
       schedulingPlusExecutionMs: this.combined.summary(), rejectedInputs: this.rejectedInputs, droppedWallMs: this.droppedWallMs,
+      skippedSnapshots: this.skippedSnapshots, rejectedDebugCommands: this.rejectedDebugCommands, state: this.snapshot(),
       snapshotBytes: this.snapshotBytes, ropePointCount: this.sim.points.length,
       tapeFrames: this.sim.tape.frames.length, tapeTruncated: this.sim.tape.truncated, processMemory: process.memoryUsage(),
       memoryAttribution: 'Process RSS/heap includes all rooms and shared runtime; not per-room memory.',
@@ -131,8 +144,17 @@ export class BelayRoom extends Room {
   private debug(client: Client, request: DebugCommand) {
     if (!request || typeof request.requestId !== 'string' || request.requestId.length > TUNING.network.maximumFrameBytes) return;
     const seat = this.seats.get(client.sessionId);
+    const socket = client.ref as typeof client.ref & { bufferedAmount?: number };
+    if ((socket.bufferedAmount ?? 0) > TUNING.network.maximumSnapshotBufferedBytes) {
+      this.rejectedDebugCommands++; client.leave(1008, 'Diagnostic connection is not reading its replies.'); return;
+    }
     try {
       if (!seat?.operator) throw new Error('Test controls are restricted to the local operator.');
+      const now = performance.now();
+      if (now - seat.debugWindowStarted >= 1000) { seat.debugWindowStarted = now; seat.debugCommands = 0; }
+      if (++seat.debugCommands > TUNING.network.maximumDebugCommandsPerSecond) {
+        this.rejectedDebugCommands++; throw new Error('Too many test commands; wait a second before retrying.');
+      }
       let result: unknown;
       if (request.command === 'counters') result = this.report();
       else if (request.command === 'tape') result = this.sim.tape;
@@ -142,7 +164,10 @@ export class BelayRoom extends Room {
         if (!this.paused) throw new Error('Pause the room before stepping.');
         const count = request.value as number;
         if (!Number.isSafeInteger(count) || count < 1 || count > TUNING.network.maximumStepTicks) throw new Error('Invalid tick count.');
-        for (let i = 0; i < count; i++) this.sim.step(this.currentInputs(), true);
+        // One requested batch has one sampled input frame. Wall-clock expiry inside this
+        // synchronous loop would make the resulting tape depend on machine speed.
+        const inputs = this.currentInputs();
+        for (let i = 0; i < count; i++) this.sim.step(inputs, true);
         result = this.snapshot();
       } else if (request.command === 'setSeed' || request.command === 'loadScene') {
         const options = request.command === 'setSeed' ? { seed: request.value as number }
@@ -150,11 +175,15 @@ export class BelayRoom extends Room {
         if (!options || typeof options !== 'object' || Object.keys(options).some(k => !['seed', 'family', 'tickHz'].includes(k))) throw new Error('Only the flat Phase 1 scene can be loaded.');
         const next = new BelaySimulation(this.validateScene({ seed: this.sim.seed, family: this.sim.family, tickHz: this.sim.tickHz, ...options }));
         this.sim.dispose(); this.sim = next; this.epoch++;
+        this.tickTimes.clear(); this.scheduling.clear(); this.combined.clear();
+        this.rejectedInputs = 0; this.droppedWallMs = 0; this.skippedSnapshots = 0; this.rejectedDebugCommands = 0;
         for (const current of this.seats.values()) { current.input = { ...REST }; current.receivedAt = 0; }
         this.nextTick = performance.now() + 1000 / this.sim.tickHz;
         result = this.snapshot();
       } else throw new Error('Unknown debug command.');
-      client.send('debugResult', { requestId: request.requestId, result }); this.sendSnapshot();
+      const reply = { requestId: request.requestId, result };
+      if (Buffer.byteLength(JSON.stringify(reply)) > TUNING.network.maximumDebugResponseBytes) throw new Error('Diagnostic response is too large; reset and capture a shorter scene.');
+      client.send('debugResult', reply); this.sendSnapshot();
     } catch (error) {
       client.send('debugResult', { requestId: request.requestId, error: error instanceof Error ? error.message : 'Debug command failed.' });
     }

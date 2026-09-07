@@ -1,0 +1,2050 @@
+{
+  "generatedAt": "2026-09-07T21:45:57.277Z",
+  "status": "FAIL",
+  "failureCount": 15,
+  "command": "npx tsx scripts/physics-stress.ts --baseline",
+  "scope": "Phase 1, two locked grey-box Rapier bodies and a PBD rope. Every internal substep inspected, including via an equivalence-asserted 60 Hz held-input replay for 30 Hz scenarios. Exact replay is same-runtime only.",
+  "humanGate": "NOT EVALUATED",
+  "glacierMetrics": "N/A",
+  "rescueMetrics": "N/A",
+  "production300RoomQualification": "NOT TESTED",
+  "machine": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "node": "v26.5.0",
+    "cpu": "Apple M4"
+  },
+  "wallSeconds": 21.87760325,
+  "tuning": {
+    "version": "phase1-1",
+    "phase": 1,
+    "seed": 1701,
+    "players": 2,
+    "hardCap": 6,
+    "tickHz": 30,
+    "physicsHz": 60,
+    "solverIterations": 8,
+    "maximumCatchupTicks": 4,
+    "gravity": 9.81,
+    "body": {
+      "mass": 80,
+      "width": 0.55,
+      "height": 0.9,
+      "depth": 0.55,
+      "walkSpeed": 3.1,
+      "acceleration": 10,
+      "coastDeceleration": 1.4,
+      "braceFriction": 1.6,
+      "braceMassMultiplier": 6,
+      "groundFriction": 0.08,
+      "harnessHeight": 0.42,
+      "maximumInputAgeMs": 250
+    },
+    "rope": {
+      "length": 3.6,
+      "segments": 12,
+      "particleMass": 0.2,
+      "drag": 2.5,
+      "floorHeight": 0.04,
+      "radius": 0.035,
+      "tensionReferenceN": 700,
+      "tensionSmoothingSeconds": 0.1,
+      "tautFraction": 0.97,
+      "initialSpacing": 2.5,
+      "initialSag": 0.35,
+      "initialBend": 0.6
+    },
+    "terrain": {
+      "halfExtent": 500,
+      "gridUnit": 1,
+      "landmarkCount": 24,
+      "landmarkRange": 36,
+      "markSize": 0.18
+    },
+    "camera": {
+      "localWeight": 0.35,
+      "elevationDegrees": 55,
+      "azimuthDegrees": 45,
+      "baseVerticalSpan": 11,
+      "maximumVerticalSpan": 24,
+      "margin": 4,
+      "smoothingSeconds": 0.22,
+      "distance": 60,
+      "maximumPixelRatio": 2,
+      "edgeInsetPx": 36,
+      "labelOffsetPx": 26,
+      "braceVisualHeight": 0.58
+    },
+    "network": {
+      "inputHz": 60,
+      "interpolationMs": 70,
+      "snapshotHistory": 32,
+      "reconciliationSeconds": 0.07,
+      "hardCorrectionDistance": 1.5,
+      "maximumPredictionMs": 100,
+      "pingIntervalMs": 500,
+      "staleSnapshotMs": 1000,
+      "probeTimeoutMs": 2000,
+      "maximumMessagesPerSecond": 120,
+      "maximumFrameBytes": 4096,
+      "telemetrySamples": 2048,
+      "debugTimeoutMs": 5000,
+      "hudUpdateMs": 250,
+      "maximumStepTicks": 3600,
+      "rttBracketsMs": [
+        30,
+        60,
+        100,
+        150,
+        250
+      ],
+      "emulatedJitterMs": 10,
+      "maximumAddedRttMs": 500,
+      "maximumJitterMs": 50,
+      "maximumDelayedBytes": 1048576,
+      "maximumTapeSeconds": 1200
+    },
+    "server": {
+      "host": "127.0.0.1",
+      "port": 2567,
+      "webPort": 5173,
+      "gatewayPort": 8787,
+      "protectedPort": 8788,
+      "sessionLifetimeSeconds": 7200,
+      "tokenBytes": 32,
+      "maximumAuthBodyBytes": 1024,
+      "authAttemptsPerMinute": 15,
+      "roomIdleMinutes": 30,
+      "httpTimeoutMs": 15000
+    },
+    "bot": {
+      "actionSeconds": 1.2,
+      "braceChance": 0.22,
+      "idleChance": 0.12,
+      "benchmarkRuns": 1000,
+      "benchmarkSeconds": 20
+    },
+    "physicsDiagnostics": {
+      "scenarioSeconds": 60,
+      "longWalkSeconds": 1200,
+      "crossingRadiansPerSecond": 0.6,
+      "circlingRadiansPerSecond": 2,
+      "circlingPhaseRadians": 1,
+      "circleBracePeriodsTicks": [
+        100,
+        70
+      ],
+      "circleBraceTicks": 20,
+      "togglePeriodsTicks": [
+        2,
+        3
+      ],
+      "randomActionSeconds": 0.1,
+      "randomBraceChance": 0.25,
+      "maximumBodyOverlapM": 0.005,
+      "maximumFloorErrorM": 0.001,
+      "maximumSpanErrorM": 0.01,
+      "maximumSegmentErrorM": 0.02,
+      "maximumSpeedMultiplier": 4,
+      "minimumWalkSpeedFraction": 0.8
+    },
+    "clip": {
+      "seconds": 15,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "videoBitsPerSecond": 800000,
+      "audioBitsPerSecond": 48000,
+      "maximumBytes": 2097152,
+      "retentionDays": 7,
+      "permanentSlots": 1,
+      "uploadsPerIdentityPerUtcDay": 3,
+      "globalBytes": 268435456,
+      "uploadsEnabled": false
+    },
+    "later": {
+      "idleBotSeconds": 20,
+      "reconnectSeconds": 60,
+      "attachWaitSeconds": 30,
+      "stableTensionFraction": 0.2,
+      "stableSeconds": 0.5,
+      "publicTeamSize": 4,
+      "minimumVoteTeam": 4,
+      "agreeingVotes": 3,
+      "dailyAttempts": 3
+    },
+    "gates": {
+      "tuningSessions": 6,
+      "sessionsPerFamily": 2,
+      "diagnosticSessions": 3,
+      "freePlayMinutes": 10
+    },
+    "tools": {
+      "cloudflaredVersion": "2026.8.3",
+      "cloudflaredSha256": {
+        "arm64": "40c9144d86df8937c5b43293a1f7d2d2107029aa74725023dd46b1b27154352f",
+        "x64": "61e1316266a00fd70ce40da011d612badc805367fb65293dd1925f938f704c99"
+      }
+    }
+  },
+  "familyDefinitions": {
+    "balanced": {
+      "label": "Intermediate / strong brace",
+      "ropeLength": 3.6,
+      "ropeDrag": 2.5,
+      "braceMassMultiplier": 6,
+      "braceFriction": 1.6
+    },
+    "short": {
+      "label": "Short / damped",
+      "ropeLength": 3,
+      "ropeDrag": 5,
+      "braceMassMultiplier": 4,
+      "braceFriction": 1.2
+    },
+    "loose": {
+      "label": "Long / momentum",
+      "ropeLength": 4.5,
+      "ropeDrag": 1.2,
+      "braceMassMultiplier": 4,
+      "braceFriction": 1.2
+    }
+  },
+  "sourceSha256": {
+    "shared/simulation.ts": "7b1af007a9b8489bd36777e54bd88c07378a0a41c06a58ee42366e46091d0c9e",
+    "shared/movement.ts": "de8cfb54596c8741082e3ef40fc2550cfd7494c30761dc8c72889f48227ad45b",
+    "shared/protocol.ts": "5cf7b0f058b0a3c7e12be363811342613a1d3fb7a14c1b6ee5d654618eb57f04",
+    "shared/terrain.ts": "b7af3b5368f5ffb86237708a2533f4d8127fe0c509d76ba8167b5a35fb1a2ce3",
+    "tuning.ts": "eb8a0ad31acc2cdd28047692759b745622283fce1d26efc298881ab70c9fa12e",
+    "package-lock.json": "91d6a3f4a4fc558039673a2414202e77765802b7615117061a261cebd0f68bf3",
+    "scripts/physics-scenarios.ts": "e9f39b2e801f25f3beef178ac566184036383e726f76a73f6c8cbb2eb0051078",
+    "scripts/physics-stress.ts": "c20c3415f9e31fe9a241f3cd6f3c2b32208fe20b1d86738d3ef0f94a14cb5c61"
+  },
+  "metricLimits": {
+    "bodyOverlapM": 0.005,
+    "floorErrorM": 0.001,
+    "spanErrorM": 0.01,
+    "segmentErrorM": 0.02,
+    "chainErrorM": 0.24,
+    "speedMps": 12.4
+  },
+  "fixedStepChecks": [
+    {
+      "family": "balanced",
+      "passed": true,
+      "heldInputsAt30And60Hz": true,
+      "schedulingIndependent": true
+    },
+    {
+      "family": "short",
+      "passed": true,
+      "heldInputsAt30And60Hz": true,
+      "schedulingIndependent": true
+    },
+    {
+      "family": "loose",
+      "passed": true,
+      "heldInputsAt30And60Hz": true,
+      "schedulingIndependent": true
+    }
+  ],
+  "records": [
+    {
+      "family": "balanced",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "crossing",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.01923214197158818,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.011289829555013675,
+        "chainErrorM": 0.07523518215096958,
+        "speedMps": 3.0860989352654067
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.9814122319221497,
+          "y": 0.44999998807907104,
+          "z": -1.5241196155548096
+        },
+        {
+          "x": 0.9752343893051147,
+          "y": 0.44999998807907104,
+          "z": 1.4961419105529785
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.011289829555013675,
+        "maximumSpeedMps": 3.0860989352654067,
+        "maximumJoltMps2": 178.54833219002165,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 58.63333333333129,
+        "distanceTravelledM": [
+          65.34480970931334,
+          65.34515581428339
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 14,
+          "actual": 0.016487526893615767,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "balanced",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "circling",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.007992553710937544,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.015957707408037647,
+        "chainErrorM": 0.08650298409815216,
+        "speedMps": 3.5329264007521513
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -1.3346730470657349,
+          "y": 0.44999998807907104,
+          "z": -2.356480836868286
+        },
+        {
+          "x": -0.7388735413551331,
+          "y": 0.44999998807907104,
+          "z": 1.1921385526657104
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.015957707408037647,
+        "maximumSpeedMps": 3.532912303208433,
+        "maximumJoltMps2": 95.65854891706316,
+        "tautTransitions": 18,
+        "totalTensionSeconds": 19.66666666666683,
+        "distanceTravelledM": [
+          141.6390734733737,
+          110.54161492792905
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 1739,
+          "actual": 0.007992553710937544,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "balanced",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "opposing",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.014628038525736242,
+        "chainErrorM": 0.08145922218063051,
+        "speedMps": 2.781919989209586
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -1.8015505075454712,
+          "y": 0.44999998807907104,
+          "z": -0.0005578440614044666
+        },
+        {
+          "x": 1.7971290349960327,
+          "y": 0.44999998807907104,
+          "z": -0.000557823630515486
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.014628038525736242,
+        "maximumSpeedMps": 2.781919989209586,
+        "maximumJoltMps2": 88.54390930436087,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 59.68333333333123,
+        "distanceTravelledM": [
+          0.5778350586417856,
+          0.5779006601338574
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "balanced",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "brace-switches",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.007894537392389434,
+        "chainErrorM": 0.04443337429027894,
+        "speedMps": 1.2676576227507694
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.8736050724983215,
+          "y": 0.44999998807907104,
+          "z": 0.0007905294187366962
+        },
+        {
+          "x": 2.725172519683838,
+          "y": 0.44999998807907104,
+          "z": 0.0007961620576679707
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.007894537392389434,
+        "maximumSpeedMps": 1.2676576227507694,
+        "maximumJoltMps2": 17.73190858344307,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 58.73333333333128,
+        "distanceTravelledM": [
+          1.2236615187258164,
+          2.0154219914158977
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "balanced",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "random",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.01641182899475102,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.01126523175278421,
+        "chainErrorM": 0.05656558948676649,
+        "speedMps": 2.8133148685868794
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.36921146512031555,
+          "y": 0.44999998807907104,
+          "z": -2.948777675628662
+        },
+        {
+          "x": 1.019945740699768,
+          "y": 0.44999998807907104,
+          "z": -3.7712438106536865
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.01126523175278421,
+        "maximumSpeedMps": 2.8133148685868794,
+        "maximumJoltMps2": 69.75094216105778,
+        "tautTransitions": 9,
+        "totalTensionSeconds": 6.06666666666665,
+        "distanceTravelledM": [
+          39.109177475921015,
+          41.20964884843065
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 998,
+          "actual": 0.014070618152618453,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "balanced",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "long-walk",
+      "seconds": 1200,
+      "inspectedTicks": 36000,
+      "inspectedSubsteps": 72000,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.0028019917405592287,
+        "chainErrorM": 0.012272581063866639,
+        "speedMps": 3.0864334723036677
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": 2621.47998046875,
+          "y": 0.44999998807907104,
+          "z": 2622.419921875
+        },
+        {
+          "x": 2623.15966796875,
+          "y": 0.44999998807907104,
+          "z": 2622.334716796875
+        }
+      ],
+      "counters": {
+        "ticks": 36002,
+        "elapsedSeconds": 1200.0666666666666,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.0028019917405592287,
+        "maximumSpeedMps": 3.0864334723036677,
+        "maximumJoltMps2": 9.238914634142708,
+        "tautTransitions": 0,
+        "totalTensionSeconds": 0,
+        "distanceTravelledM": [
+          3708.881139506119,
+          3708.2409146248046
+        ]
+      },
+      "tapeFrames": 36000,
+      "tapeTruncated": true,
+      "failures": []
+    },
+    {
+      "family": "balanced",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "crossing",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.01769177913665776,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.01080600645000701,
+        "chainErrorM": 0.06954289485236487,
+        "speedMps": 3.0860959537020265
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.9716632962226868,
+          "y": 0.44999998807907104,
+          "z": -1.522955298423767
+        },
+        {
+          "x": 0.9698629975318909,
+          "y": 0.44999998807907104,
+          "z": 1.50704824924469
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.01080600645000701,
+        "maximumSpeedMps": 3.0860959537020265,
+        "maximumJoltMps2": 178.40772775060555,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 58.63333333333129,
+        "distanceTravelledM": [
+          65.33596516918526,
+          65.33373122067647
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 28,
+          "actual": 0.01769177913665776,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "balanced",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "circling",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.024609613418579146,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.011394733600877005,
+        "chainErrorM": 0.06387490603387169,
+        "speedMps": 3.478547167817557
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": 0.6213133335113525,
+          "y": 0.44999998807907104,
+          "z": 0.14830009639263153
+        },
+        {
+          "x": -1.1512960195541382,
+          "y": 0.44999998807907104,
+          "z": 1.3512777090072632
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.011394733600877005,
+        "maximumSpeedMps": 3.478547167817557,
+        "maximumJoltMps2": 96.93878874188226,
+        "tautTransitions": 5,
+        "totalTensionSeconds": 1.1666666666666674,
+        "distanceTravelledM": [
+          138.83062912875718,
+          115.52883616583098
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 3140,
+          "actual": 0.024609613418579146,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "balanced",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "opposing",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.014628038525736242,
+        "chainErrorM": 0.08145922218063051,
+        "speedMps": 2.781919989209586
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -1.8015505075454712,
+          "y": 0.44999998807907104,
+          "z": -0.0005578440614044666
+        },
+        {
+          "x": 1.7971290349960327,
+          "y": 0.44999998807907104,
+          "z": -0.000557823630515486
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.014628038525736242,
+        "maximumSpeedMps": 2.781919989209586,
+        "maximumJoltMps2": 88.54390930436087,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 59.68333333333123,
+        "distanceTravelledM": [
+          0.5778350586417856,
+          0.5779006601338574
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "balanced",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "brace-switches",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.00806629076367893,
+        "chainErrorM": 0.04346127584464066,
+        "speedMps": 1.1429451456962274
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.863086998462677,
+          "y": 0.44999998807907104,
+          "z": 0.0008166406769305468
+        },
+        {
+          "x": 2.7356131076812744,
+          "y": 0.44999998807907104,
+          "z": 0.0008583170128986239
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.00806629076367893,
+        "maximumSpeedMps": 1.1429451456962274,
+        "maximumJoltMps2": 17.335570722044316,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 58.53333333333129,
+        "distanceTravelledM": [
+          1.1210487000936182,
+          2.0032798695342224
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "balanced",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "random",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.01641182899475102,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.01126523175278421,
+        "chainErrorM": 0.05656558948676649,
+        "speedMps": 2.8133148685868794
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.36921146512031555,
+          "y": 0.44999998807907104,
+          "z": -2.948777675628662
+        },
+        {
+          "x": 1.019945740699768,
+          "y": 0.44999998807907104,
+          "z": -3.7712438106536865
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.01126523175278421,
+        "maximumSpeedMps": 2.8133148685868794,
+        "maximumJoltMps2": 69.75094216105778,
+        "tautTransitions": 9,
+        "totalTensionSeconds": 6.06666666666665,
+        "distanceTravelledM": [
+          39.109177475921015,
+          41.20964884843065
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 1996,
+          "actual": 0.01641182899475102,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "balanced",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "long-walk",
+      "seconds": 1200,
+      "inspectedTicks": 72000,
+      "inspectedSubsteps": 72000,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.0028019917405592287,
+        "chainErrorM": 0.012272581063866639,
+        "speedMps": 3.0864334723036677
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": 2621.40771484375,
+          "y": 0.44999998807907104,
+          "z": 2622.34765625
+        },
+        {
+          "x": 2623.08740234375,
+          "y": 0.44999998807907104,
+          "z": 2622.262451171875
+        }
+      ],
+      "counters": {
+        "ticks": 72002,
+        "elapsedSeconds": 1200.0333333333333,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.0028019917405592287,
+        "maximumSpeedMps": 3.0864334723036677,
+        "maximumJoltMps2": 9.238914634142708,
+        "tautTransitions": 0,
+        "totalTensionSeconds": 0,
+        "distanceTravelledM": [
+          3708.7789404791506,
+          3708.1387155978364
+        ]
+      },
+      "tapeFrames": 72000,
+      "tapeTruncated": true,
+      "failures": []
+    },
+    {
+      "family": "short",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "crossing",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.034079271554946944,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.01350692532632669,
+        "chainErrorM": 0.05826229654268955,
+        "speedMps": 3.085708282510751
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.7373784184455872,
+          "y": 0.44999998807907104,
+          "z": -1.3056458234786987
+        },
+        {
+          "x": 0.7371118068695068,
+          "y": 0.44999998807907104,
+          "z": 1.305548071861267
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.01350692532632669,
+        "maximumSpeedMps": 3.085708282510751,
+        "maximumJoltMps2": 178.5492615206446,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 58.716666666664615,
+        "distanceTravelledM": [
+          54.8204175997412,
+          54.8176777047082
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 14,
+          "actual": 0.029214817285537764,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "short",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "circling",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.006031799316406294,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.015112499129192603,
+        "chainErrorM": 0.07502455902725558,
+        "speedMps": 3.472956348742565
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -1.7151800394058228,
+          "y": 0.44999998807907104,
+          "z": -2.524489641189575
+        },
+        {
+          "x": -1.721287727355957,
+          "y": 0.44999998807907104,
+          "z": 0.4740567207336426
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.015112499129192603,
+        "maximumSpeedMps": 3.4729458777902855,
+        "maximumJoltMps2": 96.94370096884577,
+        "tautTransitions": 18,
+        "totalTensionSeconds": 20.88333333333343,
+        "distanceTravelledM": [
+          143.471105897827,
+          107.3088827811799
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 146,
+          "actual": 0.006031799316406294,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "short",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "opposing",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.01173019835574457,
+        "chainErrorM": 0.06009947967795304,
+        "speedMps": 1.75945224837345
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -1.5000065565109253,
+          "y": 0.44999998807907104,
+          "z": 0.004440344404429197
+        },
+        {
+          "x": 1.4987521171569824,
+          "y": 0.44999998807907104,
+          "z": 0.004440476652234793
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.01173019835574457,
+        "maximumSpeedMps": 1.75945224837345,
+        "maximumJoltMps2": 74.45876836553474,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 59.79999999999789,
+        "distanceTravelledM": [
+          0.264426014373313,
+          0.26453100416368547
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "short",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "brace-switches",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.008928872640563523,
+        "chainErrorM": 0.041968459292094806,
+        "speedMps": 1.3213746427336455
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.5692546963691711,
+          "y": 0.44999998807907104,
+          "z": 0.0007356625283136964
+        },
+        {
+          "x": 2.429591178894043,
+          "y": 0.44999998807907104,
+          "z": 0.0007369222585111856
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.008928872640563523,
+        "maximumSpeedMps": 1.3213746427336455,
+        "maximumJoltMps2": 23.51491750738225,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 59.499999999997904,
+        "distanceTravelledM": [
+          1.5392884191141547,
+          1.911736546581038
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "short",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "random",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.012951302528381392,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.01128661580736362,
+        "chainErrorM": 0.05180012411195056,
+        "speedMps": 2.868927331378987
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.9255959391593933,
+          "y": 0.44999998807907104,
+          "z": -3.9409291744232178
+        },
+        {
+          "x": 1.1070789098739624,
+          "y": 0.44999998807907104,
+          "z": -4.154594421386719
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.01128661580736362,
+        "maximumSpeedMps": 2.868927331378987,
+        "maximumJoltMps2": 53.69294552811111,
+        "tautTransitions": 15,
+        "totalTensionSeconds": 9.1166666666667,
+        "distanceTravelledM": [
+          40.216506328392555,
+          42.05520982492541
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 992,
+          "actual": 0.012951302528381392,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "short",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "long-walk",
+      "seconds": 1200,
+      "inspectedTicks": 36000,
+      "inspectedSubsteps": 72000,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.005835314147356885,
+        "chainErrorM": 0.026882954031913986,
+        "speedMps": 3.086260933049917
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": 2621.303466796875,
+          "y": 0.44999998807907104,
+          "z": 2621.465087890625
+        },
+        {
+          "x": 2622.137451171875,
+          "y": 0.44999998807907104,
+          "z": 2621.22802734375
+        }
+      ],
+      "counters": {
+        "ticks": 36002,
+        "elapsedSeconds": 1200.0666666666666,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.005835314147356885,
+        "maximumSpeedMps": 3.086260933049917,
+        "maximumJoltMps2": 11.032625518880376,
+        "tautTransitions": 0,
+        "totalTensionSeconds": 0,
+        "distanceTravelledM": [
+          3708.08136486153,
+          3706.7356204904067
+        ]
+      },
+      "tapeFrames": 36000,
+      "tapeTruncated": true,
+      "failures": []
+    },
+    {
+      "family": "short",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "crossing",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.03251312971115117,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.01227239971389843,
+        "chainErrorM": 0.0641073223219304,
+        "speedMps": 3.0856995769234876
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.731370210647583,
+          "y": 0.44999998807907104,
+          "z": -1.311144471168518
+        },
+        {
+          "x": 0.7300466299057007,
+          "y": 0.44999998807907104,
+          "z": 1.3073886632919312
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.01227239971389843,
+        "maximumSpeedMps": 3.0856995769234876,
+        "maximumJoltMps2": 178.40612680991305,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 58.73333333333128,
+        "distanceTravelledM": [
+          54.81731979842817,
+          54.814901094295635
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 28,
+          "actual": 0.03251312971115117,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "short",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "circling",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.014333653450012251,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.009524578477107914,
+        "chainErrorM": 0.05114275735719476,
+        "speedMps": 3.4829345535101566
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -1.0296357870101929,
+          "y": 0.44999998807907104,
+          "z": 0.621950626373291
+        },
+        {
+          "x": 0.36204567551612854,
+          "y": 0.44999998807907104,
+          "z": 0.38492125272750854
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.009524578477107914,
+        "maximumSpeedMps": 3.4829345535101566,
+        "maximumJoltMps2": 97.69796509218476,
+        "tautTransitions": 9,
+        "totalTensionSeconds": 2.5166666666666626,
+        "distanceTravelledM": [
+          141.66185829008202,
+          118.00063922212988
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 2643,
+          "actual": 0.014333653450012251,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "short",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "opposing",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.01173019835574457,
+        "chainErrorM": 0.06009947967795304,
+        "speedMps": 1.75945224837345
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -1.5000065565109253,
+          "y": 0.44999998807907104,
+          "z": 0.004440344404429197
+        },
+        {
+          "x": 1.4987521171569824,
+          "y": 0.44999998807907104,
+          "z": 0.004440476652234793
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.01173019835574457,
+        "maximumSpeedMps": 1.75945224837345,
+        "maximumJoltMps2": 74.45876836553474,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 59.79999999999789,
+        "distanceTravelledM": [
+          0.264426014373313,
+          0.26453100416368547
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "short",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "brace-switches",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.0086200601911961,
+        "chainErrorM": 0.04048201326546952,
+        "speedMps": 1.2354625752337889
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.6268627643585205,
+          "y": 0.44999998807907104,
+          "z": 0.0008516965317539871
+        },
+        {
+          "x": 2.371912717819214,
+          "y": 0.44999998807907104,
+          "z": 0.0008683394407853484
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.0086200601911961,
+        "maximumSpeedMps": 1.2354625752337889,
+        "maximumJoltMps2": 27.55691045628264,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 59.43333333333124,
+        "distanceTravelledM": [
+          1.3737242001087768,
+          1.8075841476796985
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "short",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "random",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.012951302528381392,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.01128661580736362,
+        "chainErrorM": 0.05180012411195056,
+        "speedMps": 2.868927331378987
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.9255959391593933,
+          "y": 0.44999998807907104,
+          "z": -3.9409291744232178
+        },
+        {
+          "x": 1.1070789098739624,
+          "y": 0.44999998807907104,
+          "z": -4.154594421386719
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.01128661580736362,
+        "maximumSpeedMps": 2.868927331378987,
+        "maximumJoltMps2": 53.69294552811111,
+        "tautTransitions": 15,
+        "totalTensionSeconds": 9.1166666666667,
+        "distanceTravelledM": [
+          40.216506328392555,
+          42.05520982492541
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 1985,
+          "actual": 0.012951302528381392,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "short",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "long-walk",
+      "seconds": 1200,
+      "inspectedTicks": 72000,
+      "inspectedSubsteps": 72000,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.005835314147356885,
+        "chainErrorM": 0.026882954031913986,
+        "speedMps": 3.086260933049917
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": 2621.231201171875,
+          "y": 0.44999998807907104,
+          "z": 2621.392822265625
+        },
+        {
+          "x": 2622.065185546875,
+          "y": 0.44999998807907104,
+          "z": 2621.15576171875
+        }
+      ],
+      "counters": {
+        "ticks": 72002,
+        "elapsedSeconds": 1200.0333333333333,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.005835314147356885,
+        "maximumSpeedMps": 3.086260933049917,
+        "maximumJoltMps2": 11.032625518880376,
+        "tautTransitions": 0,
+        "totalTensionSeconds": 0,
+        "distanceTravelledM": [
+          3707.9791658345616,
+          3706.6334214634385
+        ]
+      },
+      "tapeFrames": 72000,
+      "tapeTruncated": true,
+      "failures": []
+    },
+    {
+      "family": "loose",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "crossing",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.019282001256942793,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.011429445746760136,
+        "chainErrorM": 0.0807385806446499,
+        "speedMps": 3.086623124682902
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -1.3948174715042114,
+          "y": 0.44999998807907104,
+          "z": -1.7771340608596802
+        },
+        {
+          "x": 1.395565152168274,
+          "y": 0.44999998807907104,
+          "z": 1.7514528036117554
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.011429445746760136,
+        "maximumSpeedMps": 3.086623124682902,
+        "maximumJoltMps2": 178.58344098955197,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 58.483333333331295,
+        "distanceTravelledM": [
+          81.12452671921686,
+          81.13196791251303
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 14,
+          "actual": 0.01653017401695256,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "loose",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "circling",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.01899856726152349,
+        "chainErrorM": 0.09959701339222793,
+        "speedMps": 3.5863821363836794
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -2.086973190307617,
+          "y": 0.44999998807907104,
+          "z": -2.8373193740844727
+        },
+        {
+          "x": -0.4079209566116333,
+          "y": 0.44999998807907104,
+          "z": 0.6748090982437134
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.01899856726152349,
+        "maximumSpeedMps": 3.5863706328662435,
+        "maximumJoltMps2": 93.1481378607611,
+        "tautTransitions": 15,
+        "totalTensionSeconds": 16.86666666666699,
+        "distanceTravelledM": [
+          144.22962723670886,
+          117.92432411871283
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "loose",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "opposing",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.016311836744679897,
+        "chainErrorM": 0.06960076199851706,
+        "speedMps": 3.0857338989905143
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -2.2267980575561523,
+          "y": 0.44999998807907104,
+          "z": -0.0035960939712822437
+        },
+        {
+          "x": 2.271778106689453,
+          "y": 0.44999998807907104,
+          "z": -0.003595990128815174
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.016311836744679897,
+        "maximumSpeedMps": 3.0857338989905143,
+        "maximumJoltMps2": 135.4199272052178,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 59.5499999999979,
+        "distanceTravelledM": [
+          1.0561783232330577,
+          1.0560941873526852
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "loose",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "brace-switches",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.010160459077638795,
+        "chainErrorM": 0.05586900214175028,
+        "speedMps": 2.681187785041392
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.6610608100891113,
+          "y": 0.44999998807907104,
+          "z": 0.0008526929304935038
+        },
+        {
+          "x": 3.8376057147979736,
+          "y": 0.44999998807907104,
+          "z": 0.000876398931723088
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.010160459077638795,
+        "maximumSpeedMps": 2.681187785041392,
+        "maximumJoltMps2": 84.98751047773969,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 58.78333333333128,
+        "distanceTravelledM": [
+          1.6678660473238203,
+          3.3291797482064296
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "loose",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "random",
+      "seconds": 60,
+      "inspectedTicks": 1800,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 5.245208740678464e-7,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.012560924855704814,
+        "chainErrorM": 0.06564663178245667,
+        "speedMps": 2.8193588760549915
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.4250147044658661,
+          "y": 0.44999998807907104,
+          "z": -2.9819798469543457
+        },
+        {
+          "x": 0.973823606967926,
+          "y": 0.44999998807907104,
+          "z": -4.624122619628906
+        }
+      ],
+      "counters": {
+        "ticks": 1800,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.012560924855704814,
+        "maximumSpeedMps": 2.8193588760549915,
+        "maximumJoltMps2": 33.634763867015025,
+        "tautTransitions": 6,
+        "totalTensionSeconds": 4.616666666666656,
+        "distanceTravelledM": [
+          40.46802937385622,
+          43.0465977118294
+        ]
+      },
+      "tapeFrames": 1800,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "loose",
+      "tickHz": 30,
+      "seed": 1701,
+      "scenario": "long-walk",
+      "seconds": 1200,
+      "inspectedTicks": 36000,
+      "inspectedSubsteps": 72000,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.0029314872892489685,
+        "chainErrorM": 0.005919642708587247,
+        "speedMps": 3.086640664648074
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": 2621.4794921875,
+          "y": 0.44999998807907104,
+          "z": 2622.687744140625
+        },
+        {
+          "x": 2623.709716796875,
+          "y": 0.44999998807907104,
+          "z": 2622.638671875
+        }
+      ],
+      "counters": {
+        "ticks": 36002,
+        "elapsedSeconds": 1200.0666666666666,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.0029314872892489685,
+        "maximumSpeedMps": 3.086640664648074,
+        "maximumJoltMps2": 9.215219609025652,
+        "tautTransitions": 0,
+        "totalTensionSeconds": 0,
+        "distanceTravelledM": [
+          3709.0701481953834,
+          3708.844705757102
+        ]
+      },
+      "tapeFrames": 36000,
+      "tapeTruncated": true,
+      "failures": []
+    },
+    {
+      "family": "loose",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "crossing",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.017741101980209395,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.013377790452150873,
+        "chainErrorM": 0.07554390101890451,
+        "speedMps": 3.086624193150721
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -1.3863070011138916,
+          "y": 0.44999998807907104,
+          "z": -1.7850240468978882
+        },
+        {
+          "x": 1.3864108324050903,
+          "y": 0.44999998807907104,
+          "z": 1.757460355758667
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.013377790452150873,
+        "maximumSpeedMps": 3.086624193150721,
+        "maximumJoltMps2": 178.44160445399905,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 58.49999999999796,
+        "distanceTravelledM": [
+          81.1155281768235,
+          81.12277317755115
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "bodyOverlapM",
+          "tick": 28,
+          "actual": 0.017741101980209395,
+          "limit": 0.005
+        }
+      ]
+    },
+    {
+      "family": "loose",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "circling",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0.00008288323879246384,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.02174095148825783,
+        "chainErrorM": 0.12209915791362125,
+        "speedMps": 3.09246786135786
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.9942964911460876,
+          "y": 0.44999998807907104,
+          "z": 0.43302121758461
+        },
+        {
+          "x": 1.220263123512268,
+          "y": 0.44999998807907104,
+          "z": -0.17933572828769684
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.02174095148825783,
+        "maximumSpeedMps": 3.09246786135786,
+        "maximumJoltMps2": 82.87402414562226,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 0.13333333333333333,
+        "distanceTravelledM": [
+          142.39890752543005,
+          122.6865976769464
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": [
+        {
+          "check": "segmentErrorM",
+          "tick": 916,
+          "actual": 0.02174095148825783,
+          "limit": 0.02
+        }
+      ]
+    },
+    {
+      "family": "loose",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "opposing",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.016311836744679897,
+        "chainErrorM": 0.06960076199851706,
+        "speedMps": 3.0857338989905143
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -2.2267980575561523,
+          "y": 0.44999998807907104,
+          "z": -0.0035960939712822437
+        },
+        {
+          "x": 2.271778106689453,
+          "y": 0.44999998807907104,
+          "z": -0.003595990128815174
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.016311836744679897,
+        "maximumSpeedMps": 3.0857338989905143,
+        "maximumJoltMps2": 135.4199272052178,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 59.5499999999979,
+        "distanceTravelledM": [
+          1.0561783232330577,
+          1.0560941873526852
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "loose",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "brace-switches",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.009972829655252036,
+        "chainErrorM": 0.05728736480292529,
+        "speedMps": 2.656559327378733
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.5266546010971069,
+          "y": 0.44999998807907104,
+          "z": -0.000427019753260538
+        },
+        {
+          "x": 3.971933126449585,
+          "y": 0.44999998807907104,
+          "z": -0.00027730828151106834
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.009972829655252036,
+        "maximumSpeedMps": 2.656559327378733,
+        "maximumJoltMps2": 73.74522384618768,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 58.716666666664615,
+        "distanceTravelledM": [
+          1.6008341710484357,
+          3.420816096907265
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "loose",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "random",
+      "seconds": 60,
+      "inspectedTicks": 3600,
+      "inspectedSubsteps": 3600,
+      "maxima": {
+        "bodyOverlapM": 5.245208740678464e-7,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.012560924855704814,
+        "chainErrorM": 0.06564663178245667,
+        "speedMps": 2.8193588760549915
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": -0.4250147044658661,
+          "y": 0.44999998807907104,
+          "z": -2.9819798469543457
+        },
+        {
+          "x": 0.973823606967926,
+          "y": 0.44999998807907104,
+          "z": -4.624122619628906
+        }
+      ],
+      "counters": {
+        "ticks": 3600,
+        "elapsedSeconds": 60,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.012560924855704814,
+        "maximumSpeedMps": 2.8193588760549915,
+        "maximumJoltMps2": 33.634763867015025,
+        "tautTransitions": 6,
+        "totalTensionSeconds": 4.616666666666656,
+        "distanceTravelledM": [
+          40.46802937385622,
+          43.0465977118294
+        ]
+      },
+      "tapeFrames": 3600,
+      "tapeTruncated": false,
+      "failures": []
+    },
+    {
+      "family": "loose",
+      "tickHz": 60,
+      "seed": 1701,
+      "scenario": "long-walk",
+      "seconds": 1200,
+      "inspectedTicks": 72000,
+      "inspectedSubsteps": 72000,
+      "maxima": {
+        "bodyOverlapM": 0,
+        "floorErrorM": 1.1920928966180355e-8,
+        "spanErrorM": 0,
+        "segmentErrorM": 0.0029314872892489685,
+        "chainErrorM": 0.005919642708587247,
+        "speedMps": 3.086640664648074
+      },
+      "replayMatches": true,
+      "finalPositions": [
+        {
+          "x": 2621.4072265625,
+          "y": 0.44999998807907104,
+          "z": 2622.615478515625
+        },
+        {
+          "x": 2623.637451171875,
+          "y": 0.44999998807907104,
+          "z": 2622.56640625
+        }
+      ],
+      "counters": {
+        "ticks": 72002,
+        "elapsedSeconds": 1200.0333333333333,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.0029314872892489685,
+        "maximumSpeedMps": 3.086640664648074,
+        "maximumJoltMps2": 9.215219609025652,
+        "tautTransitions": 0,
+        "totalTensionSeconds": 0,
+        "distanceTravelledM": [
+          3708.967949168415,
+          3708.7425067301338
+        ]
+      },
+      "tapeFrames": 72000,
+      "tapeTruncated": true,
+      "failures": []
+    }
+  ]
+}

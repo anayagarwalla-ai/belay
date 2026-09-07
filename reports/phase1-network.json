@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T21:09:51.667Z",
+  "generatedAt": "2026-09-07T22:08:03.205Z",
   "scope": "Local protocol integration; not a human remote session or 300-room load test.",
   "checks": [
     "Two real WebSocket clients get distinct bodies.",
@@ -12,68 +12,205 @@
     "Tester cannot allocate additional rooms.",
     "Echo telemetry works over the real socket.",
     "Gateway protects HTTP, validates invitations, and strips spoofed privilege headers.",
+    "Authenticated testers cannot read runtime credentials, Git internals or developer inspector routes, including encoded and /@fs paths.",
+    "Vite itself denies runtime credential files through direct, raw, encoded and /@fs requests.",
     "Gateway rejects unauthenticated WebSocket upgrades."
   ],
   "localEchoRttMs": [
-    0.35675000000003365,
-    0.36879099999998743,
-    0.15370900000016263,
-    0.3398749999998927,
-    0.20058300000005147,
-    0.15179099999977552,
-    0.29700000000002547,
-    0.2465829999998732,
-    0.20162499999992178,
-    0.2690419999998994
+    0.2469579999999496,
+    0.4546669999999722,
+    0.3902909999999338,
+    0.28070899999988796,
+    0.27966700000001765,
+    0.5203750000000582,
+    0.2515840000000935,
+    0.29404199999999037,
+    0.24274999999988722,
+    0.20016700000019227
   ],
   "server": {
     "physics": {
       "ticks": 48,
       "elapsedSeconds": 1.6,
       "maximumSpanErrorM": 0,
-      "maximumSegmentErrorM": 0.010957091038555855,
+      "maximumSegmentErrorM": 0.009418932069732044,
       "maximumSpeedMps": 3.0803782939305946,
-      "maximumJoltMps2": 62.058254008596315,
+      "maximumJoltMps2": 62.68450332586953,
       "tautTransitions": 1,
       "totalTensionSeconds": 0.9833333333333347,
       "distanceTravelledM": [
-        3.5944264863268565,
-        2.666666598172885
+        3.5930699204441505,
+        2.6653466064489666
       ]
     },
     "tickExecutionMs": {
-      "samples": 50,
-      "p50": 0.1545829999995476,
-      "p95": 0.31508300000132294,
-      "p99": 0.512166000000434,
-      "max": 0.512166000000434
+      "samples": 44,
+      "p50": 0.2757090000086464,
+      "p95": 1.0934160000178963,
+      "p99": 1.8454579999961425,
+      "max": 1.8454579999961425
     },
     "schedulingLatenessMs": {
-      "samples": 50,
-      "p50": 0.7872086667121039,
-      "p95": 1.203042000048299,
-      "p99": 1.231459000009636,
-      "max": 1.231459000009636
+      "samples": 44,
+      "p50": 0.5651673332904465,
+      "p95": 1.131875332997879,
+      "p99": 1.617375332978554,
+      "max": 1.617375332978554
     },
     "schedulingPlusExecutionMs": {
-      "samples": 50,
-      "p50": 0.9347090000192111,
-      "p95": 1.3665420000434096,
-      "p99": 1.3885840000475582,
-      "max": 1.3885840000475582
+      "samples": 44,
+      "p50": 0.8991256666486152,
+      "p95": 1.986499999591615,
+      "p99": 2.6926666662911884,
+      "max": 2.6926666662911884
     },
     "rejectedInputs": 2,
     "droppedWallMs": 0,
-    "snapshotBytes": 1987,
+    "skippedSnapshots": 0,
+    "rejectedDebugCommands": 0,
+    "state": {
+      "version": "phase1-2",
+      "epoch": 1,
+      "tick": 48,
+      "serverTime": 1788818883205,
+      "seed": 44,
+      "family": "balanced",
+      "tickHz": 30,
+      "paused": false,
+      "players": [
+        {
+          "id": 0,
+          "position": {
+            "x": -4.843043327331543,
+            "y": 0.44999998807907104,
+            "z": 0.004281267058104277
+          },
+          "velocity": {
+            "x": -1.4749914407730103,
+            "y": 0,
+            "z": 0.005865314044058323
+          },
+          "brace": false,
+          "connected": true,
+          "label": "Climber 1",
+          "ackSeq": 100
+        },
+        {
+          "id": 1,
+          "position": {
+            "x": -1.4151122570037842,
+            "y": 0.44999998807907104,
+            "z": 0.01676025055348873
+          },
+          "velocity": {
+            "x": -1.9267932176589966,
+            "y": 0,
+            "z": 0.011813044548034668
+          },
+          "brace": false,
+          "connected": true,
+          "label": "Climber 2",
+          "ackSeq": -1
+        }
+      ],
+      "rope": {
+        "points": [
+          {
+            "x": -4.843043327331543,
+            "y": 0.419999988079071,
+            "z": 0.004281267058104277
+          },
+          {
+            "x": -4.588493487285264,
+            "y": 0.26152955582865284,
+            "z": -0.005689509670610244
+          },
+          {
+            "x": -4.311852702986189,
+            "y": 0.14176318482484906,
+            "z": -0.012396298287314807
+          },
+          {
+            "x": -4.022105422668649,
+            "y": 0.0582859054534048,
+            "z": -0.0160158253924944
+          },
+          {
+            "x": -3.72119510397318,
+            "y": 0.04062669194483867,
+            "z": -0.017215424605664508
+          },
+          {
+            "x": -3.4198906368927706,
+            "y": 0.040011149954044783,
+            "z": -0.016970998480979993
+          },
+          {
+            "x": -3.11864446330313,
+            "y": 0.04000013322128524,
+            "z": -0.016105611494755288
+          },
+          {
+            "x": -2.817473518082615,
+            "y": 0.04000017797578325,
+            "z": -0.01512977205775258
+          },
+          {
+            "x": -2.5163820253249174,
+            "y": 0.040018790910198505,
+            "z": -0.01396984911683997
+          },
+          {
+            "x": -2.2153808182180397,
+            "y": 0.0414541719253075,
+            "z": -0.011599413486509141
+          },
+          {
+            "x": -1.9202375778256606,
+            "y": 0.09985937299334348,
+            "z": -0.006307887803542799
+          },
+          {
+            "x": -1.6510969353265856,
+            "y": 0.23524924506051403,
+            "z": 0.00314942774467544
+          },
+          {
+            "x": -1.4151122570037842,
+            "y": 0.419999988079071,
+            "z": 0.01676025055348873
+          }
+        ],
+        "length": 3.6,
+        "tension": 0.026394228361743495,
+        "tensionN": 11.4053058556763,
+        "slackM": 0.17204621560507416
+      },
+      "counters": {
+        "ticks": 48,
+        "elapsedSeconds": 1.6,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.009418932069732044,
+        "maximumSpeedMps": 3.0803782939305946,
+        "maximumJoltMps2": 62.68450332586953,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 0.9833333333333347,
+        "distanceTravelledM": [
+          3.5930699204441505,
+          2.6653466064489666
+        ]
+      }
+    },
+    "snapshotBytes": 1982,
     "ropePointCount": 13,
     "tapeFrames": 48,
     "tapeTruncated": false,
     "processMemory": {
-      "rss": 199098368,
-      "heapTotal": 43925504,
-      "heapUsed": 30062896,
-      "external": 10532930,
-      "arrayBuffers": 3638320
+      "rss": 179175424,
+      "heapTotal": 30818304,
+      "heapUsed": 26063656,
+      "external": 10466502,
+      "arrayBuffers": 3571868
     },
     "memoryAttribution": "Process RSS/heap includes all rooms and shared runtime; not per-room memory.",
     "tickHz": 30,

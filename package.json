@@ -12,7 +12,7 @@
     "lint": "oxlint app client server shared scripts tests tuning.ts components/ui/button.tsx lib/utils.ts vite.config.ts vitest.config.ts next.config.ts",
     "lint:all": "oxlint",
     "format": "oxfmt",
-    "dev:web": "vinext dev --host 127.0.0.1 --port 5173",
+    "dev:web": "vinext dev --hostname 127.0.0.1 --port 5173",
     "typecheck": "tsc --noEmit",
     "test": "vitest run --config vitest.config.ts",
     "bench": "tsx scripts/bench.ts",
@@ -22,6 +22,8 @@
     "test:remote": "tsx scripts/remote-check.ts",
     "playtest:open": "tsx scripts/playtest.ts",
     "playtest:stop": "tsx scripts/stop-playtest.ts",
+    "playtest:preflight": "tsx scripts/preflight.ts",
+    "test:operations": "vitest run --config vitest.config.ts tests/operations.test.ts",
     "setup:tunnel": "tsx scripts/setup-tunnel.ts"
   },
   "dependencies": {
