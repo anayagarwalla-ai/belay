@@ -1,0 +1,44 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'vitest' run --config vitest.config.ts tests/phase2-mechanics.test.ts --reporter=verbose
+
+ RUN  v5.0.0 /Users/anayagarwalla/.codex/worktrees/a377/testastra
+
+ ✓ tests/phase2-mechanics.test.ts > Phase 2 contract and support > preserves the legacy flat/two default while validating all new scene bounds 5ms
+ ✓ tests/phase2-mechanics.test.ts > Phase 2 contract and support > keeps seeded bridge capacities stable and out of ordinary snapshots 2ms
+ ✓ tests/phase2-mechanics.test.ts > Phase 2 contract and support > does not grant airborne movement or brace anchoring 62ms
+ ✓ tests/phase2-mechanics.test.ts > Phase 2 contract and support > freezes a terminal result time while debug ticks and bounded tape recording may continue 2ms
+ ✓ tests/phase2-mechanics.test.ts > Phase 2 contract and support > records a static-helper successful climb as a counterexample, not a forced role gate 380ms
+ ✓ tests/phase2-mechanics.test.ts > Phase 2 contract and support > shows a load cue before collapse, then records a linked cascade at 30 Hz 373ms
+ ✓ tests/phase2-mechanics.test.ts > Phase 2 contract and support > shows a load cue before collapse, then records a linked cascade at 60 Hz 352ms
+ ✓ tests/phase2-mechanics.test.ts > Phase 2 contract and support > emits one cue-onset event for a sustained visible bridge cue 516ms
+ ✓ tests/phase2-mechanics.test.ts > 2-body shared harness mechanics > fits the whole team past the finish and freezes finish time at 30 Hz 1005ms
+ ✓ tests/phase2-mechanics.test.ts > 2-body shared harness mechanics > fits the whole team past the finish and freezes finish time at 60 Hz 994ms
+ ✓ tests/phase2-mechanics.test.ts > 2-body shared harness mechanics > catches with bounded contacts and rope errors at 30 Hz 726ms
+ ✓ tests/phase2-mechanics.test.ts > 2-body shared harness mechanics > catches with bounded contacts and rope errors at 60 Hz 613ms
+ ✓ tests/phase2-mechanics.test.ts > 2-body shared harness mechanics > replays the exact scene/team tape and matches held inputs at both authority rates 69ms
+ ✓ tests/phase2-mechanics.test.ts > 3-body shared harness mechanics > fits the whole team past the finish and freezes finish time at 30 Hz 1863ms
+ ✓ tests/phase2-mechanics.test.ts > 3-body shared harness mechanics > fits the whole team past the finish and freezes finish time at 60 Hz 1907ms
+ ✓ tests/phase2-mechanics.test.ts > 3-body shared harness mechanics > catches with bounded contacts and rope errors at 30 Hz 841ms
+ ✓ tests/phase2-mechanics.test.ts > 3-body shared harness mechanics > catches with bounded contacts and rope errors at 60 Hz 1019ms
+ ✓ tests/phase2-mechanics.test.ts > 3-body shared harness mechanics > replays the exact scene/team tape and matches held inputs at both authority rates 407ms
+ ✓ tests/phase2-mechanics.test.ts > 4-body shared harness mechanics > fits the whole team past the finish and freezes finish time at 30 Hz 3798ms
+ ✓ tests/phase2-mechanics.test.ts > 4-body shared harness mechanics > fits the whole team past the finish and freezes finish time at 60 Hz 3616ms
+ ✓ tests/phase2-mechanics.test.ts > 4-body shared harness mechanics > catches with bounded contacts and rope errors at 30 Hz 1141ms
+ ✓ tests/phase2-mechanics.test.ts > 4-body shared harness mechanics > catches with bounded contacts and rope errors at 60 Hz 1246ms
+ ✓ tests/phase2-mechanics.test.ts > 4-body shared harness mechanics > replays the exact scene/team tape and matches held inputs at both authority rates 822ms
+ ✓ tests/phase2-mechanics.test.ts > 5-body shared harness mechanics > fits the whole team past the finish and freezes finish time at 30 Hz 4559ms
+ ✓ tests/phase2-mechanics.test.ts > 5-body shared harness mechanics > fits the whole team past the finish and freezes finish time at 60 Hz 4687ms
+ ✓ tests/phase2-mechanics.test.ts > 5-body shared harness mechanics > catches with bounded contacts and rope errors at 30 Hz 1265ms
+ ✓ tests/phase2-mechanics.test.ts > 5-body shared harness mechanics > catches with bounded contacts and rope errors at 60 Hz 1240ms
+ ✓ tests/phase2-mechanics.test.ts > 5-body shared harness mechanics > replays the exact scene/team tape and matches held inputs at both authority rates 532ms
+ ✓ tests/phase2-mechanics.test.ts > 6-body shared harness mechanics > fits the whole team past the finish and freezes finish time at 30 Hz 5132ms
+ ✓ tests/phase2-mechanics.test.ts > 6-body shared harness mechanics > fits the whole team past the finish and freezes finish time at 60 Hz 5130ms
+ ✓ tests/phase2-mechanics.test.ts > 6-body shared harness mechanics > catches with bounded contacts and rope errors at 30 Hz 1682ms
+ ✓ tests/phase2-mechanics.test.ts > 6-body shared harness mechanics > catches with bounded contacts and rope errors at 60 Hz 2044ms
+ ✓ tests/phase2-mechanics.test.ts > 6-body shared harness mechanics > replays the exact scene/team tape and matches held inputs at both authority rates 532ms
+
+ Test Files  1 passed (1)
+      Tests  33 passed (33)
+   Start at  16:03:23
+   Duration  48.82s (tests 100%)
+

@@ -1,0 +1,10 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'tsx' scripts/phase2-topology-probe.ts baseline
+{"label":"baseline","wall":900,"n":2,"rate":30,"segment":0.02670579485121427,"span":0,"maxCrossings":0,"maxRopePenetrationM":0,"maxCrossingDepthM":0,"peakIterations":256,"energy":2939.592213872114,"potential":0,"incident":"recovered"}
+{"label":"baseline","wall":900,"n":2,"rate":60,"segment":0.02670579485121427,"span":0,"maxCrossings":0,"maxRopePenetrationM":0,"maxCrossingDepthM":0,"peakIterations":256,"energy":2939.592213872114,"potential":0,"incident":"recovered"}
+{"label":"baseline","wall":900,"n":6,"rate":30,"segment":0.04483601525525138,"span":0,"maxCrossings":0,"maxRopePenetrationM":0,"maxCrossingDepthM":0,"peakIterations":256,"energy":1503.672964229034,"potential":0,"incident":"recovered"}
+{"label":"baseline","wall":900,"n":6,"rate":60,"segment":0.04483601525525138,"span":0,"maxCrossings":0,"maxRopePenetrationM":0,"maxCrossingDepthM":0,"peakIterations":256,"energy":1503.672964229034,"potential":0,"incident":"recovered"}
+{"label":"baseline","wall":450,"n":2,"rate":30,"segment":0.02147645103797141,"span":0,"maxCrossings":0,"maxRopePenetrationM":0,"maxCrossingDepthM":0,"peakIterations":256,"energy":6529.479631221092,"potential":0,"incident":"active"}
+{"label":"baseline","wall":450,"n":2,"rate":60,"segment":0.02147645103797141,"span":0,"maxCrossings":0,"maxRopePenetrationM":0,"maxCrossingDepthM":0,"peakIterations":256,"energy":6529.479631221092,"potential":0,"incident":"active"}
+{"label":"baseline","wall":450,"n":6,"rate":30,"segment":0.04483601525525138,"span":0,"maxCrossings":0,"maxRopePenetrationM":0,"maxCrossingDepthM":0,"peakIterations":256,"energy":2290.4600800761323,"potential":0,"incident":"recovered"}
+{"label":"baseline","wall":450,"n":6,"rate":60,"segment":0.04483601525525138,"span":0,"maxCrossings":0,"maxRopePenetrationM":0,"maxCrossingDepthM":0,"peakIterations":256,"energy":2290.4600800761323,"potential":0,"incident":"recovered"}

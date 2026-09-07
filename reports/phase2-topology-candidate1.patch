@@ -1,0 +1,35 @@
+diff --git a/shared/expedition-simulation.ts b/shared/expedition-simulation.ts
+index 3e34f22..189254f 100644
+--- a/shared/expedition-simulation.ts
++++ b/shared/expedition-simulation.ts
+@@ -201,6 +201,7 @@ export class ExpeditionSimulation {
+     const segment = FAMILIES[this.family].ropeLength / TUNING.rope.segments;
+     let iterations = 0;
+     for (; iterations < profile.maximumSolverIterations; iterations++) {
++      this.routeRope();
+       const prior = this.nodes.map(p => ({ ...p }));
+       this.nodeNormals = this.nodes.map((p, id) => contactNormalsAt(id < this.playerCount ? this.center(p) : p,
+         id < this.playerCount ? half : particleHalf, this.terrain.solids));
+@@ -223,8 +224,7 @@ export class ExpeditionSimulation {
+         this.diagnostics.contactProjections += projection.projections;
+         if (body) contactNormals[i].push(...projection.normals);
+       }
+-      this.routeRope();
+-      if (iterations + 1 >= profile.solverIterations && this.segmentError() <= profile.solverToleranceM) { iterations++; break; }
++      if (iterations + 1 >= profile.solverIterations && this.segmentError() <= profile.solverToleranceM && !this.ropeIntersectsTerrain()) { iterations++; break; }
+     }
+     this.diagnostics.solverIterations = iterations;
+     let kinetic = 0, potential = 0, correctionWork = 0, gravityWork = 0;
+@@ -364,6 +364,12 @@ export class ExpeditionSimulation {
+     for (const span of this.spans) for (let j = 1; j < span.nodes.length; j++) error = Math.max(error, distance(this.nodes[span.nodes[j - 1]], this.nodes[span.nodes[j]]) - segment);
+     return error;
+   }
++  private ropeIntersectsTerrain() {
++    for (const span of this.spans) for (let j = 1; j < span.nodes.length; j++) for (const solid of this.terrain.solids) {
++      if (sweepBox(this.nodes[span.nodes[j - 1]], this.nodes[span.nodes[j]], particleHalf, solid)) return true;
++    }
++    return false;
++  }
+   private updateSpans(dt: number) {
+     let taut = false; this.tensionN = 0; this.tension = 0;
+     for (const span of this.spans) {

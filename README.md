@@ -21,6 +21,7 @@ Every synthetic seat says BOT. Ctrl+C releases their seats; they also leave at t
 - `PLAN.md` — approved phases, hard stops and the two recorded open items.
 - `PLAYTEST.md` — scene recipes, human questions and debug API.
 - `RUNBOOK.md` — local ports, access control, costs and teardown.
+- `WORKSTREAMS.md` — five active tasks, assignments and coordination boundaries.
 - `tuning.ts` — gameplay, network and policy constants with rationale.
 - `reports/phase2-baseline-findings.md` — measured target misses and static-role counterexamples.
 - `reports/local-load-profile-findings.md` — six-body CPU/allocation evidence; no capacity qualification.
@@ -33,6 +34,7 @@ npm test
 npm run typecheck
 npm run lint
 npm run build
+npm run verify:evidence   # Check stored hashes, lossless artifacts and source bundle.
 npm run test:phase2-smoke
 npm run test:phase2-replay
 npm run test:phase2-stress

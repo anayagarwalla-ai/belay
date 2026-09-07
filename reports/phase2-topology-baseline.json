@@ -1,0 +1,1167 @@
+{
+  "label": "baseline",
+  "runtime": "v26.5.0",
+  "engineSha256": "97afe573eb1b7753094ee2ecd338ccd411bf64f8a0e312a39b7e0fb40e7836a3",
+  "rows": [
+    {
+      "wall": 900,
+      "playerCount": 2,
+      "tickHz": 30,
+      "ticks": 75,
+      "run": {
+        "status": "active",
+        "elapsedSeconds": 2.5,
+        "progress": 0,
+        "reason": null
+      },
+      "incidents": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1
+          ],
+          "status": "recovered",
+          "recoveredTick": 74,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0.35,
+            1.7999999999999985
+          ],
+          "roleIdleSeconds": [
+            1.949999999999998,
+            0.49999999999999994
+          ],
+          "staticHoldSeconds": [
+            1.2833333333333337,
+            0
+          ]
+        }
+      ],
+      "counters": {
+        "ticks": 75,
+        "elapsedSeconds": 2.5,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.02670579485121427,
+        "maximumSpeedMps": 6.094830332899626,
+        "maximumJoltMps2": 250.61532002917215,
+        "tautTransitions": 0,
+        "totalTensionSeconds": 0,
+        "distanceTravelledM": [
+          1.8968917706098367,
+          5.991904371011591
+        ]
+      },
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 74,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 384.0043301007184,
+        "potentialEnergyJ": 712.5984000000001,
+        "motorWorkJ": 2951.7075437755675,
+        "gravityWorkJ": 588.8789706587977,
+        "ropeContactWorkJ": -2701.5737424705976,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 1,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 17,
+        "maximumEnergyProjectionJ": 2939.592213872114,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "maxCrossings": 0,
+      "maxRopePenetrationM": 0,
+      "maxCrossingDepthM": 0,
+      "crossingTicks": [],
+      "peakIterations": 256,
+      "maxTensionN": 27028.28519305093,
+      "bodyState": [
+        {
+          "id": 0,
+          "support": "ground",
+          "position": {
+            "x": -2.15378475189209,
+            "y": 0.45399999618530273,
+            "z": -1.9080146551132202
+          },
+          "velocity": {
+            "x": 0.00015247802366502583,
+            "y": 0,
+            "z": 0.00009963654883904383
+          }
+        },
+        {
+          "id": 1,
+          "support": "ground",
+          "position": {
+            "x": 0.46797826886177063,
+            "y": 0.45399999618530273,
+            "z": -0.2782106101512909
+          },
+          "velocity": {
+            "x": -0.0021761662792414427,
+            "y": 0,
+            "z": -3.0984034538269043
+          }
+        }
+      ]
+    },
+    {
+      "wall": 900,
+      "playerCount": 2,
+      "tickHz": 60,
+      "ticks": 150,
+      "run": {
+        "status": "active",
+        "elapsedSeconds": 2.5,
+        "progress": 0,
+        "reason": null
+      },
+      "incidents": [
+        {
+          "id": 0,
+          "fallTick": 12,
+          "playerIds": [
+            1
+          ],
+          "status": "recovered",
+          "recoveredTick": 149,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0.35,
+            1.7999999999999985
+          ],
+          "roleIdleSeconds": [
+            1.949999999999998,
+            0.49999999999999994
+          ],
+          "staticHoldSeconds": [
+            1.2833333333333337,
+            0
+          ]
+        }
+      ],
+      "counters": {
+        "ticks": 150,
+        "elapsedSeconds": 2.5,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.02670579485121427,
+        "maximumSpeedMps": 6.094830332899626,
+        "maximumJoltMps2": 250.61532002917215,
+        "tautTransitions": 0,
+        "totalTensionSeconds": 0,
+        "distanceTravelledM": [
+          1.8968917706098367,
+          5.991904371011591
+        ]
+      },
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 74,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 384.0043301007184,
+        "potentialEnergyJ": 712.5984000000001,
+        "motorWorkJ": 2951.7075437755675,
+        "gravityWorkJ": 588.8789706587977,
+        "ropeContactWorkJ": -2701.5737424705976,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 1,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 17,
+        "maximumEnergyProjectionJ": 2939.592213872114,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "maxCrossings": 0,
+      "maxRopePenetrationM": 0,
+      "maxCrossingDepthM": 0,
+      "crossingTicks": [],
+      "peakIterations": 256,
+      "maxTensionN": 28742.298220477616,
+      "bodyState": [
+        {
+          "id": 0,
+          "support": "ground",
+          "position": {
+            "x": -2.15378475189209,
+            "y": 0.45399999618530273,
+            "z": -1.9080146551132202
+          },
+          "velocity": {
+            "x": 0.00015247802366502583,
+            "y": 0,
+            "z": 0.00009963654883904383
+          }
+        },
+        {
+          "id": 1,
+          "support": "ground",
+          "position": {
+            "x": 0.46797826886177063,
+            "y": 0.45399999618530273,
+            "z": -0.2782106101512909
+          },
+          "velocity": {
+            "x": -0.0021761662792414427,
+            "y": 0,
+            "z": -3.0984034538269043
+          }
+        }
+      ]
+    },
+    {
+      "wall": 900,
+      "playerCount": 6,
+      "tickHz": 30,
+      "ticks": 61,
+      "run": {
+        "status": "active",
+        "elapsedSeconds": 2.033333333333333,
+        "progress": 0,
+        "reason": null
+      },
+      "incidents": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            3
+          ],
+          "status": "recovered",
+          "recoveredTick": 60,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0,
+            0.5333333333333333,
+            1.6166666666666658,
+            0.35,
+            0.016666666666666666
+          ],
+          "roleIdleSeconds": [
+            1.816666666666665,
+            1.816666666666665,
+            1.2833333333333337,
+            0.19999999999999998,
+            1.4666666666666663,
+            1.7999999999999985
+          ],
+          "staticHoldSeconds": [
+            0.8000000000000008,
+            0.8000000000000008,
+            0.8000000000000008,
+            0,
+            0.9833333333333347,
+            0.9833333333333347
+          ]
+        }
+      ],
+      "counters": {
+        "ticks": 61,
+        "elapsedSeconds": 2.033333333333333,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.04483601525525138,
+        "maximumSpeedMps": 4.683142722270482,
+        "maximumJoltMps2": 159.35902128873545,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 0.49999999999999994,
+        "distanceTravelledM": [
+          2.727725059089919,
+          2.7259742420478505,
+          1.3076014159124638,
+          4.591529141921174,
+          2.0598842616843505,
+          2.497514886581534
+        ]
+      },
+      "diagnostics": {
+        "solverIterations": 14,
+        "contactProjections": 73,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 1169.9276622189643,
+        "potentialEnergyJ": 2137.7952,
+        "motorWorkJ": 3814.7887818732493,
+        "gravityWorkJ": 1044.8553502992086,
+        "ropeContactWorkJ": -2620.370724593854,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 1,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 12,
+        "maximumEnergyProjectionJ": 1503.672964229034,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "maxCrossings": 0,
+      "maxRopePenetrationM": 0,
+      "maxCrossingDepthM": 0,
+      "crossingTicks": [],
+      "peakIterations": 256,
+      "maxTensionN": 18624.23153113107,
+      "bodyState": [
+        {
+          "id": 0,
+          "support": "ground",
+          "position": {
+            "x": -6.672757148742676,
+            "y": 0.45399999618530273,
+            "z": -1.3447753190994263
+          },
+          "velocity": {
+            "x": -2.4688518047332764,
+            "y": 0,
+            "z": -0.5049309730529785
+          }
+        },
+        {
+          "id": 1,
+          "support": "ground",
+          "position": {
+            "x": -5.016746997833252,
+            "y": 0.45399999618530273,
+            "z": -1.5639057159423828
+          },
+          "velocity": {
+            "x": -2.4128072261810303,
+            "y": 0,
+            "z": -0.7080692052841187
+          }
+        },
+        {
+          "id": 2,
+          "support": "ground",
+          "position": {
+            "x": -1.7708861827850342,
+            "y": 0.45399999618530273,
+            "z": -1.6079758405685425
+          },
+          "velocity": {
+            "x": 0.00008773919398663566,
+            "y": 0,
+            "z": 0.00026944821001961827
+          }
+        },
+        {
+          "id": 3,
+          "support": "ground",
+          "position": {
+            "x": 1.263795018196106,
+            "y": 0.45399999618530273,
+            "z": -0.3195469379425049
+          },
+          "velocity": {
+            "x": -0.005051236134022474,
+            "y": 0,
+            "z": -2.6999943256378174
+          }
+        },
+        {
+          "id": 4,
+          "support": "ground",
+          "position": {
+            "x": 3.335489273071289,
+            "y": 0.45399999618530273,
+            "z": -0.5446488261222839
+          },
+          "velocity": {
+            "x": 0.3176249563694,
+            "y": 0,
+            "z": -0.01755453832447529
+          }
+        },
+        {
+          "id": 5,
+          "support": "ground",
+          "position": {
+            "x": 6.284638404846191,
+            "y": 0.45399999618530273,
+            "z": -1.8063836097717285
+          },
+          "velocity": {
+            "x": 2.8908350467681885,
+            "y": 0,
+            "z": -0.9093348979949951
+          }
+        }
+      ]
+    },
+    {
+      "wall": 900,
+      "playerCount": 6,
+      "tickHz": 60,
+      "ticks": 122,
+      "run": {
+        "status": "active",
+        "elapsedSeconds": 2.033333333333333,
+        "progress": 0,
+        "reason": null
+      },
+      "incidents": [
+        {
+          "id": 0,
+          "fallTick": 12,
+          "playerIds": [
+            3
+          ],
+          "status": "recovered",
+          "recoveredTick": 120,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0,
+            0.5333333333333333,
+            1.6166666666666658,
+            0.35,
+            0.016666666666666666
+          ],
+          "roleIdleSeconds": [
+            1.816666666666665,
+            1.816666666666665,
+            1.2833333333333337,
+            0.19999999999999998,
+            1.4666666666666663,
+            1.7999999999999985
+          ],
+          "staticHoldSeconds": [
+            0.8000000000000008,
+            0.8000000000000008,
+            0.8000000000000008,
+            0,
+            0.9833333333333347,
+            0.9833333333333347
+          ]
+        }
+      ],
+      "counters": {
+        "ticks": 122,
+        "elapsedSeconds": 2.033333333333333,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.04483601525525138,
+        "maximumSpeedMps": 4.683142722270482,
+        "maximumJoltMps2": 159.35902128873545,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 0.49999999999999994,
+        "distanceTravelledM": [
+          2.727725059089919,
+          2.7259742420478505,
+          1.3076014159124638,
+          4.591529141921174,
+          2.0598842616843505,
+          2.497514886581534
+        ]
+      },
+      "diagnostics": {
+        "solverIterations": 14,
+        "contactProjections": 73,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 1169.9276622189643,
+        "potentialEnergyJ": 2137.7952,
+        "motorWorkJ": 3814.7887818732493,
+        "gravityWorkJ": 1044.8553502992086,
+        "ropeContactWorkJ": -2620.370724593854,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 1,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 12,
+        "maximumEnergyProjectionJ": 1503.672964229034,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "maxCrossings": 0,
+      "maxRopePenetrationM": 0,
+      "maxCrossingDepthM": 0,
+      "crossingTicks": [],
+      "peakIterations": 256,
+      "maxTensionN": 24943.759472943166,
+      "bodyState": [
+        {
+          "id": 0,
+          "support": "ground",
+          "position": {
+            "x": -6.672757148742676,
+            "y": 0.45399999618530273,
+            "z": -1.3447753190994263
+          },
+          "velocity": {
+            "x": -2.4688518047332764,
+            "y": 0,
+            "z": -0.5049309730529785
+          }
+        },
+        {
+          "id": 1,
+          "support": "ground",
+          "position": {
+            "x": -5.016746997833252,
+            "y": 0.45399999618530273,
+            "z": -1.5639057159423828
+          },
+          "velocity": {
+            "x": -2.4128072261810303,
+            "y": 0,
+            "z": -0.7080692052841187
+          }
+        },
+        {
+          "id": 2,
+          "support": "ground",
+          "position": {
+            "x": -1.7708861827850342,
+            "y": 0.45399999618530273,
+            "z": -1.6079758405685425
+          },
+          "velocity": {
+            "x": 0.00008773919398663566,
+            "y": 0,
+            "z": 0.00026944821001961827
+          }
+        },
+        {
+          "id": 3,
+          "support": "ground",
+          "position": {
+            "x": 1.263795018196106,
+            "y": 0.45399999618530273,
+            "z": -0.3195469379425049
+          },
+          "velocity": {
+            "x": -0.005051236134022474,
+            "y": 0,
+            "z": -2.6999943256378174
+          }
+        },
+        {
+          "id": 4,
+          "support": "ground",
+          "position": {
+            "x": 3.335489273071289,
+            "y": 0.45399999618530273,
+            "z": -0.5446488261222839
+          },
+          "velocity": {
+            "x": 0.3176249563694,
+            "y": 0,
+            "z": -0.01755453832447529
+          }
+        },
+        {
+          "id": 5,
+          "support": "ground",
+          "position": {
+            "x": 6.284638404846191,
+            "y": 0.45399999618530273,
+            "z": -1.8063836097717285
+          },
+          "velocity": {
+            "x": 2.8908350467681885,
+            "y": 0,
+            "z": -0.9093348979949951
+          }
+        }
+      ]
+    },
+    {
+      "wall": 450,
+      "playerCount": 2,
+      "tickHz": 30,
+      "ticks": 75,
+      "run": {
+        "status": "active",
+        "elapsedSeconds": 2.5,
+        "progress": 0,
+        "reason": null
+      },
+      "incidents": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1
+          ],
+          "status": "active",
+          "recoveredTick": null,
+          "cascades": 0,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0.55,
+            1.3000000000000003
+          ],
+          "roleIdleSeconds": [
+            1.7499999999999987,
+            1.0000000000000013
+          ],
+          "staticHoldSeconds": [
+            1.2833333333333337,
+            0
+          ]
+        }
+      ],
+      "counters": {
+        "ticks": 75,
+        "elapsedSeconds": 2.5,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.02147645103797141,
+        "maximumSpeedMps": 6.094830332899626,
+        "maximumJoltMps2": 250.61532002917215,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 0.11666666666666665,
+        "distanceTravelledM": [
+          1.6460871642075987,
+          5.664133211773309
+        ]
+      },
+      "diagnostics": {
+        "solverIterations": 180,
+        "contactProjections": 60,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 235.06043754496557,
+        "potentialEnergyJ": 33.347613168993746,
+        "motorWorkJ": 1999.1028253988638,
+        "gravityWorkJ": 1335.4348179599453,
+        "ropeContactWorkJ": -2633.1722414614674,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 0,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 17,
+        "maximumEnergyProjectionJ": 6529.479631221092,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "maxCrossings": 0,
+      "maxRopePenetrationM": 0,
+      "maxCrossingDepthM": 0,
+      "crossingTicks": [],
+      "peakIterations": 256,
+      "maxTensionN": 50660.791731424935,
+      "bodyState": [
+        {
+          "id": 0,
+          "support": "ground",
+          "position": {
+            "x": -1.948986291885376,
+            "y": 0.45399999618530273,
+            "z": -1.7303441762924194
+          },
+          "velocity": {
+            "x": 0.3809893727302551,
+            "y": 0,
+            "z": 0.37857893109321594
+          }
+        },
+        {
+          "id": 1,
+          "support": "air",
+          "position": {
+            "x": 0.4170888364315033,
+            "y": -0.41150814294815063,
+            "z": 0.7795349955558777
+          },
+          "velocity": {
+            "x": -0.8876460194587708,
+            "y": -2.175572395324707,
+            "z": -0.2588542699813843
+          }
+        }
+      ]
+    },
+    {
+      "wall": 450,
+      "playerCount": 2,
+      "tickHz": 60,
+      "ticks": 150,
+      "run": {
+        "status": "active",
+        "elapsedSeconds": 2.5,
+        "progress": 0,
+        "reason": null
+      },
+      "incidents": [
+        {
+          "id": 0,
+          "fallTick": 12,
+          "playerIds": [
+            1
+          ],
+          "status": "active",
+          "recoveredTick": null,
+          "cascades": 0,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0.55,
+            1.3000000000000003
+          ],
+          "roleIdleSeconds": [
+            1.7499999999999987,
+            1.0000000000000013
+          ],
+          "staticHoldSeconds": [
+            1.2833333333333337,
+            0
+          ]
+        }
+      ],
+      "counters": {
+        "ticks": 150,
+        "elapsedSeconds": 2.5,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.02147645103797141,
+        "maximumSpeedMps": 6.094830332899626,
+        "maximumJoltMps2": 250.61532002917215,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 0.11666666666666665,
+        "distanceTravelledM": [
+          1.6460871642075987,
+          5.664133211773309
+        ]
+      },
+      "diagnostics": {
+        "solverIterations": 180,
+        "contactProjections": 60,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 235.06043754496557,
+        "potentialEnergyJ": 33.347613168993746,
+        "motorWorkJ": 1999.1028253988638,
+        "gravityWorkJ": 1335.4348179599453,
+        "ropeContactWorkJ": -2633.1722414614674,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 0,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 17,
+        "maximumEnergyProjectionJ": 6529.479631221092,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "maxCrossings": 0,
+      "maxRopePenetrationM": 0,
+      "maxCrossingDepthM": 0,
+      "crossingTicks": [],
+      "peakIterations": 256,
+      "maxTensionN": 50660.791731424935,
+      "bodyState": [
+        {
+          "id": 0,
+          "support": "ground",
+          "position": {
+            "x": -1.948986291885376,
+            "y": 0.45399999618530273,
+            "z": -1.7303441762924194
+          },
+          "velocity": {
+            "x": 0.3809893727302551,
+            "y": 0,
+            "z": 0.37857893109321594
+          }
+        },
+        {
+          "id": 1,
+          "support": "air",
+          "position": {
+            "x": 0.4170888364315033,
+            "y": -0.41150814294815063,
+            "z": 0.7795349955558777
+          },
+          "velocity": {
+            "x": -0.8876460194587708,
+            "y": -2.175572395324707,
+            "z": -0.2588542699813843
+          }
+        }
+      ]
+    },
+    {
+      "wall": 450,
+      "playerCount": 6,
+      "tickHz": 30,
+      "ticks": 61,
+      "run": {
+        "status": "active",
+        "elapsedSeconds": 2.033333333333333,
+        "progress": 0,
+        "reason": null
+      },
+      "incidents": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            3
+          ],
+          "status": "recovered",
+          "recoveredTick": 57,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0,
+            0.44999999999999996,
+            1.5166666666666662,
+            0.3333333333333333,
+            0.016666666666666666
+          ],
+          "roleIdleSeconds": [
+            1.7166666666666655,
+            1.7166666666666655,
+            1.266666666666667,
+            0.19999999999999998,
+            1.3833333333333333,
+            1.6999999999999988
+          ],
+          "staticHoldSeconds": [
+            0.8000000000000008,
+            0.8000000000000008,
+            0.7000000000000005,
+            0,
+            0.9000000000000011,
+            0.9833333333333347
+          ]
+        }
+      ],
+      "counters": {
+        "ticks": 61,
+        "elapsedSeconds": 2.033333333333333,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.04483601525525138,
+        "maximumSpeedMps": 4.683142722270482,
+        "maximumJoltMps2": 159.35902128873545,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 0.2333333333333333,
+        "distanceTravelledM": [
+          2.699728579251185,
+          2.6976014159507504,
+          1.2801166715709116,
+          4.906016175391525,
+          2.0465880998988717,
+          2.4973144184611407
+        ]
+      },
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 101,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 1221.5825790517179,
+        "potentialEnergyJ": 2137.7952,
+        "motorWorkJ": 3699.6693257530455,
+        "gravityWorkJ": 1075.8912125028955,
+        "ropeContactWorkJ": -2481.4044049909216,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 1,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 11,
+        "maximumEnergyProjectionJ": 2290.4600800761323,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "maxCrossings": 0,
+      "maxRopePenetrationM": 0,
+      "maxCrossingDepthM": 0,
+      "crossingTicks": [],
+      "peakIterations": 256,
+      "maxTensionN": 31697.823650272192,
+      "bodyState": [
+        {
+          "id": 0,
+          "support": "ground",
+          "position": {
+            "x": -6.6453142166137695,
+            "y": 0.45399999618530273,
+            "z": -1.3392329216003418
+          },
+          "velocity": {
+            "x": -2.5217559337615967,
+            "y": 0,
+            "z": -0.5157572031021118
+          }
+        },
+        {
+          "id": 1,
+          "support": "ground",
+          "position": {
+            "x": -4.989490509033203,
+            "y": 0.45399999618530273,
+            "z": -1.5560299158096313
+          },
+          "velocity": {
+            "x": -2.466519594192505,
+            "y": 0,
+            "z": -0.7236236333847046
+          }
+        },
+        {
+          "id": 2,
+          "support": "ground",
+          "position": {
+            "x": -1.7476521730422974,
+            "y": 0.45399999618530273,
+            "z": -1.5830203294754028
+          },
+          "velocity": {
+            "x": 0.00006449825741583481,
+            "y": 0,
+            "z": 0.00045289582340046763
+          }
+        },
+        {
+          "id": 3,
+          "support": "ground",
+          "position": {
+            "x": 1.2738839387893677,
+            "y": 0.45399999618530273,
+            "z": -0.6332710981369019
+          },
+          "velocity": {
+            "x": -0.0010550061706453562,
+            "y": 0,
+            "z": -2.760336399078369
+          }
+        },
+        {
+          "id": 4,
+          "support": "ground",
+          "position": {
+            "x": 3.3213205337524414,
+            "y": 0.45399999618530273,
+            "z": -0.551844596862793
+          },
+          "velocity": {
+            "x": 0.325004905462265,
+            "y": 0,
+            "z": -0.03240252286195755
+          }
+        },
+        {
+          "id": 5,
+          "support": "ground",
+          "position": {
+            "x": 6.284449100494385,
+            "y": 0.45399999618530273,
+            "z": -1.8063148260116577
+          },
+          "velocity": {
+            "x": 2.9526474475860596,
+            "y": 0,
+            "z": -0.9288121461868286
+          }
+        }
+      ]
+    },
+    {
+      "wall": 450,
+      "playerCount": 6,
+      "tickHz": 60,
+      "ticks": 122,
+      "run": {
+        "status": "active",
+        "elapsedSeconds": 2.033333333333333,
+        "progress": 0,
+        "reason": null
+      },
+      "incidents": [
+        {
+          "id": 0,
+          "fallTick": 12,
+          "playerIds": [
+            3
+          ],
+          "status": "recovered",
+          "recoveredTick": 114,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0,
+            0.44999999999999996,
+            1.5166666666666662,
+            0.3333333333333333,
+            0.016666666666666666
+          ],
+          "roleIdleSeconds": [
+            1.7166666666666655,
+            1.7166666666666655,
+            1.266666666666667,
+            0.19999999999999998,
+            1.3833333333333333,
+            1.6999999999999988
+          ],
+          "staticHoldSeconds": [
+            0.8000000000000008,
+            0.8000000000000008,
+            0.7000000000000005,
+            0,
+            0.9000000000000011,
+            0.9833333333333347
+          ]
+        }
+      ],
+      "counters": {
+        "ticks": 122,
+        "elapsedSeconds": 2.033333333333333,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.04483601525525138,
+        "maximumSpeedMps": 4.683142722270482,
+        "maximumJoltMps2": 159.35902128873545,
+        "tautTransitions": 1,
+        "totalTensionSeconds": 0.2333333333333333,
+        "distanceTravelledM": [
+          2.699728579251185,
+          2.6976014159507504,
+          1.2801166715709116,
+          4.906016175391525,
+          2.0465880998988717,
+          2.4973144184611407
+        ]
+      },
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 101,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 1221.5825790517179,
+        "potentialEnergyJ": 2137.7952,
+        "motorWorkJ": 3699.6693257530455,
+        "gravityWorkJ": 1075.8912125028955,
+        "ropeContactWorkJ": -2481.4044049909216,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 1,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 11,
+        "maximumEnergyProjectionJ": 2290.4600800761323,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "maxCrossings": 0,
+      "maxRopePenetrationM": 0,
+      "maxCrossingDepthM": 0,
+      "crossingTicks": [],
+      "peakIterations": 256,
+      "maxTensionN": 31697.823650272192,
+      "bodyState": [
+        {
+          "id": 0,
+          "support": "ground",
+          "position": {
+            "x": -6.6453142166137695,
+            "y": 0.45399999618530273,
+            "z": -1.3392329216003418
+          },
+          "velocity": {
+            "x": -2.5217559337615967,
+            "y": 0,
+            "z": -0.5157572031021118
+          }
+        },
+        {
+          "id": 1,
+          "support": "ground",
+          "position": {
+            "x": -4.989490509033203,
+            "y": 0.45399999618530273,
+            "z": -1.5560299158096313
+          },
+          "velocity": {
+            "x": -2.466519594192505,
+            "y": 0,
+            "z": -0.7236236333847046
+          }
+        },
+        {
+          "id": 2,
+          "support": "ground",
+          "position": {
+            "x": -1.7476521730422974,
+            "y": 0.45399999618530273,
+            "z": -1.5830203294754028
+          },
+          "velocity": {
+            "x": 0.00006449825741583481,
+            "y": 0,
+            "z": 0.00045289582340046763
+          }
+        },
+        {
+          "id": 3,
+          "support": "ground",
+          "position": {
+            "x": 1.2738839387893677,
+            "y": 0.45399999618530273,
+            "z": -0.6332710981369019
+          },
+          "velocity": {
+            "x": -0.0010550061706453562,
+            "y": 0,
+            "z": -2.760336399078369
+          }
+        },
+        {
+          "id": 4,
+          "support": "ground",
+          "position": {
+            "x": 3.3213205337524414,
+            "y": 0.45399999618530273,
+            "z": -0.551844596862793
+          },
+          "velocity": {
+            "x": 0.325004905462265,
+            "y": 0,
+            "z": -0.03240252286195755
+          }
+        },
+        {
+          "id": 5,
+          "support": "ground",
+          "position": {
+            "x": 6.284449100494385,
+            "y": 0.45399999618530273,
+            "z": -1.8063148260116577
+          },
+          "velocity": {
+            "x": 2.9526474475860596,
+            "y": 0,
+            "z": -0.9288121461868286
+          }
+        }
+      ]
+    }
+  ]
+}

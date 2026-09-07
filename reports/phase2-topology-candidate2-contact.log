@@ -1,0 +1,42 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'vitest' run --config vitest.config.ts tests/phase2-rope-contact.test.ts --reporter=verbose
+
+ RUN  v5.0.0 /Users/anayagarwalla/.codex/worktrees/a377/testastra
+
+ × tests/phase2-rope-contact.test.ts > saved recovery rope contact (2 players) > checks interior rope crossings at every physics step, including between 30 Hz snapshots 249ms
+   → expected 0.0017882038700068464 to be less than or equal to 0.001
+ × tests/phase2-rope-contact.test.ts > saved recovery rope contact (6 players) > checks interior rope crossings at every physics step, including between 30 Hz snapshots 719ms
+   → expected 0.0014234021250168413 to be less than or equal to 0.001
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/phase2-rope-contact.test.ts > saved recovery rope contact (2 players) > checks interior rope crossings at every physics step, including between 30 Hz snapshots
+AssertionError: expected 0.0017882038700068464 to be less than or equal to 0.001
+ ❯ tests/phase2-rope-contact.test.ts:32:34
+     30|       // Reuse the existing terrain-contact budget; a small segment er…
+     31|       // must not pass by allowing the rope-radius envelope to cross a…
+     32|       expect(maximumPenetration).toBeLessThanOrEqual(TUNING.physicsDia…
+       |                                  ^
+     33|     } finally { sim.dispose(); }
+     34|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/phase2-rope-contact.test.ts > saved recovery rope contact (6 players) > checks interior rope crossings at every physics step, including between 30 Hz snapshots
+AssertionError: expected 0.0014234021250168413 to be less than or equal to 0.001
+ ❯ tests/phase2-rope-contact.test.ts:32:34
+     30|       // Reuse the existing terrain-contact budget; a small segment er…
+     31|       // must not pass by allowing the rope-radius envelope to cross a…
+     32|       expect(maximumPenetration).toBeLessThanOrEqual(TUNING.physicsDia…
+       |                                  ^
+     33|     } finally { sim.dispose(); }
+     34|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  16:07:39
+   Duration  1.15s (tests 92%, transform 5%, import 3%)
+

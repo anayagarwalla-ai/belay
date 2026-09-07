@@ -1,0 +1,74 @@
+{
+  "baselineCommit": "f2fb8fd7f828b706ccdabbaffcbb72a0565b58a1",
+  "investigationStartHead": "dd2ad69a18b62f61c0e045eb2f2e485d39aedd9c",
+  "runtime": "v26.5.0",
+  "sourceHashes": {
+    "package-lock.json": "91d6a3f4a4fc558039673a2414202e77765802b7615117061a261cebd0f68bf3",
+    "shared/contact-geometry.ts": "be27fd0e94f87c17d4de8a066b7cfd3c8ab18c307f409deabe3d28df63a8b2cd",
+    "shared/expedition-simulation.ts": "97afe573eb1b7753094ee2ecd338ccd411bf64f8a0e312a39b7e0fb40e7836a3",
+    "shared/flat-simulation.ts": "07ebd2d5902fc9d6a5060c2840f5de5c24443573da9fa652d27a819a95dffc9d",
+    "shared/movement.ts": "de8cfb54596c8741082e3ef40fc2550cfd7494c30761dc8c72889f48227ad45b",
+    "shared/physical-diagnostics.ts": "0b55613cb72e95ec99081c17b9385fececc9c9425a553b3ba0d7e7583a701670",
+    "shared/protocol.ts": "1a9dd92feb961fbc61bd27ef3f515d07d3d25f49c15daa6d8f0b7b66ef4f228c",
+    "shared/simulation.ts": "04a66271386b1e496784e1f801120077159aa6abc280391a97056e60566c55ee",
+    "shared/stats.ts": "18555b71109353b5ad45db0596484d9f5b9b29f5e9260196f667984e5aa57d87",
+    "shared/terrain.ts": "d6f36940f9a7901e47f723ba90902bc9e288d2056a7fb12d93673ff67362bee2",
+    "tuning.ts": "4a099d43f366b6af30950cc5d2ebcaf3e9f286cc24c154dc84b89f29e5fe0c18"
+  },
+  "candidates": [
+    {
+      "label": "baseline",
+      "engineSha256": "97afe573eb1b7753094ee2ecd338ccd411bf64f8a0e312a39b7e0fb40e7836a3",
+      "patchPath": null,
+      "patchSha256": null,
+      "resultPath": "reports/phase2-topology-baseline.json",
+      "resultSha256": "e98e53b73c78e854ce371358bb0b2f9f2fdb7410f892744e0c45d2c22f3c6430",
+      "patchAppliedToBaselineAndHashVerified": true
+    },
+    {
+      "label": "candidate1",
+      "engineSha256": "6a8f37d24e23bf4bb374c60cd9af1ab95417a78628643ffa743ab6500262402e",
+      "patchPath": "reports/phase2-topology-candidate1.patch",
+      "patchSha256": "cf874dee0c08d6e39a7c2c6293c4ce08d80ae9e560b4362804faf33eaf519a2c",
+      "resultPath": "reports/phase2-topology-candidate1.json",
+      "resultSha256": "3c4d69d9c72c6e1becf7920de41c6bcb8a106829ef7818f9d08ffcffa41d7585",
+      "patchAppliedToBaselineAndHashVerified": true
+    },
+    {
+      "label": "candidate2",
+      "engineSha256": "3a3e45c136eb73b1de9ae9f76176ee072771f06145e556aa883fd64fe3fd2885",
+      "patchPath": "reports/phase2-topology-candidate2.patch",
+      "patchSha256": "ac9f6605aee8ff657288087298b6be83b98c9f8493cfe3681a205281f7d836f0",
+      "resultPath": "reports/phase2-topology-candidate2.json",
+      "resultSha256": "40b4d935096072de7ecdc823b3cce2a00619152f43136cbfa51ecadcf0092f2e",
+      "patchAppliedToBaselineAndHashVerified": true
+    }
+  ],
+  "artifacts": {
+    "reports/phase2-topology-trace.json": "89b9138a4892310275eaa729aeb4558bb8b19f88faabaf56c3aa8ae2493d6c3d",
+    "reports/phase2-topology-candidate1-mechanics.log": "db9446e9c3b7f89b42033312a6951119d1f75dc5732e346dec32055e9277b07c",
+    "reports/phase2-topology-candidate2-mechanics.log": "51e91afd87a5d18c5912da438547c76379fa45d7e52d813645d5e1c58b59c155",
+    "reports/phase2-topology-candidate2-contact.log": "a7e0f269fb06763ecb44a46c452d25cee23cd65c343a9a206da68e40599aedb8",
+    "reports/phase2-topology-restored-tests.log": "1c86295918cd00b5d0e084e750fea1a740f4879d59e676ba4c3e06b97e8926a0",
+    "scripts/phase2-topology-probe.ts": "d5f6746c7ce752e573170a5bbb3c32e31670981aa4a6b89042dd61d3fe472ec0",
+    "tests/phase2-rope-contact.test.ts": "4ceff2c91d90aeaa4bbf608f06a2baa066f55048f3c45e1926419babce221cd3",
+    "tests/fixtures/phase2-recovery-counterexamples.json": "1ce597f3b229ee6b4aa453bd362d89844e9f0847a41e651b46ea594f21da28d4",
+    "reports/phase2-topology-failure-analysis.md": "f9ee22051af309a9e3729482930b37ae6d973b376e1a474e669147eec3223979",
+    "reports/phase2-topology-harness-validation.log": "ffcec40555825ae11b7daf1fd3b55554c9ac1c3693c99f8991b54ebceb5f0a93"
+  },
+  "candidateCount": 2,
+  "runtimeChangesReverted": true,
+  "verdict": "Both rejected; 900 N retained as diagnostic baseline with known segment failures.",
+  "validation": {
+    "reproductionHarnessBaselineOriginalFieldsMatch": true,
+    "typecheck": "passed",
+    "focusedLint": "passed",
+    "restoredTargetTests": {
+      "passed": 4,
+      "expectedFailures": 2
+    },
+    "candidate1FocusedMechanicsPassed": 33,
+    "candidate2FocusedMechanicsPassed": 33,
+    "candidate2NewContactGuardsFailed": 2
+  }
+}

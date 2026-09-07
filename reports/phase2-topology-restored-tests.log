@@ -1,0 +1,17 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'vitest' run --config vitest.config.ts tests/phase2-rope-contact.test.ts tests/phase2-known-defects.test.ts --reporter=verbose
+
+ RUN  v5.0.0 /Users/anayagarwalla/.codex/worktrees/a377/testastra
+
+ ✓ tests/phase2-rope-contact.test.ts > saved recovery rope contact (2 players) > checks interior rope crossings at every physics step, including between 30 Hz snapshots 196ms
+ ✓ tests/phase2-known-defects.test.ts > known recovery defect (2 players) > replays every recorded frame and retains finite states and energy-correction diagnostics 2ms
+ ✓ tests/phase2-known-defects.test.ts > known recovery defect (2 players) > KNOWN FAILURE: stays within the existing 2 cm segment ceiling during focused recovery 3ms
+ ✓ tests/phase2-known-defects.test.ts > known recovery defect (6 players) > replays every recorded frame and retains finite states and energy-correction diagnostics 0ms
+ ✓ tests/phase2-known-defects.test.ts > known recovery defect (6 players) > KNOWN FAILURE: stays within the existing 2 cm segment ceiling during focused recovery 0ms
+ ✓ tests/phase2-rope-contact.test.ts > saved recovery rope contact (6 players) > checks interior rope crossings at every physics step, including between 30 Hz snapshots 502ms
+
+ Test Files  2 passed (2)
+      Tests  4 passed | 2 expected fail (6)
+   Start at  16:08:09
+   Duration  1.02s (tests 81%, transform 14%, import 5%)
+

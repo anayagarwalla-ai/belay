@@ -1,0 +1,29 @@
+{
+  "purpose": "Lossless packaging. Original decompressed artifact hashes match rescue-recut-original-manifest.json; source and measurements are unchanged.",
+  "artifacts": [
+    {
+      "path": "rescue-recut-matrix.json.gz",
+      "compressedBytes": 2161999,
+      "compressedSha256": "e14a08f288d52287561bb537e11e87a3f9124a34323a6c522a5908cd19c249bb",
+      "decompressedPath": "rescue-recut-matrix.json",
+      "decompressedBytes": 19483243,
+      "decompressedSha256": "d15e606ca768b88a36006ad9b075b5770969b52d1ca5f9dabf1be51631f61d3d"
+    },
+    {
+      "path": "rescue-recut-preflight-screen.json.gz",
+      "compressedBytes": 230184,
+      "compressedSha256": "f8c8dd5bf33b84cb36acef7327f195e0d5e2092e8bbb459269668214ca37df23",
+      "decompressedPath": "rescue-recut-preflight-screen.json",
+      "decompressedBytes": 2113279,
+      "decompressedSha256": "393595af2818a30461cdae515570cca4cac1f72cea1a9276beeed90d4faf991f"
+    },
+    {
+      "path": "rescue-recut-screen.json.gz",
+      "compressedBytes": 230197,
+      "compressedSha256": "8573c879db4b4da556aa2328cf2636a49abad77c6df28b6eeb5940cd2fae527a",
+      "decompressedPath": "rescue-recut-screen.json",
+      "decompressedBytes": 2113319,
+      "decompressedSha256": "94d4774d3f531aaba1e60250e02b34c16b8bb6087440ccbee672acd69c5f1dc3"
+    }
+  ]
+}

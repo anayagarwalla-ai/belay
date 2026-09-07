@@ -1,0 +1,643 @@
+diff --git a/scripts/rescue-recut-harness.ts b/scripts/rescue-recut-harness.ts
+new file mode 100644
+index 0000000..91863f0
+--- /dev/null
++++ b/scripts/rescue-recut-harness.ts
+@@ -0,0 +1,206 @@
++import { createHash } from 'node:crypto';
++import { TUNING, FAMILIES } from '../tuning';
++import { ExpeditionSimulation, type RescueRecutFixture } from '../shared/expedition-simulation';
++import { physicalTerrain } from '../shared/terrain';
++import { supportAt } from '../shared/contact-geometry';
++import { motorVelocity } from '../shared/movement';
++import { REST, normalizeMove, type Move, type Vec3, type SimulationSnapshot } from '../shared/protocol';
++
++export type Variant = typeof TUNING.rescueRecut.variants[number];
++export type Policy = 'pull-away' | 'fan-out' | 'static-helpers' | 'idle-casualty' | 'frozen-helper' | 'frozen-remote';
++export type Spec = { variant: Variant['name']; n: number; casualty: number; bank: 'same' | 'split'; surface: 'snow' | 'ice';
++  policy: Policy; frozenId?: number; frozenBrace?: boolean };
++const profile = TUNING.rescueRecut;
++const half = { x: TUNING.body.width / 2, y: TUNING.body.height / 2, z: TUNING.body.depth / 2 };
++const distance = (a: Vec3, b: Vec3) => Math.hypot(a.x - b.x, a.y - b.y, a.z - b.z);
++const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
++const dot = (a: Vec3, b: Vec3) => a.x * b.x + a.y * b.y + a.z * b.z;
++const hold = (): Move => ({ ...REST, brace: true });
++const variantFor = (name: Variant['name']) => profile.variants.find(v => v.name === name)!;
++
++export function envelope(variant: Variant, surface: Spec['surface']) {
++  const weightN = TUNING.body.mass * TUNING.gravity;
++  const scale = surface === 'ice' ? TUNING.phase2.iceTractionMultiplier : 1;
++  const wallCapacityN = variant.wallNormalEffortN * TUNING.phase2.wallFriction;
++  return { weightN, wallCapacityN, wallBodyWeights: wallCapacityN / weightN,
++    requiredUpwardRopeN: Math.max(0, weightN - wallCapacityN), idleCasualtyRequiredUpwardRopeN: weightN,
++    snowOrIceGroundMotorLimitN: TUNING.body.mass * TUNING.body.acceleration * scale,
++    nominalBraceTractionN: FAMILIES.balanced.braceFriction * weightN * scale,
++    angularRopeDemandN: [Math.PI / 2, Math.PI / 4, Math.PI / 6].map(angle => ({ angleRadians: angle,
++      minimumTensionN: Math.max(0, weightN - wallCapacityN) / Math.sin(angle) })) };
++}
++
++export function fixtureFor(spec: Spec): RescueRecutFixture {
++  const variant = variantFor(spec.variant);
++  const spacing = spec.bank === 'split' ? profile.splitSpacingM : variant.spacingM;
++  const positions = Array.from({ length: spec.n }, (_, id) => ({ x: (id - (spec.n - 1) / 2) * spacing,
++    y: half.y + TUNING.phase2.collisionSkin,
++    z: id === spec.casualty ? (spec.bank === 'split' ? TUNING.phase2.crevasseWidth / 2 : TUNING.phase2.rescueFallerAdvance)
++      : spec.bank === 'split' && id > spec.casualty ? TUNING.phase2.crevasseWidth + variant.safeOffsetM : -variant.safeOffsetM }));
++  const state = physicalTerrain('rescue', TUNING.seed).state;
++  return { positions, ice: spec.surface === 'ice' ? [state.bounds] : [] };
++}
++
++export function heldIds(spec: Spec) {
++  if (spec.policy === 'static-helpers') return Array.from({ length: spec.n }, (_, id) => id).filter(id => id !== spec.casualty);
++  if (spec.policy === 'frozen-helper') return [spec.frozenId!];
++  if (spec.policy === 'frozen-remote') return Array.from({ length: spec.n }, (_, id) => id).filter(id => Math.abs(id - spec.casualty) > 1);
++  if (spec.policy === 'idle-casualty') return [spec.casualty];
++  return [];
++}
++
++export function recutInputs(spec: Spec, snapshot: SimulationSnapshot): Move[] {
++  const held = heldIds(spec);
++  const gap = snapshot.terrain.crevasses[0];
++  const casualty = snapshot.players[spec.casualty];
++  // In split-bank scenes a head casualty follows its existing rope toward the far bank.
++  // Interior/tail casualties choose the near bank. Selection stays fixed at the corner.
++  const exitZ = spec.bank === 'split' && spec.casualty === 0 ? gap.maxZ : gap.minZ;
++  return snapshot.players.map(player => {
++    if (held.includes(player.id)) return { ...REST, brace: spec.policy === 'static-helpers' || !!spec.frozenBrace };
++    if (player.id === spec.casualty || player.support !== 'ground') {
++      if (player.support === 'ground' && snapshot.incidents.some(i => i.playerIds.includes(player.id))) return hold();
++      return { x: 0, z: exitZ === gap.minZ ? -1 : 1, brace: false };
++    }
++    if (snapshot.tick / snapshot.tickHz < profile.catchSeconds) return hold();
++    // Away from the local bank's visible lip. There is no force/tension threshold in the policy.
++    const awayZ = player.position.z < (gap.minZ + gap.maxZ) / 2 ? -1 : 1;
++    return normalizeMove({ x: spec.policy === 'fan-out' ? Math.sign(player.position.x - casualty.position.x) : 0,
++      z: awayZ, brace: false });
++  });
++}
++
++/** Reconstruct the exact pre-Rapier motor from the public initial substep state.
++ * Running at physicsHz makes this one-to-one with the engine, including contact loss.
++ * Residual force includes contacts, rope, Rapier friction and energy projection; it is
++ * explicitly not labelled tension or a calibrated contact force. */
++function motorAt(position: Vec3, velocity: Vec3, input: Move, solids: ReturnType<typeof physicalTerrain>['solids'], fixture: RescueRecutFixture) {
++  const contact = supportAt(position, half, solids), dt = 1 / TUNING.physicsHz;
++  let v = { ...velocity }, wallY = 0;
++  if (contact.support === 'ground') {
++    const ice = fixture.ice.some(p => position.x >= p.minX && position.x <= p.maxX && position.z >= p.minZ && position.z <= p.maxZ);
++    v = motorVelocity(v, input, dt * (ice ? TUNING.phase2.iceTractionMultiplier : 1), 'balanced');
++  } else if (contact.support === 'wall') {
++    const toward = -(input.x * contact.normal.x + input.z * contact.normal.z);
++    if (input.brace || toward || input.x || input.z) {
++      const p = TUNING.phase2;
++      const targetY = input.brace ? 0 : toward * (toward > 0 ? p.wallClimbSpeed : p.wallDescendSpeed);
++      wallY = clamp(TUNING.body.mass * clamp((targetY - v.y) / dt, -p.wallAcceleration, p.wallAcceleration)
++        + TUNING.body.mass * TUNING.gravity, -p.wallFriction * p.wallNormalEffortN, p.wallFriction * p.wallNormalEffortN);
++      v.y += wallY / TUNING.body.mass * dt;
++      const press = toward > 0 || input.brace ? -p.wallPressSpeed : Math.max(0, -toward) * p.wallPressSpeed;
++      v.x = (input.brace ? 0 : (input.x + toward * contact.normal.x) * p.wallClimbSpeed) + press * contact.normal.x;
++      v.z = (input.brace ? 0 : (input.z + toward * contact.normal.z) * p.wallClimbSpeed) + press * contact.normal.z;
++    }
++  }
++  return { contact: contact.support, wallY, force: { x: (v.x - velocity.x) * TUNING.body.mass / dt,
++    y: (v.y - velocity.y) * TUNING.body.mass / dt, z: (v.z - velocity.z) * TUNING.body.mass / dt },
++    workJ: TUNING.body.mass / 2 * (dot(v, v) - dot(velocity, velocity)) };
++}
++
++export function runRecut(spec: Spec) {
++  const variant = variantFor(spec.variant), fixture = fixtureFor(spec), dt = 1 / TUNING.physicsHz;
++  // Sequential offline runs only; always restored, including exceptions. No per-team force multiplier.
++  const mutable = TUNING.phase2 as unknown as { wallNormalEffortN: number };
++  const savedEffort = mutable.wallNormalEffortN;
++  mutable.wallNormalEffortN = variant.wallNormalEffortN;
++  const initialSpanChordsM = fixture.positions.slice(1).map((p, id) => distance(p, fixture.positions[id]));
++  if (initialSpanChordsM.some(length => length > FAMILIES.balanced.ropeLength)) {
++    mutable.wallNormalEffortN = savedEffort;
++    throw new Error(`Initial rope length violated: ${JSON.stringify(spec)}`);
++  }
++  const sim = new ExpeditionSimulation({ scene: 'rescue', playerCount: spec.n, tickHz: TUNING.physicsHz as 60 }, fixture);
++  const solids = physicalTerrain('rescue', TUNING.seed).solids;
++  const roles = fixture.positions.map(() => ({ distanceM: 0, loadedSeconds: 0, inputChanges: 0, motorWorkJ: 0,
++    maximumWallEffortN: 0, maximumMotorHorizontalForceN: 0, maximumResidualVerticalForceN: 0,
++    groundSeconds: 0, wallSeconds: 0, airSeconds: 0, heldVerified: true }));
++  const samples: unknown[] = [];
++  const events: SimulationSnapshot['events'] = [];
++  const inputDigest = createHash('sha256');
++  let inputs = spec.n ? Array.from({ length: spec.n }, () => ({ ...REST })) : [], priorInputs = inputs;
++  let snapshot = sim.snapshot(), maximumTensionN = 0, minCasualtyY = snapshot.players[spec.casualty].position.y;
++  let firstCatchTick: number | null = null, ending = 'censored', error: string | null = null;
++  let nextDecision = 0, nextSample = 0, lastEventId = -1, reconstructedWorkJ = 0;
++  try {
++    for (let tick = 0; tick < TUNING.physicsHz * profile.horizonSeconds; tick++) {
++      const before = snapshot;
++      if (tick >= nextDecision) { inputs = recutInputs(spec, snapshot); nextDecision += profile.decisionSeconds * TUNING.physicsHz; }
++      inputDigest.update(JSON.stringify(inputs)); inputDigest.update('\n');
++      const motors = before.players.map((p, id) => motorAt(p.position, p.velocity, inputs[id], solids, fixture));
++      sim.step(inputs);
++      snapshot = sim.snapshot();
++      if (snapshot.players.some(p => ![...Object.values(p.position), ...Object.values(p.velocity)].every(Number.isFinite))) throw new Error('Nonfinite body state.');
++      for (const event of snapshot.events) if (event.id > lastEventId) {
++        events.push(event); lastEventId = event.id;
++        if (event.kind === 'catch' && event.playerIds.includes(spec.casualty) && firstCatchTick === null) firstCatchTick = event.tick;
++      }
++      for (const player of snapshot.players) {
++        const id = player.id, role = roles[id], input = inputs[id], motor = motors[id];
++        role.distanceM += distance(before.players[id].position, player.position);
++        if (snapshot.rope.spans.some(span => (span.a === id || span.b === id) && span.tensionN > TUNING.body.mass * TUNING.gravity * TUNING.phase2.wallRopeSupportFraction)) role.loadedSeconds += dt;
++        if (input.brace !== priorInputs[id].brace || Math.hypot(input.x - priorInputs[id].x, input.z - priorInputs[id].z) > TUNING.phase2.inputChangeEpsilon) role.inputChanges++;
++        role.motorWorkJ += motor.workJ; reconstructedWorkJ += motor.workJ;
++        role.maximumWallEffortN = Math.max(role.maximumWallEffortN, motor.wallY);
++        role.maximumMotorHorizontalForceN = Math.max(role.maximumMotorHorizontalForceN, Math.hypot(motor.force.x, motor.force.z));
++        const residualY = TUNING.body.mass * (player.velocity.y - before.players[id].velocity.y) / dt + TUNING.body.mass * TUNING.gravity - motor.force.y;
++        role.maximumResidualVerticalForceN = Math.max(role.maximumResidualVerticalForceN, Math.abs(residualY));
++        role[`${motor.contact}Seconds` as 'groundSeconds' | 'wallSeconds' | 'airSeconds'] += dt;
++        if (heldIds(spec).includes(id) && (input.x !== 0 || input.z !== 0 || input.brace !== (spec.policy === 'static-helpers' || !!spec.frozenBrace))) role.heldVerified = false;
++      }
++      priorInputs = inputs.map(p => ({ ...p }));
++      minCasualtyY = Math.min(minCasualtyY, snapshot.players[spec.casualty].position.y);
++      maximumTensionN = Math.max(maximumTensionN, snapshot.rope.tensionN);
++      if (tick >= nextSample) {
++        samples.push({ tick: snapshot.tick, players: snapshot.players.map(p => ({ id: p.id, position: p.position, velocity: p.velocity, support: p.support, rescueState: p.rescueState })),
++          inputs, tensionN: snapshot.rope.tensionN, spans: snapshot.rope.spans.map(span => {
++            const points = snapshot.rope.points.slice(span.startPoint, span.endPoint + 1);
++            const pathM = points.slice(1).reduce((sum, p, id) => sum + distance(p, points[id]), 0);
++            const directionAt = (id: number) => { const atStart = span.a === id;
++              const a = atStart ? points[0] : points.at(-1)!, b = atStart ? points[1] : points.at(-2)!;
++              return (b.y - a.y) / Math.max(Number.EPSILON, distance(a, b)); };
++            return { id: span.id, tensionN: span.tensionN, pathM, pathSlackM: Math.max(0, span.length - pathM),
++              aVerticalDirection: directionAt(span.a), bVerticalDirection: directionAt(span.b) }; }),
++          energy: { kineticJ: snapshot.diagnostics.kineticEnergyJ, potentialJ: snapshot.diagnostics.potentialEnergyJ,
++            motorWorkJ: snapshot.diagnostics.motorWorkJ, energyProjectionCount: snapshot.diagnostics.energyProjectionCount } });
++        nextSample += profile.sampleSeconds * TUNING.physicsHz;
++      }
++      if (snapshot.run.status === 'failed') { ending = 'terminal'; break; }
++      if (snapshot.incidents.length && snapshot.incidents.every(i => i.status === 'recovered')) { ending = 'recovered'; break; }
++    }
++  } catch (cause) { ending = 'error'; error = String(cause); }
++  finally { sim.dispose(); mutable.wallNormalEffortN = savedEffort; }
++  const first = snapshot.incidents[0];
++  const held = heldIds(spec);
++  return { spec, initialPositions: fixture.positions, initialSpanChordsM, envelope: envelope(variant, spec.surface), ending, error,
++    observedSeconds: snapshot.tick / snapshot.tickHz, firstFallSeconds: snapshot.diagnostics.firstFallSeconds,
++    rescueSeconds: first?.recoveredTick === null || !first ? null : (first.recoveredTick - first.fallTick) / snapshot.tickHz,
++    firstCatchSeconds: firstCatchTick === null ? null : firstCatchTick / snapshot.tickHz,
++    minCasualtyY, ascentFromMinimumM: snapshot.players[spec.casualty].position.y - minCasualtyY,
++    gravitationalAscentWorkJ: (snapshot.players[spec.casualty].position.y - minCasualtyY) * TUNING.body.mass * TUNING.gravity,
++    maximumTensionN, heldIds: held, heldPolicyVerified: held.every(id => roles[id].heldVerified),
++    passiveRecoveryCounterexample: ending === 'recovered' && held.length > 0 && held.every(id => roles[id].heldVerified),
++    motorWorkReconstructionErrorJ: reconstructedWorkJ - snapshot.diagnostics.motorWorkJ,
++    roles, incidents: snapshot.incidents, events, counters: snapshot.counters, diagnostics: snapshot.diagnostics,
++    finalPlayers: snapshot.players, samples, acceptedInputsSha256: inputDigest.digest('hex') };
++}
++
++export function screenSpecs(): Spec[] {
++  return profile.variants.flatMap(variant => profile.screenTeams.flatMap(n =>
++    (['pull-away', 'fan-out', 'static-helpers', 'idle-casualty'] as const).map(policy => ({ variant: variant.name,
++      n, casualty: Math.floor(n / 2), bank: 'same' as const, surface: 'snow' as const, policy }))));
++}
++export function matrixSpecs(): Spec[] {
++  const specs: Spec[] = [];
++  const variant = profile.matrixVariant;
++  for (const n of profile.teamSizes) for (const surface of ['snow', 'ice'] as const) {
++    const casualty = Math.floor(n / 2), base = { variant, n, casualty, bank: 'same' as const, surface };
++    for (const policy of ['pull-away', 'fan-out', 'static-helpers', 'idle-casualty'] as const) specs.push({ ...base, policy });
++    for (let frozenId = 0; frozenId < n; frozenId++) if (frozenId !== casualty) for (const frozenBrace of [false, true]) specs.push({ ...base, policy: 'frozen-helper', frozenId, frozenBrace });
++    if (heldIds({ ...base, policy: 'frozen-remote' }).length) for (const frozenBrace of [false, true]) specs.push({ ...base, policy: 'frozen-remote', frozenBrace });
++    for (const casualty of new Set([0, Math.floor(n / 2), n - 1])) for (const bank of ['same', 'split'] as const) {
++      if (bank === 'same' && casualty === Math.floor(n / 2)) continue;
++      for (const policy of ['pull-away', 'static-helpers', 'idle-casualty'] as const) specs.push({ variant, n, casualty, bank, surface, policy });
++    }
++  }
++  return specs;
++}
+diff --git a/scripts/rescue-recut-merge.ts b/scripts/rescue-recut-merge.ts
+new file mode 100644
+index 0000000..a2fdd3b
+--- /dev/null
++++ b/scripts/rescue-recut-merge.ts
+@@ -0,0 +1,20 @@
++import { readFileSync, writeFileSync } from 'node:fs';
++import { TUNING } from '../tuning';
++import { matrixSpecs, type runRecut } from './rescue-recut-harness';
++
++type Report = { worker: number; reusedRows: number; tuningSha256: string; rows: ReturnType<typeof runRecut>[] };
++const parts = Array.from({ length: TUNING.rescueRecut.maximumWorkers }, (_, worker) =>
++  JSON.parse(readFileSync(`reports/rescue-recut-matrix-worker-${worker}.json`, 'utf8')) as Report);
++if (new Set(parts.map(p => p.tuningSha256)).size !== 1) throw new Error('Worker configurations differ.');
++const bySpec = new Map(parts.flatMap(p => p.rows).map(r => [JSON.stringify(r.spec), r]));
++const specs = matrixSpecs();
++if (bySpec.size !== specs.length || parts.reduce((n, p) => n + p.rows.length, 0) !== specs.length) throw new Error('Missing/duplicate matrix cases.');
++const rows = specs.map(spec => { const row = bySpec.get(JSON.stringify(spec)); if (!row) throw new Error('Missing exact matrix spec.'); return row; });
++const { worker: _worker, rows: _rows, ...base } = parts[0];
++const report = { ...base, worker: null, generatedAt: new Date().toISOString(), mergedWorkers: parts.length,
++  reusedRows: parts.reduce((n, p) => n + p.reusedRows, 0), rows };
++const json = JSON.stringify(report, null, 2);
++if (Buffer.byteLength(json) > TUNING.rescueRecut.reportMaximumBytes) throw new Error('Merged report exceeds root bound.');
++writeFileSync('reports/rescue-recut-matrix.json', `${json}\n`);
++writeFileSync('reports/rescue-recut-matrix.jsonl', `${rows.map(r => JSON.stringify(r)).join('\n')}\n`);
++console.log(JSON.stringify({ rows: rows.length, reused: report.reusedRows, bytes: Buffer.byteLength(json) }));
+diff --git a/scripts/rescue-recut-run.ts b/scripts/rescue-recut-run.ts
+new file mode 100644
+index 0000000..1415af2
+--- /dev/null
++++ b/scripts/rescue-recut-run.ts
+@@ -0,0 +1,44 @@
++import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
++import { createHash } from 'node:crypto';
++import { initializePhysics } from '../shared/simulation';
++import { TUNING } from '../tuning';
++import { runRecut, screenSpecs, matrixSpecs } from './rescue-recut-harness';
++
++const mode = process.argv[2] ?? 'screen';
++if (!['screen', 'matrix'].includes(mode)) throw new Error('Use screen or matrix.');
++const worker = process.argv[3] === undefined ? null : Number(process.argv[3]);
++if (worker !== null && (mode !== 'matrix' || !Number.isInteger(worker) || worker < 0 || worker >= TUNING.rescueRecut.maximumWorkers)) throw new Error('Invalid bounded worker.');
++await initializePhysics();
++const specs = (mode === 'screen' ? screenSpecs() : matrixSpecs()).filter((_, id) => worker === null || id % TUNING.rescueRecut.maximumWorkers === worker);
++const rows = [];
++mkdirSync('reports', { recursive: true });
++const output = `${mode}${worker === null ? '' : `-worker-${worker}`}`;
++const prefix = 'reports/rescue-recut-matrix-prefix.jsonl';
++const cached = new Map(worker !== null && existsSync(prefix) ? readFileSync(prefix, 'utf8').trim().split('\n').filter(Boolean).map(line => {
++  const row = JSON.parse(line) as ReturnType<typeof runRecut>; return [JSON.stringify(row.spec), row];
++}) : []);
++const checkpoint = `reports/rescue-recut-${output}.jsonl`;
++writeFileSync(checkpoint, '');
++let checkpointBytes = 0, reusedRows = 0;
++for (const [i, spec] of specs.entries()) {
++  const saved = cached.get(JSON.stringify(spec));
++  if (saved) reusedRows++;
++  const row = saved ?? runRecut(spec); rows.push(row);
++  const raw = `${JSON.stringify(row)}\n`; checkpointBytes += Buffer.byteLength(raw);
++  if (checkpointBytes > TUNING.rescueRecut.reportMaximumBytes) throw new Error('Checkpoint exceeds root byte bound.');
++  appendFileSync(checkpoint, raw);
++  console.log(JSON.stringify({ i: i + 1, total: specs.length, ...spec, ending: row.ending, rescueSeconds: row.rescueSeconds,
++    finalY: row.finalPlayers[spec.casualty].position.y, counterexample: row.passiveRecoveryCounterexample,
++    penetrationM: row.diagnostics.maximumTerrainPenetrationM, segmentErrorM: row.counters.maximumSegmentErrorM }));
++}
++const report = { generatedAt: new Date().toISOString(), mode, worker, reusedRows, baselineSha: TUNING.rescueRecut.baselineSha,
++  tuningSha256: createHash('sha256').update(JSON.stringify(TUNING)).digest('hex'), tuning: TUNING,
++  limitations: ['Scripted mechanics only; no human or remote-feel evidence.',
++    'Tension is the baseline correction-derived scalar estimate; residual force includes solver and energy projection.',
++    'Snow and ice change ground traction only; wall friction is the same prescribed wall material.',
++    'Censored policies do not prove physical impossibility; any verified passive recovery is a constructive counterexample.'], rows };
++const json = JSON.stringify(report, null, 2);
++if (Buffer.byteLength(json) > TUNING.rescueRecut.reportMaximumBytes) throw new Error('Report exceeds root byte bound.');
++mkdirSync('reports', { recursive: true });
++writeFileSync(`reports/rescue-recut-${output}.json`, `${json}\n`);
++console.log(JSON.stringify({ saved: `reports/rescue-recut-${output}.json`, rows: rows.length, bytes: Buffer.byteLength(json) }));
+diff --git a/scripts/rescue-recut-summary.ts b/scripts/rescue-recut-summary.ts
+new file mode 100644
+index 0000000..4365dc4
+--- /dev/null
++++ b/scripts/rescue-recut-summary.ts
+@@ -0,0 +1,146 @@
++import { readFileSync, writeFileSync } from 'node:fs';
++import { TUNING } from '../tuning';
++import type { runRecut } from './rescue-recut-harness';
++
++type Row = ReturnType<typeof runRecut>;
++type Report = { rows: Row[] };
++const screen = JSON.parse(readFileSync('reports/rescue-recut-screen.json', 'utf8')) as Report;
++const matrix = JSON.parse(readFileSync('reports/rescue-recut-matrix.json', 'utf8')) as Report;
++const n = (value: number, digits = 3) => value.toFixed(digits);
++const bounds = (row: Row) => row.error === null
++  && [row.diagnostics.maximumTerrainPenetrationM, row.diagnostics.maximumBodyOverlapM,
++    row.counters.maximumSpanErrorM, row.counters.maximumSegmentErrorM].every(Number.isFinite)
++  && row.diagnostics.maximumTerrainPenetrationM <= TUNING.physicsDiagnostics.maximumFloorErrorM
++  && row.diagnostics.maximumBodyOverlapM <= TUNING.physicsDiagnostics.maximumBodyOverlapM
++  && row.counters.maximumSpanErrorM <= TUNING.physicsDiagnostics.maximumSpanErrorM
++  && row.counters.maximumSegmentErrorM <= TUNING.physicsDiagnostics.maximumSegmentErrorM;
++const success = (rows: Row[]) => `${rows.filter(r => r.ending === 'recovered').length}/${rows.length}`;
++const range = (values: number[]) => values.length ? `${n(Math.min(...values))}–${n(Math.max(...values))}` : '—';
++const topology = (row: Row) => {
++  const banks = new Set(row.initialPositions.filter((_, id) => id !== row.spec.casualty).map(p => p.z < TUNING.phase2.rescueLipZ ? 'near' : 'far'));
++  return banks.size > 1 ? 'helpers on both banks' : `helpers on the ${[...banks][0]} bank`;
++};
++const screenRows = TUNING.rescueRecut.variants.flatMap(v => TUNING.rescueRecut.screenTeams.map(team => {
++  const rows = screen.rows.filter(r => r.spec.variant === v.name && r.spec.n === team);
++  return `| ${v.name} | ${team} | ${rows.map(r => r.ending === 'recovered' ? n(r.rescueSeconds!) : 'censored').join(' | ')} | ${rows.filter(bounds).length}/${rows.length} |`;
++}));
++const matrixRows = TUNING.rescueRecut.teamSizes.flatMap(team => (['snow', 'ice'] as const).map(surface => {
++  const rows = matrix.rows.filter(r => r.spec.n === team && r.spec.surface === surface && r.spec.bank === 'same' && r.spec.casualty === Math.floor(team / 2));
++  const policy = (name: string) => rows.filter(r => r.spec.policy === name);
++  const frozen = rows.filter(r => r.spec.policy.startsWith('frozen'));
++  return `| ${team} | ${surface} | ${success(policy('pull-away').concat(policy('fan-out')))} | ${success(policy('static-helpers'))} | ${success(policy('idle-casualty'))} | ${success(frozen)} | ${frozen.filter(r => r.passiveRecoveryCounterexample && bounds(r)).length} |`;
++}));
++const geometricFailures = [...screen.rows, ...matrix.rows].filter(r => !bounds(r));
++const counterexamples = matrix.rows.filter(r => r.passiveRecoveryCounterexample && bounds(r));
++const exemplars = TUNING.rescueRecut.teamSizes.map(team => counterexamples.find(r => r.spec.n === team && r.spec.surface === 'snow' && r.spec.frozenBrace)).filter((row): row is Row => !!row);
++const rotatedRows = TUNING.rescueRecut.teamSizes.flatMap(team => (['same', 'split'] as const).map(bank => {
++  const rows = matrix.rows.filter(r => r.spec.n === team && r.spec.bank === bank);
++  return `| ${team} | ${bank === 'split' ? 'centered' : 'near-lip'} | ${success(rows.filter(r => ['pull-away', 'fan-out'].includes(r.spec.policy)))} | ${success(rows.filter(r => r.spec.policy === 'static-helpers'))} | ${success(rows.filter(r => r.spec.policy === 'idle-casualty'))} |`;
++}));
++const all = [...screen.rows, ...matrix.rows], selected = matrix.rows;
++const max = (f: (row: Row) => number) => Math.max(...selected.map(f));
++const text = `# Rescue re-cut mechanical evidence
++
++Baseline: \`${TUNING.rescueRecut.baselineSha}\`. Commands: \`npx tsx scripts/rescue-recut-run.ts screen\`, \`npx tsx scripts/rescue-recut-run.ts matrix\`, then \`npx tsx scripts/rescue-recut-summary.ts\`.
++
++**Phase 2 still fails the static-role requirement; Phase 3 remains blocked.** Subweight wall assistance removes the original all-static-helper example in the observed window, while passive helper recoveries remain. Human feel and agency are unmeasured. These are deterministic policy outcomes, not first-attempt human recovery percentages.
++
++## Fixed screen: 32 trajectories
++
++Recovery duration is first fall to confirmed team recovery, in simulation seconds. Censored means no recovery during ${TUNING.rescueRecut.horizonSeconds} seconds from fixture start. Each row contains one trial per policy; no confidence/population inference applies. Contact/rope bounds use the existing 1 mm terrain, 5 mm body, 1 cm span and 2 cm segment ceilings. Energy is reported separately, not certified by that column.
++
++| Variant | Bodies | Pull away | Fan out | Static helpers | Idle casualty | Contact/rope bounds |
++|---|---:|---:|---:|---:|---:|---:|
++${screenRows.join('\n')}
++
++The stance variant is rejected: successful recovery with an excessive rope residual is not a qualified success. Neither its failed straight haul nor its contact-error cases are removed from the report. The wall-450 matrix was selected analytically before outcomes; no additional tuning was performed after this screen.
++
++## Fixed wall-450 role matrix: ${matrix.rows.length} trajectories
++
++Canonical same-bank middle casualty. Counts are observed recoveries/trials; frozen interventions include REST and continuous brace, each helper separately and all remote helpers together where such helpers exist. The final column counts passive recoveries that also meet the contact/rope bounds.
++
++| Bodies | Surface | Active policies | All helpers static | Idle casualty | Frozen interventions | Passive recoveries within bounds |
++|---|---|---:|---:|---:|---:|---:|
++${matrixRows.join('\n')}
++
++Head/middle/tail placement coverage, combining snow and ice (near-lip includes the canonical matrix above). The raw spec's \`bank: 'split'\` names the centered-casualty fixture family: only interior casualties have helpers on both banks. Endpoint casualties in that family have helpers on one bank and start at the hole center; they are not evidence for a split-bank endpoint rescue. Every row retains exact initial positions.
++
++| Bodies | Placement family | Active policies | All helpers static | Idle casualty |
++|---|---|---:|---:|---:|
++${rotatedRows.join('\n')}
++
++## Constructive static-role counterexamples
++
++${exemplars.map(row => `- Matrix row ${matrix.rows.indexOf(row) + 1}: ${row.spec.n} bodies, ${topology(row)}, ${row.spec.surface}, casualty P${row.spec.casualty + 1}; P${row.heldIds.map(id => id + 1).join('/P')} continuously braces from tick 0 through confirmed recovery (${n(row.rescueSeconds!)} s). Held-input verification: ${row.heldPolicyVerified}. Accepted-input SHA-256: \`${row.acceptedInputsSha256}\`.`).join('\n')}
++
++All remote helpers held together:
++
++${counterexamples.filter(row => row.spec.policy === 'frozen-remote' && row.spec.frozenBrace && row.spec.surface === 'snow').map(row => `- Matrix row ${matrix.rows.indexOf(row) + 1}: ${row.spec.n} bodies, casualty P${row.spec.casualty + 1}; remote P${row.heldIds.map(id => id + 1).join('/P')} continuously brace from tick 0; recovery ${n(row.rescueSeconds!)} s, maximum segment residual ${n(row.counters.maximumSegmentErrorM, 6)} m.`).join('\n') || 'None observed within contact/rope bounds.'}
++
++Idle-casualty recoveries within contact/rope bounds:
++
++${counterexamples.filter(row => row.spec.policy === 'idle-casualty').map(row => `- Matrix row ${matrix.rows.indexOf(row) + 1}: ${row.spec.n} bodies, ${topology(row)}, ${row.spec.surface}, casualty P${row.spec.casualty + 1} starts at z=${n(row.initialPositions[row.spec.casualty].z)} m and holds exact REST from tick 0; recovery ${n(row.rescueSeconds!)} s. Accepted-input SHA-256: \`${row.acceptedInputsSha256}\`.`).join('\n') || 'None observed in these policies.'}
++
++There are ${counterexamples.length} observed passive recoveries within contact/rope bounds across the full matrix. A frozen player's body may move under rope load; that is not an action change by the player. Loaded-time and motion are observational proxies, not proof of useful voluntary action. Freezing inputs leaves the body on the rope: it tests whether voluntary action changes are necessary, not whether that body’s mass or static support is necessary. No role gate masks these outcomes.
++
++## Actual force, motion and numerical limits
++
++Wall-450 uses a 585 N vertical wall-motor cap versus 784.8 N weight, leaving a minimum 199.8 N upward rope resultant for steady ascent. Wall-300 leaves 394.8 N. An idle casualty needs approximately the full 784.8 N from the rope. These are motor/geometry bounds in the current model, not calibrated human force measurements. Ground effort limits are 800 N on snow and 240 N on ice; nominal brace budgets are 1255.68 N and 376.704 N before consumed braking effort. The ice fixtures change ground traction, not wall material.
++
++For the wall-450 matrix:
++
++- Recovered rescue duration: ${range(selected.flatMap(r => r.rescueSeconds === null ? [] : [r.rescueSeconds]))} s; ${selected.filter(r => r.rescueSeconds !== null && r.rescueSeconds >= TUNING.phase2Evidence.targets.rescueSeconds[0] && r.rescueSeconds <= TUNING.phase2Evidence.targets.rescueSeconds[1]).length}/${selected.filter(r => r.rescueSeconds !== null).length} recovered scripted trials land in the 10–20 s target. Human normal-rescue timing remains unmeasured.
++- Observed wall vertical motor maximum: ${n(max(r => Math.max(...r.roles.map(p => p.maximumWallEffortN))))} N. Motor-work reconstruction error maximum: ${max(r => Math.abs(r.motorWorkReconstructionErrorJ)).toExponential(3)} J.
++- Correction-derived scalar tension maximum: ${n(max(r => r.maximumTensionN))} N; this is not a calibrated force sensor or the upward component. Sampled endpoint tangents use the routed particle path, never the straight harness chord.
++- Maximum instantaneous horizontal motor force: ${n(max(r => Math.max(...r.roles.map(p => p.maximumMotorHorizontalForceN))))} N. The baseline wall press/lateral velocity assignment can exceed the nominal wall normal-effort parameter. That parameter bounds vertical tangential effort; it does not equal measured contact normal force. This limits any claim of Coulomb-consistent wall traction.
++- Maximum net residual vertical force magnitude: ${n(max(r => Math.max(...r.roles.map(p => p.maximumResidualVerticalForceN))))} N. Residual = observed momentum change minus gravity and reconstructed motor; it includes Rapier contacts, rope/contact projection and kinetic-energy correction, so it is not separately attributable tension.
++- Maximum single-step kinetic-energy projection: ${n(max(r => r.diagnostics.maximumEnergyProjectionJ))} J; maximum unresolved potential-energy excess: ${n(max(r => r.diagnostics.maximumPotentialExcessJ))} J; pre-projection unexplained-energy diagnostic: ${n(max(r => r.diagnostics.maximumUnexplainedEnergyGainJ))} J. No energy-conservation proof is claimed.
++- Maximum terrain penetration: ${n(max(r => r.diagnostics.maximumTerrainPenetrationM), 6)} m; body overlap: ${n(max(r => r.diagnostics.maximumBodyOverlapM), 6)} m; span residual: ${n(max(r => r.counters.maximumSpanErrorM), 6)} m; segment residual: ${n(max(r => r.counters.maximumSegmentErrorM), 6)} m.
++- The retained \`solverIterations\` diagnostic is the last substep count, not the lifetime maximum; do not use it to claim that an earlier residual converged.
++
++${geometricFailures.length}/${all.length} trajectories across screen plus matrix exceed an existing contact/rope ceiling or report an error. Exact failures:
++
++${geometricFailures.map(row => `- ${screen.rows.includes(row) ? 'Screen' : 'Matrix'} row ${(screen.rows.includes(row) ? screen.rows : matrix.rows).indexOf(row) + 1}: \`${JSON.stringify(row.spec)}\`; ending ${row.ending}, segment ${n(row.counters.maximumSegmentErrorM, 6)} m, span ${n(row.counters.maximumSpanErrorM, 6)} m, overlap ${n(row.diagnostics.maximumBodyOverlapM, 6)} m, penetration ${n(row.diagnostics.maximumTerrainPenetrationM, 6)} m${row.error ? `; error ${row.error}` : ''}.`).join('\n')}
++
++## Exit geometry and limp-body conflict
++
++The sampled rope tangents, final body locations and wall/ground occupancy retain rim stalls explicitly. Censored idle-casualty rescues mean these particular policies did not clear the body, not that limp-body recovery is impossible. At the rim the routed rope's upward component can shrink while the box still needs vertical clearance. Changing the helpers' initial stance alone did not reliably solve this and sometimes exceeded rope tolerances.
++
++A disconnected limp body is not an active participant and should not itself be scored as a connected player’s functional inactivity. Its recoverability nevertheless implies recoverability of an identical physical state with zero input from a connected casualty. The idle-casualty examples make that possibility concrete: casualty action changes are not mechanically necessary in those fixtures. Useful opportunities to participate are a separate criterion. Similarly, adjacent haulers can perform enough work while remote helpers remain static or slack. Reduced wall effort improves the self-climbing envelope; it does not pass the every-role requirement.
++
++Raw sources: [screen JSON](rescue-recut-screen.json), [matrix JSON](rescue-recut-matrix.json), and [preregistered design note](../docs/design/phase2-recut-experiments.md). Each row retains fixture geometry, exact input digest, outcomes/events, per-role motion/contact/motor aggregates, full solver/energy diagnostics and one-second sampled rope/body state. Full root tuning and source baseline are exported. No human sessions, remote trials, art, deployment or Phase 3 work occurred.
++`;
++writeFileSync('reports/rescue-recut-summary.md', text);
++console.log(JSON.stringify({ trajectories: all.length, passiveWithinContactBounds: counterexamples.length, geometricFailures: geometricFailures.length }));
++
++const staticExample = counterexamples.find(r => r.spec.n === 3 && r.spec.policy === 'frozen-helper' && r.spec.frozenBrace);
++const idleExample = counterexamples.find(r => r.spec.n === 4 && r.spec.policy === 'idle-casualty' && r.spec.bank === 'split');
++const example = (row: Row | undefined, description: string) => row ? `${description}: matrix row ${matrix.rows.indexOf(row) + 1}, ${n(row.rescueSeconds!)} s; held inputs verified, maximum segment residual ${n(row.counters.maximumSegmentErrorM, 6)} m.` : `${description}: no qualified example recorded.`;
++const decision = `# Re-cut decision: keep experimental, do not select as a Phase 2 solution
++
++Core candidate: \`54eec098d3e90abf5cd9c3b59a5927c0c3c48c89\` on \`codex/phase2-rescue-recut\`. The candidate changes wall effort/version and mechanics regressions only. Experiment hooks and evidence are separate commits. No Phase 3 work or human gate pass is implied.
++
++**The 450 N variant improves the force envelope but still fails the static-role requirement and is not a validated 2–6-player solution.** It caps vertical wall assistance at 585 N against 784.8 N weight, requiring at least 199.8 N upward rope force for steady ascent. The original 1170 N cap allowed self-climbing.
++
++The final dataset is complete: 32 screen cases plus 250 matrix cases. Separate preflight evidence retains a 32-case screen and 60 interrupted-matrix outcome rows; these are not pooled into final counts. There was one documented helper-policy bug correction, not another parameter family.
++
++| Variant | Decision |
++|---|---|
++| Baseline, 900 N | Original static-helper self-climb remains an explicit failure. |
++| 450 N | Original two-player all-static-helper climb censored at 30 s; active snow rescues remain possible. Other static helpers and idle casualties can still recover. |
++| 300 N | Reject as a selected variant: the two-player fan-out policy stalls and exceeds the 2 cm segment ceiling. |
++| 450 N, wider/nearer stance | Reject: some stalls remain; maximum screen segment residual is 0.109 m. |
++
++${example(staticExample, 'Static helper: three players, middle casualty P2, P3 continuously braces from tick zero')}
++
++${example(idleExample, 'Idle casualty: four players, tail P4 starts at z=1.4 m, all helpers on the near bank; P4 holds REST throughout')}
++
++Across the matrix, ${counterexamples.length} passive recoveries meet existing contact/rope bounds; ${selected.filter(r => !bounds(r)).length}/250 cases exceed a contact/rope ceiling or error. Recovered duration spans ${range(selected.flatMap(r => r.rescueSeconds === null ? [] : [r.rescueSeconds]))} s. The 10–20 s rescue target and human participation/feel remain unvalidated. This focused fixture work does not establish incident count, route duration, first-exposure probabilities or four-incident completion.
++
++Numerical limits are material: maximum single-step kinetic-energy removal ${n(max(r => r.diagnostics.maximumEnergyProjectionJ))} J; unresolved potential excess ${n(max(r => r.diagnostics.maximumPotentialExcessJ))} J. Wall horizontal motor assignments can reach ${n(max(r => Math.max(...r.roles.map(p => p.maximumMotorHorizontalForceN))))} N, so the nominal normal-effort parameter is not a measured Coulomb contact normal. The solver was retained, not tuned to hide these failures.
++
++A disconnected limp body is not an active participant, so its recovery alone is not an agency verdict. But an identically idle connected casualty can share the same physics. The zero-input recovery above shows that casualty action changes are not mechanically necessary in that fixture. Available useful participation is a different criterion from mechanically necessary action. Freezing a helper leaves its body and static support present; it does not prove the body is unnecessary. No connection/input gate is proposed.
++
++[Detailed results and exact failure rows](rescue-recut-summary.md) · [Raw screen](rescue-recut-screen.json) · [Raw matrix](rescue-recut-matrix.json) · [Derivation and protocol](../docs/design/phase2-recut-experiments.md)
++`;
++writeFileSync('reports/rescue-recut-decision.md', decision);
+diff --git a/shared/expedition-simulation.ts b/shared/expedition-simulation.ts
+index 5f5fc24..bfb10ac 100644
+--- a/shared/expedition-simulation.ts
++++ b/shared/expedition-simulation.ts
+@@ -1,6 +1,6 @@
+ import RAPIER from '@dimforge/rapier3d-compat';
+ import { TUNING, FAMILIES, type Family, type TickHz } from '../tuning';
+-import { REST, normalizeMove, type Scene, type SceneOptions, type Vec3, type Move, type Tape,
++import { REST, normalizeMove, type Scene, type SceneOptions, type Vec3, type Move, type Tape, type Rect,
+   type SimulationSnapshot, type IncidentState, type PhysicalEvent, type RescueState, type SimCounters } from './protocol';
+ import { motorVelocity } from './movement';
+ import { physicalTerrain } from './terrain';
+@@ -15,6 +15,10 @@ const clamp = (n: number, min: number, max: number) => Math.max(min, Math.min(ma
+ type Span = { id: number; a: number; b: number; nodes: number[]; startPoint: number; endPoint: number;
+   tension: number; tensionN: number; corrections: Vec3[]; highlightUntil: number; wasTaut: boolean };
+ 
++/** Offline experiment fixture only. The application wrapper never passes this argument.
++ * Initial positions construct both harnesses and rope together; no post-step teleport. */
++export type RescueRecutFixture = { positions: Vec3[]; ice: Rect[] };
++
+ /** Shared harness degrees of freedom, adjacent unilateral particle spans, and swept terrain
+  * projections. Each Rapier step advances time once, and each body receives one rope impulse. */
+ export class ExpeditionSimulation {
+@@ -58,7 +62,7 @@ export class ExpeditionSimulation {
+   tension = 0;
+   tensionN = 0;
+ 
+-  constructor(options: SceneOptions) {
++  constructor(options: SceneOptions, fixture?: RescueRecutFixture) {
+     this.scene = options.scene ?? 'flat'; this.playerCount = options.playerCount ?? TUNING.players;
+     this.seed = options.seed ?? TUNING.seed; this.family = options.family ?? 'balanced'; this.tickHz = options.tickHz ?? TUNING.tickHz;
+     this.length = FAMILIES[this.family].ropeLength * (this.playerCount - 1);
+@@ -69,6 +73,11 @@ export class ExpeditionSimulation {
+       distanceTravelledM: Array(this.playerCount).fill(0) };
+     this.runStatus = this.scene === 'flat' ? 'testing' : 'active';
+     this.terrain = physicalTerrain(this.scene, this.seed);
++    if (fixture) {
++      if (this.scene !== 'rescue' || fixture.positions.length !== this.playerCount
++        || fixture.positions.some(p => ![p.x, p.y, p.z].every(Number.isFinite))) throw new Error('Invalid rescue experiment fixture.');
++      this.terrain.state.ice = fixture.ice.map((rect, id) => ({ ...rect, id }));
++    }
+     this.world = new RAPIER.World({ x: 0, y: -TUNING.gravity, z: 0 });
+     this.world.timestep = 1 / TUNING.physicsHz;
+     this.world.integrationParameters.normalizedPredictionDistance = TUNING.phase2.contactPredictionM;
+@@ -84,7 +93,8 @@ export class ExpeditionSimulation {
+         * (this.scene === 'rescue' ? TUNING.phase2.rescueSpacing : TUNING.rope.initialSpacing);
+       const z = this.scene === 'crossing' ? -id * TUNING.rope.initialSpacing : this.scene === 'flat' ? 0
+         : id === Math.floor(this.playerCount / 2) ? TUNING.phase2.rescueFallerAdvance : -TUNING.phase2.rescueSafeOffset;
+-      const body = this.world.createRigidBody(RAPIER.RigidBodyDesc.dynamic().setTranslation(x, half.y + TUNING.phase2.collisionSkin, z)
++      const initial = fixture?.positions[id] ?? { x, y: half.y + TUNING.phase2.collisionSkin, z };
++      const body = this.world.createRigidBody(RAPIER.RigidBodyDesc.dynamic().setTranslation(initial.x, initial.y, initial.z)
+         .lockRotations().setCanSleep(false).setCcdEnabled(true));
+       this.world.createCollider(RAPIER.ColliderDesc.cuboid(half.x, half.y, half.z)
+         .setMass(TUNING.body.mass).setFriction(TUNING.body.groundFriction), body);
+diff --git a/tests/phase2-mechanics.test.ts b/tests/phase2-mechanics.test.ts
+index d746ba8..4a93d07 100644
+--- a/tests/phase2-mechanics.test.ts
++++ b/tests/phase2-mechanics.test.ts
+@@ -38,12 +38,32 @@ describe('Phase 2 contract and support', () => {
+     expect(s.snapshot().run.status).toBe('failed'); expect(s.snapshot().run.elapsedSeconds).toBe(elapsed);
+     expect(s.tick).toBe(TUNING.tickHz + 1); expect(s.tape.frames).toHaveLength(s.tick);
+   });
+-  it('records a static-helper successful climb as a counterexample, not a forced role gate', () => {
++  it('does not self-climb under subweight wall effort while its helper stays braced', () => {
+     const s = create({ scene: 'rescue' });
+     for (let tick = 0; tick < s.tickHz * TUNING.phase2.mechanicsProbeSeconds; tick++) s.step([hold, { x: 0, z: -1, brace: false }]);
+-    const incident = s.snapshot().incidents[0]; expect(incident.status).toBe('recovered');
++    const incident = s.snapshot().incidents[0]; expect(incident.status).toBe('active');
+     expect(incident.staticHoldSeconds[0]).toBeGreaterThan(incident.roleActiveSeconds[0]);
+-    expect(s.snapshot().events.some(e => e.kind === 'climb')).toBe(true);
++    expect(s.snapshot().players[1].position.y).toBeLessThan(0);
++  });
++  it('still permits ordinary helper motion to haul a wall-assisted casualty', () => {
++    const s = create({ scene: 'rescue' });
++    const toward = { x: 0, z: -1, brace: false };
++    for (let tick = 0; tick < s.tickHz * TUNING.phase2.mechanicsProbeSeconds; tick++) {
++      s.step([tick < s.tickHz ? hold : toward, toward]);
++      if (s.snapshot().incidents[0]?.status === 'recovered') break;
++    }
++    expect(s.snapshot().incidents[0]?.status).toBe('recovered');
++  });
++  it('retains the unresolved three-player static-helper counterexample', () => {
++    const s = create({ scene: 'rescue', playerCount: 3 });
++    const toward = { x: 0, z: -1, brace: false };
++    for (let tick = 0; tick < s.tickHz * TUNING.phase2.mechanicsProbeSeconds; tick++) {
++      s.step([tick < s.tickHz ? hold : toward, toward, hold]);
++      if (s.snapshot().incidents[0]?.status === 'recovered') break;
++    }
++    const incident = s.snapshot().incidents[0];
++    expect(incident?.status).toBe('recovered');
++    expect(incident.staticHoldSeconds[2]).toBeGreaterThan(incident.roleActiveSeconds[2]);
+   });
+ });
+ 
+diff --git a/tests/rescue-recut-evidence.test.ts b/tests/rescue-recut-evidence.test.ts
+new file mode 100644
+index 0000000..a7158d1
+--- /dev/null
++++ b/tests/rescue-recut-evidence.test.ts
+@@ -0,0 +1,53 @@
++import { beforeAll, describe, expect, it } from 'vitest';
++import { TUNING, FAMILIES } from '../tuning';
++import { initializePhysics } from '../shared/simulation';
++import { envelope, fixtureFor, heldIds, matrixSpecs, recutInputs, runRecut, screenSpecs, type Spec } from '../scripts/rescue-recut-harness';
++import { ExpeditionSimulation } from '../shared/expedition-simulation';
++
++beforeAll(initializePhysics);
++const spec: Spec = { variant: 'wall-450', n: 2, casualty: 1, bank: 'same', surface: 'snow', policy: 'static-helpers' };
++
++describe('bounded re-cut evidence', () => {
++  it('keeps a near-bank helper hauling away while its body partly overhangs the lip', () => {
++    const simulation = new ExpeditionSimulation({ scene: 'rescue', playerCount: spec.n }, fixtureFor(spec));
++    try {
++      const state = simulation.snapshot(); state.tick = state.tickHz;
++      state.players[0].position.z = TUNING.body.depth / 4;
++      expect(recutInputs({ ...spec, policy: 'pull-away' }, state)[0].z).toBe(-1);
++    } finally { simulation.dispose(); }
++  });
++  it('covers all helper freeze interventions without initial stretched rope or empty hold claims', () => {
++    for (const row of [...screenSpecs(), ...matrixSpecs()]) {
++      const fixture = fixtureFor(row);
++      expect(fixture.positions).toHaveLength(row.n);
++      for (let id = 1; id < row.n; id++) {
++        const a = fixture.positions[id - 1], b = fixture.positions[id];
++        expect(Math.hypot(a.x - b.x, a.y - b.y, a.z - b.z)).toBeLessThanOrEqual(FAMILIES.balanced.ropeLength);
++      }
++      if (row.policy.startsWith('frozen')) expect(heldIds(row).length).toBeGreaterThan(0);
++    }
++    for (const n of TUNING.rescueRecut.teamSizes) for (let id = 0; id < n; id++) if (id !== Math.floor(n / 2)) {
++      expect(matrixSpecs().some(row => row.n === n && row.policy === 'frozen-helper' && row.frozenId === id && row.frozenBrace === false)).toBe(true);
++      expect(matrixSpecs().some(row => row.n === n && row.policy === 'frozen-helper' && row.frozenId === id && row.frozenBrace === true)).toBe(true);
++    }
++  });
++  it('retains the actual baseline static-brace rescue as a verified counterexample', () => {
++    const row = runRecut({ ...spec, variant: 'baseline' });
++    expect(row.ending).toBe('recovered');
++    expect(row.heldIds).toEqual([0]);
++    expect(row.heldPolicyVerified).toBe(true);
++    expect(row.passiveRecoveryCounterexample).toBe(true);
++  });
++  it('reconstructs actual motor work and enforces the subweight wall effort without claiming impossibility', () => {
++    const priorEffort = TUNING.phase2.wallNormalEffortN;
++    const row = runRecut(spec);
++    expect(row.error).toBeNull();
++    expect(row.ending).toBe('censored');
++    expect(row.roles[1].maximumWallEffortN).toBe(envelope(TUNING.rescueRecut.variants[1], 'snow').wallCapacityN);
++    expect(Math.abs(row.motorWorkReconstructionErrorJ)).toBeLessThan(TUNING.phase2.energyToleranceJ);
++    expect(row.heldPolicyVerified).toBe(true);
++    expect(row.diagnostics.maximumTerrainPenetrationM).toBeLessThan(TUNING.physicsDiagnostics.maximumFloorErrorM);
++    expect(row.counters.maximumSegmentErrorM).toBeLessThan(TUNING.physicsDiagnostics.maximumSegmentErrorM);
++    expect(TUNING.phase2.wallNormalEffortN).toBe(priorEffort);
++  });
++});
+diff --git a/tuning.ts b/tuning.ts
+index c1b993c..dfbac23 100644
+--- a/tuning.ts
++++ b/tuning.ts
+@@ -2,7 +2,7 @@
+  * Changes are recorded by the reports' full configuration and simulation version.
+  * Nothing here is a human Gate 1 verdict. */
+ export const TUNING = {
+-  version: 'phase2-1',
++  version: 'phase2-recut-1',
+   phase: 2,
+   seed: 1701, // Reproducible default flat test surface; no hazards are generated.
+   players: 2, // Gate 1 is exactly two bodies. Later phases must still respect hardCap.
+@@ -145,8 +145,8 @@ export const TUNING = {
+     solverIterations: 12, maximumSolverIterations: 256, solverToleranceM: 0.005, // Extra bounded passes handle the large rope/body mass ratio at a lip contact.
+     iceTractionMultiplier: 0.3, // A known low-traction patch, not a hidden difficulty adjustment.
+     wallClimbSpeed: 1.6, wallDescendSpeed: 1.8, wallAcceleration: 5,
+-    wallPressSpeed: 0.45, wallNormalEffortN: 900, wallFriction: 1.3,
+-    wallRopeSupportFraction: 0.08, // Wall ascent requires actual rope support as well as wall contact.
++    wallPressSpeed: 0.45, wallNormalEffortN: 450, wallFriction: 1.3, // Experimental 585 N vertical motor cap < 784.8 N body weight; ascent needs rope work. Not a measured contact-normal force.
++    wallRopeSupportFraction: 0.08, // Loaded-rope activity-proxy threshold only; no instantaneous tension or input gate on ascent.
+     fallDepth: 0.2, fallSpeed: 0.5, catchSpeed: 0.35, catchConfirmSeconds: 0.12,
+     recoveryConfirmSeconds: 0.3, catchHighlightSeconds: 0.5,
+     energyToleranceJ: 0.01, // Per internal step roundoff allowance; contacts/rope cannot supply unexplained kinetic energy.
+@@ -176,6 +176,25 @@ export const TUNING = {
+     maximumReportBytes: 16 * 1024 * 1024, // Bound aggregate/raw-trajectory report output.
+     maximumSavedTapes: 20, maximumTapeOutputBytes: 32 * 1024 * 1024, // Bound representative failure/counterexample artifacts; report omitted/truncated evidence.
+   },
++  rescueRecut: {
++    baselineSha: 'ad00223526c9f3ba93320bfe284c74f1f30697fd',
++    policyVersion: 'bank-midpoint', // Nearest-bank classification stays stable across the body's partial lip overhang.
++    maximumWorkers: 4, // Independent, disjoint offline cases only; improves throughput without changing the fixed case budget. No timing inference.
++    variants: [
++      { name: 'baseline', wallNormalEffortN: 900, safeOffsetM: 0.8, spacingM: 1.6 },
++      { name: 'wall-450', wallNormalEffortN: 450, safeOffsetM: 0.8, spacingM: 1.6 },
++      { name: 'wall-300', wallNormalEffortN: 300, safeOffsetM: 0.8, spacingM: 1.6 },
++      { name: 'wall-450-stance', wallNormalEffortN: 450, safeOffsetM: 0.45, spacingM: 3.2 },
++    ], // Fixed before trajectories: 1170/585/390 N wall capacity; last variant takes up real chain slack.
++    matrixVariant: 'wall-450', // Analytically chosen before screen results; no adaptive parameter search.
++    screenTeams: [2, 6], teamSizes: [2, 3, 4, 5, 6],
++    horizonSeconds: 30, // Censoring boundary, never a simulated death or omitted failure.
++    catchSeconds: 0.75, // One initial catch stance then a hauling step; scripted policy, not a game rule.
++    decisionSeconds: 0.5, // Inputs react to public state twice per second, not hidden force/capacity telemetry.
++    sampleSeconds: 1, // Retain bounded sampled geometry plus exact aggregate extrema and input digest.
++    splitSpacingM: 1.6, // Split-bank layout needs diagonal span room across the fixed 2.8 m hole.
++    reportMaximumBytes: 64 * 1024 * 1024,
++  },
+   localLoad: {
+     smokeRooms: 10, smokeSeconds: 30, // Default finite loopback diagnostic; no production qualification.
+     largeRooms: 300, largeSeconds: 30, // Explicit profile only, after six-body integration and coordination.

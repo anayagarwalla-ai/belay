@@ -1,0 +1,85 @@
+{
+  "baselineSha": "ad00223526c9f3ba93320bfe284c74f1f30697fd",
+  "experimentalSourceSha": "2eef347027d094bf9fd882ef4d0054691b11f2e6",
+  "rejectedCoreCandidateSha": "54eec098d3e90abf5cd9c3b59a5927c0c3c48c89",
+  "decision": "Retain the 900 N diagnostic baseline; evidence-only handoff, source patch unapplied.",
+  "sourcePatchValidation": "Applied to a temporary index rooted at the pinned baseline; all eight source files exactly matched the pinned experimental source tree.",
+  "sourceGitBlobs": {
+    "scripts/rescue-recut-harness.ts": "91863f073f834ca0a3c3c9968be69b4d4077a9a3",
+    "scripts/rescue-recut-merge.ts": "a2fdd3b5fe9959fd82eb881c57a9d1156fa6e2f9",
+    "scripts/rescue-recut-run.ts": "1415af263f8b29083ea0f8b95b09028e21f9c03d",
+    "scripts/rescue-recut-summary.ts": "4365dc4443395edb73c47deb49c7c6ff2050fd88",
+    "shared/expedition-simulation.ts": "bfb10ac21e3c95abb194b1800d39233fffcdd80f",
+    "tests/phase2-mechanics.test.ts": "4a93d078b49d125443863735856f2970b7d40d63",
+    "tests/rescue-recut-evidence.test.ts": "a7158d15cb48de37aa82db0168055d4c83b2e9c7",
+    "tuning.ts": "dfbac236d3abad0bd1196b66c8bd30a9f7f526e3"
+  },
+  "finalCases": {
+    "screen": 32,
+    "matrix": 250,
+    "matrixRecovered": 76,
+    "matrixCensored": 133,
+    "matrixTerminal": 41,
+    "matrixHarnessErrors": 0
+  },
+  "preflightCases": {
+    "screen": 32,
+    "matrixCompletedSummaryRows": 60,
+    "pooledIntoFinalCounts": false
+  },
+  "artifacts": {
+    "docs/design/phase2-recut-experiments.md": {
+      "sha256": "6d3368b3ae588d458253152f1b16cf06da64155435c2022fc01bc7d92679a6f1",
+      "bytes": 10442
+    },
+    "reports/rescue-recut-decision.md": {
+      "sha256": "3659b4f4fa58cfa5942bf6f0458a9726b1f3bf9cc91e968dd9e4904c1ccee891",
+      "bytes": 3511
+    },
+    "reports/rescue-recut-summary.md": {
+      "sha256": "29462291cd1793d60e1409674b89c3121bfed910ceed5879ac1fc3d7bbd267bf",
+      "bytes": 31552
+    },
+    "reports/rescue-recut-preflight-matrix.log": {
+      "sha256": "5a64feafd33711c63f1e45dc7988aaeef76c359af461d2bfda222face5c744d0",
+      "bytes": 16261
+    },
+    "reports/rescue-recut-source.patch": {
+      "sha256": "034ea28d2d047ecb3c070b0fd8a2c0a247883fdd50110819b89c099f89272712",
+      "bytes": 52967
+    },
+    "reports/rescue-recut-reproduce.md": {
+      "sha256": "a333d6e2d7f6a2cbbb154092eea0508b62fefac3517930173454b58725a1b88f",
+      "bytes": 5920
+    },
+    "reports/rescue-recut-matrix.json.gz": {
+      "sha256": "e14a08f288d52287561bb537e11e87a3f9124a34323a6c522a5908cd19c249bb",
+      "bytes": 2161999
+    },
+    "reports/rescue-recut-preflight-screen.json.gz": {
+      "sha256": "f8c8dd5bf33b84cb36acef7327f195e0d5e2092e8bbb459269668214ca37df23",
+      "bytes": 230184
+    },
+    "reports/rescue-recut-screen.json.gz": {
+      "sha256": "8573c879db4b4da556aa2328cf2636a49abad77c6df28b6eeb5940cd2fae527a",
+      "bytes": 230197
+    },
+    "reports/rescue-recut-original-manifest.json": {
+      "sha256": "9a269fd649c26ffb7c3f8a55058c936eb9e2b6294f501a2d3831be9b226b919d",
+      "bytes": 3283
+    },
+    "reports/rescue-recut-compression.json": {
+      "sha256": "2a4c63def78e4c00f0341f8f69d13e5c1deabe7544a27f7682d7c7cf7afcbb09",
+      "bytes": 1312
+    }
+  },
+  "baselineBundlePrerequisite": {
+    "path": "reports/phase2-baseline.bundle",
+    "providedBy": "coordinator; not duplicated in this evidence-only commit",
+    "advertisedRef": "refs/heads/codex/evidence-baseline",
+    "sha256": "f2712f4591baacf2f6b87bb3d7e0c08aed8c45c4d2ead3a79925dd50b955a6f4",
+    "baselineTree": "f6f56603eae237cf3743e42991c3719e39ec6798",
+    "fetchVerifiedInFreshBareRepository": true
+  },
+  "packaging": "Large JSON files are losslessly compressed; historical hashes preserved in rescue-recut-original-manifest.json and verified against decompressed bytes by rescue-recut-compression.json."
+}

@@ -1,0 +1,68 @@
+diff --git a/shared/expedition-simulation.ts b/shared/expedition-simulation.ts
+index 3e34f22..59830a5 100644
+--- a/shared/expedition-simulation.ts
++++ b/shared/expedition-simulation.ts
+@@ -223,8 +223,8 @@ export class ExpeditionSimulation {
+         this.diagnostics.contactProjections += projection.projections;
+         if (body) contactNormals[i].push(...projection.normals);
+       }
+-      this.routeRope();
+-      if (iterations + 1 >= profile.solverIterations && this.segmentError() <= profile.solverToleranceM) { iterations++; break; }
++      this.routeRope(ropeDelta);
++      if (iterations + 1 >= profile.solverIterations && this.segmentError() <= profile.solverToleranceM && !this.ropeIntersectsTerrain()) { iterations++; break; }
+     }
+     this.diagnostics.solverIterations = iterations;
+     let kinetic = 0, potential = 0, correctionWork = 0, gravityWork = 0;
+@@ -341,24 +341,39 @@ export class ExpeditionSimulation {
+       p[axis] += correction; q[axis] -= correction;
+     }
+   }
+-  private routeRope() {
+-    // Non-wrapping bank lips: route an internal particle around the rim, rather than
+-    // letting a segment join two outside particles through solid ice.
++  private routeRope(ropeDelta: Vec3[]) {
++    // Resolve a penetrating point on the segment using its barycentric inverse
++    // masses, rather than teleporting one particle to a fixed bank-lip corner.
+     for (const span of this.spans) for (let j = 1; j < span.nodes.length; j++) {
+-      const a = this.nodes[span.nodes[j - 1]], b = this.nodes[span.nodes[j]];
++      const aId = span.nodes[j - 1], bId = span.nodes[j], a = this.nodes[aId], b = this.nodes[bId];
+       for (const solid of this.terrain.solids) {
+-        if (!sweepBox(a, b, particleHalf, solid)) continue;
+-        const index = span.nodes[j] >= this.playerCount ? span.nodes[j] : span.nodes[j - 1];
+-        if (index < this.playerCount) continue;
+-        const node = this.nodes[index], outside = b.y < solid.maxY ? b : a;
+-        node.y = Math.max(node.y, solid.maxY + TUNING.rope.radius + TUNING.phase2.collisionSkin);
+-        if (outside.z >= solid.maxZ) node.z = solid.maxZ + TUNING.rope.radius + TUNING.phase2.collisionSkin;
+-        else if (outside.z <= solid.minZ) node.z = solid.minZ - TUNING.rope.radius - TUNING.phase2.collisionSkin;
+-        if (outside.x >= solid.maxX) node.x = solid.maxX + TUNING.rope.radius + TUNING.phase2.collisionSkin;
+-        else if (outside.x <= solid.minX) node.x = solid.minX - TUNING.rope.radius - TUNING.phase2.collisionSkin;
++        const hit = sweepBox(a, b, particleHalf, solid); if (!hit) continue;
++        const reverse = sweepBox(b, a, particleHalf, solid);
++        const t = (hit.time + (reverse ? 1 - reverse.time : 1)) / 2;
++        const point = { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t, z: a.z + (b.z - a.z) * t };
++        const overlap = penetration(point, particleHalf, solid); if (!overlap) continue;
++        const wa = (1 - t) / (aId < this.playerCount ? TUNING.body.mass : TUNING.rope.particleMass);
++        const wb = t / (bId < this.playerCount ? TUNING.body.mass : TUNING.rope.particleMass);
++        const correction = (overlap.depth + TUNING.phase2.collisionSkin) / ((1 - t) * wa + t * wb);
++        for (const [id, weight] of [[aId, wa], [bId, wb]] as const) for (const axis of axes) {
++          const delta = overlap.normal[axis] * correction * weight;
++          this.nodes[id][axis] += delta;
++          if (id < this.playerCount) {
++            ropeDelta[id][axis] += delta;
++            if (id === span.a) span.corrections[0][axis] += delta;
++            if (id === span.b) span.corrections[1][axis] += delta;
++          }
++        }
++        this.diagnostics.contactProjections++;
+       }
+     }
+   }
++  private ropeIntersectsTerrain() {
++    for (const span of this.spans) for (let j = 1; j < span.nodes.length; j++) for (const solid of this.terrain.solids) {
++      if (sweepBox(this.nodes[span.nodes[j - 1]], this.nodes[span.nodes[j]], particleHalf, solid)) return true;
++    }
++    return false;
++  }
+   private segmentError() {
+     let error = 0; const segment = FAMILIES[this.family].ropeLength / TUNING.rope.segments;
+     for (const span of this.spans) for (let j = 1; j < span.nodes.length; j++) error = Math.max(error, distance(this.nodes[span.nodes[j - 1]], this.nodes[span.nodes[j]]) - segment);

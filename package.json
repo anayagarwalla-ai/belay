@@ -30,7 +30,8 @@
     "playtest:stop": "tsx scripts/stop-playtest.ts",
     "playtest:preflight": "tsx scripts/preflight.ts",
     "test:operations": "vitest run --config vitest.config.ts tests/operations.test.ts",
-    "setup:tunnel": "tsx scripts/setup-tunnel.ts"
+    "setup:tunnel": "tsx scripts/setup-tunnel.ts",
+    "verify:evidence": "tsx scripts/verify-evidence.ts"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

@@ -32,7 +32,17 @@ The benchmark records one baseline input tape per six-player scene, then runs fo
 
 The full 1,000-trajectory evidence run and allocation profiler were paused/finished. Other authorized design-matrix workers, client checks, Chrome renderers, and the desktop environment shared the host. These paired measurements cannot establish a server deadline, production capacity, per-room memory cost, or a causal memory reduction. The bounded optimization stops here; no second candidate or solver retuning is included.
 
-To reproduce this rejected experiment, start an isolated checkout at the baseline commit, add the measurement script, apply `phase2-performance-rejected.patch`, then run `npx tsx scripts/phase2-performance.ts f2fb8fd7f828b706ccdabbaffcbb72a0565b58a1 equivalence` and the same command with `benchmark`. Running the script on the unchanged baseline instead would compare the baseline with itself. Check the raw reports' source hashes to distinguish the rejected candidate from current runtime files.
+In a fresh published clone, first import the historical baseline from the shipped bundle. API-based publication preserves source trees but may not preserve the original local commit IDs. From the published checkout root, run:
+
+```sh
+git bundle verify reports/phase2-baseline.bundle
+git fetch reports/phase2-baseline.bundle refs/heads/codex/evidence-baseline:refs/remotes/phase2-bundle/evidence-baseline
+git rev-parse --verify 'f2fb8fd7f828b706ccdabbaffcbb72a0565b58a1^{commit}'
+```
+
+The final command must print the baseline ID above. `reports/phase2-baseline-bundle.json` records the bundle checksum and verified historical trees. This import does not depend on an existing local worktree branch.
+
+Then start an isolated checkout at the imported baseline commit, copy the measurement script and rejected patch from the published checkout, apply `phase2-performance-rejected.patch`, and run `npx tsx scripts/phase2-performance.ts f2fb8fd7f828b706ccdabbaffcbb72a0565b58a1 equivalence` and the same command with `benchmark`. Running the script on the unchanged baseline instead would compare the baseline with itself. Check the raw reports' source hashes to distinguish the rejected candidate from current runtime files.
 
 ## Physical limitations remain
 

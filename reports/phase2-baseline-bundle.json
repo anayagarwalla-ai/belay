@@ -1,0 +1,9 @@
+{
+  "purpose": "Self-contained historical source commits for reproducing experiments after API-based publication. Imported and verified in a fresh bare repository.",
+  "sha256": "f2712f4591baacf2f6b87bb3d7e0c08aed8c45c4d2ead3a79925dd50b955a6f4",
+  "bytes": 462026,
+  "verifiedTrees": {
+    "f2fb8fd7f828b706ccdabbaffcbb72a0565b58a1": "fdd9906f1b3f0e3d4ca74359f965e23217eaa0af",
+    "ad00223526c9f3ba93320bfe284c74f1f30697fd": "f6f56603eae237cf3743e42991c3719e39ec6798"
+  }
+}
