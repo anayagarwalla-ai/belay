@@ -1,0 +1,4599 @@
+{
+  "cpu": {
+    "totalSamples": 9009,
+    "totalSampledMs": 13370.591,
+    "profileElapsedMs": 13372.992,
+    "scope": "Whole Node --cpu-prof interval including initialization, warm-up, both measured scenes, snapshot/JSON and teardown. Delta-weighted sample shares can be affected by OS descheduling. Sample-count shares are also preserved. No per-scene clock slicing: V8 profiler clock and process.hrtime differ on this host.",
+    "positions": "Raw zero-based transpiled line/column, not authored TypeScript locations. Function-name/source inspection is required for authored source references.",
+    "functions": [
+      {
+        "frame": {
+          "functionName": "sweepBox",
+          "scriptId": "213",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+          "lineNumber": 0,
+          "columnNumber": 950
+        },
+        "samples": 1702,
+        "sampledTimeUs": 2465845,
+        "sampleFraction": 0.18892218892218893,
+        "sampledTimeFraction": 0.1844230370968643
+      },
+      {
+        "frame": {
+          "functionName": "contactNormalsAt",
+          "scriptId": "213",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+          "lineNumber": 0,
+          "columnNumber": 3792
+        },
+        "samples": 797,
+        "sampledTimeUs": 1205011,
+        "sampleFraction": 0.08846708846708846,
+        "sampledTimeFraction": 0.09012398928364498
+      },
+      {
+        "frame": {
+          "functionName": "__name",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 47
+        },
+        "samples": 674,
+        "sampledTimeUs": 1031760,
+        "sampleFraction": 0.07481407481407482,
+        "sampledTimeFraction": 0.07716637207734497
+      },
+      {
+        "frame": {
+          "functionName": "constrain",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 15315
+        },
+        "samples": 638,
+        "sampledTimeUs": 975940,
+        "sampleFraction": 0.07081807081807082,
+        "sampledTimeFraction": 0.07299153792079946
+      },
+      {
+        "frame": {
+          "functionName": "set MIMEParams",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 628,
+        "sampledTimeUs": 958486,
+        "sampleFraction": 0.06970806970806971,
+        "sampledTimeFraction": 0.07168613563903047
+      },
+      {
+        "frame": {
+          "functionName": "substep",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 5654
+        },
+        "samples": 642,
+        "sampledTimeUs": 938810,
+        "sampleFraction": 0.07126207126207126,
+        "sampledTimeFraction": 0.07021454773390345
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "213",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+          "lineNumber": 0,
+          "columnNumber": 383
+        },
+        "samples": 612,
+        "sampledTimeUs": 875099,
+        "sampleFraction": 0.06793206793206794,
+        "sampledTimeFraction": 0.06544953772050914
+      },
+      {
+        "frame": {
+          "functionName": "projectMotion",
+          "scriptId": "213",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+          "lineNumber": 0,
+          "columnNumber": 1567
+        },
+        "samples": 520,
+        "sampledTimeUs": 775801,
+        "sampleFraction": 0.05772005772005772,
+        "sampledTimeFraction": 0.05802294004805023
+      },
+      {
+        "frame": {
+          "functionName": "routeRope",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 17760
+        },
+        "samples": 411,
+        "sampledTimeUs": 591288,
+        "sampleFraction": 0.045621045621045624,
+        "sampledTimeFraction": 0.04422302649149914
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 9847
+        },
+        "samples": 389,
+        "sampledTimeUs": 559535,
+        "sampleFraction": 0.043179043179043176,
+        "sampledTimeFraction": 0.04184818756328722
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "213",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+          "lineNumber": 0,
+          "columnNumber": 611
+        },
+        "samples": 376,
+        "sampledTimeUs": 554790,
+        "sampleFraction": 0.041736041736041736,
+        "sampledTimeFraction": 0.04149330422267797
+      },
+      {
+        "frame": {
+          "functionName": "(garbage collector)",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 214,
+        "sampledTimeUs": 332695,
+        "sampleFraction": 0.023754023754023756,
+        "sampledTimeFraction": 0.024882594942886218
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "213",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+          "lineNumber": 0,
+          "columnNumber": 4043
+        },
+        "samples": 180,
+        "sampledTimeUs": 295577,
+        "sampleFraction": 0.01998001998001998,
+        "sampledTimeFraction": 0.022106502248105564
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "213",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+          "lineNumber": 0,
+          "columnNumber": 222
+        },
+        "samples": 156,
+        "sampledTimeUs": 231342,
+        "sampleFraction": 0.017316017316017316,
+        "sampledTimeFraction": 0.017302301745674518
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 16149
+        },
+        "samples": 85,
+        "sampledTimeUs": 147232,
+        "sampleFraction": 0.009435009435009436,
+        "sampledTimeFraction": 0.011011629927203666
+      },
+      {
+        "frame": {
+          "functionName": "(program)",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 91,
+        "sampledTimeUs": 137489,
+        "sampleFraction": 0.010101010101010102,
+        "sampledTimeFraction": 0.01028294112055331
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 15659
+        },
+        "samples": 94,
+        "sampledTimeUs": 134772,
+        "sampleFraction": 0.010434010434010434,
+        "sampledTimeFraction": 0.010079733947437327
+      },
+      {
+        "frame": {
+          "functionName": "step",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 5132
+        },
+        "samples": 56,
+        "sampledTimeUs": 79003,
+        "sampleFraction": 0.006216006216006216,
+        "sampledTimeFraction": 0.005908714132382031
+      },
+      {
+        "frame": {
+          "functionName": "structuredClone",
+          "scriptId": "28",
+          "url": "node:internal/worker/js_transferable",
+          "lineNumber": 112,
+          "columnNumber": 24
+        },
+        "samples": 46,
+        "sampledTimeUs": 68256,
+        "sampleFraction": 0.005106005106005106,
+        "sampledTimeFraction": 0.005104935152081161
+      },
+      {
+        "frame": {
+          "functionName": "penetration",
+          "scriptId": "213",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+          "lineNumber": 0,
+          "columnNumber": 551
+        },
+        "samples": 45,
+        "sampledTimeUs": 68215,
+        "sampleFraction": 0.004995004995004995,
+        "sampledTimeFraction": 0.005101868720687066
+      },
+      {
+        "frame": {
+          "functionName": "childProfile",
+          "scriptId": "190",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/scripts/local-load-profile.ts",
+          "lineNumber": 0,
+          "columnNumber": 1310
+        },
+        "samples": 40,
+        "sampledTimeUs": 66796,
+        "sampleFraction": 0.00444000444000444,
+        "sampledTimeFraction": 0.0049957402780475444
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "213",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+          "lineNumber": 0,
+          "columnNumber": 300
+        },
+        "samples": 19,
+        "sampledTimeUs": 57831,
+        "sampleFraction": 0.002109002109002109,
+        "sampledTimeFraction": 0.004325238876875376
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 16297
+        },
+        "samples": 35,
+        "sampledTimeUs": 50979,
+        "sampleFraction": 0.003885003885003885,
+        "sampledTimeFraction": 0.0038127708790135005
+      },
+      {
+        "frame": {
+          "functionName": "runCallSync",
+          "scriptId": "164",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/node_modules/esbuild/lib/main.js",
+          "lineNumber": 2427,
+          "columnNumber": 20
+        },
+        "samples": 34,
+        "sampledTimeUs": 46406,
+        "sampleFraction": 0.003774003774003774,
+        "sampledTimeFraction": 0.003470751592057524
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[35]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 151938
+        },
+        "samples": 28,
+        "sampledTimeUs": 45409,
+        "sampleFraction": 0.003108003108003108,
+        "sampledTimeFraction": 0.0033961849554742943
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 16122
+        },
+        "samples": 26,
+        "sampledTimeUs": 34762,
+        "sampleFraction": 0.002886002886002886,
+        "sampledTimeFraction": 0.00259988507613463
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[227]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1101591
+        },
+        "samples": 20,
+        "sampledTimeUs": 33367,
+        "sampleFraction": 0.00222000222000222,
+        "sampledTimeFraction": 0.0024955516177257984
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[251]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1132362
+        },
+        "samples": 18,
+        "sampledTimeUs": 24416,
+        "sampleFraction": 0.001998001998001998,
+        "sampledTimeFraction": 0.0018260972906881977
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 9802
+        },
+        "samples": 16,
+        "sampledTimeUs": 20951,
+        "sampleFraction": 0.001776001776001776,
+        "sampledTimeFraction": 0.0015669464423823899
+      },
+      {
+        "frame": {
+          "functionName": "updateBridges",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 20096
+        },
+        "samples": 14,
+        "sampledTimeUs": 20787,
+        "sampleFraction": 0.001554001554001554,
+        "sampledTimeFraction": 0.001554680716806011
+      },
+      {
+        "frame": {
+          "functionName": "structuredClone",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 15,
+        "sampledTimeUs": 20049,
+        "sampleFraction": 0.001665001665001665,
+        "sampledTimeFraction": 0.0014994849517123065
+      },
+      {
+        "frame": {
+          "functionName": "separateBodies",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 17260
+        },
+        "samples": 15,
+        "sampledTimeUs": 19749,
+        "sampleFraction": 0.001665001665001665,
+        "sampledTimeFraction": 0.0014770476488286867
+      },
+      {
+        "frame": {
+          "functionName": "compileSourceTextModule",
+          "scriptId": "76",
+          "url": "node:internal/modules/esm/utils",
+          "lineNumber": 337,
+          "columnNumber": 32
+        },
+        "samples": 14,
+        "sampledTimeUs": 18643,
+        "sampleFraction": 0.001554001554001554,
+        "sampledTimeFraction": 0.001394328792197742
+      },
+      {
+        "frame": {
+          "functionName": "center",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 4577
+        },
+        "samples": 13,
+        "sampledTimeUs": 18533,
+        "sampleFraction": 0.001443001443001443,
+        "sampledTimeFraction": 0.0013861017811404148
+      },
+      {
+        "frame": {
+          "functionName": "(idle)",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 3,
+        "sampledTimeUs": 17557,
+        "sampleFraction": 0.000333000333000333,
+        "sampledTimeFraction": 0.0013131057557590386
+      },
+      {
+        "frame": {
+          "functionName": "snapshot",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 25482
+        },
+        "samples": 11,
+        "sampledTimeUs": 16538,
+        "sampleFraction": 0.001221001221001221,
+        "sampledTimeFraction": 0.0012368937169643436
+      },
+      {
+        "frame": {
+          "functionName": "initializePhysics",
+          "scriptId": "205",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 380
+        },
+        "samples": 11,
+        "sampledTimeUs": 13668,
+        "sampleFraction": 0.001221001221001221,
+        "sampledTimeFraction": 0.0010222435193777148
+      },
+      {
+        "frame": {
+          "functionName": "supportAt",
+          "scriptId": "213",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+          "lineNumber": 0,
+          "columnNumber": 2681
+        },
+        "samples": 10,
+        "sampledTimeUs": 13616,
+        "sampleFraction": 0.00111000111000111,
+        "sampledTimeFraction": 0.0010183543868778875
+      },
+      {
+        "frame": {
+          "functionName": "updateIncidents",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 21625
+        },
+        "samples": 11,
+        "sampledTimeUs": 13489,
+        "sampleFraction": 0.001221001221001221,
+        "sampledTimeFraction": 0.001008855928657155
+      },
+      {
+        "frame": {
+          "functionName": "d",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 72642
+        },
+        "samples": 9,
+        "sampledTimeUs": 13128,
+        "sampleFraction": 0.000999000999000999,
+        "sampledTimeFraction": 0.0009818563741871994
+      },
+      {
+        "frame": {
+          "functionName": "now",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 7,
+        "sampledTimeUs": 12700,
+        "sampleFraction": 0.000777000777000777,
+        "sampledTimeFraction": 0.0009498458220732352
+      },
+      {
+        "frame": {
+          "functionName": "MA",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 78966
+        },
+        "samples": 7,
+        "sampledTimeUs": 10935,
+        "sampleFraction": 0.000777000777000777,
+        "sampledTimeFraction": 0.0008178396901079391
+      },
+      {
+        "frame": {
+          "functionName": "runMicrotasks",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 8,
+        "sampledTimeUs": 9730,
+        "sampleFraction": 0.000888000888000888,
+        "sampledTimeFraction": 0.0007277165235253999
+      },
+      {
+        "frame": {
+          "functionName": "lineLengths",
+          "scriptId": "47",
+          "url": "node:internal/source_map/source_map_cache",
+          "lineNumber": 259,
+          "columnNumber": 20
+        },
+        "samples": 8,
+        "sampledTimeUs": 9459,
+        "sampleFraction": 0.000888000888000888,
+        "sampledTimeFraction": 0.0007074481599205301
+      },
+      {
+        "frame": {
+          "functionName": "step",
+          "scriptId": "205",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 1942
+        },
+        "samples": 7,
+        "sampledTimeUs": 8932,
+        "sampleFraction": 0.000777000777000777,
+        "sampledTimeFraction": 0.0006680332978549714
+      },
+      {
+        "frame": {
+          "functionName": "readFileUtf8",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 6,
+        "sampledTimeUs": 8667,
+        "sampleFraction": 0.000666000666000666,
+        "sampledTimeFraction": 0.000648213680307774
+      },
+      {
+        "frame": {
+          "functionName": "snapshot",
+          "scriptId": "205",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 2004
+        },
+        "samples": 5,
+        "sampledTimeUs": 8138,
+        "sampleFraction": 0.000555000555000555,
+        "sampledTimeFraction": 0.0006086492362229912
+      },
+      {
+        "frame": {
+          "functionName": "wasm-to-js",
+          "scriptId": "-1",
+          "url": "",
+          "lineNumber": 0,
+          "columnNumber": 0
+        },
+        "samples": 5,
+        "sampledTimeUs": 7967,
+        "sampleFraction": 0.000555000555000555,
+        "sampledTimeFraction": 0.000595859973579328
+      },
+      {
+        "frame": {
+          "functionName": "updateSpans",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 18876
+        },
+        "samples": 6,
+        "sampledTimeUs": 7571,
+        "sampleFraction": 0.000666000666000666,
+        "sampledTimeFraction": 0.0005662427337729498
+      },
+      {
+        "frame": {
+          "functionName": "compileForInternalLoader",
+          "scriptId": "6",
+          "url": "node:internal/bootstrap/realm",
+          "lineNumber": 391,
+          "columnNumber": 26
+        },
+        "samples": 7,
+        "sampledTimeUs": 7403,
+        "sampleFraction": 0.000777000777000777,
+        "sampledTimeFraction": 0.0005536778441581229
+      },
+      {
+        "frame": {
+          "functionName": "toByteArray",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 156917
+        },
+        "samples": 5,
+        "sampledTimeUs": 6697,
+        "sampleFraction": 0.000555000555000555,
+        "sampledTimeFraction": 0.0005008753913720044
+      },
+      {
+        "frame": {
+          "functionName": "js-to-wasm",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 5,
+        "sampledTimeUs": 6683,
+        "sampleFraction": 0.000555000555000555,
+        "sampledTimeFraction": 0.0004998283172374356
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 6910
+        },
+        "samples": 4,
+        "sampledTimeUs": 6578,
+        "sampleFraction": 0.000444000444000444,
+        "sampledTimeFraction": 0.0004919752612281686
+      },
+      {
+        "frame": {
+          "functionName": "js-to-wasm:fff:i",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 3,
+        "sampledTimeUs": 6452,
+        "sampleFraction": 0.000333000333000333,
+        "sampledTimeFraction": 0.0004825515940170483
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[73]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 646699
+        },
+        "samples": 4,
+        "sampledTimeUs": 5094,
+        "sampleFraction": 0.000444000444000444,
+        "sampledTimeFraction": 0.000380985402963863
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[1434]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1863157
+        },
+        "samples": 3,
+        "sampledTimeUs": 4358,
+        "sampleFraction": 0.000333000333000333,
+        "sampledTimeFraction": 0.0003259392198893826
+      },
+      {
+        "frame": {
+          "functionName": "segmentError",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 18610
+        },
+        "samples": 5,
+        "sampledTimeUs": 4276,
+        "sampleFraction": 0.000555000555000555,
+        "sampledTimeFraction": 0.0003198063571011932
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[364]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1298898
+        },
+        "samples": 3,
+        "sampledTimeUs": 4134,
+        "sampleFraction": 0.000333000333000333,
+        "sampledTimeFraction": 0.00030918603373627986
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[1836]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1927609
+        },
+        "samples": 3,
+        "sampledTimeUs": 3863,
+        "sampleFraction": 0.000333000333000333,
+        "sampledTimeFraction": 0.00028891767013141
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[804]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1564353
+        },
+        "samples": 3,
+        "sampledTimeUs": 3812,
+        "sampleFraction": 0.000333000333000333,
+        "sampledTimeFraction": 0.0002851033286411947
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[299]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1234518
+        },
+        "samples": 3,
+        "sampledTimeUs": 3781,
+        "sampleFraction": 0.000333000333000333,
+        "sampledTimeFraction": 0.00028278480734322066
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[257]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1183587
+        },
+        "samples": 2,
+        "sampledTimeUs": 3775,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00028233606128554825
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[734]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1532805
+        },
+        "samples": 3,
+        "sampledTimeUs": 3773,
+        "sampleFraction": 0.000333000333000333,
+        "sampledTimeFraction": 0.00028218647926632414
+      },
+      {
+        "frame": {
+          "functionName": "__wbg_set_index_aac0f95bd3ef91b6",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 82860
+        },
+        "samples": 3,
+        "sampledTimeUs": 3765,
+        "sampleFraction": 0.000333000333000333,
+        "sampledTimeFraction": 0.0002815881511894276
+      },
+      {
+        "frame": {
+          "functionName": "step",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 124860
+        },
+        "samples": 3,
+        "sampledTimeUs": 3567,
+        "sampleFraction": 0.000333000333000333,
+        "sampledTimeFraction": 0.00026677953128623856
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[1043]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1753933
+        },
+        "samples": 2,
+        "sampledTimeUs": 3504,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.0002620676976806784
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[1368]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1837673
+        },
+        "samples": 2,
+        "sampledTimeUs": 3231,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.0002416497520565845
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[90]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 729867
+        },
+        "samples": 1,
+        "sampledTimeUs": 3046,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.0002278134152783523
+      },
+      {
+        "frame": {
+          "functionName": "requireBuiltin",
+          "scriptId": "6",
+          "url": "node:internal/bootstrap/realm",
+          "lineNumber": 428,
+          "columnNumber": 23
+        },
+        "samples": 3,
+        "sampledTimeUs": 3036,
+        "sampleFraction": 0.000333000333000333,
+        "sampledTimeFraction": 0.00022706550518223167
+      },
+      {
+        "frame": {
+          "functionName": "read",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 2,
+        "sampledTimeUs": 2987,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00022340074571124043
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 25519
+        },
+        "samples": 2,
+        "sampledTimeUs": 2916,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00021809058402878377
+      },
+      {
+        "frame": {
+          "functionName": "#translate",
+          "scriptId": "72",
+          "url": "node:internal/modules/esm/loader",
+          "lineNumber": 431,
+          "columnNumber": 12
+        },
+        "samples": 2,
+        "sampledTimeUs": 2910,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00021764183797111136
+      },
+      {
+        "frame": {
+          "functionName": "motorVelocity",
+          "scriptId": "209",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/movement.ts",
+          "lineNumber": 0,
+          "columnNumber": 175
+        },
+        "samples": 3,
+        "sampledTimeUs": 2716,
+        "sampleFraction": 0.000333000333000333,
+        "sampledTimeFraction": 0.00020313238210637063
+      },
+      {
+        "frame": {
+          "functionName": "setTranslation",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 87856
+        },
+        "samples": 2,
+        "sampledTimeUs": 2623,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.0001961768182124485
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 523
+        },
+        "samples": 2,
+        "sampledTimeUs": 2619,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00019587765417400024
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[30]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 71707
+        },
+        "samples": 2,
+        "sampledTimeUs": 2586,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00019340955085680206
+      },
+      {
+        "frame": {
+          "functionName": "__destroy_into_raw",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 72489
+        },
+        "samples": 2,
+        "sampledTimeUs": 2569,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00019213810369339695
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[219]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1086950
+        },
+        "samples": 2,
+        "sampledTimeUs": 2562,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00019161456662611248
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "190",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/scripts/local-load-profile.ts",
+          "lineNumber": 0,
+          "columnNumber": 2238
+        },
+        "samples": 2,
+        "sampledTimeUs": 2550,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.0001907170745107677
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 17517
+        },
+        "samples": 2,
+        "sampledTimeUs": 2542,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00019011874643387117
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[81]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 682737
+        },
+        "samples": 2,
+        "sampledTimeUs": 2541,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00019004395542425911
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "12",
+          "url": "node:internal/validators",
+          "lineNumber": 546,
+          "columnNumber": 50
+        },
+        "samples": 2,
+        "sampledTimeUs": 2541,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00019004395542425911
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[451]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1380805
+        },
+        "samples": 2,
+        "sampledTimeUs": 2531,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00018929604532813844
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[1364]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1835756
+        },
+        "samples": 2,
+        "sampledTimeUs": 2528,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00018907167229930224
+      },
+      {
+        "frame": {
+          "functionName": "parse",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 2,
+        "sampledTimeUs": 2526,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00018892209028007812
+      },
+      {
+        "frame": {
+          "functionName": "wrappedFn",
+          "scriptId": "7",
+          "url": "node:internal/errors",
+          "lineNumber": 541,
+          "columnNumber": 20
+        },
+        "samples": 2,
+        "sampledTimeUs": 2523,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00018869771725124192
+      },
+      {
+        "frame": {
+          "functionName": "ExpeditionSimulation",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 849
+        },
+        "samples": 2,
+        "sampledTimeUs": 2518,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.0001883237622031816
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[538]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1437966
+        },
+        "samples": 2,
+        "sampledTimeUs": 2512,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.0001878750161455092
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "132",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/register-SoqaU4rg.mjs",
+          "lineNumber": 1,
+          "columnNumber": 15525
+        },
+        "samples": 2,
+        "sampledTimeUs": 2501,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.0001870523150397765
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[647]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1495248
+        },
+        "samples": 1,
+        "sampledTimeUs": 2438,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00018234048143421632
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[518]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1425158
+        },
+        "samples": 2,
+        "sampledTimeUs": 2404,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.0001797975871074061
+      },
+      {
+        "frame": {
+          "functionName": "__require",
+          "scriptId": "214",
+          "url": "node:internal/deps/undici/undici",
+          "lineNumber": 4,
+          "columnNumber": 48
+        },
+        "samples": 2,
+        "sampledTimeUs": 2375,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00017762864782865619
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "29",
+          "url": "node:internal/webidl",
+          "lineNumber": 711,
+          "columnNumber": 17
+        },
+        "samples": 1,
+        "sampledTimeUs": 2343,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.0001752353355210701
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[271]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1201711
+        },
+        "samples": 2,
+        "sampledTimeUs": 2321,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00017358993330960463
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[28]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 29517
+        },
+        "samples": 1,
+        "sampledTimeUs": 2285,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00017089745696357027
+      },
+      {
+        "frame": {
+          "functionName": "transformSync",
+          "scriptId": "164",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/node_modules/esbuild/lib/main.js",
+          "lineNumber": 2449,
+          "columnNumber": 17
+        },
+        "samples": 1,
+        "sampledTimeUs": 2280,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00017052350191550995
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[66]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 598601
+        },
+        "samples": 1,
+        "sampledTimeUs": 2185,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00016341835600236368
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[1381]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1840064
+        },
+        "samples": 1,
+        "sampledTimeUs": 2105,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00015743507523339844
+      },
+      {
+        "frame": {
+          "functionName": "wrapSafe",
+          "scriptId": "68",
+          "url": "node:internal/modules/cjs/loader",
+          "lineNumber": 1823,
+          "columnNumber": 17
+        },
+        "samples": 2,
+        "sampledTimeUs": 2045,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.0001529476146566745
+      },
+      {
+        "frame": {
+          "functionName": "addJobsToDependencyGraph",
+          "scriptId": "75",
+          "url": "node:internal/modules/esm/module_job",
+          "lineNumber": 444,
+          "columnNumber": 37
+        },
+        "samples": 1,
+        "sampledTimeUs": 1915,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00014322478340710593
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[36]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 345170
+        },
+        "samples": 1,
+        "sampledTimeUs": 1655,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00012377912090796885
+      },
+      {
+        "frame": {
+          "functionName": "hr",
+          "scriptId": "163",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/index-DCefr8NP.mjs",
+          "lineNumber": 12,
+          "columnNumber": 18308
+        },
+        "samples": 1,
+        "sampledTimeUs": 1648,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.0001232555838406844
+      },
+      {
+        "frame": {
+          "functionName": "lib/util/timers.js",
+          "scriptId": "214",
+          "url": "node:internal/deps/undici/undici",
+          "lineNumber": 1104,
+          "columnNumber": 22
+        },
+        "samples": 1,
+        "sampledTimeUs": 1608,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00012026394345620175
+      },
+      {
+        "frame": {
+          "functionName": "new",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 84812
+        },
+        "samples": 2,
+        "sampledTimeUs": 1608,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00012026394345620175
+      },
+      {
+        "frame": {
+          "functionName": "linvel",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 88492
+        },
+        "samples": 1,
+        "sampledTimeUs": 1576,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00011787063114861564
+      },
+      {
+        "frame": {
+          "functionName": "canBeRequiredByUsers",
+          "scriptId": "6",
+          "url": "node:internal/bootstrap/realm",
+          "lineNumber": 299,
+          "columnNumber": 29
+        },
+        "samples": 1,
+        "sampledTimeUs": 1534,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00011472940874490888
+      },
+      {
+        "frame": {
+          "functionName": "ee",
+          "scriptId": "182",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/register-OY9cqBEN.cjs",
+          "lineNumber": 6,
+          "columnNumber": 3418
+        },
+        "samples": 1,
+        "sampledTimeUs": 1358,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00010156619105318531
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[1046]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1754734
+        },
+        "samples": 1,
+        "sampledTimeUs": 1349,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00010089307196667672
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 8906
+        },
+        "samples": 1,
+        "sampledTimeUs": 1344,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00010051911691861638
+      },
+      {
+        "frame": {
+          "functionName": "internalBinding",
+          "scriptId": "6",
+          "url": "node:internal/bootstrap/realm",
+          "lineNumber": 190,
+          "columnNumber": 44
+        },
+        "samples": 1,
+        "sampledTimeUs": 1342,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00010036953489939225
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[399]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1330342
+        },
+        "samples": 1,
+        "sampledTimeUs": 1310,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009797622259180615
+      },
+      {
+        "frame": {
+          "functionName": "get hasSubscribers",
+          "scriptId": "31",
+          "url": "node:diagnostics_channel",
+          "lineNumber": 454,
+          "columnNumber": 20
+        },
+        "samples": 1,
+        "sampledTimeUs": 1308,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009782664057258202
+      },
+      {
+        "frame": {
+          "functionName": "intoRaw",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 84855
+        },
+        "samples": 1,
+        "sampledTimeUs": 1300,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.0000972283124956855
+      },
+      {
+        "frame": {
+          "functionName": "memoryUsage",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 1292,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009662998441878897
+      },
+      {
+        "frame": {
+          "functionName": "sourceMapFromFile",
+          "scriptId": "47",
+          "url": "node:internal/source_map/source_map_cache",
+          "lineNumber": 284,
+          "columnNumber": 26
+        },
+        "samples": 1,
+        "sampledTimeUs": 1288,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009633082038034071
+      },
+      {
+        "frame": {
+          "functionName": "fstat",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 1286,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009618123836111658
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 20307
+        },
+        "samples": 1,
+        "sampledTimeUs": 1284,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009603165634189245
+      },
+      {
+        "frame": {
+          "functionName": "pathToFileURL",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 1283,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009595686533228037
+      },
+      {
+        "frame": {
+          "functionName": "detectModuleFormat",
+          "scriptId": "79",
+          "url": "node:internal/modules/esm/get_format",
+          "lineNumber": 93,
+          "columnNumber": 27
+        },
+        "samples": 1,
+        "sampledTimeUs": 1279,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009565770129383211
+      },
+      {
+        "frame": {
+          "functionName": "tt",
+          "scriptId": "163",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/index-DCefr8NP.mjs",
+          "lineNumber": 12,
+          "columnNumber": 11630
+        },
+        "samples": 1,
+        "sampledTimeUs": 1279,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009565770129383211
+      },
+      {
+        "frame": {
+          "functionName": "link",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 1278,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009558291028422005
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[2177]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1946910
+        },
+        "samples": 1,
+        "sampledTimeUs": 1277,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009550811927460798
+      },
+      {
+        "frame": {
+          "functionName": "getNearestParentPackageJSON",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 1274,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009528374624577179
+      },
+      {
+        "frame": {
+          "functionName": "fromBuffer",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 84938
+        },
+        "samples": 1,
+        "sampledTimeUs": 1271,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009505937321693559
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 13042
+        },
+        "samples": 1,
+        "sampledTimeUs": 1271,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009505937321693559
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "214",
+          "url": "node:internal/deps/undici/undici",
+          "lineNumber": 0,
+          "columnNumber": 0
+        },
+        "samples": 1,
+        "sampledTimeUs": 1270,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009498458220732353
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[63]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 583143
+        },
+        "samples": 1,
+        "sampledTimeUs": 1270,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009498458220732353
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 26322
+        },
+        "samples": 1,
+        "sampledTimeUs": 1270,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009498458220732353
+      },
+      {
+        "frame": {
+          "functionName": "rbSetTranslation",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 58577
+        },
+        "samples": 1,
+        "sampledTimeUs": 1269,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009490979119771146
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[813]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1568718
+        },
+        "samples": 1,
+        "sampledTimeUs": 1269,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009490979119771146
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[341]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1278225
+        },
+        "samples": 1,
+        "sampledTimeUs": 1268,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009483500018809938
+      },
+      {
+        "frame": {
+          "functionName": "ModuleJob",
+          "scriptId": "75",
+          "url": "node:internal/modules/esm/module_job",
+          "lineNumber": 353,
+          "columnNumber": 13
+        },
+        "samples": 1,
+        "sampledTimeUs": 1267,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009476020917848732
+      },
+      {
+        "frame": {
+          "functionName": "now",
+          "scriptId": "198",
+          "url": "node:internal/perf/performance",
+          "lineNumber": 136,
+          "columnNumber": 5
+        },
+        "samples": 1,
+        "sampledTimeUs": 1267,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009476020917848732
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[158]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 933228
+        },
+        "samples": 1,
+        "sampledTimeUs": 1267,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009476020917848732
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[109]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 798150
+        },
+        "samples": 1,
+        "sampledTimeUs": 1267,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009476020917848732
+      },
+      {
+        "frame": {
+          "functionName": "distribution",
+          "scriptId": "204",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/scripts/local-load-model.ts",
+          "lineNumber": 0,
+          "columnNumber": 2983
+        },
+        "samples": 1,
+        "sampledTimeUs": 1267,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009476020917848732
+      },
+      {
+        "frame": {
+          "functionName": "step",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 135931
+        },
+        "samples": 1,
+        "sampledTimeUs": 1266,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009468541816887525
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[981]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1647016
+        },
+        "samples": 1,
+        "sampledTimeUs": 1266,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009468541816887525
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "136",
+          "url": "node:internal/crypto/keys",
+          "lineNumber": 0,
+          "columnNumber": 0
+        },
+        "samples": 1,
+        "sampledTimeUs": 1265,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009461062715926319
+      },
+      {
+        "frame": {
+          "functionName": "Socket",
+          "scriptId": "90",
+          "url": "node:net",
+          "lineNumber": 484,
+          "columnNumber": 15
+        },
+        "samples": 1,
+        "sampledTimeUs": 1265,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009461062715926319
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[1099]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1769703
+        },
+        "samples": 1,
+        "sampledTimeUs": 1265,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009461062715926319
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "152",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/register-DHgpdRjs.mjs",
+          "lineNumber": 6,
+          "columnNumber": 15324
+        },
+        "samples": 1,
+        "sampledTimeUs": 1264,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009453583614965112
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 26565
+        },
+        "samples": 1,
+        "sampledTimeUs": 1264,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009453583614965112
+      },
+      {
+        "frame": {
+          "functionName": "step",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 45226
+        },
+        "samples": 1,
+        "sampledTimeUs": 1264,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009453583614965112
+      },
+      {
+        "frame": {
+          "functionName": "free",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 72565
+        },
+        "samples": 1,
+        "sampledTimeUs": 1264,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009453583614965112
+      },
+      {
+        "frame": {
+          "functionName": "lib/web/websocket/events.js",
+          "scriptId": "214",
+          "url": "node:internal/deps/undici/undici",
+          "lineNumber": 14666,
+          "columnNumber": 31
+        },
+        "samples": 1,
+        "sampledTimeUs": 1263,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009446104514003906
+      },
+      {
+        "frame": {
+          "functionName": "js-to-wasm:idi:",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 1263,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009446104514003906
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 1263,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009446104514003906
+      },
+      {
+        "frame": {
+          "functionName": "get",
+          "scriptId": "13",
+          "url": "node:internal/util",
+          "lineNumber": 637,
+          "columnNumber": 16
+        },
+        "samples": 1,
+        "sampledTimeUs": 1260,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009423667211120286
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 12972
+        },
+        "samples": 1,
+        "sampledTimeUs": 1260,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009423667211120286
+      },
+      {
+        "frame": {
+          "functionName": "lib/core/diagnostics.js",
+          "scriptId": "214",
+          "url": "node:internal/deps/undici/undici",
+          "lineNumber": 2508,
+          "columnNumber": 27
+        },
+        "samples": 1,
+        "sampledTimeUs": 1259,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.0000941618811015908
+      },
+      {
+        "frame": {
+          "functionName": "hasRejectionToWarn",
+          "scriptId": "33",
+          "url": "node:internal/process/promises",
+          "lineNumber": 138,
+          "columnNumber": 27
+        },
+        "samples": 1,
+        "sampledTimeUs": 1259,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.0000941618811015908
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "182",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/register-OY9cqBEN.cjs",
+          "lineNumber": 6,
+          "columnNumber": 20576
+        },
+        "samples": 1,
+        "sampledTimeUs": 1258,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009408709009197873
+      },
+      {
+        "frame": {
+          "functionName": "pg",
+          "scriptId": "206",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+          "lineNumber": 0,
+          "columnNumber": 133689
+        },
+        "samples": 1,
+        "sampledTimeUs": 1258,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009408709009197873
+      },
+      {
+        "frame": {
+          "functionName": "get",
+          "scriptId": "73",
+          "url": "node:internal/modules/esm/module_map",
+          "lineNumber": 64,
+          "columnNumber": 5
+        },
+        "samples": 1,
+        "sampledTimeUs": 1257,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009401229908236667
+      },
+      {
+        "frame": {
+          "functionName": "initSocketHandle",
+          "scriptId": "90",
+          "url": "node:net",
+          "lineNumber": 326,
+          "columnNumber": 25
+        },
+        "samples": 1,
+        "sampledTimeUs": 1257,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009401229908236667
+      },
+      {
+        "frame": {
+          "functionName": "#readImpl",
+          "scriptId": "155",
+          "url": "node:internal/fs/dir",
+          "lineNumber": 113,
+          "columnNumber": 11
+        },
+        "samples": 1,
+        "sampledTimeUs": 1257,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009401229908236667
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "190",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/scripts/local-load-profile.ts",
+          "lineNumber": 0,
+          "columnNumber": 1794
+        },
+        "samples": 1,
+        "sampledTimeUs": 1257,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009401229908236667
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 25089
+        },
+        "samples": 1,
+        "sampledTimeUs": 1256,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.0000939375080727546
+      },
+      {
+        "frame": {
+          "functionName": "a",
+          "scriptId": "182",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/register-OY9cqBEN.cjs",
+          "lineNumber": 6,
+          "columnNumber": 156
+        },
+        "samples": 1,
+        "sampledTimeUs": 1255,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009386271706314254
+      },
+      {
+        "frame": {
+          "functionName": "createUnsafeArrayBuffer",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 1255,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009386271706314254
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "237",
+          "url": "node:zlib",
+          "lineNumber": 962,
+          "columnNumber": 2
+        },
+        "samples": 1,
+        "sampledTimeUs": 1255,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009386271706314254
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[1571]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1892700
+        },
+        "samples": 1,
+        "sampledTimeUs": 1255,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009386271706314254
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 13261
+        },
+        "samples": 1,
+        "sampledTimeUs": 1255,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009386271706314254
+      },
+      {
+        "frame": {
+          "functionName": "update",
+          "scriptId": "147",
+          "url": "node:internal/crypto/hash",
+          "lineNumber": 142,
+          "columnNumber": 39
+        },
+        "samples": 1,
+        "sampledTimeUs": 1254,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009378792605353046
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[2086]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1942098
+        },
+        "samples": 1,
+        "sampledTimeUs": 1254,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009378792605353046
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[851]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1586050
+        },
+        "samples": 1,
+        "sampledTimeUs": 1254,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009378792605353046
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[89]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 726192
+        },
+        "samples": 1,
+        "sampledTimeUs": 1254,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009378792605353046
+      },
+      {
+        "frame": {
+          "functionName": "createWritableStdioStream",
+          "scriptId": "65",
+          "url": "node:internal/bootstrap/switches/is_main_thread",
+          "lineNumber": 49,
+          "columnNumber": 34
+        },
+        "samples": 1,
+        "sampledTimeUs": 1252,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009363834403430633
+      },
+      {
+        "frame": {
+          "functionName": "js-to-wasm:iiiiiiiiiii:",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 1251,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009356355302469427
+      },
+      {
+        "frame": {
+          "functionName": "lib/llhttp/constants.js",
+          "scriptId": "214",
+          "url": "node:internal/deps/undici/undici",
+          "lineNumber": 3333,
+          "columnNumber": 27
+        },
+        "samples": 1,
+        "sampledTimeUs": 1249,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009341397100547014
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 7601
+        },
+        "samples": 1,
+        "sampledTimeUs": 1249,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009341397100547014
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "132",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/register-SoqaU4rg.mjs",
+          "lineNumber": 1,
+          "columnNumber": 3588
+        },
+        "samples": 1,
+        "sampledTimeUs": 1248,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009333917999585807
+      },
+      {
+        "frame": {
+          "functionName": "#updateContext",
+          "scriptId": "39",
+          "url": "node:internal/url",
+          "lineNumber": 915,
+          "columnNumber": 16
+        },
+        "samples": 1,
+        "sampledTimeUs": 1248,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009333917999585807
+      },
+      {
+        "frame": {
+          "functionName": "read",
+          "scriptId": "70",
+          "url": "node:internal/modules/package_json_reader",
+          "lineNumber": 121,
+          "columnNumber": 13
+        },
+        "samples": 1,
+        "sampledTimeUs": 1247,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009326438898624601
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "152",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/register-DHgpdRjs.mjs",
+          "lineNumber": 6,
+          "columnNumber": 5490
+        },
+        "samples": 1,
+        "sampledTimeUs": 1245,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009311480696702188
+      },
+      {
+        "frame": {
+          "functionName": "TracingChannel",
+          "scriptId": "31",
+          "url": "node:diagnostics_channel",
+          "lineNumber": 412,
+          "columnNumber": 13
+        },
+        "samples": 1,
+        "sampledTimeUs": 1244,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009304001595740981
+      },
+      {
+        "frame": {
+          "functionName": "le",
+          "scriptId": "163",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/index-DCefr8NP.mjs",
+          "lineNumber": 12,
+          "columnNumber": 12936
+        },
+        "samples": 1,
+        "sampledTimeUs": 1244,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009304001595740981
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "185",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/index-D1vYaNWZ.cjs",
+          "lineNumber": 13,
+          "columnNumber": 2136
+        },
+        "samples": 1,
+        "sampledTimeUs": 1243,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009296522494779775
+      },
+      {
+        "frame": {
+          "functionName": "Ct",
+          "scriptId": "163",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/index-DCefr8NP.mjs",
+          "lineNumber": 13,
+          "columnNumber": 904
+        },
+        "samples": 1,
+        "sampledTimeUs": 1242,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009289043393818568
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "138",
+          "url": "node:internal/crypto/hashnames",
+          "lineNumber": 0,
+          "columnNumber": 0
+        },
+        "samples": 1,
+        "sampledTimeUs": 1241,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009281564292857362
+      },
+      {
+        "frame": {
+          "functionName": "open",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 1240,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009274085191896155
+      },
+      {
+        "frame": {
+          "functionName": "syncLink",
+          "scriptId": "75",
+          "url": "node:internal/modules/esm/module_job",
+          "lineNumber": 260,
+          "columnNumber": 10
+        },
+        "samples": 1,
+        "sampledTimeUs": 1237,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009251647889012536
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "182",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/register-OY9cqBEN.cjs",
+          "lineNumber": 0,
+          "columnNumber": 662
+        },
+        "samples": 1,
+        "sampledTimeUs": 1237,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009251647889012536
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "238",
+          "url": "node:internal/webstreams/readablestream",
+          "lineNumber": 0,
+          "columnNumber": 0
+        },
+        "samples": 1,
+        "sampledTimeUs": 1229,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009191815081322882
+      },
+      {
+        "frame": {
+          "functionName": "loadavg",
+          "scriptId": "122",
+          "url": "node:os",
+          "lineNumber": 120,
+          "columnNumber": 16
+        },
+        "samples": 1,
+        "sampledTimeUs": 1209,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.0000904223306209875
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "152",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/register-DHgpdRjs.mjs",
+          "lineNumber": 6,
+          "columnNumber": 16677
+        },
+        "samples": 1,
+        "sampledTimeUs": 1205,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00009012316658253924
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[1513]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1875943
+        },
+        "samples": 1,
+        "sampledTimeUs": 1198,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00008959962951525479
+      },
+      {
+        "frame": {
+          "functionName": "_forkChild",
+          "scriptId": "88",
+          "url": "node:child_process",
+          "lineNumber": 176,
+          "columnNumber": 19
+        },
+        "samples": 1,
+        "sampledTimeUs": 1185,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00008862734639029793
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[1477]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1870419
+        },
+        "samples": 1,
+        "sampledTimeUs": 1166,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00008720631720766868
+      },
+      {
+        "frame": {
+          "functionName": "existsSync",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 1152,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00008615924307309976
+      },
+      {
+        "frame": {
+          "functionName": "lstat",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 1148,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.0000858600790346515
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[2151]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1944284
+        },
+        "samples": 1,
+        "sampledTimeUs": 1147,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00008578528802503943
+      },
+      {
+        "frame": {
+          "functionName": "#cachedDefaultResolve",
+          "scriptId": "72",
+          "url": "node:internal/modules/esm/loader",
+          "lineNumber": 699,
+          "columnNumber": 23
+        },
+        "samples": 1,
+        "sampledTimeUs": 1139,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.0000851869599481429
+      },
+      {
+        "frame": {
+          "functionName": "wasm-function[408]",
+          "scriptId": "243",
+          "url": "wasm://wasm/007b5d42",
+          "lineNumber": 0,
+          "columnNumber": 1336760
+        },
+        "samples": 1,
+        "sampledTimeUs": 1133,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00008473821389047051
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "163",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/index-DCefr8NP.mjs",
+          "lineNumber": 12,
+          "columnNumber": 8618
+        },
+        "samples": 1,
+        "sampledTimeUs": 1102,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00008241969259249647
+      },
+      {
+        "frame": {
+          "functionName": "harness",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 4469
+        },
+        "samples": 2,
+        "sampledTimeUs": 986,
+        "sampleFraction": 0.000222000222000222,
+        "sampledTimeFraction": 0.00007374393547749685
+      },
+      {
+        "frame": {
+          "functionName": "time",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 4644
+        },
+        "samples": 1,
+        "sampledTimeUs": 354,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00002647601740267128
+      },
+      {
+        "frame": {
+          "functionName": "normalizeString",
+          "scriptId": "38",
+          "url": "node:path",
+          "lineNumber": 91,
+          "columnNumber": 24
+        },
+        "samples": 1,
+        "sampledTimeUs": 283,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.000021165855720214612
+      },
+      {
+        "frame": {
+          "functionName": "Rn",
+          "scriptId": "163",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/index-DCefr8NP.mjs",
+          "lineNumber": 12,
+          "columnNumber": 10991
+        },
+        "samples": 1,
+        "sampledTimeUs": 199,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.000014883410912801088
+      },
+      {
+        "frame": {
+          "functionName": "instantiate",
+          "scriptId": "0",
+          "url": "",
+          "lineNumber": -1,
+          "columnNumber": -1
+        },
+        "samples": 1,
+        "sampledTimeUs": 192,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.000014359873845516627
+      },
+      {
+        "frame": {
+          "functionName": "",
+          "scriptId": "211",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 20471
+        },
+        "samples": 1,
+        "sampledTimeUs": 143,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.000010695114374525405
+      },
+      {
+        "frame": {
+          "functionName": "Cr",
+          "scriptId": "163",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/index-DCefr8NP.mjs",
+          "lineNumber": 12,
+          "columnNumber": 19734
+        },
+        "samples": 1,
+        "sampledTimeUs": 128,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.000009573249230344417
+      },
+      {
+        "frame": {
+          "functionName": "gt",
+          "scriptId": "163",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/index-DCefr8NP.mjs",
+          "lineNumber": 12,
+          "columnNumber": 18921
+        },
+        "samples": 1,
+        "sampledTimeUs": 106,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.000007927847018878971
+      },
+      {
+        "frame": {
+          "functionName": "Mn",
+          "scriptId": "163",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/index-DCefr8NP.mjs",
+          "lineNumber": 12,
+          "columnNumber": 11802
+        },
+        "samples": 1,
+        "sampledTimeUs": 73,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.000005459743701680801
+      },
+      {
+        "frame": {
+          "functionName": "get bodies",
+          "scriptId": "205",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/simulation.ts",
+          "lineNumber": 0,
+          "columnNumber": 1435
+        },
+        "samples": 1,
+        "sampledTimeUs": 52,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.00000388913249982742
+      },
+      {
+        "frame": {
+          "functionName": "te",
+          "scriptId": "163",
+          "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/dist/index-DCefr8NP.mjs",
+          "lineNumber": 12,
+          "columnNumber": 17144
+        },
+        "samples": 1,
+        "sampledTimeUs": 47,
+        "sampleFraction": 0.000111000111000111,
+        "sampledTimeFraction": 0.000003515177451767091
+      }
+    ]
+  },
+  "components": [
+    {
+      "scene": "crossing",
+      "mode": "cpu",
+      "constructionMs": 5.546,
+      "warmupMs": 835.298,
+      "measuredWallMs": 8167.046,
+      "stepAll": {
+        "count": 600,
+        "p50": 13.14904099999967,
+        "p95": 17.609166000000187,
+        "p99": 22.286833000000115,
+        "max": 67.20425
+      },
+      "activeBeforeStep": {
+        "count": 598,
+        "p50": 13.162667000000056,
+        "p95": 17.67870900000071,
+        "p99": 22.855666000000383,
+        "max": 67.20425
+      },
+      "terminalBeforeStep": {
+        "count": 2,
+        "p50": 0.006708000000799075,
+        "p95": 0.009583000000930042,
+        "p99": 0.009583000000930042,
+        "max": 0.009583000000930042
+      },
+      "stateClassification": "Transition-to-terminal tick remains in active physics; first tick is treated as active only when its observed post-step state is active. Exact fixture states are retained in raw JSON.",
+      "snapshot": {
+        "count": 600,
+        "p50": 0.08708299999989322,
+        "p95": 0.15541600000051403,
+        "p99": 0.25424999999995634,
+        "max": 0.9859999999998763
+      },
+      "json": {
+        "count": 600,
+        "p50": 0.03375000000005457,
+        "p95": 0.05737500000032014,
+        "p99": 0.10558399999990797,
+        "max": 0.33216600000014296
+      },
+      "pairedStepSnapshotJson": {
+        "count": 600,
+        "p50": 13.284292000000278,
+        "p95": 17.739125000000058,
+        "p99": 22.495333000000073,
+        "max": 67.38083299999994
+      },
+      "componentScope": "Invocation work only, no authority scheduling delay, Colyseus msgpack encoding, network queues or six-client fan-out. Recording tape remains enabled.",
+      "observedGc": {
+        "count": 673,
+        "p50": 0.19937503337860107,
+        "p95": 0.438709020614624,
+        "p99": 0.8487499952316284,
+        "max": 2.7214999198913574,
+        "totalMs": 156.9048444032669,
+        "fractionOfMeasuredWall": 0.019211945714921515
+      },
+      "peakSampledRss": 259080192,
+      "minimumObservedHostFree": 63553536,
+      "hostLoad": [
+        [
+          10.27783203125,
+          8.703125,
+          6.13330078125
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.09521484375,
+          8.69140625,
+          6.14404296875
+        ],
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ],
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ],
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ],
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ],
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ],
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ]
+      ],
+      "finalRun": {
+        "status": "complete",
+        "elapsedSeconds": 21.933333333333334,
+        "progress": 1,
+        "reason": "finish"
+      }
+    },
+    {
+      "scene": "rescue",
+      "mode": "cpu",
+      "constructionMs": 0.814,
+      "warmupMs": 757.009,
+      "measuredWallMs": 3380.379,
+      "stepAll": {
+        "count": 600,
+        "p50": 5.018834000000425,
+        "p95": 15.944542000001093,
+        "p99": 31.49433300000055,
+        "max": 124.30450000000019
+      },
+      "activeBeforeStep": {
+        "count": 337,
+        "p50": 7.276416000000609,
+        "p95": 21.91833299999962,
+        "p99": 47.5551660000001,
+        "max": 124.30450000000019
+      },
+      "terminalBeforeStep": {
+        "count": 263,
+        "p50": 0.0015000000003055902,
+        "p95": 0.004791999999724794,
+        "p99": 0.011666000000332133,
+        "max": 0.055416999999579275
+      },
+      "stateClassification": "Transition-to-terminal tick remains in active physics; first tick is treated as active only when its observed post-step state is active. Exact fixture states are retained in raw JSON.",
+      "snapshot": {
+        "count": 600,
+        "p50": 0.1286660000005213,
+        "p95": 0.22595799999908195,
+        "p99": 0.4113339999985328,
+        "max": 2.6900840000016615
+      },
+      "json": {
+        "count": 600,
+        "p50": 0.036291000000346685,
+        "p95": 0.06095900000036636,
+        "p99": 0.11204100000031758,
+        "max": 0.25866600000153994
+      },
+      "pairedStepSnapshotJson": {
+        "count": 600,
+        "p50": 5.1218339999995806,
+        "p95": 16.608541999999943,
+        "p99": 31.694499999999607,
+        "max": 124.40400000000045
+      },
+      "componentScope": "Invocation work only, no authority scheduling delay, Colyseus msgpack encoding, network queues or six-client fan-out. Recording tape remains enabled.",
+      "observedGc": {
+        "count": 137,
+        "p50": 0.24429094791412354,
+        "p95": 0.5975840091705322,
+        "p99": 1.2494579553604126,
+        "max": 1.973958969116211,
+        "totalMs": 43.100123167037964,
+        "fractionOfMeasuredWall": 0.012750086060479598
+      },
+      "peakSampledRss": 228261888,
+      "minimumObservedHostFree": 67731456,
+      "hostLoad": [
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ],
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ],
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ],
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ],
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ],
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ],
+        [
+          10.00732421875,
+          8.6962890625,
+          6.16064453125
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ],
+        [
+          10.40673828125,
+          8.80078125,
+          6.21240234375
+        ]
+      ],
+      "finalRun": {
+        "status": "failed",
+        "elapsedSeconds": 13.216666666666667,
+        "progress": 0,
+        "reason": "terminal-boundary"
+      }
+    }
+  ],
+  "allocations": {
+    "crossing": {
+      "totalEstimatedBytes": 15111526432,
+      "scope": "Cumulative sampled allocation estimate, including collected-object sampling requested for this pass; not live/retained JS heap, RSS, native/WASM bytes or per-room ownership. Sum each node selfSize once; do not add inclusive parent sizes.",
+      "functions": [
+        {
+          "frame": {
+            "functionName": "sweepBox",
+            "scriptId": "213",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+            "lineNumber": 0,
+            "columnNumber": 950
+          },
+          "estimatedSelfBytes": 5673515896,
+          "fraction": 0.37544293897311565
+        },
+        {
+          "frame": {
+            "functionName": "contactNormalsAt",
+            "scriptId": "213",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+            "lineNumber": 0,
+            "columnNumber": 3792
+          },
+          "estimatedSelfBytes": 4073105728,
+          "fraction": 0.26953635334778864
+        },
+        {
+          "frame": {
+            "functionName": "projectMotion",
+            "scriptId": "213",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+            "lineNumber": 0,
+            "columnNumber": 1567
+          },
+          "estimatedSelfBytes": 3146857664,
+          "fraction": 0.2082422102201568
+        },
+        {
+          "frame": {
+            "functionName": "constrain",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 15315
+          },
+          "estimatedSelfBytes": 1366912536,
+          "fraction": 0.09045496112857541
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 26866
+          },
+          "estimatedSelfBytes": 305137456,
+          "fraction": 0.02019236490589358
+        },
+        {
+          "frame": {
+            "functionName": "substep",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 5654
+          },
+          "estimatedSelfBytes": 109161384,
+          "fraction": 0.007223716577621243
+        },
+        {
+          "frame": {
+            "functionName": "__name",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 47
+          },
+          "estimatedSelfBytes": 99153088,
+          "fraction": 0.0065614210745801645
+        },
+        {
+          "frame": {
+            "functionName": "next",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 77004176,
+          "fraction": 0.005095724534944187
+        },
+        {
+          "frame": {
+            "functionName": "penetration",
+            "scriptId": "213",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+            "lineNumber": 0,
+            "columnNumber": 551
+          },
+          "estimatedSelfBytes": 69116888,
+          "fraction": 0.00457378599779562
+        },
+        {
+          "frame": {
+            "functionName": "hypot",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 44509856,
+          "fraction": 0.00294542422304516
+        },
+        {
+          "frame": {
+            "functionName": "separateBodies",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 17260
+          },
+          "estimatedSelfBytes": 40521408,
+          "fraction": 0.002681490065371048
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "213",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+            "lineNumber": 0,
+            "columnNumber": 222
+          },
+          "estimatedSelfBytes": 32379568,
+          "fraction": 0.0021427066382541863
+        },
+        {
+          "frame": {
+            "functionName": "map",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 19481752,
+          "fraction": 0.001289198155306512
+        },
+        {
+          "frame": {
+            "functionName": "supportAt",
+            "scriptId": "213",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+            "lineNumber": 0,
+            "columnNumber": 2681
+          },
+          "estimatedSelfBytes": 6494464,
+          "fraction": 0.0004297688939118285
+        },
+        {
+          "frame": {
+            "functionName": "translation",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 87513
+          },
+          "estimatedSelfBytes": 5937936,
+          "fraction": 0.00039294084728766336
+        },
+        {
+          "frame": {
+            "functionName": "segmentError",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 18610
+          },
+          "estimatedSelfBytes": 4949264,
+          "fraction": 0.00032751582193043675
+        },
+        {
+          "frame": {
+            "functionName": "childProfile",
+            "scriptId": "190",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/scripts/local-load-profile.ts",
+            "lineNumber": 0,
+            "columnNumber": 1310
+          },
+          "estimatedSelfBytes": 4736296,
+          "fraction": 0.00031342273868313343
+        },
+        {
+          "frame": {
+            "functionName": "values",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 4033432,
+          "fraction": 0.00026691095821126644
+        },
+        {
+          "frame": {
+            "functionName": "structuredClone",
+            "scriptId": "28",
+            "url": "node:internal/worker/js_transferable",
+            "lineNumber": 112,
+            "columnNumber": 24
+          },
+          "estimatedSelfBytes": 3478024,
+          "fraction": 0.0002301570271971318
+        },
+        {
+          "frame": {
+            "functionName": "fromBuffer",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 84938
+          },
+          "estimatedSelfBytes": 3018192,
+          "fraction": 0.000199727804704673
+        },
+        {
+          "frame": {
+            "functionName": "updateBridges",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 20096
+          },
+          "estimatedSelfBytes": 2852720,
+          "fraction": 0.00018877775271987823
+        },
+        {
+          "frame": {
+            "functionName": "linvel",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 88492
+          },
+          "estimatedSelfBytes": 2821248,
+          "fraction": 0.00018669510407802066
+        },
+        {
+          "frame": {
+            "functionName": "center",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 4577
+          },
+          "estimatedSelfBytes": 2099088,
+          "fraction": 0.00013890641752477067
+        },
+        {
+          "frame": {
+            "functionName": "filter",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 1871352,
+          "fraction": 0.00012383606701949352
+        },
+        {
+          "frame": {
+            "functionName": "register",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 1673584,
+          "fraction": 0.0001107488384797473
+        },
+        {
+          "frame": {
+            "functionName": "now",
+            "scriptId": "198",
+            "url": "node:internal/perf/performance",
+            "lineNumber": 136,
+            "columnNumber": 5
+          },
+          "estimatedSelfBytes": 1476000,
+          "fraction": 0.00009767378607593465
+        },
+        {
+          "frame": {
+            "functionName": "snapshot",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 25482
+          },
+          "estimatedSelfBytes": 1115440,
+          "fraction": 0.0000738138536182524
+        },
+        {
+          "frame": {
+            "functionName": "max",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 1114416,
+          "fraction": 0.00007374609077479593
+        },
+        {
+          "frame": {
+            "functionName": "updateSpans",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 18876
+          },
+          "estimatedSelfBytes": 1082008,
+          "fraction": 0.0000716015026588414
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "29",
+            "url": "node:internal/webidl",
+            "lineNumber": 711,
+            "columnNumber": 17
+          },
+          "estimatedSelfBytes": 919248,
+          "fraction": 0.000060830916329763395
+        },
+        {
+          "frame": {
+            "functionName": "min",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 819424,
+          "fraction": 0.00005422509788718609
+        },
+        {
+          "frame": {
+            "functionName": "motorVelocity",
+            "scriptId": "209",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/movement.ts",
+            "lineNumber": 0,
+            "columnNumber": 175
+          },
+          "estimatedSelfBytes": 655696,
+          "fraction": 0.000043390454495153145
+        },
+        {
+          "frame": {
+            "functionName": "harness",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 4469
+          },
+          "estimatedSelfBytes": 557392,
+          "fraction": 0.00003688522152333155
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "190",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/scripts/local-load-profile.ts",
+            "lineNumber": 0,
+            "columnNumber": 1794
+          },
+          "estimatedSelfBytes": 393592,
+          "fraction": 0.000026045813556368068
+        },
+        {
+          "frame": {
+            "functionName": "intoRaw",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 84855
+          },
+          "estimatedSelfBytes": 327872,
+          "fraction": 0.000021696815439220085
+        },
+        {
+          "frame": {
+            "functionName": "updateIncidents",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 21625
+          },
+          "estimatedSelfBytes": 295144,
+          "fraction": 0.000019531051434685405
+        },
+        {
+          "frame": {
+            "functionName": "__wbg_now_e7c6795a7f81e10f",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 82353
+          },
+          "estimatedSelfBytes": 295008,
+          "fraction": 0.00001952205168203884
+        },
+        {
+          "frame": {
+            "functionName": "Map",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 229792,
+          "fraction": 0.00001520640558940459
+        },
+        {
+          "frame": {
+            "functionName": "wrappedFn",
+            "scriptId": "7",
+            "url": "node:internal/errors",
+            "lineNumber": 541,
+            "columnNumber": 20
+          },
+          "estimatedSelfBytes": 229560,
+          "fraction": 0.000015191053070183982
+        },
+        {
+          "frame": {
+            "functionName": "abs",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 229440,
+          "fraction": 0.000015183112111966427
+        },
+        {
+          "frame": {
+            "functionName": "sqrt",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 196672,
+          "fraction": 0.000013014701121359227
+        },
+        {
+          "frame": {
+            "functionName": "push",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 142992,
+          "fraction": 0.000009462445812039327
+        },
+        {
+          "frame": {
+            "functionName": "get startTime",
+            "scriptId": "112",
+            "url": "node:internal/perf/performance_entry",
+            "lineNumber": 60,
+            "columnNumber": 15
+          },
+          "estimatedSelfBytes": 98376,
+          "fraction": 0.000006509997546752132
+        },
+        {
+          "frame": {
+            "functionName": "step",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 5132
+          },
+          "estimatedSelfBytes": 98376,
+          "fraction": 0.000006509997546752132
+        },
+        {
+          "frame": {
+            "functionName": "observerCallback",
+            "scriptId": "111",
+            "url": "node:internal/perf/observe",
+            "lineNumber": 525,
+            "columnNumber": 25
+          },
+          "estimatedSelfBytes": 65600,
+          "fraction": 0.000004341057158930429
+        },
+        {
+          "frame": {
+            "functionName": "(V8 API)",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 65576,
+          "fraction": 0.0000043394689672869175
+        },
+        {
+          "frame": {
+            "functionName": "normalizeMove",
+            "scriptId": "207",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/protocol.ts",
+            "lineNumber": 0,
+            "columnNumber": 852
+          },
+          "estimatedSelfBytes": 65568,
+          "fraction": 0.000004338939570072414
+        },
+        {
+          "frame": {
+            "functionName": "setLinvel",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 87927
+          },
+          "estimatedSelfBytes": 65552,
+          "fraction": 0.000004337880775643407
+        },
+        {
+          "frame": {
+            "functionName": "sort",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 33408,
+          "fraction": 0.0000022107627677674964
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "111",
+            "url": "node:internal/perf/observe",
+            "lineNumber": 119,
+            "columnNumber": 15
+          },
+          "estimatedSelfBytes": 32880,
+          "fraction": 0.0000021758225516102514
+        },
+        {
+          "frame": {
+            "functionName": "assign",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 32832,
+          "fraction": 0.0000021726461683232294
+        },
+        {
+          "frame": {
+            "functionName": "get duration",
+            "scriptId": "112",
+            "url": "node:internal/perf/performance_entry",
+            "lineNumber": 65,
+            "columnNumber": 14
+          },
+          "estimatedSelfBytes": 32784,
+          "fraction": 0.000002169469785036207
+        },
+        {
+          "frame": {
+            "functionName": "time",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 4644
+          },
+          "estimatedSelfBytes": 32784,
+          "fraction": 0.000002169469785036207
+        },
+        {
+          "frame": {
+            "functionName": "(root)",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "enqueue",
+            "scriptId": "111",
+            "url": "node:internal/perf/observe",
+            "lineNumber": 386,
+            "columnNumber": 16
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "get entryType",
+            "scriptId": "112",
+            "url": "node:internal/perf/performance_entry",
+            "lineNumber": 55,
+            "columnNumber": 15
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "111",
+            "url": "node:internal/perf/observe",
+            "lineNumber": 337,
+            "columnNumber": 16
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "processImmediate",
+            "scriptId": "10",
+            "url": "node:internal/timers",
+            "lineNumber": 485,
+            "columnNumber": 27
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "from",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "111",
+            "url": "node:internal/perf/observe",
+            "lineNumber": 346,
+            "columnNumber": 13
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "get detail",
+            "scriptId": "112",
+            "url": "node:internal/perf/performance_entry",
+            "lineNumber": 107,
+            "columnNumber": 12
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "PerformanceObserverEntryList",
+            "scriptId": "111",
+            "url": "node:internal/perf/observe",
+            "lineNumber": 174,
+            "columnNumber": 13
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "performanceObserverSorter",
+            "scriptId": "111",
+            "url": "node:internal/perf/observe",
+            "lineNumber": 169,
+            "columnNumber": 34
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "runNextTicks",
+            "scriptId": "32",
+            "url": "node:internal/process/task_queues",
+            "lineNumber": 62,
+            "columnNumber": 21
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "snapshot",
+            "scriptId": "205",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 2004
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "reduce",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "step",
+            "scriptId": "205",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 1942
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "every",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "routeRope",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 17760
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "step",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 135931
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "js-to-wasm:iiiiiiiiiii:",
+            "scriptId": "243",
+            "url": "wasm://wasm/007b5d42",
+            "lineNumber": 0,
+            "columnNumber": 1101591
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "d",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 72642
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "some",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        }
+      ]
+    },
+    "rescue": {
+      "totalEstimatedBytes": 4540582552,
+      "scope": "Cumulative sampled allocation estimate, including collected-object sampling requested for this pass; not live/retained JS heap, RSS, native/WASM bytes or per-room ownership. Sum each node selfSize once; do not add inclusive parent sizes.",
+      "functions": [
+        {
+          "frame": {
+            "functionName": "constrain",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 15315
+          },
+          "estimatedSelfBytes": 1541660968,
+          "fraction": 0.339529333591995
+        },
+        {
+          "frame": {
+            "functionName": "sweepBox",
+            "scriptId": "213",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+            "lineNumber": 0,
+            "columnNumber": 950
+          },
+          "estimatedSelfBytes": 1081683984,
+          "fraction": 0.2382258160956788
+        },
+        {
+          "frame": {
+            "functionName": "contactNormalsAt",
+            "scriptId": "213",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+            "lineNumber": 0,
+            "columnNumber": 3792
+          },
+          "estimatedSelfBytes": 763436504,
+          "fraction": 0.16813624579157305
+        },
+        {
+          "frame": {
+            "functionName": "projectMotion",
+            "scriptId": "213",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+            "lineNumber": 0,
+            "columnNumber": 1567
+          },
+          "estimatedSelfBytes": 706318480,
+          "fraction": 0.15555679737369524
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 26565
+          },
+          "estimatedSelfBytes": 194755224,
+          "fraction": 0.042892122711041945
+        },
+        {
+          "frame": {
+            "functionName": "substep",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 5654
+          },
+          "estimatedSelfBytes": 80705120,
+          "fraction": 0.017774177448761867
+        },
+        {
+          "frame": {
+            "functionName": "hypot",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 39265712,
+          "fraction": 0.008647725605760553
+        },
+        {
+          "frame": {
+            "functionName": "separateBodies",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 17260
+          },
+          "estimatedSelfBytes": 32732544,
+          "fraction": 0.007208886442463694
+        },
+        {
+          "frame": {
+            "functionName": "next",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 21345040,
+          "fraction": 0.004700947456752681
+        },
+        {
+          "frame": {
+            "functionName": "segmentError",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 18610
+          },
+          "estimatedSelfBytes": 13602048,
+          "fraction": 0.0029956614254284786
+        },
+        {
+          "frame": {
+            "functionName": "map",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 13588992,
+          "fraction": 0.0029927860234617754
+        },
+        {
+          "frame": {
+            "functionName": "structuredClone",
+            "scriptId": "28",
+            "url": "node:internal/worker/js_transferable",
+            "lineNumber": 112,
+            "columnNumber": 24
+          },
+          "estimatedSelfBytes": 9022344,
+          "fraction": 0.001987045471957317
+        },
+        {
+          "frame": {
+            "functionName": "childProfile",
+            "scriptId": "190",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/scripts/local-load-profile.ts",
+            "lineNumber": 0,
+            "columnNumber": 1310
+          },
+          "estimatedSelfBytes": 7327768,
+          "fraction": 0.0016138387345853503
+        },
+        {
+          "frame": {
+            "functionName": "supportAt",
+            "scriptId": "213",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+            "lineNumber": 0,
+            "columnNumber": 2681
+          },
+          "estimatedSelfBytes": 4887744,
+          "fraction": 0.00107645746862307
+        },
+        {
+          "frame": {
+            "functionName": "translation",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 87513
+          },
+          "estimatedSelfBytes": 4658368,
+          "fraction": 0.0010259406026982417
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "213",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+            "lineNumber": 0,
+            "columnNumber": 222
+          },
+          "estimatedSelfBytes": 4227968,
+          "fraction": 0.0009311510035507884
+        },
+        {
+          "frame": {
+            "functionName": "penetration",
+            "scriptId": "213",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+            "lineNumber": 0,
+            "columnNumber": 551
+          },
+          "estimatedSelfBytes": 3150872,
+          "fraction": 0.0006939356269631369
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "29",
+            "url": "node:internal/webidl",
+            "lineNumber": 711,
+            "columnNumber": 17
+          },
+          "estimatedSelfBytes": 2856568,
+          "fraction": 0.0006291192742970308
+        },
+        {
+          "frame": {
+            "functionName": "linvel",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 88492
+          },
+          "estimatedSelfBytes": 2525984,
+          "fraction": 0.0005563127574648708
+        },
+        {
+          "frame": {
+            "functionName": "center",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 4577
+          },
+          "estimatedSelfBytes": 2099200,
+          "fraction": 0.00046231953190133297
+        },
+        {
+          "frame": {
+            "functionName": "updateSpans",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 18876
+          },
+          "estimatedSelfBytes": 1278496,
+          "fraction": 0.0002815709185678957
+        },
+        {
+          "frame": {
+            "functionName": "values",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 1180504,
+          "fraction": 0.0002599895468214802
+        },
+        {
+          "frame": {
+            "functionName": "updateBridges",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 20096
+          },
+          "estimatedSelfBytes": 1049344,
+          "fraction": 0.00023110338551994683
+        },
+        {
+          "frame": {
+            "functionName": "snapshot",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 25482
+          },
+          "estimatedSelfBytes": 853328,
+          "fraction": 0.00018793359447327585
+        },
+        {
+          "frame": {
+            "functionName": "register",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 853104,
+          "fraction": 0.00018788426159639613
+        },
+        {
+          "frame": {
+            "functionName": "filter",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 787832,
+          "fraction": 0.00017350901365133906
+        },
+        {
+          "frame": {
+            "functionName": "updateIncidents",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 21625
+          },
+          "estimatedSelfBytes": 753976,
+          "fraction": 0.0001660527016886621
+        },
+        {
+          "frame": {
+            "functionName": "__wbg_now_e7c6795a7f81e10f",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 82353
+          },
+          "estimatedSelfBytes": 589968,
+          "fraction": 0.00012993222637041046
+        },
+        {
+          "frame": {
+            "functionName": "harness",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 4469
+          },
+          "estimatedSelfBytes": 524576,
+          "fraction": 0.00011553055009845354
+        },
+        {
+          "frame": {
+            "functionName": "routeRope",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 17760
+          },
+          "estimatedSelfBytes": 459072,
+          "fraction": 0.00010110420738805676
+        },
+        {
+          "frame": {
+            "functionName": "normalizeMove",
+            "scriptId": "207",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/protocol.ts",
+            "lineNumber": 0,
+            "columnNumber": 852
+          },
+          "estimatedSelfBytes": 360720,
+          "fraction": 0.00007944355066094171
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "190",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/scripts/local-load-profile.ts",
+            "lineNumber": 0,
+            "columnNumber": 2238
+          },
+          "estimatedSelfBytes": 295208,
+          "fraction": 0.00006501544606208495
+        },
+        {
+          "frame": {
+            "functionName": "Map",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 229696,
+          "fraction": 0.00005058734146322817
+        },
+        {
+          "frame": {
+            "functionName": "max",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 229440,
+          "fraction": 0.0000505309610325085
+        },
+        {
+          "frame": {
+            "functionName": "motorVelocity",
+            "scriptId": "209",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/movement.ts",
+            "lineNumber": 0,
+            "columnNumber": 175
+          },
+          "estimatedSelfBytes": 163888,
+          "fraction": 0.000036094046991351786
+        },
+        {
+          "frame": {
+            "functionName": "step",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 5132
+          },
+          "estimatedSelfBytes": 131160,
+          "fraction": 0.000028886161301533363
+        },
+        {
+          "frame": {
+            "functionName": "min",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 131104,
+          "fraction": 0.000028873828082313433
+        },
+        {
+          "frame": {
+            "functionName": "push",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 104000,
+          "fraction": 0.00002290454997986787
+        },
+        {
+          "frame": {
+            "functionName": "(V8 API)",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 98360,
+          "fraction": 0.000021662418615575035
+        },
+        {
+          "frame": {
+            "functionName": "sqrt",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 98336,
+          "fraction": 0.000021657132950195066
+        },
+        {
+          "frame": {
+            "functionName": "abs",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 98336,
+          "fraction": 0.000021657132950195066
+        },
+        {
+          "frame": {
+            "functionName": "setTranslation",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 87856
+          },
+          "estimatedSelfBytes": 98336,
+          "fraction": 0.000021657132950195066
+        },
+        {
+          "frame": {
+            "functionName": "intoRaw",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 84855
+          },
+          "estimatedSelfBytes": 65600,
+          "fraction": 0.000014447485371916655
+        },
+        {
+          "frame": {
+            "functionName": "loadavg",
+            "scriptId": "122",
+            "url": "node:os",
+            "lineNumber": 120,
+            "columnNumber": 16
+          },
+          "estimatedSelfBytes": 65584,
+          "fraction": 0.000014443961594996677
+        },
+        {
+          "frame": {
+            "functionName": "step",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 135931
+          },
+          "estimatedSelfBytes": 34304,
+          "fraction": 0.000007554977716436417
+        },
+        {
+          "frame": {
+            "functionName": "get detail",
+            "scriptId": "112",
+            "url": "node:internal/perf/performance_entry",
+            "lineNumber": 107,
+            "columnNumber": 12
+          },
+          "estimatedSelfBytes": 32832,
+          "fraction": 0.000007230790239798287
+        },
+        {
+          "frame": {
+            "functionName": "get startTime",
+            "scriptId": "112",
+            "url": "node:internal/perf/performance_entry",
+            "lineNumber": 60,
+            "columnNumber": 15
+          },
+          "estimatedSelfBytes": 32832,
+          "fraction": 0.000007230790239798287
+        },
+        {
+          "frame": {
+            "functionName": "withResolvers",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 32832,
+          "fraction": 0.000007230790239798287
+        },
+        {
+          "frame": {
+            "functionName": "get duration",
+            "scriptId": "112",
+            "url": "node:internal/perf/performance_entry",
+            "lineNumber": 65,
+            "columnNumber": 14
+          },
+          "estimatedSelfBytes": 32784,
+          "fraction": 0.000007220218909038348
+        },
+        {
+          "frame": {
+            "functionName": "time",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 4644
+          },
+          "estimatedSelfBytes": 32784,
+          "fraction": 0.000007220218909038348
+        },
+        {
+          "frame": {
+            "functionName": "memoryUsage",
+            "scriptId": "30",
+            "url": "node:internal/process/per_thread",
+            "lineNumber": 215,
+            "columnNumber": 22
+          },
+          "estimatedSelfBytes": 32784,
+          "fraction": 0.000007220218909038348
+        },
+        {
+          "frame": {
+            "functionName": "(root)",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "snapshot",
+            "scriptId": "205",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 2004
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "reduce",
+            "scriptId": "0",
+            "url": "",
+            "lineNumber": -1,
+            "columnNumber": -1
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "step",
+            "scriptId": "205",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 1942
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "observerCallback",
+            "scriptId": "111",
+            "url": "node:internal/perf/observe",
+            "lineNumber": 525,
+            "columnNumber": 25
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "enqueue",
+            "scriptId": "111",
+            "url": "node:internal/perf/observe",
+            "lineNumber": 386,
+            "columnNumber": 16
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "processImmediate",
+            "scriptId": "10",
+            "url": "node:internal/timers",
+            "lineNumber": 485,
+            "columnNumber": 27
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "111",
+            "url": "node:internal/perf/observe",
+            "lineNumber": 119,
+            "columnNumber": 15
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "",
+            "scriptId": "111",
+            "url": "node:internal/perf/observe",
+            "lineNumber": 346,
+            "columnNumber": 13
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "runNextTicks",
+            "scriptId": "32",
+            "url": "node:internal/process/task_queues",
+            "lineNumber": 62,
+            "columnNumber": 21
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "event",
+            "scriptId": "211",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+            "lineNumber": 0,
+            "columnNumber": 4695
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "d",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 72642
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "setLinvel",
+            "scriptId": "206",
+            "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+            "lineNumber": 0,
+            "columnNumber": 87927
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        },
+        {
+          "frame": {
+            "functionName": "setImmediate",
+            "scriptId": "202",
+            "url": "node:timers/promises",
+            "lineNumber": 93,
+            "columnNumber": 21
+          },
+          "estimatedSelfBytes": 0,
+          "fraction": 0
+        }
+      ]
+    }
+  },
+  "qualification": "Local instrumented source-level investigation; no production/capacity/room-memory claim."
+}

@@ -19,6 +19,7 @@ const server = new Server({ transport, greet: false, express: app => {
 } });
 server.define('belay', BelayRoom);
 await server.listen(TUNING.server.port, TUNING.server.host);
-const room = await matchMaker.createRoom('belay', { persistent: true, token: issueAccess('operator') });
+const room = await matchMaker.createRoom('belay', { persistent: true, token: issueAccess('operator'),
+  scene: TUNING.phase2.defaultScene, playerCount: TUNING.phase2.defaultPlayers });
 roomId = room.roomId;
-console.log(`BELAY authority: http://${TUNING.server.host}:${TUNING.server.port} (Phase 1, ${TUNING.tickHz} Hz)`);
+console.log(`BELAY authority: http://${TUNING.server.host}:${TUNING.server.port} (Phase ${TUNING.phase}, ${TUNING.tickHz} Hz, ${TUNING.phase2.defaultPlayers} climbers)`);

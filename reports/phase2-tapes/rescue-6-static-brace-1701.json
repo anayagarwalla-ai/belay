@@ -1,0 +1,3749 @@
+{
+  "spec": {
+    "ordinal": 39,
+    "seed": 1701,
+    "playerCount": 6,
+    "scene": "rescue",
+    "policy": "static-brace",
+    "family": "balanced",
+    "tickHz": 30,
+    "horizonSeconds": 20
+  },
+  "tape": {
+    "version": "phase2-1",
+    "seed": 1701,
+    "family": "balanced",
+    "tickHz": 30,
+    "scene": "rescue",
+    "playerCount": 6,
+    "frames": [
+      {
+        "tick": 0,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 1,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 2,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 3,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 4,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 5,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 6,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 7,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 8,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 9,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 10,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 11,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 12,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 13,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 14,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 15,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 16,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 17,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 18,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 19,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 20,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 21,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 22,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 23,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 24,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 25,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 26,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 27,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 28,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 29,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 30,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 31,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 32,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 33,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 34,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 35,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 36,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 37,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 38,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 39,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 40,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 41,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 42,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 43,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 44,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 45,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 46,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 47,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 48,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 49,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 50,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 51,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 52,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 53,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 54,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 55,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 56,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 57,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 58,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 59,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 60,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 61,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 62,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 63,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 64,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 65,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 66,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 67,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 68,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 69,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 70,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 71,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 72,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 73,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 74,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 75,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 76,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 77,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 78,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 79,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 80,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 81,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 82,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "tick": 83,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      }
+    ],
+    "truncated": false
+  },
+  "expectedFinalStateSha256": "ec83b851853835d538e69e7d1ec5d8b0500b59da6485b25285506575d13e0a09",
+  "finalState": {
+    "version": "phase2-1",
+    "epoch": 0,
+    "tick": 84,
+    "seed": 1701,
+    "family": "balanced",
+    "tickHz": 30,
+    "paused": false,
+    "scene": "rescue",
+    "playerCount": 6,
+    "players": [
+      {
+        "id": 0,
+        "position": {
+          "x": -3.999997854232788,
+          "y": 0.45399999618530273,
+          "z": -0.800000011920929
+        },
+        "velocity": {
+          "x": -1.9907993475953845e-7,
+          "y": 0,
+          "z": 0
+        },
+        "brace": true,
+        "connected": false,
+        "label": "Climber 1",
+        "ackSeq": -1,
+        "support": "ground",
+        "rescueState": "safe",
+        "activeIncidentId": null
+      },
+      {
+        "id": 1,
+        "position": {
+          "x": -2.4000000953674316,
+          "y": 0.45399999618530273,
+          "z": -0.800000011920929
+        },
+        "velocity": {
+          "x": 4.000712539031781e-10,
+          "y": 0,
+          "z": 0
+        },
+        "brace": true,
+        "connected": false,
+        "label": "Climber 2",
+        "ackSeq": -1,
+        "support": "ground",
+        "rescueState": "safe",
+        "activeIncidentId": null
+      },
+      {
+        "id": 2,
+        "position": {
+          "x": -0.7576340436935425,
+          "y": 0.45399999618530273,
+          "z": -0.7636485695838928
+        },
+        "velocity": {
+          "x": 0.000007194062163762283,
+          "y": 0,
+          "z": 0.000006356957783282269
+        },
+        "brace": true,
+        "connected": false,
+        "label": "Climber 3",
+        "ackSeq": -1,
+        "support": "ground",
+        "rescueState": "safe",
+        "activeIncidentId": null
+      },
+      {
+        "id": 3,
+        "position": {
+          "x": 0.571072518825531,
+          "y": 0.45399999618530273,
+          "z": -0.27551785111427307
+        },
+        "velocity": {
+          "x": 0.00000481424831377808,
+          "y": 0,
+          "z": -3.0857644081115723
+        },
+        "brace": false,
+        "connected": false,
+        "label": "Climber 4",
+        "ackSeq": -1,
+        "support": "ground",
+        "rescueState": "safe",
+        "activeIncidentId": null
+      },
+      {
+        "id": 4,
+        "position": {
+          "x": 2.392768144607544,
+          "y": 0.45399999618530273,
+          "z": -0.7725594639778137
+        },
+        "velocity": {
+          "x": -0.0001417967287125066,
+          "y": 0,
+          "z": 0.0009531956748105586
+        },
+        "brace": true,
+        "connected": false,
+        "label": "Climber 5",
+        "ackSeq": -1,
+        "support": "ground",
+        "rescueState": "safe",
+        "activeIncidentId": null
+      },
+      {
+        "id": 5,
+        "position": {
+          "x": 3.999997615814209,
+          "y": 0.45399999618530273,
+          "z": -0.800000011920929
+        },
+        "velocity": {
+          "x": 1.9948805629610433e-7,
+          "y": 0,
+          "z": 0
+        },
+        "brace": true,
+        "connected": false,
+        "label": "Climber 6",
+        "ackSeq": -1,
+        "support": "ground",
+        "rescueState": "safe",
+        "activeIncidentId": null
+      }
+    ],
+    "rope": {
+      "points": [
+        {
+          "x": -3.999997854232788,
+          "y": 0.4239999961853027,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -4.000877652330392,
+          "y": 0.12229817293530941,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -3.833440402578197,
+          "y": 0.03627500000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -3.600000023841858,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -3.4666666984558105,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -3.333333373069763,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -3.200000047683716,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -3.0666667222976685,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -2.933333396911621,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -2.8000000715255737,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -2.566118302403309,
+          "y": 0.03627500000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -2.3991184979333284,
+          "y": 0.12229817822731637,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -2.4000000953674316,
+          "y": 0.4239999961853027,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -2.4000000953674316,
+          "y": 0.4239999961853027,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -2.400879921394561,
+          "y": 0.12229817302700365,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -2.233448839761442,
+          "y": 0.03627500000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -2.000000074505806,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -1.8666667342185974,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -1.7333333939313889,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -1.6000000536441803,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -1.4666667133569717,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -1.3333333730697632,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -1.2000000327825546,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": -0.9661172150298548,
+          "y": 0.03627500000000001,
+          "z": -0.7999981502566579
+        },
+        {
+          "x": -0.7566622230616908,
+          "y": 0.12229846511362441,
+          "z": -0.7635802408948446
+        },
+        {
+          "x": -0.7576340436935425,
+          "y": 0.4239999961853027,
+          "z": -0.7636485695838928
+        },
+        {
+          "x": -0.7576340436935425,
+          "y": 0.4239999961853027,
+          "z": -0.7636485695838928
+        },
+        {
+          "x": -0.7300660789583162,
+          "y": 0.12462027347933274,
+          "z": -0.7385758162668845
+        },
+        {
+          "x": -0.5187747249633163,
+          "y": 0.036577217692864726,
+          "z": -0.5446494664480507
+        },
+        {
+          "x": -0.28844154617838313,
+          "y": 0.03900000000000001,
+          "z": -0.35243679986345633
+        },
+        {
+          "x": -0.061573581117102136,
+          "y": 0.03900000000000001,
+          "z": -0.15613179764578256
+        },
+        {
+          "x": 0.16147595487063923,
+          "y": 0.035365850207191435,
+          "z": 0.04445673947530194
+        },
+        {
+          "x": 0.19779445359936193,
+          "y": -0.2612598797606943,
+          "z": 0.07082403296607735
+        },
+        {
+          "x": 0.2681073848691102,
+          "y": -0.5493504839159428,
+          "z": 0.11621010454888325
+        },
+        {
+          "x": 0.5100132861346237,
+          "y": -0.616094227693413,
+          "z": 0.2428908096666054
+        },
+        {
+          "x": 0.4976638029421478,
+          "y": -0.31810390176771314,
+          "z": 0.2096527521998863
+        },
+        {
+          "x": 0.5167957972235079,
+          "y": -0.036811325542213794,
+          "z": 0.10647658757539424
+        },
+        {
+          "x": 0.5319187414845065,
+          "y": 0.1911950519513746,
+          "z": -0.08827756680262276
+        },
+        {
+          "x": 0.571072518825531,
+          "y": 0.4239999961853027,
+          "z": -0.27551785111427307
+        },
+        {
+          "x": 0.571072518825531,
+          "y": 0.4239999961853027,
+          "z": -0.27551785111427307
+        },
+        {
+          "x": 0.6568962575112905,
+          "y": 0.1804927922853328,
+          "z": -0.12009256981353583
+        },
+        {
+          "x": 0.8024194208132399,
+          "y": 0.017147989169420036,
+          "z": 0.06581913832454302
+        },
+        {
+          "x": 0.9218235208534832,
+          "y": -0.24614601110830187,
+          "z": 0.146797924004359
+        },
+        {
+          "x": 1.1158587896597947,
+          "y": -0.4747410398729403,
+          "z": 0.16468655322361342
+        },
+        {
+          "x": 1.377287951146778,
+          "y": -0.6194426172056325,
+          "z": 0.13392989481480227
+        },
+        {
+          "x": 1.674916452328826,
+          "y": -0.6071011662621311,
+          "z": 0.09468880437012231
+        },
+        {
+          "x": 1.930101463241199,
+          "y": -0.4505417512600703,
+          "z": 0.06700087657947482
+        },
+        {
+          "x": 2.1221997399542265,
+          "y": -0.21982563543633513,
+          "z": 0.04923801018550313
+        },
+        {
+          "x": 2.2660627668698536,
+          "y": 0.04529026095761998,
+          "z": 0.03478891385104545
+        },
+        {
+          "x": 2.312964851802672,
+          "y": 0.147608478895297,
+          "z": -0.24513388313227719
+        },
+        {
+          "x": 2.3564292033747694,
+          "y": 0.2648181539687996,
+          "z": -0.5198154372938429
+        },
+        {
+          "x": 2.392768144607544,
+          "y": 0.4239999961853027,
+          "z": -0.7725594639778137
+        },
+        {
+          "x": 2.392768144607544,
+          "y": 0.4239999961853027,
+          "z": -0.7725594639778137
+        },
+        {
+          "x": 2.3917686787142505,
+          "y": 0.12229879217455658,
+          "z": -0.7721966113258479
+        },
+        {
+          "x": 2.564697063182068,
+          "y": 0.03627500000000001,
+          "z": -0.7999627464740738
+        },
+        {
+          "x": 2.8000000715255737,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": 2.933333396911621,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": 3.0666667222976685,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": 3.200000047683716,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": 3.333333373069763,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": 3.4666666984558105,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": 3.600000023841858,
+          "y": 0.03900000000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": 3.8338741718666687,
+          "y": 0.03627500000000001,
+          "z": -0.800000011920929
+        },
+        {
+          "x": 4.000879217460394,
+          "y": 0.12229817822990878,
+          "z": -0.800000011920929
+        },
+        {
+          "x": 3.999997615814209,
+          "y": 0.4239999961853027,
+          "z": -0.800000011920929
+        }
+      ],
+      "length": 18,
+      "tension": 0.03914317242727153,
+      "tensionN": 31.863084374914127,
+      "slackM": 9.84595123188457,
+      "spans": [
+        {
+          "id": 0,
+          "a": 0,
+          "b": 1,
+          "startPoint": 0,
+          "endPoint": 12,
+          "length": 3.6,
+          "tension": 0.0028028747623823373,
+          "tensionN": 1.9619955365156765,
+          "slackM": 2.0000022411346436,
+          "catchHighlight": false
+        },
+        {
+          "id": 1,
+          "a": 1,
+          "b": 2,
+          "startPoint": 13,
+          "endPoint": 25,
+          "length": 3.6,
+          "tension": 0.0028029277812204843,
+          "tensionN": 1.9620635966334434,
+          "slackM": 1.9572317037844738,
+          "catchHighlight": false
+        },
+        {
+          "id": 2,
+          "a": 2,
+          "b": 3,
+          "startPoint": 26,
+          "endPoint": 38,
+          "length": 3.6,
+          "tension": 0.01976072570887937,
+          "tensionN": 18.928953360626274,
+          "slackM": 2.184467334324312,
+          "catchHighlight": false
+        },
+        {
+          "id": 3,
+          "a": 3,
+          "b": 4,
+          "startPoint": 39,
+          "endPoint": 51,
+          "length": 3.6,
+          "tension": 0.03914317242727153,
+          "tensionN": 31.863084374914127,
+          "slackM": 1.7117136557419819,
+          "catchHighlight": false
+        },
+        {
+          "id": 4,
+          "a": 4,
+          "b": 5,
+          "startPoint": 52,
+          "endPoint": 64,
+          "length": 3.6,
+          "tension": 0.0028028916865836177,
+          "tensionN": 1.9620234929727751,
+          "slackM": 1.9925362968991573,
+          "catchHighlight": false
+        }
+      ]
+    },
+    "terrain": {
+      "bounds": {
+        "minX": -12,
+        "maxX": 12,
+        "minZ": -16,
+        "maxZ": 85
+      },
+      "finishZ": null,
+      "crevasses": [
+        {
+          "id": 0,
+          "minX": -12,
+          "maxX": 12,
+          "minZ": 0,
+          "maxZ": 2.8,
+          "depth": 12
+        }
+      ],
+      "bridges": [],
+      "ice": []
+    },
+    "incidents": [
+      {
+        "id": 0,
+        "fallTick": 6,
+        "playerIds": [
+          3
+        ],
+        "status": "recovered",
+        "recoveredTick": 83,
+        "cascades": 0,
+        "firstAttemptSuccess": true,
+        "roleActiveSeconds": [
+          0,
+          0,
+          0.11666666666666665,
+          2.1833333333333305,
+          0.08333333333333333,
+          0
+        ],
+        "roleIdleSeconds": [
+          2.5999999999999956,
+          2.5999999999999956,
+          2.4833333333333294,
+          0.41666666666666663,
+          2.5166666666666626,
+          2.5999999999999956
+        ],
+        "staticHoldSeconds": [
+          2.5999999999999956,
+          2.5999999999999956,
+          2.5999999999999956,
+          0,
+          2.5999999999999956,
+          2.5999999999999956
+        ]
+      }
+    ],
+    "events": [
+      {
+        "id": 0,
+        "epoch": 0,
+        "tick": 6,
+        "substep": 0,
+        "kind": "fall",
+        "incidentId": 0,
+        "playerIds": [
+          3
+        ],
+        "spanIds": [
+          2,
+          3
+        ],
+        "surfaceIds": []
+      },
+      {
+        "id": 1,
+        "epoch": 0,
+        "tick": 27,
+        "substep": 0,
+        "kind": "catch",
+        "incidentId": 0,
+        "playerIds": [
+          3
+        ],
+        "spanIds": [
+          2,
+          3
+        ],
+        "surfaceIds": []
+      },
+      {
+        "id": 2,
+        "epoch": 0,
+        "tick": 27,
+        "substep": 1,
+        "kind": "climb",
+        "incidentId": 0,
+        "playerIds": [
+          3
+        ],
+        "spanIds": [
+          2,
+          3
+        ],
+        "surfaceIds": []
+      },
+      {
+        "id": 3,
+        "epoch": 0,
+        "tick": 83,
+        "substep": 1,
+        "kind": "recovery",
+        "incidentId": 0,
+        "playerIds": [
+          3
+        ],
+        "spanIds": [
+          2,
+          3
+        ],
+        "surfaceIds": []
+      }
+    ],
+    "diagnostics": {
+      "solverIterations": 13,
+      "contactProjections": 94,
+      "maximumTerrainPenetrationM": 0,
+      "maximumBodyOverlapM": 0,
+      "kineticEnergyJ": 380.8776966566757,
+      "potentialEnergyJ": 2137.7952,
+      "motorWorkJ": 3181.3843473848624,
+      "gravityWorkJ": 1250.3356996017033,
+      "ropeContactWorkJ": -2535.414809931357,
+      "maximumUnexplainedEnergyGainJ": 0,
+      "incidentsStarted": 1,
+      "incidentsRecovered": 1,
+      "incidentsFailed": 0,
+      "energyProjectionCount": 13,
+      "maximumEnergyProjectionJ": 41.334748367414306,
+      "maximumPotentialExcessJ": 0,
+      "cascades": 0,
+      "firstFallSeconds": 0.2,
+      "eventsTruncated": false,
+      "incidentsTruncated": false
+    },
+    "counters": {
+      "ticks": 84,
+      "elapsedSeconds": 2.8,
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.004937008720578229,
+      "maximumSpeedMps": 6.282424910405635,
+      "maximumJoltMps2": 168.643987527394,
+      "tautTransitions": 0,
+      "totalTensionSeconds": 0,
+      "distanceTravelledM": [
+        0.00001175755916900967,
+        6.517905148869113e-7,
+        0.05583263400766806,
+        5.956480784036207,
+        0.04629898949213742,
+        0.000011756642088599485
+      ]
+    },
+    "run": {
+      "status": "active",
+      "elapsedSeconds": 2.8,
+      "progress": 0,
+      "reason": null
+    }
+  },
+  "result": {
+    "spec": {
+      "ordinal": 39,
+      "seed": 1701,
+      "playerCount": 6,
+      "scene": "rescue",
+      "policy": "static-brace",
+      "family": "balanced",
+      "tickHz": 30,
+      "horizonSeconds": 20
+    },
+    "ending": "fixture-recovered",
+    "frames": 84,
+    "matched": true,
+    "replayError": null,
+    "originalFinalStateSha256": "ec83b851853835d538e69e7d1ec5d8b0500b59da6485b25285506575d13e0a09",
+    "replayFinalStateSha256": "ec83b851853835d538e69e7d1ec5d8b0500b59da6485b25285506575d13e0a09",
+    "recordedPolicyInputsSha256": "876a7b3bf26a1f997312154b51666f0a305cf44b7190a5f4be381cd550f46ff2",
+    "tapeInputsSha256": "876a7b3bf26a1f997312154b51666f0a305cf44b7190a5f4be381cd550f46ff2",
+    "counterPolicy": {
+      "armedTick": 0,
+      "heldPlayerIds": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ],
+      "wholeEpisodeHoldVerifiedIds": [
+        0
+      ],
+      "interventions": [
+        {
+          "armedTick": 0,
+          "releasedTick": null,
+          "heldPlayerIds": [
+            0,
+            1,
+            2,
+            4,
+            5
+          ],
+          "incidentIds": []
+        }
+      ]
+    },
+    "episodes": [
+      {
+        "id": 0,
+        "fallTick": 6,
+        "playerIds": [
+          3
+        ],
+        "status": "recovered",
+        "recoveredTick": 83,
+        "cascades": 0,
+        "firstAttemptSuccess": true,
+        "roleActiveSeconds": [
+          0,
+          0,
+          0.11666666666666665,
+          2.1833333333333305,
+          0.08333333333333333,
+          0
+        ],
+        "roleIdleSeconds": [
+          2.5999999999999956,
+          2.5999999999999956,
+          2.4833333333333294,
+          0.41666666666666663,
+          2.5166666666666626,
+          2.5999999999999956
+        ],
+        "staticHoldSeconds": [
+          2.5999999999999956,
+          2.5999999999999956,
+          2.5999999999999956,
+          0,
+          2.5999999999999956,
+          2.5999999999999956
+        ],
+        "observedUntilTick": 84
+      }
+    ],
+    "error": null
+  },
+  "scope": "Same-build local input replay; no human or production verdict."
+}

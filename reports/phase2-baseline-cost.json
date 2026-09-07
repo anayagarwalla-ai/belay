@@ -1,0 +1,1088 @@
+{
+  "gitHead": "84eda935ae637d1dc493325a59fc6cc2a230cd51",
+  "files": [
+    {
+      "path": "package-lock.json",
+      "sha256": "91d6a3f4a4fc558039673a2414202e77765802b7615117061a261cebd0f68bf3"
+    },
+    {
+      "path": "scripts/phase2-analysis.ts",
+      "sha256": "ff461b94d85b200d5ace96ee4fc9a0728934209821e6fc695e53c41184198b82"
+    },
+    {
+      "path": "scripts/phase2-bench.ts",
+      "sha256": "7c1d53e664394f1e2e0fbc5439194f31827efbc02587b9538146e6e454a517f4"
+    },
+    {
+      "path": "scripts/phase2-harness.ts",
+      "sha256": "e44a8ff52e52e9f164123f2902128de8b5463ac00e76c5a6fbd4057e9101da7a"
+    },
+    {
+      "path": "scripts/phase2-policies.ts",
+      "sha256": "d3809f08131d678b44baeee5e7da66927ea84e073f126da0e780cad23037556c"
+    },
+    {
+      "path": "scripts/phase2-replay.ts",
+      "sha256": "a2973aec36ec30139e46bc60451385e1032bf07d71481e3d61868686c14e7706"
+    },
+    {
+      "path": "scripts/phase2-report.ts",
+      "sha256": "b42c01f94bd8b01420bbf3ecd2961c1b14e8e7a917d2beea81523e3fe6e7c9e7"
+    },
+    {
+      "path": "scripts/phase2-stress.ts",
+      "sha256": "1b0894f31780b95c93fe863684ddee745f89ca6959c7fbed77ac873565d0fb62"
+    },
+    {
+      "path": "shared/contact-geometry.ts",
+      "sha256": "be27fd0e94f87c17d4de8a066b7cfd3c8ab18c307f409deabe3d28df63a8b2cd"
+    },
+    {
+      "path": "shared/expedition-simulation.ts",
+      "sha256": "97afe573eb1b7753094ee2ecd338ccd411bf64f8a0e312a39b7e0fb40e7836a3"
+    },
+    {
+      "path": "shared/flat-simulation.ts",
+      "sha256": "07ebd2d5902fc9d6a5060c2840f5de5c24443573da9fa652d27a819a95dffc9d"
+    },
+    {
+      "path": "shared/movement.ts",
+      "sha256": "de8cfb54596c8741082e3ef40fc2550cfd7494c30761dc8c72889f48227ad45b"
+    },
+    {
+      "path": "shared/physical-diagnostics.ts",
+      "sha256": "0b55613cb72e95ec99081c17b9385fececc9c9425a553b3ba0d7e7583a701670"
+    },
+    {
+      "path": "shared/protocol.ts",
+      "sha256": "1a9dd92feb961fbc61bd27ef3f515d07d3d25f49c15daa6d8f0b7b66ef4f228c"
+    },
+    {
+      "path": "shared/simulation.ts",
+      "sha256": "04a66271386b1e496784e1f801120077159aa6abc280391a97056e60566c55ee"
+    },
+    {
+      "path": "shared/stats.ts",
+      "sha256": "18555b71109353b5ad45db0596484d9f5b9b29f5e9260196f667984e5aa57d87"
+    },
+    {
+      "path": "shared/terrain.ts",
+      "sha256": "d6f36940f9a7901e47f723ba90902bc9e288d2056a7fb12d93673ff67362bee2"
+    },
+    {
+      "path": "tuning.ts",
+      "sha256": "4a099d43f366b6af30950cc5d2ebcaf3e9f286cc24c154dc84b89f29e5fe0c18"
+    }
+  ],
+  "sourceManifestSha256": "b10299e84a69fc2a7829d96f78c31342e9d2b1adfaa121cbfd5b917eed2ffb24",
+  "tuning": {
+    "version": "phase2-1",
+    "phase": 2,
+    "seed": 1701,
+    "players": 2,
+    "hardCap": 6,
+    "tickHz": 30,
+    "physicsHz": 60,
+    "solverIterations": 8,
+    "maximumSolverIterations": 32,
+    "maximumCatchupTicks": 4,
+    "gravity": 9.81,
+    "body": {
+      "mass": 80,
+      "width": 0.55,
+      "height": 0.9,
+      "depth": 0.55,
+      "walkSpeed": 3.1,
+      "acceleration": 10,
+      "coastDeceleration": 1.4,
+      "braceFriction": 1.6,
+      "braceMassMultiplier": 6,
+      "groundFriction": 0.08,
+      "contactPredictionM": 0.12,
+      "harnessHeight": 0.42,
+      "maximumInputAgeMs": 250
+    },
+    "rope": {
+      "length": 3.6,
+      "segments": 12,
+      "particleMass": 0.2,
+      "drag": 2.5,
+      "floorHeight": 0.04,
+      "radius": 0.035,
+      "tensionReferenceN": 700,
+      "tensionSmoothingSeconds": 0.1,
+      "tautFraction": 0.97,
+      "initialSpacing": 2.5,
+      "initialSag": 0.35,
+      "initialBend": 0.6,
+      "solverToleranceM": 0.01
+    },
+    "terrain": {
+      "halfExtent": 500,
+      "gridUnit": 1,
+      "landmarkCount": 24,
+      "landmarkRange": 36,
+      "markSize": 0.18
+    },
+    "camera": {
+      "bridgeCueSagM": 0.06,
+      "catchRadiusMultiplier": 1.75,
+      "terrainEdgeWidthM": 0.04,
+      "wallCueReachM": 0.8,
+      "maximumCueEvidence": 256,
+      "localWeight": 0.35,
+      "elevationDegrees": 55,
+      "azimuthDegrees": 45,
+      "baseVerticalSpan": 11,
+      "maximumVerticalSpan": 24,
+      "margin": 4,
+      "smoothingSeconds": 0.22,
+      "distance": 60,
+      "maximumPixelRatio": 2,
+      "edgeInsetPx": 36,
+      "labelOffsetPx": 26,
+      "braceVisualHeight": 0.58
+    },
+    "network": {
+      "inputHz": 60,
+      "interpolationMs": 70,
+      "snapshotHistory": 32,
+      "reconciliationSeconds": 0.07,
+      "hardCorrectionDistance": 1.5,
+      "maximumPredictionMs": 100,
+      "pingIntervalMs": 500,
+      "staleSnapshotMs": 1000,
+      "probeTimeoutMs": 2000,
+      "maximumMessagesPerSecond": 120,
+      "maximumFrameBytes": 4096,
+      "telemetrySamples": 2048,
+      "debugTimeoutMs": 5000,
+      "joinTimeoutMs": 10000,
+      "maximumPendingDebugCommands": 8,
+      "maximumDebugCommandsPerSecond": 12,
+      "maximumSnapshotBufferedBytes": 65536,
+      "maximumDebugResponseBytes": 16777216,
+      "hudUpdateMs": 250,
+      "maximumStepTicks": 3600,
+      "rttBracketsMs": [
+        30,
+        60,
+        100,
+        150,
+        250
+      ],
+      "emulatedJitterMs": 10,
+      "maximumAddedRttMs": 500,
+      "maximumJitterMs": 50,
+      "maximumDelayedBytes": 1048576,
+      "maximumTapeSeconds": 1200
+    },
+    "server": {
+      "host": "127.0.0.1",
+      "port": 2567,
+      "webPort": 5173,
+      "gatewayPort": 8787,
+      "protectedPort": 8788,
+      "sessionLifetimeSeconds": 7200,
+      "tokenBytes": 32,
+      "maximumAuthBodyBytes": 1024,
+      "authAttemptsPerMinute": 15,
+      "roomIdleMinutes": 30,
+      "httpTimeoutMs": 15000
+    },
+    "bot": {
+      "actionSeconds": 1.2,
+      "braceChance": 0.22,
+      "idleChance": 0.12,
+      "benchmarkRuns": 1000,
+      "benchmarkSeconds": 20
+    },
+    "physicsDiagnostics": {
+      "scenarioSeconds": 60,
+      "longWalkSeconds": 1200,
+      "crossingRadiansPerSecond": 0.6,
+      "circlingRadiansPerSecond": 2,
+      "circlingPhaseRadians": 1,
+      "circleBracePeriodsTicks": [
+        100,
+        70
+      ],
+      "circleBraceTicks": 20,
+      "togglePeriodsTicks": [
+        2,
+        3
+      ],
+      "randomActionSeconds": 0.1,
+      "randomBraceChance": 0.25,
+      "maximumBodyOverlapM": 0.005,
+      "maximumFloorErrorM": 0.001,
+      "maximumSpanErrorM": 0.01,
+      "maximumSegmentErrorM": 0.02,
+      "maximumSpeedMultiplier": 4,
+      "minimumWalkSpeedFraction": 0.8
+    },
+    "phase2": {
+      "defaultScene": "crossing",
+      "defaultPlayers": 4,
+      "routeHalfWidth": 12,
+      "routeStartZ": -16,
+      "finishZ": 55,
+      "finishApronM": 30,
+      "crevasseStarts": [
+        8,
+        20,
+        32,
+        44
+      ],
+      "crevasseWidth": 2.8,
+      "crevasseDepth": 12,
+      "terminalY": -16,
+      "bridgeHalfWidth": 1.1,
+      "bridgeThickness": 0.25,
+      "bridgeCapacityBodyWeights": [
+        0.9,
+        1.45
+      ],
+      "bridgeOverloadSeconds": 0.32,
+      "bridgeRecoveryRate": 2,
+      "bridgeCueStartFraction": 0.65,
+      "bridgeWarningSeconds": 0.4,
+      "rescueLipZ": 0,
+      "rescueSafeOffset": 0.8,
+      "rescueFallerAdvance": 0.7,
+      "rescueSpacing": 1.6,
+      "groundContactTolerance": 0.045,
+      "wallContactTolerance": 0.05,
+      "collisionSkin": 0.004,
+      "contactPredictionM": 0.002,
+      "collisionSweepPasses": 4,
+      "solverIterations": 12,
+      "maximumSolverIterations": 256,
+      "solverToleranceM": 0.005,
+      "iceTractionMultiplier": 0.3,
+      "wallClimbSpeed": 1.6,
+      "wallDescendSpeed": 1.8,
+      "wallAcceleration": 5,
+      "wallPressSpeed": 0.45,
+      "wallNormalEffortN": 900,
+      "wallFriction": 1.3,
+      "wallRopeSupportFraction": 0.08,
+      "fallDepth": 0.2,
+      "fallSpeed": 0.5,
+      "catchSpeed": 0.35,
+      "catchConfirmSeconds": 0.12,
+      "recoveryConfirmSeconds": 0.3,
+      "catchHighlightSeconds": 0.5,
+      "energyToleranceJ": 0.01,
+      "mechanicsProbeSeconds": 10,
+      "mechanicsLoadSeed": 2000,
+      "inputChangeEpsilon": 0.08,
+      "usefulMotionMps": 0.04,
+      "maximumIncidents": 64,
+      "maximumEvents": 256
+    },
+    "phase2Evidence": {
+      "targets": {
+        "rescueSeconds": [
+          10,
+          20
+        ],
+        "firstAttemptRecoveryFraction": [
+          0.6,
+          0.75
+        ],
+        "eventualRecoveryFraction": [
+          0.88,
+          0.92
+        ],
+        "fourIncidentCompletionFraction": [
+          0.6,
+          0.72
+        ],
+        "incidentsPerRun": [
+          3,
+          6
+        ],
+        "firstFallBeforeSeconds": 45,
+        "runSeconds": [
+          300,
+          600
+        ],
+        "maximumIdleFraction": 0.2
+      },
+      "trajectoryRuns": 1000,
+      "smokeTrajectories": 10,
+      "teamSizes": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "crossingSeconds": 600,
+      "rescueSeconds": 60,
+      "actionSeconds": 0.5,
+      "badWrongWayChance": 0.2,
+      "recoveryBraceCycleSeconds": 2,
+      "recoveryBraceFraction": 0.5,
+      "movementEpsilonM": 0.01,
+      "inputChangeEpsilon": 0.05,
+      "lifecycleRuns": 25,
+      "lifecycleSeconds": 2,
+      "replaySeconds": 20,
+      "maximumTimingBytes": 268435456,
+      "maximumReportBytes": 16777216,
+      "maximumSavedTapes": 20,
+      "maximumTapeOutputBytes": 33554432
+    },
+    "localLoad": {
+      "smokeRooms": 10,
+      "smokeSeconds": 30,
+      "largeRooms": 300,
+      "largeSeconds": 30,
+      "generatorProcesses": 4,
+      "maximumRooms": 300,
+      "maximumSeconds": 120,
+      "warmupMs": 2000,
+      "startLeadMs": 1000,
+      "sampleMs": 1000,
+      "startupTimeoutMs": 120000,
+      "maximumWallMs": 180000,
+      "shutdownGraceMs": 3000,
+      "maximumTotalRssBytes": 3221225472,
+      "minimumFreeMemoryBytes": 536870912,
+      "authorityHeapMiB": 1024,
+      "generatorHeapMiB": 256,
+      "maximumReportBytes": 67108864,
+      "maximumChildLogBytes": 16384,
+      "maximumInputBufferedBytes": 16384,
+      "maximumLatePeriods": 4,
+      "lifecycleCycles": 3,
+      "lifecycleRooms": 2,
+      "lifecycleHoldMs": 250,
+      "slowReaderStartFraction": 0.25,
+      "slowReaderDurationFraction": 0.25,
+      "churnStartFraction": 0.5,
+      "churnEveryRooms": 10,
+      "probePollMs": 25,
+      "eventLoopResolutionMs": 20
+    },
+    "clip": {
+      "seconds": 15,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "videoBitsPerSecond": 800000,
+      "audioBitsPerSecond": 48000,
+      "maximumBytes": 2097152,
+      "retentionDays": 7,
+      "permanentSlots": 1,
+      "uploadsPerIdentityPerUtcDay": 3,
+      "globalBytes": 268435456,
+      "uploadsEnabled": false
+    },
+    "later": {
+      "idleBotSeconds": 20,
+      "reconnectSeconds": 60,
+      "attachWaitSeconds": 30,
+      "stableTensionFraction": 0.2,
+      "stableSeconds": 0.5,
+      "publicTeamSize": 4,
+      "minimumVoteTeam": 4,
+      "agreeingVotes": 3,
+      "dailyAttempts": 3
+    },
+    "gates": {
+      "tuningSessions": 6,
+      "sessionsPerFamily": 2,
+      "diagnosticSessions": 3,
+      "freePlayMinutes": 10
+    },
+    "tools": {
+      "operations": {
+        "startupTimeoutMs": 120000,
+        "tunnelStartupTimeoutMs": 90000,
+        "probeTimeoutMs": 3000,
+        "pollMs": 250,
+        "shutdownGraceMs": 3000,
+        "stopTimeoutMs": 15000,
+        "downloadTimeoutMs": 120000,
+        "maximumTunnelLogBytes": 16384,
+        "maximumDownloadBytes": 67108864
+      },
+      "cloudflaredVersion": "2026.8.3",
+      "cloudflaredSha256": {
+        "arm64": "40c9144d86df8937c5b43293a1f7d2d2107029aa74725023dd46b1b27154352f",
+        "x64": "61e1316266a00fd70ce40da011d612badc805367fb65293dd1925f938f704c99"
+      }
+    }
+  },
+  "familyDefinitions": {
+    "balanced": {
+      "label": "Intermediate / strong brace",
+      "ropeLength": 3.6,
+      "ropeDrag": 2.5,
+      "braceMassMultiplier": 6,
+      "braceFriction": 1.6
+    },
+    "short": {
+      "label": "Short / damped",
+      "ropeLength": 3,
+      "ropeDrag": 5,
+      "braceMassMultiplier": 4,
+      "braceFriction": 1.2
+    },
+    "loose": {
+      "label": "Long / momentum",
+      "ropeLength": 4.5,
+      "ropeDrag": 1.2,
+      "braceMassMultiplier": 4,
+      "braceFriction": 1.2
+    }
+  },
+  "machine": {
+    "platform": "darwin",
+    "release": "27.0.0",
+    "arch": "arm64",
+    "cpu": "Apple M4",
+    "availableCpus": 10,
+    "totalMemoryBytes": 17179869184,
+    "node": "v26.5.0"
+  },
+  "generatedAt": "2026-09-07T22:58:30.270Z",
+  "scope": "Separate bounded cost probes at the root replay horizon. They do not replace or shorten any trajectory in the required fixed 1,000-run matrix. Shared machine load remains a confounder.",
+  "full1000Requirement": "PENDING",
+  "results": [
+    {
+      "originalFullSpec": {
+        "ordinal": 23,
+        "seed": 1701,
+        "playerCount": 5,
+        "scene": "crossing",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 600
+      },
+      "probeSpec": {
+        "ordinal": 23,
+        "seed": 1701,
+        "playerCount": 5,
+        "scene": "crossing",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "wallSeconds": 14.095536709,
+      "record": {
+        "ordinal": 23,
+        "seed": 1701,
+        "family": "balanced",
+        "scene": "crossing",
+        "playerCount": 5,
+        "policy": "bad",
+        "tickHz": 30,
+        "horizonSeconds": 20,
+        "observedSeconds": 20,
+        "ticks": 600,
+        "stepAttempts": 600,
+        "ending": "censored",
+        "runStatus": "active",
+        "progress": 0.19111822301691228,
+        "firstFallSeconds": 8.633333333333333,
+        "episodes": [
+          {
+            "id": 0,
+            "fallTick": 259,
+            "playerIds": [
+              1,
+              2,
+              3,
+              4,
+              0
+            ],
+            "status": "active",
+            "recoveredTick": null,
+            "cascades": 4,
+            "firstAttemptSuccess": false,
+            "roleActiveSeconds": [
+              4.34999999999999,
+              8.700000000000012,
+              8.216666666666654,
+              6.416666666666649,
+              4.983333333333321
+            ],
+            "roleIdleSeconds": [
+              7.016666666666647,
+              2.666666666666662,
+              3.1499999999999937,
+              4.949999999999988,
+              6.383333333333316
+            ],
+            "staticHoldSeconds": [
+              0.966666666666668,
+              3.433333333333326,
+              2.4833333333333294,
+              2.2666666666666635,
+              2.933333333333328
+            ],
+            "observedUntilTick": 600
+          }
+        ],
+        "inputIdleSeconds": [
+          0.49999999999999994,
+          1.5000000000000013,
+          1.5000000000000013,
+          2.0000000000000027,
+          2.0000000000000027
+        ],
+        "longestUnchangedInputSeconds": [
+          2.999999999999999,
+          1.5000000000000013,
+          1.5000000000000013,
+          1.5000000000000013,
+          1.5000000000000013
+        ],
+        "rescueObservationSeconds": [
+          11.366666666666637,
+          11.366666666666637,
+          11.366666666666637,
+          11.366666666666637,
+          11.366666666666637
+        ],
+        "rescueMotionlessSeconds": [
+          1.8666666666666691,
+          3.1999999999999984,
+          1.466666666666668,
+          0.8333333333333333,
+          0.8333333333333333
+        ],
+        "staticCounterexampleEpisodes": [],
+        "frozenCounterexampleEpisodes": [],
+        "maximumSpanErrorM": 0.0016606440386186527,
+        "maximumSegmentErrorM": 0.10966183376004118,
+        "maximumSpeedMps": 14.122356349538569,
+        "stepExecutionMs": {
+          "count": 600,
+          "min": 5.872833999999784,
+          "p50": 9.710000000000036,
+          "p95": 125.65450000000055,
+          "p99": 220.791792,
+          "max": 233.4359170000007,
+          "mean": 23.306666318333317
+        },
+        "finalStateSha256": "85e0f6c1028cc476f1b63b4d874f13289313f45c0fdc8e10ea40134128589fdd",
+        "policyInputsSha256": "80f2fe40ef80aae1eff309547b721c43c95b3c9d39bb0b953c7622d6ecc99165",
+        "error": null,
+        "evidenceComplete": true,
+        "eventCounts": {
+          "cue": 2,
+          "collapse": 1,
+          "fall": 5,
+          "catch": 27,
+          "relapse": 21,
+          "climb": 14,
+          "lost": 4
+        },
+        "diagnostics": {
+          "solverIterations": 12,
+          "contactProjections": 569,
+          "maximumTerrainPenetrationM": 0,
+          "maximumBodyOverlapM": 0,
+          "kineticEnergyJ": 33187.23626801992,
+          "potentialEnergyJ": -78425.20262090079,
+          "motorWorkJ": -5858.44098954569,
+          "gravityWorkJ": 92562.59883444323,
+          "ropeContactWorkJ": -65549.78314148879,
+          "maximumUnexplainedEnergyGainJ": 0,
+          "incidentsStarted": 1,
+          "incidentsRecovered": 0,
+          "incidentsFailed": 0,
+          "energyProjectionCount": 50,
+          "maximumEnergyProjectionJ": 652497.0707080144,
+          "maximumPotentialExcessJ": 2288.748767008697,
+          "cascades": 4,
+          "firstFallSeconds": 8.633333333333333,
+          "eventsTruncated": false,
+          "incidentsTruncated": false
+        },
+        "counterPolicy": {
+          "armedTick": 260,
+          "heldPlayerIds": [],
+          "wholeEpisodeHoldVerifiedIds": [],
+          "interventions": []
+        },
+        "finalBodyStates": [
+          {
+            "id": 0,
+            "position": {
+              "x": 0,
+              "y": -19.348793029785156,
+              "z": 10.56267261505127
+            },
+            "support": "air",
+            "rescueState": "lost"
+          },
+          {
+            "id": 1,
+            "position": {
+              "x": 0,
+              "y": -15.764618873596191,
+              "z": 10.641980171203613
+            },
+            "support": "air",
+            "rescueState": "falling"
+          },
+          {
+            "id": 2,
+            "position": {
+              "x": 0,
+              "y": -18.050500869750977,
+              "z": 11.0416898727417
+            },
+            "support": "air",
+            "rescueState": "lost"
+          },
+          {
+            "id": 3,
+            "position": {
+              "x": 0,
+              "y": -21.590518951416016,
+              "z": 10.745794296264648
+            },
+            "support": "air",
+            "rescueState": "lost"
+          },
+          {
+            "id": 4,
+            "position": {
+              "x": 0,
+              "y": -25.175745010375977,
+              "z": 10.511502265930176
+            },
+            "support": "air",
+            "rescueState": "lost"
+          }
+        ]
+      },
+      "projection": {
+        "matchingFullMatrixCells": 20,
+        "fullHorizonSeconds": 600,
+        "wallSecondsPerObservedSimulationSecond": 0.7047768354499999,
+        "conditionalMatchingCellWallSeconds": 8457.322025399999,
+        "limitation": "Conditional cost scenario only: every matching team/scene/policy row across different seeds/families would have to sustain this observed rate to its full horizon. It is not a measured full-run duration or a rigorous upper bound; early terminations may reduce cost and later states may increase it."
+      }
+    },
+    {
+      "originalFullSpec": {
+        "ordinal": 24,
+        "seed": 1701,
+        "playerCount": 6,
+        "scene": "crossing",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 600
+      },
+      "probeSpec": {
+        "ordinal": 24,
+        "seed": 1701,
+        "playerCount": 6,
+        "scene": "crossing",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "wallSeconds": 17.759443208,
+      "record": {
+        "ordinal": 24,
+        "seed": 1701,
+        "family": "balanced",
+        "scene": "crossing",
+        "playerCount": 6,
+        "policy": "bad",
+        "tickHz": 30,
+        "horizonSeconds": 20,
+        "observedSeconds": 20,
+        "ticks": 600,
+        "stepAttempts": 600,
+        "ending": "censored",
+        "runStatus": "active",
+        "progress": 0.1895072416825728,
+        "firstFallSeconds": 11.3,
+        "episodes": [
+          {
+            "id": 0,
+            "fallTick": 339,
+            "playerIds": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "status": "active",
+            "recoveredTick": null,
+            "cascades": 3,
+            "firstAttemptSuccess": false,
+            "roleActiveSeconds": [
+              3.566666666666659,
+              4.699999999999989,
+              6.499999999999982,
+              6.666666666666648,
+              5.449999999999986,
+              4.999999999999988
+            ],
+            "roleIdleSeconds": [
+              5.13333333333332,
+              3.9999999999999907,
+              2.199999999999997,
+              2.033333333333331,
+              3.2499999999999933,
+              3.6999999999999917
+            ],
+            "staticHoldSeconds": [
+              1.949999999999998,
+              1.949999999999998,
+              0,
+              1.4499999999999997,
+              0.966666666666668,
+              1.9333333333333313
+            ],
+            "observedUntilTick": 600
+          }
+        ],
+        "inputIdleSeconds": [
+          0.49999999999999994,
+          0.9999999999999999,
+          1.5333333333333348,
+          0.49999999999999994,
+          0.9999999999999999,
+          0.49999999999999994
+        ],
+        "longestUnchangedInputSeconds": [
+          2.1666666666666687,
+          1.6666666666666685,
+          1.5000000000000013,
+          2.500000000000001,
+          2.0000000000000027,
+          1.5000000000000013
+        ],
+        "rescueObservationSeconds": [
+          8.69999999999998,
+          8.69999999999998,
+          8.69999999999998,
+          8.69999999999998,
+          8.69999999999998,
+          8.69999999999998
+        ],
+        "rescueMotionlessSeconds": [
+          3.9666666666666623,
+          4.333333333333328,
+          2.0000000000000027,
+          2.1666666666666687,
+          2.6333333333333337,
+          2.7
+        ],
+        "staticCounterexampleEpisodes": [],
+        "frozenCounterexampleEpisodes": [],
+        "maximumSpanErrorM": 0.0015171038637342704,
+        "maximumSegmentErrorM": 0.10577928290330779,
+        "maximumSpeedMps": 14.1336954909559,
+        "stepExecutionMs": {
+          "count": 600,
+          "min": 6.138166000000638,
+          "p50": 11.114333999998053,
+          "p95": 174.62175000000207,
+          "p99": 229.62883299999885,
+          "max": 249.95241699999679,
+          "mean": 29.46040846833329
+        },
+        "finalStateSha256": "d0e9d7f6f3d113ae0206d9de22bb3eb08b41d486c210d334f5f32d0f09566257",
+        "policyInputsSha256": "0d61d4d62408accde0ce98ec1523025b4494bd708fe93074ef95c0e64f245faa",
+        "error": null,
+        "evidenceComplete": true,
+        "eventCounts": {
+          "cue": 3,
+          "collapse": 1,
+          "fall": 4,
+          "climb": 16,
+          "relapse": 23,
+          "catch": 33
+        },
+        "diagnostics": {
+          "solverIterations": 210,
+          "contactProjections": 508,
+          "maximumTerrainPenetrationM": 0,
+          "maximumBodyOverlapM": 0,
+          "kineticEnergyJ": 19.0116931510632,
+          "potentialEnergyJ": -16869.371006057158,
+          "motorWorkJ": 19044.20528748419,
+          "gravityWorkJ": 36521.8346125557,
+          "ropeContactWorkJ": -62042.22136787994,
+          "maximumUnexplainedEnergyGainJ": 0,
+          "incidentsStarted": 1,
+          "incidentsRecovered": 0,
+          "incidentsFailed": 0,
+          "energyProjectionCount": 60,
+          "maximumEnergyProjectionJ": 528289.1053204327,
+          "maximumPotentialExcessJ": 2958.4484121360765,
+          "cascades": 3,
+          "firstFallSeconds": 11.3,
+          "eventsTruncated": false,
+          "incidentsTruncated": false
+        },
+        "counterPolicy": {
+          "armedTick": 340,
+          "heldPlayerIds": [],
+          "wholeEpisodeHoldVerifiedIds": [],
+          "interventions": []
+        },
+        "finalBodyStates": [
+          {
+            "id": 0,
+            "position": {
+              "x": 0,
+              "y": 0.45399999618530273,
+              "z": 17.56012725830078
+            },
+            "support": "ground",
+            "rescueState": "safe"
+          },
+          {
+            "id": 1,
+            "position": {
+              "x": 0,
+              "y": 0.45399999618530273,
+              "z": 13.96011734008789
+            },
+            "support": "ground",
+            "rescueState": "safe"
+          },
+          {
+            "id": 2,
+            "position": {
+              "x": 0,
+              "y": -0.20128369331359863,
+              "z": 10.524835586547852
+            },
+            "support": "wall",
+            "rescueState": "hanging"
+          },
+          {
+            "id": 3,
+            "position": {
+              "x": 0,
+              "y": -3.8006606101989746,
+              "z": 10.45710277557373
+            },
+            "support": "air",
+            "rescueState": "hanging"
+          },
+          {
+            "id": 4,
+            "position": {
+              "x": 0,
+              "y": -7.400598049163818,
+              "z": 10.434405326843262
+            },
+            "support": "air",
+            "rescueState": "hanging"
+          },
+          {
+            "id": 5,
+            "position": {
+              "x": 0,
+              "y": -11.000578880310059,
+              "z": 10.422898292541504
+            },
+            "support": "air",
+            "rescueState": "hanging"
+          }
+        ]
+      },
+      "projection": {
+        "matchingFullMatrixCells": 20,
+        "fullHorizonSeconds": 600,
+        "wallSecondsPerObservedSimulationSecond": 0.8879721604,
+        "conditionalMatchingCellWallSeconds": 10655.6659248,
+        "limitation": "Conditional cost scenario only: every matching team/scene/policy row across different seeds/families would have to sustain this observed rate to its full horizon. It is not a measured full-run duration or a rigorous upper bound; early terminations may reduce cost and later states may increase it."
+      }
+    },
+    {
+      "originalFullSpec": {
+        "ordinal": 45,
+        "seed": 1701,
+        "playerCount": 2,
+        "scene": "rescue",
+        "policy": "frozen-tail",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 60
+      },
+      "probeSpec": {
+        "ordinal": 45,
+        "seed": 1701,
+        "playerCount": 2,
+        "scene": "rescue",
+        "policy": "frozen-tail",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "wallSeconds": 4.754947708000003,
+      "record": {
+        "ordinal": 45,
+        "seed": 1701,
+        "family": "balanced",
+        "scene": "rescue",
+        "playerCount": 2,
+        "policy": "frozen-tail",
+        "tickHz": 30,
+        "horizonSeconds": 20,
+        "observedSeconds": 20,
+        "ticks": 600,
+        "stepAttempts": 600,
+        "ending": "censored",
+        "runStatus": "active",
+        "progress": 0,
+        "firstFallSeconds": 0.2,
+        "episodes": [
+          {
+            "id": 0,
+            "fallTick": 6,
+            "playerIds": [
+              1
+            ],
+            "status": "active",
+            "recoveredTick": null,
+            "cascades": 0,
+            "firstAttemptSuccess": false,
+            "roleActiveSeconds": [
+              8.950000000000024,
+              17.900000000000265
+            ],
+            "roleIdleSeconds": [
+              10.850000000000119,
+              1.8999999999999981
+            ],
+            "staticHoldSeconds": [
+              9.650000000000059,
+              0
+            ],
+            "observedUntilTick": 600
+          }
+        ],
+        "inputIdleSeconds": [
+          0,
+          19.800000000000143
+        ],
+        "longestUnchangedInputSeconds": [
+          0.9999999999999999,
+          19.800000000000143
+        ],
+        "rescueObservationSeconds": [
+          19.800000000000143,
+          19.800000000000143
+        ],
+        "rescueMotionlessSeconds": [
+          16.69999999999999,
+          4.533333333333327
+        ],
+        "staticCounterexampleEpisodes": [],
+        "frozenCounterexampleEpisodes": [],
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.0049999921570234585,
+        "maximumSpeedMps": 6.094830332899626,
+        "stepExecutionMs": {
+          "count": 600,
+          "min": 0.4188749999993888,
+          "p50": 8.587499999997817,
+          "p95": 12.764750000002095,
+          "p99": 14.30079200000182,
+          "max": 16.4809580000001,
+          "mean": 7.807007001666577
+        },
+        "finalStateSha256": "183eaeb670801357c37378a5d417912c999e6e5079982b7f7f453c09fbc3db16",
+        "policyInputsSha256": "c2cca71b17d56dde1800c5305ba2cbd7bcbaca32aa8268e99574bb6c90c2ee6b",
+        "error": null,
+        "evidenceComplete": true,
+        "eventCounts": {
+          "fall": 1,
+          "catch": 13,
+          "relapse": 3,
+          "climb": 9
+        },
+        "diagnostics": {
+          "solverIterations": 100,
+          "contactProjections": 32,
+          "maximumTerrainPenetrationM": 0,
+          "maximumBodyOverlapM": 0,
+          "kineticEnergyJ": 19.255081037459064,
+          "potentialEnergyJ": 231.8428264771407,
+          "motorWorkJ": 2641.2590491863366,
+          "gravityWorkJ": 5269.848856582109,
+          "ropeContactWorkJ": -3393.0515950555023,
+          "maximumUnexplainedEnergyGainJ": 0,
+          "incidentsStarted": 1,
+          "incidentsRecovered": 0,
+          "incidentsFailed": 0,
+          "energyProjectionCount": 124,
+          "maximumEnergyProjectionJ": 4962.214886599167,
+          "maximumPotentialExcessJ": 50.84747448634545,
+          "cascades": 0,
+          "firstFallSeconds": 0.2,
+          "eventsTruncated": false,
+          "incidentsTruncated": false
+        },
+        "counterPolicy": {
+          "armedTick": 0,
+          "heldPlayerIds": [
+            1
+          ],
+          "wholeEpisodeHoldVerifiedIds": [],
+          "interventions": [
+            {
+              "armedTick": 0,
+              "releasedTick": null,
+              "heldPlayerIds": [
+                1
+              ],
+              "incidentIds": []
+            }
+          ]
+        },
+        "finalBodyStates": [
+          {
+            "id": 0,
+            "position": {
+              "x": -2.367912530899048,
+              "y": 0.45399999618530273,
+              "z": -3.2011494636535645
+            },
+            "support": "ground",
+            "rescueState": "safe"
+          },
+          {
+            "id": 1,
+            "position": {
+              "x": -2.2492313385009766,
+              "y": -0.15858355164527893,
+              "z": 0.282986044883728
+            },
+            "support": "wall",
+            "rescueState": "hanging"
+          }
+        ]
+      },
+      "projection": {
+        "matchingFullMatrixCells": 20,
+        "fullHorizonSeconds": 60,
+        "wallSecondsPerObservedSimulationSecond": 0.23774738540000015,
+        "conditionalMatchingCellWallSeconds": 285.2968624800002,
+        "limitation": "Conditional cost scenario only: every matching team/scene/policy row across different seeds/families would have to sustain this observed rate to its full horizon. It is not a measured full-run duration or a rigorous upper bound; early terminations may reduce cost and later states may increase it."
+      }
+    }
+  ]
+}

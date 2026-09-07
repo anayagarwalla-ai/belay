@@ -33,3 +33,38 @@ button:focus-visible,a:focus-visible { outline:2px solid #111; outline-offset:3p
 .notice { padding:0 24px 10px; margin:0; font-size:14px; }
 .view-error { padding:32px; }
 @media(max-width:600px) { .gate-header,.controls { padding:12px; } .phase-note { max-width:210px; } .connection { max-width:160px; } .bench { padding:10px 12px; } }
+/* Phase 2 remains a monochrome mechanics fixture. */
+select { font:inherit; color:inherit; }
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible { outline:2px solid #111; outline-offset:3px; }
+.climber-label { padding:2px 4px; background:#dededee8; border:1px solid #777; font-size:11px; white-space:pre; text-align:center; line-height:1.25; }
+.bridge-label { position:absolute; top:0; left:0; pointer-events:none; font-size:11px; white-space:nowrap; padding:2px 4px; color:#222; background:#dededecf; }
+.bridge-label[hidden] { display:none; }
+.scene-caption { position:absolute; bottom:10px; left:14px; max-width:calc(100% - 28px); background:#dedededb; padding:3px 6px; font-size:11px; pointer-events:none; }
+.run-status { position:absolute; top:12px; left:14px; padding:5px 8px; border:1px solid #888; background:#dededef0; font-size:12px; max-width:calc(100% - 28px); pointer-events:none; }
+.run-status small { display:block; color:#555; }
+.control-copy { flex:1; min-width:240px; }
+.control-copy small { max-width:78ch; }
+.scene-form { display:flex; flex-wrap:wrap; align-items:end; gap:10px; margin-top:12px; }
+.scene-form label { display:flex; flex-direction:column; gap:3px; }
+.scene-form select,.scene-form input { background:#eee; border:1px solid #888; border-radius:0; padding:7px; max-width:100%; }
+.scene-form input { width:120px; }
+.form-note { flex-basis:100%; margin:0; color:#555; font-size:12px; }
+.bench[open] { flex-shrink:0; max-height:34dvh; overflow:auto; }
+.evidence-content { padding-top:6px; max-width:1000px; }
+.evidence-content p { margin:8px 0; }
+.table-scroll { overflow:auto; margin:12px 0; }
+.evidence table { border-collapse:collapse; width:100%; font-size:12px; text-align:left; }
+.evidence caption { text-align:left; margin-bottom:5px; }
+.evidence th,.evidence td { padding:5px 8px; border-bottom:1px solid #aaa; white-space:nowrap; }
+.notice { background:#eee; padding-top:8px; border-top:1px solid #888; }
+@media(max-width:600px) {
+  .gate { min-height:640px; }
+  .gate-header { align-items:flex-start; gap:10px; }
+  .phase-note { font-size:12px; }
+  .connection { font-size:12px; }
+  .control-copy p { font-size:13px; }
+  .control-copy small { font-size:12px; }
+  .scene-form { align-items:stretch; }
+  .scene-form label { flex:1; min-width:110px; }
+  .scene-form input { width:100%; }
+}

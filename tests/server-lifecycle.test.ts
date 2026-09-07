@@ -34,6 +34,55 @@ async function pair() {
 }
 
 describe('room lifecycle and transport protection', () => {
+  it('accounts skipped authoritative slots after a stall while keeping catch-up work bounded', async () => {
+    const { authority, a } = await pair();
+    const sim = (authority as unknown as { sim: BelaySimulation }).sim, step = sim.step.bind(sim); let stalled = false;
+    const blocked = vi.spyOn(sim, 'step').mockImplementation((inputs, record) => {
+      step(inputs, record);
+      if (!stalled) { stalled = true; Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, TUNING.body.maximumInputAgeMs * 2); }
+    });
+    let report!: { skippedTickSlots: number; droppedWallMs: number };
+    await vi.waitFor(async () => { report = await a.command('counters') as typeof report; expect(report.skippedTickSlots).toBeGreaterThan(0); });
+    blocked.mockRestore(); expect(report.droppedWallMs).toBeCloseTo(report.skippedTickSlots * 1000 / TUNING.tickHz, 6);
+    await a.command('loadScene', {});
+    expect((await a.command('counters') as typeof report).skippedTickSlots).toBe(0);
+  });
+  it('counts accepted messages rather than interpreting sequence gaps as input counts', async () => {
+    const { room, a } = await pair();
+    room.send('input', { x: 0, z: 0, brace: false, seq: 0 });
+    room.send('input', { x: 0, z: 0, brace: false, seq: 0 });
+    room.send('input', { x: 0, z: 0, brace: false, seq: 1000 });
+    room.send('input', { x: 0, z: 0, brace: false, seq: 1001, position: { x: 99 } });
+    const report = await a.command('counters') as { acceptedInputs: number; rejectedInputs: number; snapshotDeliveries: number; snapshotJsonBytesTotal: number };
+    expect(report.acceptedInputs).toBe(2); expect(report.rejectedInputs).toBe(2);
+    expect(report.snapshotDeliveries).toBeGreaterThan(0); expect(report.snapshotJsonBytesTotal).toBeGreaterThan(0);
+    await a.command('loadScene', {});
+    expect((await a.command('counters') as { acceptedInputs: number }).acceptedInputs).toBe(0);
+  });
+  it('delivers transitions once per seat, retains them through backpressure, and resets cursors with the epoch', async () => {
+    const { room, other, authority, a } = await pair(); await a.command('pause');
+    const receivedA: string[] = [], receivedB: string[] = [];
+    room.onMessage('snapshot', (state: Snapshot) => receivedA.push(...(state.events ?? []).map(event => `${state.epoch}:${event.id}`)));
+    other.onMessage('snapshot', (state: Snapshot) => receivedB.push(...(state.events ?? []).map(event => `${state.epoch}:${event.id}`)));
+    const slow = authority.clients.find(c => c.sessionId === other.sessionId)!;
+    Object.defineProperty(slow.ref, 'bufferedAmount', { configurable: true, get: () => TUNING.network.maximumSnapshotBufferedBytes + 1 });
+    const inject = () => {
+      const sim = (authority as unknown as { sim: BelaySimulation }).sim, snapshot = sim.snapshot.bind(sim);
+      return vi.spyOn(sim, 'snapshot').mockImplementation(epoch => ({ ...snapshot(epoch), events: [{
+        id: 0, epoch: epoch ?? 0, tick: 0, substep: 0, kind: 'catch', incidentId: 0, playerIds: [1], spanIds: [0], surfaceIds: [],
+      }] }));
+    };
+    const first = inject();
+    await vi.waitFor(() => expect(receivedA).toEqual(['0:0'])); await delay(100);
+    expect(receivedA).toEqual(['0:0']); expect(receivedB).toEqual([]);
+    delete (slow.ref as typeof slow.ref & { bufferedAmount?: number }).bufferedAmount;
+    await vi.waitFor(() => expect(receivedB).toEqual(['0:0']));
+    const serverReport = await a.command('counters') as { state: Snapshot };
+    expect(serverReport.state.events).toHaveLength(1); // Operator evidence keeps history; normal snapshots carry deltas.
+    first.mockRestore(); await a.command('loadScene', { seed: 9 }); const next = inject();
+    await vi.waitFor(() => expect(receivedA).toEqual(['0:0', '1:0']));
+    await vi.waitFor(() => expect(receivedB).toEqual(['0:0', '1:0'])); next.mockRestore();
+  });
   it('limits non-input floods while another player continues receiving ticks', async () => {
     const { room, other, a, b } = await pair(); const before = b.latest!.tick;
     room.onMessage('pong', () => {});

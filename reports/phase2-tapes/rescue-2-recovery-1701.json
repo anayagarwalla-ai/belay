@@ -1,0 +1,1576 @@
+{
+  "sourceManifestSha256": "b10299e84a69fc2a7829d96f78c31342e9d2b1adfaa121cbfd5b917eed2ffb24",
+  "spec": {
+    "ordinal": 5,
+    "seed": 1701,
+    "playerCount": 2,
+    "scene": "rescue",
+    "policy": "recovery",
+    "family": "balanced",
+    "tickHz": 30,
+    "horizonSeconds": 60
+  },
+  "tape": {
+    "version": "phase2-1",
+    "seed": 1701,
+    "family": "balanced",
+    "tickHz": 30,
+    "scene": "rescue",
+    "playerCount": 2,
+    "frames": [
+      {
+        "tick": 0,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 1,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 2,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 3,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 4,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 5,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 6,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 7,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 8,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 9,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 10,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 11,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 12,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 13,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 14,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 15,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 16,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 17,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 18,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 19,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 20,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 21,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 22,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 23,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 24,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 25,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 26,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 27,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 28,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 29,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 30,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 31,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 32,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 33,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 34,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 35,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 36,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 37,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 38,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 39,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 40,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 41,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 42,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 43,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 44,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 45,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 46,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 47,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 48,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 49,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 50,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 51,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 52,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 53,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 54,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 55,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 56,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 57,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 58,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 59,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 60,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 61,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 62,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 63,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 64,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 65,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 66,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 67,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 68,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 69,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 70,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 71,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 72,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 73,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "tick": 74,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      }
+    ],
+    "truncated": false
+  },
+  "expectedFinalStateSha256": "78ee485a1296b9b7f8f13c5dba9e18d9a464a21b67b5deb2a7dcaac7fa43c21a",
+  "finalState": {
+    "version": "phase2-1",
+    "epoch": 0,
+    "tick": 75,
+    "seed": 1701,
+    "family": "balanced",
+    "tickHz": 30,
+    "paused": false,
+    "scene": "rescue",
+    "playerCount": 2,
+    "players": [
+      {
+        "id": 0,
+        "position": {
+          "x": -2.15378475189209,
+          "y": 0.45399999618530273,
+          "z": -1.9080146551132202
+        },
+        "velocity": {
+          "x": 0.00015247802366502583,
+          "y": 0,
+          "z": 0.00009963654883904383
+        },
+        "brace": true,
+        "connected": false,
+        "label": "Climber 1",
+        "ackSeq": -1,
+        "support": "ground",
+        "rescueState": "safe",
+        "activeIncidentId": null
+      },
+      {
+        "id": 1,
+        "position": {
+          "x": 0.46797826886177063,
+          "y": 0.45399999618530273,
+          "z": -0.2782106101512909
+        },
+        "velocity": {
+          "x": -0.0021761662792414427,
+          "y": 0,
+          "z": -3.0984034538269043
+        },
+        "brace": false,
+        "connected": false,
+        "label": "Climber 2",
+        "ackSeq": -1,
+        "support": "ground",
+        "rescueState": "safe",
+        "activeIncidentId": null
+      }
+    ],
+    "rope": {
+      "points": [
+        {
+          "x": -2.15378475189209,
+          "y": 0.4239999961853027,
+          "z": -1.9080146551132202
+        },
+        {
+          "x": -1.983081011825135,
+          "y": 0.20211299687115308,
+          "z": -1.79675253278402
+        },
+        {
+          "x": -1.756784607703701,
+          "y": 0.053585345182740704,
+          "z": -1.6661289383069369
+        },
+        {
+          "x": -1.4903193772056562,
+          "y": 0.03932994413512353,
+          "z": -1.5278521793412163
+        },
+        {
+          "x": -1.2334807927632088,
+          "y": 0.036436403171281675,
+          "z": -1.3716390412502109
+        },
+        {
+          "x": -0.9941810819853226,
+          "y": 0.03900000000000001,
+          "z": -1.1895757917596639
+        },
+        {
+          "x": -0.7900153249398318,
+          "y": 0.03637339453450631,
+          "z": -0.9687928344730962
+        },
+        {
+          "x": -0.6356685378317425,
+          "y": 0.036415230473683315,
+          "z": -0.7106913573499832
+        },
+        {
+          "x": -0.475914056353031,
+          "y": 0.039005198996334374,
+          "z": -0.4559231360402716
+        },
+        {
+          "x": -0.2430594303309598,
+          "y": 0.03963565632350128,
+          "z": -0.26587743392080476
+        },
+        {
+          "x": 0.01840652874294297,
+          "y": 0.08422478745822352,
+          "z": -0.12469859352251862
+        },
+        {
+          "x": 0.26244123707205885,
+          "y": 0.2592373863387384,
+          "z": -0.13272477647404146
+        },
+        {
+          "x": 0.46797826886177063,
+          "y": 0.4239999961853027,
+          "z": -0.2782106101512909
+        }
+      ],
+      "length": 3.6,
+      "tension": 0.01529326669909764,
+      "tensionN": 15.392255343726255,
+      "slackM": 0.5129459735912176,
+      "spans": [
+        {
+          "id": 0,
+          "a": 0,
+          "b": 1,
+          "startPoint": 0,
+          "endPoint": 12,
+          "length": 3.6,
+          "tension": 0.01529326669909764,
+          "tensionN": 15.392255343726255,
+          "slackM": 0.5129459735912176,
+          "catchHighlight": false
+        }
+      ]
+    },
+    "terrain": {
+      "bounds": {
+        "minX": -12,
+        "maxX": 12,
+        "minZ": -16,
+        "maxZ": 85
+      },
+      "finishZ": null,
+      "crevasses": [
+        {
+          "id": 0,
+          "minX": -12,
+          "maxX": 12,
+          "minZ": 0,
+          "maxZ": 2.8,
+          "depth": 12
+        }
+      ],
+      "bridges": [],
+      "ice": []
+    },
+    "incidents": [
+      {
+        "id": 0,
+        "fallTick": 6,
+        "playerIds": [
+          1
+        ],
+        "status": "recovered",
+        "recoveredTick": 74,
+        "cascades": 0,
+        "firstAttemptSuccess": true,
+        "roleActiveSeconds": [
+          0.35,
+          1.7999999999999985
+        ],
+        "roleIdleSeconds": [
+          1.949999999999998,
+          0.49999999999999994
+        ],
+        "staticHoldSeconds": [
+          1.2833333333333337,
+          0
+        ]
+      }
+    ],
+    "events": [
+      {
+        "id": 0,
+        "epoch": 0,
+        "tick": 6,
+        "substep": 0,
+        "kind": "fall",
+        "incidentId": 0,
+        "playerIds": [
+          1
+        ],
+        "spanIds": [
+          0
+        ],
+        "surfaceIds": []
+      },
+      {
+        "id": 1,
+        "epoch": 0,
+        "tick": 27,
+        "substep": 1,
+        "kind": "catch",
+        "incidentId": 0,
+        "playerIds": [
+          1
+        ],
+        "spanIds": [
+          0
+        ],
+        "surfaceIds": []
+      },
+      {
+        "id": 2,
+        "epoch": 0,
+        "tick": 29,
+        "substep": 1,
+        "kind": "climb",
+        "incidentId": 0,
+        "playerIds": [
+          1
+        ],
+        "spanIds": [
+          0
+        ],
+        "surfaceIds": []
+      },
+      {
+        "id": 3,
+        "epoch": 0,
+        "tick": 74,
+        "substep": 1,
+        "kind": "recovery",
+        "incidentId": 0,
+        "playerIds": [
+          1
+        ],
+        "spanIds": [
+          0
+        ],
+        "surfaceIds": []
+      }
+    ],
+    "diagnostics": {
+      "solverIterations": 12,
+      "contactProjections": 74,
+      "maximumTerrainPenetrationM": 0,
+      "maximumBodyOverlapM": 0,
+      "kineticEnergyJ": 384.0043301007184,
+      "potentialEnergyJ": 712.5984000000001,
+      "motorWorkJ": 2951.7075437755675,
+      "gravityWorkJ": 588.8789706587977,
+      "ropeContactWorkJ": -2701.5737424705976,
+      "maximumUnexplainedEnergyGainJ": 0,
+      "incidentsStarted": 1,
+      "incidentsRecovered": 1,
+      "incidentsFailed": 0,
+      "energyProjectionCount": 17,
+      "maximumEnergyProjectionJ": 2939.592213872114,
+      "maximumPotentialExcessJ": 0,
+      "cascades": 0,
+      "firstFallSeconds": 0.2,
+      "eventsTruncated": false,
+      "incidentsTruncated": false
+    },
+    "counters": {
+      "ticks": 75,
+      "elapsedSeconds": 2.5,
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.02670579485121427,
+      "maximumSpeedMps": 6.094830332899626,
+      "maximumJoltMps2": 250.61532002917215,
+      "tautTransitions": 0,
+      "totalTensionSeconds": 0,
+      "distanceTravelledM": [
+        1.8968917706098367,
+        5.991904371011591
+      ]
+    },
+    "run": {
+      "status": "active",
+      "elapsedSeconds": 2.5,
+      "progress": 0,
+      "reason": null
+    }
+  },
+  "record": {
+    "ordinal": 5,
+    "seed": 1701,
+    "family": "balanced",
+    "scene": "rescue",
+    "playerCount": 2,
+    "policy": "recovery",
+    "tickHz": 30,
+    "horizonSeconds": 60,
+    "observedSeconds": 2.5,
+    "ticks": 75,
+    "stepAttempts": 75,
+    "ending": "fixture-recovered",
+    "runStatus": "active",
+    "progress": 0,
+    "firstFallSeconds": 0.2,
+    "episodes": [
+      {
+        "id": 0,
+        "fallTick": 6,
+        "playerIds": [
+          1
+        ],
+        "status": "recovered",
+        "recoveredTick": 74,
+        "cascades": 0,
+        "firstAttemptSuccess": true,
+        "roleActiveSeconds": [
+          0.35,
+          1.7999999999999985
+        ],
+        "roleIdleSeconds": [
+          1.949999999999998,
+          0.49999999999999994
+        ],
+        "staticHoldSeconds": [
+          1.2833333333333337,
+          0
+        ],
+        "observedUntilTick": 75
+      }
+    ],
+    "inputIdleSeconds": [
+      0,
+      0
+    ],
+    "longestUnchangedInputSeconds": [
+      0.9999999999999999,
+      2.3000000000000016
+    ],
+    "rescueObservationSeconds": [
+      2.3000000000000016,
+      2.3000000000000016
+    ],
+    "rescueMotionlessSeconds": [
+      1.166666666666667,
+      0
+    ],
+    "staticCounterexampleEpisodes": [],
+    "frozenCounterexampleEpisodes": [],
+    "maximumSpanErrorM": 0,
+    "maximumSegmentErrorM": 0.02670579485121427,
+    "maximumSpeedMps": 6.094830332899626,
+    "stepExecutionMs": {
+      "count": 75,
+      "min": 1.348875000000021,
+      "p50": 3.214749999999981,
+      "p95": 12.014167000000043,
+      "p99": 62.52391699999998,
+      "max": 62.52391699999998,
+      "mean": 5.3152894266666575
+    },
+    "finalStateSha256": "78ee485a1296b9b7f8f13c5dba9e18d9a464a21b67b5deb2a7dcaac7fa43c21a",
+    "policyInputsSha256": "d99f8491e743efab7e9d127afa6ef6c9624660201814a48f6f64604653cd1ac4",
+    "error": null,
+    "evidenceComplete": true,
+    "eventCounts": {
+      "fall": 1,
+      "catch": 1,
+      "climb": 1,
+      "recovery": 1
+    },
+    "diagnostics": {
+      "solverIterations": 12,
+      "contactProjections": 74,
+      "maximumTerrainPenetrationM": 0,
+      "maximumBodyOverlapM": 0,
+      "kineticEnergyJ": 384.0043301007184,
+      "potentialEnergyJ": 712.5984000000001,
+      "motorWorkJ": 2951.7075437755675,
+      "gravityWorkJ": 588.8789706587977,
+      "ropeContactWorkJ": -2701.5737424705976,
+      "maximumUnexplainedEnergyGainJ": 0,
+      "incidentsStarted": 1,
+      "incidentsRecovered": 1,
+      "incidentsFailed": 0,
+      "energyProjectionCount": 17,
+      "maximumEnergyProjectionJ": 2939.592213872114,
+      "maximumPotentialExcessJ": 0,
+      "cascades": 0,
+      "firstFallSeconds": 0.2,
+      "eventsTruncated": false,
+      "incidentsTruncated": false
+    },
+    "counterPolicy": {
+      "armedTick": 0,
+      "heldPlayerIds": [],
+      "wholeEpisodeHoldVerifiedIds": [],
+      "interventions": []
+    },
+    "finalBodyStates": [
+      {
+        "id": 0,
+        "position": {
+          "x": -2.15378475189209,
+          "y": 0.45399999618530273,
+          "z": -1.9080146551132202
+        },
+        "support": "ground",
+        "rescueState": "safe"
+      },
+      {
+        "id": 1,
+        "position": {
+          "x": 0.46797826886177063,
+          "y": 0.45399999618530273,
+          "z": -0.2782106101512909
+        },
+        "support": "ground",
+        "rescueState": "safe"
+      }
+    ]
+  },
+  "matchedSmoke": true,
+  "exactReplay": true,
+  "scope": "Targeted diagnostic reproduction of an existing smoke case; not an additional full-matrix trial."
+}

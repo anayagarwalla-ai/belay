@@ -1,0 +1,144 @@
+diff --git a/shared/contact-geometry.ts b/shared/contact-geometry.ts
+index a774c19..801d4c5 100644
+--- a/shared/contact-geometry.ts
++++ b/shared/contact-geometry.ts
+@@ -7,16 +7,33 @@ export const copyVector = (v: Vec3): Vec3 => ({ ...v });
+ export const vectorDistance = (a: Vec3, b: Vec3) => Math.hypot(a.x - b.x, a.y - b.y, a.z - b.z);
+ export const dot = (a: Vec3, b: Vec3) => a.x * b.x + a.y * b.y + a.z * b.z;
+ const axes = ['x', 'y', 'z'] as const;
+-const limits = (solid: Solid, half: Vec3) => ({
+-  x: [solid.minX - half.x, solid.maxX + half.x], y: [solid.minY - half.y, solid.maxY + half.y],
+-  z: [solid.minZ - half.z, solid.maxZ + half.z],
+-});
++const sides = [0, 1] as const;
++type Bounds = Record<typeof axes[number], [number, number]>;
++type CachedBounds = { solid: Solid; half: Vec3; bounds: Bounds };
++// Weak keys retain neither disposed terrain nor temporary half extents. Verify the
++// source scalars so the moving flat floor (and mutable callers) cannot use stale bounds.
++const boundsCache = new WeakMap<Solid, WeakMap<Vec3, CachedBounds>>();
++function limits(solid: Solid, half: Vec3): Bounds {
++  let sizes = boundsCache.get(solid);
++  if (!sizes) { sizes = new WeakMap(); boundsCache.set(solid, sizes); }
++  const cached = sizes.get(half);
++  if (cached && Object.is(cached.solid.minX, solid.minX) && Object.is(cached.solid.maxX, solid.maxX)
++    && Object.is(cached.solid.minY, solid.minY) && Object.is(cached.solid.maxY, solid.maxY)
++    && Object.is(cached.solid.minZ, solid.minZ) && Object.is(cached.solid.maxZ, solid.maxZ)
++    && Object.is(cached.half.x, half.x) && Object.is(cached.half.y, half.y) && Object.is(cached.half.z, half.z)) return cached.bounds;
++  const bounds: Bounds = {
++    x: [solid.minX - half.x, solid.maxX + half.x], y: [solid.minY - half.y, solid.maxY + half.y],
++    z: [solid.minZ - half.z, solid.maxZ + half.z],
++  };
++  sizes.set(half, { solid: { ...solid }, half: { ...half }, bounds });
++  return bounds;
++}
+ 
+ export function penetration(p: Vec3, half: Vec3, solid: Solid) {
+   const bounds = limits(solid, half);
+   if (axes.some(axis => p[axis] <= bounds[axis][0] || p[axis] >= bounds[axis][1])) return null;
+   let depth = Infinity, normal: Vec3 = { x: 0, y: 0, z: 0 };
+-  for (const axis of axes) for (const side of [0, 1]) {
++  for (const axis of axes) for (const side of sides) {
+     const d = Math.abs(p[axis] - bounds[axis][side]);
+     if (d < depth) { depth = d; normal = { x: 0, y: 0, z: 0 }; normal[axis] = side ? 1 : -1; }
+   }
+@@ -86,7 +103,7 @@ export function supportAt(p: Vec3, half: Vec3, solids: Solid[]): Contact {
+       const otherMin = other === 'x' ? solid.minX : solid.minZ, otherMax = other === 'x' ? solid.maxX : solid.maxZ;
+       if (p[other] + half[other] <= otherMin || p[other] - half[other] >= otherMax) continue;
+       const bounds = axis === 'x' ? [solid.minX, solid.maxX] : [solid.minZ, solid.maxZ];
+-      for (const side of [0, 1]) {
++      for (const side of sides) {
+         const sign = side ? 1 : -1;
+         const gap = sign * (p[axis] - bounds[side]) - half[axis];
+         if (gap >= -TUNING.phase2.collisionSkin && gap <= TUNING.phase2.wallContactTolerance && gap < distance) {
+@@ -99,11 +116,11 @@ export function supportAt(p: Vec3, half: Vec3, solids: Solid[]): Contact {
+   return nearest ?? { support: 'air', normal: { x: 0, y: 0, z: 0 } };
+ }
+ 
+-export function contactNormalsAt(p: Vec3, half: Vec3, solids: Solid[]) {
+-  const normals: Vec3[] = [];
++export function contactNormalsAt(p: Vec3, half: Vec3, solids: Solid[], normals: Vec3[] = []) {
++  normals.length = 0;
+   for (const solid of solids) {
+     const bounds = limits(solid, half), tolerance = TUNING.phase2.collisionSkin * 2;
+-    for (const axis of axes) for (const side of [0, 1]) {
++    for (const axis of axes) for (const side of sides) {
+       if (Math.abs(p[axis] - bounds[axis][side]) > tolerance) continue;
+       if (axes.some(other => other !== axis && (p[other] < bounds[other][0] - tolerance || p[other] > bounds[other][1] + tolerance))) continue;
+       const normal = { x: 0, y: 0, z: 0 }; normal[axis] = side ? 1 : -1; normals.push(normal);
+diff --git a/shared/expedition-simulation.ts b/shared/expedition-simulation.ts
+index 3e34f22..26767b3 100644
+--- a/shared/expedition-simulation.ts
++++ b/shared/expedition-simulation.ts
+@@ -34,6 +34,7 @@ export class ExpeditionSimulation {
+   private solidColliders = new Map<number, RAPIER.Collider>();
+   private nodes: Vec3[] = [];
+   private previous: Vec3[] = [];
++  private iterationPrior: Vec3[] = [];
+   private nodeNormals: Vec3[][] = [];
+   private normalLoadDelta: Vec3[] = [];
+   private spans: Span[] = [];
+@@ -105,6 +106,8 @@ export class ExpeditionSimulation {
+       this.spans.push({ id, a: id, b: id + 1, nodes, startPoint, endPoint: this.points.length - 1,
+         tension: 0, tensionN: 0, corrections: [zero(), zero()], highlightUntil: 0, wasTaut: false });
+     }
++    this.iterationPrior = this.nodes.map(zero);
++    this.nodeNormals = this.nodes.map(() => []);
+   }
+   private harness(id: number) {
+     const p = this.bodies[id].translation(); return { x: p.x, y: p.y - half.y + TUNING.body.harnessHeight, z: p.z };
+@@ -201,9 +204,13 @@ export class ExpeditionSimulation {
+     const segment = FAMILIES[this.family].ropeLength / TUNING.rope.segments;
+     let iterations = 0;
+     for (; iterations < profile.maximumSolverIterations; iterations++) {
+-      const prior = this.nodes.map(p => ({ ...p }));
+-      this.nodeNormals = this.nodes.map((p, id) => contactNormalsAt(id < this.playerCount ? this.center(p) : p,
+-        id < this.playerCount ? half : particleHalf, this.terrain.solids));
++      const prior = this.iterationPrior;
++      for (let id = 0; id < this.nodes.length; id++) Object.assign(prior[id], this.nodes[id]);
++      for (let id = 0; id < this.nodes.length; id++) {
++        const p = this.nodes[id];
++        contactNormalsAt(id < this.playerCount ? this.center(p) : p,
++          id < this.playerCount ? half : particleHalf, this.terrain.solids, this.nodeNormals[id]);
++      }
+       for (const span of this.spans) {
+         for (let k = 0; k < span.nodes.length - 1; k++) {
+           const j = iterations % 2 ? span.nodes.length - k - 2 : k;
+diff --git a/tests/contact-geometry.test.ts b/tests/contact-geometry.test.ts
+new file mode 100644
+index 0000000..0cab8ba
+--- /dev/null
++++ b/tests/contact-geometry.test.ts
+@@ -0,0 +1,33 @@
++import { describe, expect, it } from 'vitest';
++import { contactNormalsAt, penetration, projectMotion, sweepBox, type Solid } from '../shared/contact-geometry';
++
++const solid = (): Solid => ({ id: 0, minX: -2, maxX: 2, minY: -2, maxY: 0, minZ: -2, maxZ: 2 });
++const half = () => ({ x: .25, y: .45, z: .25 });
++
++describe('cached contact geometry', () => {
++  it('invalidates every changed terrain boundary and half extent', () => {
++    const box = solid(), size = half();
++    const probes = () => {
++      for (const x of [-2.25, 0, 2.25]) for (const y of [-2.45, 0, .45]) for (const z of [-2.25, 0, 2.25]) {
++        const p = { x, y, z }, to = { x: -x, y: y - 1, z: -z };
++        // Fresh object identities force recomputation for the reference call.
++        expect(penetration(p, size, box)).toStrictEqual(penetration(p, { ...size }, { ...box }));
++        expect(sweepBox(p, to, size, box)).toStrictEqual(sweepBox(p, to, { ...size }, { ...box }));
++        expect(contactNormalsAt(p, size, [box])).toStrictEqual(contactNormalsAt(p, { ...size }, [{ ...box }]));
++        expect(projectMotion(p, to, size, [box])).toStrictEqual(projectMotion(p, to, { ...size }, [{ ...box }]));
++      }
++    };
++    probes();
++    for (const key of ['minX', 'maxX', 'minY', 'maxY', 'minZ', 'maxZ'] as const) { box[key] += .5; probes(); }
++    for (const key of ['x', 'y', 'z'] as const) { size[key] += .5; probes(); }
++  });
++  it('clears reused normal output while keeping default results independent', () => {
++    const box = solid(), size = half(), p = { x: 0, y: size.y, z: 0 };
++    const first = contactNormalsAt(p, size, [box]);
++    const output = [{ x: 99, y: 99, z: 99 }];
++    expect(contactNormalsAt(p, size, [box], output)).toBe(output);
++    expect(output).toStrictEqual(first);
++    contactNormalsAt({ ...p, y: 10 }, size, [box], output);
++    expect(output).toStrictEqual([]); expect(first).toStrictEqual([{ x: 0, y: 1, z: 0 }]);
++  });
++});

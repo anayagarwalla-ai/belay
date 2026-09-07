@@ -1,0 +1,975 @@
+{
+  "mode": "benchmark",
+  "baseline": "f2fb8fd7f828b706ccdabbaffcbb72a0565b58a1",
+  "sourceHashes": {
+    "shared/contact-geometry.ts": "e0b3e768266f0b30fec0d58797710b4e4189bc77cd1632651fc0a50ff01a6e51",
+    "shared/expedition-simulation.ts": "f98777cba206e71d23586ce2993552ef89c88c15502291c4b425e50e0e782b10",
+    "shared/flat-simulation.ts": "07ebd2d5902fc9d6a5060c2840f5de5c24443573da9fa652d27a819a95dffc9d",
+    "shared/movement.ts": "de8cfb54596c8741082e3ef40fc2550cfd7494c30761dc8c72889f48227ad45b",
+    "shared/physical-diagnostics.ts": "0b55613cb72e95ec99081c17b9385fececc9c9425a553b3ba0d7e7583a701670",
+    "shared/protocol.ts": "1a9dd92feb961fbc61bd27ef3f515d07d3d25f49c15daa6d8f0b7b66ef4f228c",
+    "shared/simulation.ts": "04a66271386b1e496784e1f801120077159aa6abc280391a97056e60566c55ee",
+    "shared/stats.ts": "18555b71109353b5ad45db0596484d9f5b9b29f5e9260196f667984e5aa57d87",
+    "shared/terrain.ts": "d6f36940f9a7901e47f723ba90902bc9e288d2056a7fb12d93673ff67362bee2",
+    "tuning.ts": "4a099d43f366b6af30950cc5d2ebcaf3e9f286cc24c154dc84b89f29e5fe0c18"
+  },
+  "started": "2026-09-07T22:55:01.852Z",
+  "finished": "2026-09-07T22:56:31.383Z",
+  "runtime": {
+    "node": "v26.5.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4",
+    "logicalCPUs": 10
+  },
+  "host": {
+    "startLoad": [
+      14.14404296875,
+      15.6806640625,
+      11.28857421875
+    ],
+    "endLoad": [
+      11.84423828125,
+      14.52392578125,
+      11.28173828125
+    ],
+    "freeBytes": 272171008
+  },
+  "comparison": "Node assert.deepStrictEqual; only snapshot serverTime replaced with zero. Input tapes and final/sample states include diagnostics and events. SHA256 uses V8 serialization, preserving signed zero.",
+  "limitations": "Same-runtime finite fixtures only. Timings share a host with other tasks; no CPU affinity, forced GC, deadline, scaling, memory attribution or physical-bound pass is claimed.",
+  "results": [
+    {
+      "name": "flat-6-30",
+      "options": {
+        "scene": "flat",
+        "playerCount": 6,
+        "tickHz": 30,
+        "seed": 1701,
+        "family": "balanced"
+      },
+      "seconds": 10,
+      "policy": "flat",
+      "tapeHash": "c4b8b32cbf5629ce82fbff26437392e83d4fe13b4cf0164958773d2c1dceb18e",
+      "runs": [
+        {
+          "engine": "baseline",
+          "repetition": 0,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 3207.9076670000004,
+          "stepTotalMs": 3190.0791240000144,
+          "stepP50Ms": 13.236708999998882,
+          "stepP95Ms": 14.999959000000672,
+          "stepP99Ms": 16.090417000001253,
+          "maxStepMs": 19.933415999999852,
+          "cpuDelta": {
+            "user": 3283499,
+            "system": 93067
+          },
+          "memoryBefore": {
+            "rss": 216989696,
+            "heapTotal": 55853056,
+            "heapUsed": 30495704,
+            "external": 8440632,
+            "arrayBuffers": 1572360
+          },
+          "memoryAfter": {
+            "rss": 214679552,
+            "heapTotal": 56901632,
+            "heapUsed": 24836520,
+            "external": 8440672,
+            "arrayBuffers": 1572360
+          },
+          "finalHash": "b3d4e7bc204245dfc89bf80fb779b42df8ab1de8b42ffcc6d60da3896ccc17e0",
+          "hostLoad": [
+            13.740234375,
+            15.54248046875,
+            11.29052734375
+          ]
+        },
+        {
+          "engine": "candidate",
+          "repetition": 0,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 3240.882834,
+          "stepTotalMs": 3222.996661000023,
+          "stepP50Ms": 13.41912500000035,
+          "stepP95Ms": 15.544166000001496,
+          "stepP99Ms": 18.954625000000306,
+          "maxStepMs": 20.657750000000306,
+          "cpuDelta": {
+            "user": 3408040,
+            "system": 88027
+          },
+          "memoryBefore": {
+            "rss": 216121344,
+            "heapTotal": 58212352,
+            "heapUsed": 37089856,
+            "external": 8440704,
+            "arrayBuffers": 1572392
+          },
+          "memoryAfter": {
+            "rss": 212336640,
+            "heapTotal": 59260928,
+            "heapUsed": 25692752,
+            "external": 8440704,
+            "arrayBuffers": 1572392
+          },
+          "finalHash": "b3d4e7bc204245dfc89bf80fb779b42df8ab1de8b42ffcc6d60da3896ccc17e0",
+          "hostLoad": [
+            13.2802734375,
+            15.4169921875,
+            11.27099609375
+          ]
+        },
+        {
+          "engine": "candidate",
+          "repetition": 1,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 3807.4902079999993,
+          "stepTotalMs": 3786.657838999985,
+          "stepP50Ms": 14.533124999999927,
+          "stepP95Ms": 24.266499999997905,
+          "stepP99Ms": 29.717957999997452,
+          "maxStepMs": 33.8950420000001,
+          "cpuDelta": {
+            "user": 3815318,
+            "system": 130813
+          },
+          "memoryBefore": {
+            "rss": 189415424,
+            "heapTotal": 59260928,
+            "heapUsed": 27090160,
+            "external": 8440736,
+            "arrayBuffers": 1572424
+          },
+          "memoryAfter": {
+            "rss": 219758592,
+            "heapTotal": 94650368,
+            "heapUsed": 29444744,
+            "external": 8440736,
+            "arrayBuffers": 1572424
+          },
+          "finalHash": "b3d4e7bc204245dfc89bf80fb779b42df8ab1de8b42ffcc6d60da3896ccc17e0",
+          "hostLoad": [
+            12.857421875,
+            15.29345703125,
+            11.25146484375
+          ]
+        },
+        {
+          "engine": "baseline",
+          "repetition": 1,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 4522.604208999997,
+          "stepTotalMs": 4494.114297000022,
+          "stepP50Ms": 16.655125000001135,
+          "stepP95Ms": 31.760583999999653,
+          "stepP99Ms": 48.37654199999815,
+          "maxStepMs": 58.390417000002344,
+          "cpuDelta": {
+            "user": 3579942,
+            "system": 127938
+          },
+          "memoryBefore": {
+            "rss": 220266496,
+            "heapTotal": 94650368,
+            "heapUsed": 29406928,
+            "external": 8440768,
+            "arrayBuffers": 1572456
+          },
+          "memoryAfter": {
+            "rss": 220348416,
+            "heapTotal": 98844672,
+            "heapUsed": 47996848,
+            "external": 8440768,
+            "arrayBuffers": 1572456
+          },
+          "finalHash": "b3d4e7bc204245dfc89bf80fb779b42df8ab1de8b42ffcc6d60da3896ccc17e0",
+          "hostLoad": [
+            13.50927734375,
+            15.38818359375,
+            11.30810546875
+          ]
+        },
+        {
+          "engine": "baseline",
+          "repetition": 2,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 4876.289875000002,
+          "stepTotalMs": 4850.88430600004,
+          "stepP50Ms": 15.911749999999302,
+          "stepP95Ms": 38.061666999998124,
+          "stepP99Ms": 85.18358400000216,
+          "maxStepMs": 119.25412499999948,
+          "cpuDelta": {
+            "user": 3670524,
+            "system": 110820
+          },
+          "memoryBefore": {
+            "rss": 219987968,
+            "heapTotal": 99106816,
+            "heapUsed": 47746768,
+            "external": 8440800,
+            "arrayBuffers": 1572488
+          },
+          "memoryAfter": {
+            "rss": 182468608,
+            "heapTotal": 102776832,
+            "heapUsed": 60971328,
+            "external": 8440800,
+            "arrayBuffers": 1572488
+          },
+          "finalHash": "b3d4e7bc204245dfc89bf80fb779b42df8ab1de8b42ffcc6d60da3896ccc17e0",
+          "hostLoad": [
+            14.10888671875,
+            15.48095703125,
+            11.36474609375
+          ]
+        },
+        {
+          "engine": "candidate",
+          "repetition": 2,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 3673.2838749999974,
+          "stepTotalMs": 3658.1693770000056,
+          "stepP50Ms": 13.290541999998823,
+          "stepP95Ms": 20.911082999999053,
+          "stepP99Ms": 32.59770900000149,
+          "maxStepMs": 147.22895900000003,
+          "cpuDelta": {
+            "user": 3510187,
+            "system": 89089
+          },
+          "memoryBefore": {
+            "rss": 182583296,
+            "heapTotal": 103301120,
+            "heapUsed": 57258952,
+            "external": 8440832,
+            "arrayBuffers": 1572520
+          },
+          "memoryAfter": {
+            "rss": 188022784,
+            "heapTotal": 104087552,
+            "heapUsed": 60639504,
+            "external": 8440832,
+            "arrayBuffers": 1572520
+          },
+          "finalHash": "b3d4e7bc204245dfc89bf80fb779b42df8ab1de8b42ffcc6d60da3896ccc17e0",
+          "hostLoad": [
+            13.77978515625,
+            15.3896484375,
+            11.3564453125
+          ]
+        },
+        {
+          "engine": "candidate",
+          "repetition": 3,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 2847.9137919999994,
+          "stepTotalMs": 2830.9875919999904,
+          "stepP50Ms": 12.240499999999884,
+          "stepP95Ms": 19.016249999993306,
+          "stepP99Ms": 55.10912500000268,
+          "maxStepMs": 103.97291699999914,
+          "cpuDelta": {
+            "user": 2386128,
+            "system": 65758
+          },
+          "memoryBefore": {
+            "rss": 177586176,
+            "heapTotal": 104349696,
+            "heapUsed": 54646656,
+            "external": 8440864,
+            "arrayBuffers": 1572552
+          },
+          "memoryAfter": {
+            "rss": 177815552,
+            "heapTotal": 104349696,
+            "heapUsed": 55034464,
+            "external": 8440864,
+            "arrayBuffers": 1572552
+          },
+          "finalHash": "b3d4e7bc204245dfc89bf80fb779b42df8ab1de8b42ffcc6d60da3896ccc17e0",
+          "hostLoad": [
+            13.77978515625,
+            15.3896484375,
+            11.3564453125
+          ]
+        },
+        {
+          "engine": "baseline",
+          "repetition": 3,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 2271.913542000002,
+          "stepTotalMs": 2260.7070380000077,
+          "stepP50Ms": 7.511749999997846,
+          "stepP95Ms": 15.759708000005048,
+          "stepP99Ms": 58.74820799999725,
+          "maxStepMs": 117.64158399999724,
+          "cpuDelta": {
+            "user": 1621791,
+            "system": 39279
+          },
+          "memoryBefore": {
+            "rss": 178126848,
+            "heapTotal": 104349696,
+            "heapUsed": 52630568,
+            "external": 8440896,
+            "arrayBuffers": 1572584
+          },
+          "memoryAfter": {
+            "rss": 176537600,
+            "heapTotal": 106446848,
+            "heapUsed": 60174144,
+            "external": 8440896,
+            "arrayBuffers": 1572584
+          },
+          "finalHash": "b3d4e7bc204245dfc89bf80fb779b42df8ab1de8b42ffcc6d60da3896ccc17e0",
+          "hostLoad": [
+            13.39697265625,
+            15.283203125,
+            11.34228515625
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rescue-6-30",
+      "options": {
+        "scene": "rescue",
+        "playerCount": 6,
+        "tickHz": 30,
+        "seed": 1701,
+        "family": "balanced"
+      },
+      "seconds": 10,
+      "policy": "rescue",
+      "tapeHash": "828a6c8e89d2696406cabb14a5ec73d3904f3524da10c7e4974fc72541eeef43",
+      "runs": [
+        {
+          "engine": "baseline",
+          "repetition": 0,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 1106.383541999996,
+          "stepTotalMs": 1087.7358820000518,
+          "stepP50Ms": 4.273042000000714,
+          "stepP95Ms": 6.810541999999259,
+          "stepP99Ms": 8.620291999999608,
+          "maxStepMs": 39.64112500000192,
+          "cpuDelta": {
+            "user": 1003152,
+            "system": 19362
+          },
+          "memoryBefore": {
+            "rss": 188366848,
+            "heapTotal": 110903296,
+            "heapUsed": 59017224,
+            "external": 8440960,
+            "arrayBuffers": 1572648
+          },
+          "memoryAfter": {
+            "rss": 189775872,
+            "heapTotal": 111427584,
+            "heapUsed": 63515000,
+            "external": 8440960,
+            "arrayBuffers": 1572648
+          },
+          "finalHash": "9139d1ec5a2f8adf883f7a3b7cd7d3cd3ac28d8d27bf9043f67c188e1ebee59a",
+          "hostLoad": [
+            12.96435546875,
+            15.162109375,
+            11.322265625
+          ]
+        },
+        {
+          "engine": "candidate",
+          "repetition": 0,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 1416.2628750000003,
+          "stepTotalMs": 1394.3197819999696,
+          "stepP50Ms": 5.2239169999957085,
+          "stepP95Ms": 10.199374999996508,
+          "stepP99Ms": 15.493666000002122,
+          "maxStepMs": 16.323749999995925,
+          "cpuDelta": {
+            "user": 1777635,
+            "system": 41988
+          },
+          "memoryBefore": {
+            "rss": 191660032,
+            "heapTotal": 113524736,
+            "heapUsed": 53086696,
+            "external": 8440992,
+            "arrayBuffers": 1572680
+          },
+          "memoryAfter": {
+            "rss": 207011840,
+            "heapTotal": 114573312,
+            "heapUsed": 79438872,
+            "external": 8440992,
+            "arrayBuffers": 1572680
+          },
+          "finalHash": "9139d1ec5a2f8adf883f7a3b7cd7d3cd3ac28d8d27bf9043f67c188e1ebee59a",
+          "hostLoad": [
+            12.96435546875,
+            15.162109375,
+            11.322265625
+          ]
+        },
+        {
+          "engine": "candidate",
+          "repetition": 1,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 1591.0995410000032,
+          "stepTotalMs": 1568.8607140000458,
+          "stepP50Ms": 5.2696670000004815,
+          "stepP95Ms": 12.582958999999391,
+          "stepP99Ms": 43.87004099999467,
+          "maxStepMs": 82.72279200000048,
+          "cpuDelta": {
+            "user": 1178938,
+            "system": 32350
+          },
+          "memoryBefore": {
+            "rss": 202866688,
+            "heapTotal": 114835456,
+            "heapUsed": 59854736,
+            "external": 8441024,
+            "arrayBuffers": 1572712
+          },
+          "memoryAfter": {
+            "rss": 193773568,
+            "heapTotal": 114835456,
+            "heapUsed": 79461496,
+            "external": 8441024,
+            "arrayBuffers": 1572712
+          },
+          "finalHash": "9139d1ec5a2f8adf883f7a3b7cd7d3cd3ac28d8d27bf9043f67c188e1ebee59a",
+          "hostLoad": [
+            12.486328125,
+            15.0263671875,
+            11.296875
+          ]
+        },
+        {
+          "engine": "baseline",
+          "repetition": 1,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 1582.5460410000014,
+          "stepTotalMs": 1557.169997000019,
+          "stepP50Ms": 5.848582999999053,
+          "stepP95Ms": 11.94024999999965,
+          "stepP99Ms": 16.378959000001487,
+          "maxStepMs": 39.35429099999601,
+          "cpuDelta": {
+            "user": 1149206,
+            "system": 39044
+          },
+          "memoryBefore": {
+            "rss": 194068480,
+            "heapTotal": 114835456,
+            "heapUsed": 73267320,
+            "external": 8441056,
+            "arrayBuffers": 1572744
+          },
+          "memoryAfter": {
+            "rss": 206815232,
+            "heapTotal": 110379008,
+            "heapUsed": 47747248,
+            "external": 8064067,
+            "arrayBuffers": 1195755
+          },
+          "finalHash": "9139d1ec5a2f8adf883f7a3b7cd7d3cd3ac28d8d27bf9043f67c188e1ebee59a",
+          "hostLoad": [
+            12.486328125,
+            15.0263671875,
+            11.296875
+          ]
+        },
+        {
+          "engine": "baseline",
+          "repetition": 2,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 1219.0726250000007,
+          "stepTotalMs": 1196.689628000022,
+          "stepP50Ms": 4.787750000003143,
+          "stepP95Ms": 7.690792000001238,
+          "stepP99Ms": 9.373875000004773,
+          "maxStepMs": 10.06695800000307,
+          "cpuDelta": {
+            "user": 1058223,
+            "system": 27012
+          },
+          "memoryBefore": {
+            "rss": 206192640,
+            "heapTotal": 110379008,
+            "heapUsed": 41801200,
+            "external": 8064099,
+            "arrayBuffers": 1195787
+          },
+          "memoryAfter": {
+            "rss": 206651392,
+            "heapTotal": 110379008,
+            "heapUsed": 50336792,
+            "external": 8064099,
+            "arrayBuffers": 1195787
+          },
+          "finalHash": "9139d1ec5a2f8adf883f7a3b7cd7d3cd3ac28d8d27bf9043f67c188e1ebee59a",
+          "hostLoad": [
+            12.486328125,
+            15.0263671875,
+            11.296875
+          ]
+        },
+        {
+          "engine": "candidate",
+          "repetition": 2,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 1292.306958000001,
+          "stepTotalMs": 1270.0479629999681,
+          "stepP50Ms": 5.122625000003609,
+          "stepP95Ms": 7.544832999999926,
+          "stepP99Ms": 10.410875000001397,
+          "maxStepMs": 13.035209000001487,
+          "cpuDelta": {
+            "user": 1171200,
+            "system": 26535
+          },
+          "memoryBefore": {
+            "rss": 150781952,
+            "heapTotal": 110379008,
+            "heapUsed": 36221432,
+            "external": 8064131,
+            "arrayBuffers": 1195819
+          },
+          "memoryAfter": {
+            "rss": 148193280,
+            "heapTotal": 110379008,
+            "heapUsed": 55138272,
+            "external": 8064131,
+            "arrayBuffers": 1195819
+          },
+          "finalHash": "9139d1ec5a2f8adf883f7a3b7cd7d3cd3ac28d8d27bf9043f67c188e1ebee59a",
+          "hostLoad": [
+            12.6875,
+            15.02587890625,
+            11.318359375
+          ]
+        },
+        {
+          "engine": "candidate",
+          "repetition": 3,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 1261.9883750000008,
+          "stepTotalMs": 1242.1440859999711,
+          "stepP50Ms": 4.8793750000040745,
+          "stepP95Ms": 7.266291999992973,
+          "stepP99Ms": 10.520708000003651,
+          "maxStepMs": 42.147375000000466,
+          "cpuDelta": {
+            "user": 1135069,
+            "system": 19619
+          },
+          "memoryBefore": {
+            "rss": 150437888,
+            "heapTotal": 110379008,
+            "heapUsed": 34868600,
+            "external": 8064163,
+            "arrayBuffers": 1195851
+          },
+          "memoryAfter": {
+            "rss": 149733376,
+            "heapTotal": 110379008,
+            "heapUsed": 53279176,
+            "external": 8064163,
+            "arrayBuffers": 1195851
+          },
+          "finalHash": "9139d1ec5a2f8adf883f7a3b7cd7d3cd3ac28d8d27bf9043f67c188e1ebee59a",
+          "hostLoad": [
+            12.6875,
+            15.02587890625,
+            11.318359375
+          ]
+        },
+        {
+          "engine": "baseline",
+          "repetition": 3,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 1049.1155829999989,
+          "stepTotalMs": 1031.8433740000546,
+          "stepP50Ms": 4.075541999998677,
+          "stepP95Ms": 6.67579200000182,
+          "stepP99Ms": 7.726333999999042,
+          "maxStepMs": 8.33683299999393,
+          "cpuDelta": {
+            "user": 1031934,
+            "system": 20709
+          },
+          "memoryBefore": {
+            "rss": 150831104,
+            "heapTotal": 110379008,
+            "heapUsed": 46808104,
+            "external": 8064195,
+            "arrayBuffers": 1195883
+          },
+          "memoryAfter": {
+            "rss": 157483008,
+            "heapTotal": 110379008,
+            "heapUsed": 55627432,
+            "external": 8064195,
+            "arrayBuffers": 1195883
+          },
+          "finalHash": "9139d1ec5a2f8adf883f7a3b7cd7d3cd3ac28d8d27bf9043f67c188e1ebee59a",
+          "hostLoad": [
+            12.47216796875,
+            14.9423828125,
+            11.310546875
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crossing-6-30",
+      "options": {
+        "scene": "crossing",
+        "playerCount": 6,
+        "tickHz": 30,
+        "seed": 1701,
+        "family": "balanced"
+      },
+      "seconds": 10,
+      "policy": "walk",
+      "tapeHash": "bcd72cbf41414cd59cdaeb118cfa522362ac058dcd9defcdd8520e164317e8e9",
+      "runs": [
+        {
+          "engine": "baseline",
+          "repetition": 0,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 2581.5255840000027,
+          "stepTotalMs": 2563.940048000026,
+          "stepP50Ms": 10.224625000002561,
+          "stepP95Ms": 13.79737500000192,
+          "stepP99Ms": 14.82654100000218,
+          "maxStepMs": 19.77950000000419,
+          "cpuDelta": {
+            "user": 2505488,
+            "system": 38602
+          },
+          "memoryBefore": {
+            "rss": 194576384,
+            "heapTotal": 110379008,
+            "heapUsed": 53173904,
+            "external": 8064259,
+            "arrayBuffers": 1195947
+          },
+          "memoryAfter": {
+            "rss": 194674688,
+            "heapTotal": 110379008,
+            "heapUsed": 60153160,
+            "external": 8064259,
+            "arrayBuffers": 1195947
+          },
+          "finalHash": "57d56c38267db2b7fb0f35b81abf483093e6fb5586a844d5010c707b12aa5c10",
+          "hostLoad": [
+            11.95361328125,
+            14.79345703125,
+            11.279296875
+          ]
+        },
+        {
+          "engine": "candidate",
+          "repetition": 0,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 3143.6877089999907,
+          "stepTotalMs": 3126.1394669998845,
+          "stepP50Ms": 12.73983400000725,
+          "stepP95Ms": 16.545459000000847,
+          "stepP99Ms": 18.558625000005122,
+          "maxStepMs": 19.465499999991152,
+          "cpuDelta": {
+            "user": 3144661,
+            "system": 53644
+          },
+          "memoryBefore": {
+            "rss": 195215360,
+            "heapTotal": 110379008,
+            "heapUsed": 58715496,
+            "external": 8064291,
+            "arrayBuffers": 1195979
+          },
+          "memoryAfter": {
+            "rss": 196624384,
+            "heapTotal": 110379008,
+            "heapUsed": 46953624,
+            "external": 8064291,
+            "arrayBuffers": 1195979
+          },
+          "finalHash": "57d56c38267db2b7fb0f35b81abf483093e6fb5586a844d5010c707b12aa5c10",
+          "hostLoad": [
+            11.556640625,
+            14.6640625,
+            11.25390625
+          ]
+        },
+        {
+          "engine": "candidate",
+          "repetition": 1,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 3059.889374999999,
+          "stepTotalMs": 3039.924740000075,
+          "stepP50Ms": 12.400249999991502,
+          "stepP95Ms": 16.13133299999754,
+          "stepP99Ms": 16.857875000001513,
+          "maxStepMs": 18.362208999998984,
+          "cpuDelta": {
+            "user": 2906073,
+            "system": 47116
+          },
+          "memoryBefore": {
+            "rss": 196706304,
+            "heapTotal": 110379008,
+            "heapUsed": 35814240,
+            "external": 8064323,
+            "arrayBuffers": 1196011
+          },
+          "memoryAfter": {
+            "rss": 196591616,
+            "heapTotal": 110379008,
+            "heapUsed": 43824440,
+            "external": 8064323,
+            "arrayBuffers": 1196011
+          },
+          "finalHash": "57d56c38267db2b7fb0f35b81abf483093e6fb5586a844d5010c707b12aa5c10",
+          "hostLoad": [
+            11.19140625,
+            14.53662109375,
+            11.228515625
+          ]
+        },
+        {
+          "engine": "baseline",
+          "repetition": 1,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 2717.6045419999864,
+          "stepTotalMs": 2697.6284890000243,
+          "stepP50Ms": 10.676790999990772,
+          "stepP95Ms": 14.187957999994978,
+          "stepP99Ms": 16.02166600000055,
+          "maxStepMs": 34.129792000007,
+          "cpuDelta": {
+            "user": 2536563,
+            "system": 55078
+          },
+          "memoryBefore": {
+            "rss": 196706304,
+            "heapTotal": 110379008,
+            "heapUsed": 49388488,
+            "external": 8064355,
+            "arrayBuffers": 1196043
+          },
+          "memoryAfter": {
+            "rss": 198934528,
+            "heapTotal": 110379008,
+            "heapUsed": 59854032,
+            "external": 8064355,
+            "arrayBuffers": 1196043
+          },
+          "finalHash": "57d56c38267db2b7fb0f35b81abf483093e6fb5586a844d5010c707b12aa5c10",
+          "hostLoad": [
+            11.19140625,
+            14.53662109375,
+            11.228515625
+          ]
+        },
+        {
+          "engine": "baseline",
+          "repetition": 2,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 2570.6151249999966,
+          "stepTotalMs": 2551.7107100000285,
+          "stepP50Ms": 10.341042000000016,
+          "stepP95Ms": 13.262208999993163,
+          "stepP99Ms": 14.30791699999827,
+          "maxStepMs": 14.593333000011626,
+          "cpuDelta": {
+            "user": 2452755,
+            "system": 50595
+          },
+          "memoryBefore": {
+            "rss": 199114752,
+            "heapTotal": 111689728,
+            "heapUsed": 65082904,
+            "external": 8064387,
+            "arrayBuffers": 1196075
+          },
+          "memoryAfter": {
+            "rss": 202309632,
+            "heapTotal": 113786880,
+            "heapUsed": 44056328,
+            "external": 8064387,
+            "arrayBuffers": 1196075
+          },
+          "finalHash": "57d56c38267db2b7fb0f35b81abf483093e6fb5586a844d5010c707b12aa5c10",
+          "hostLoad": [
+            11.896484375,
+            14.626953125,
+            11.27978515625
+          ]
+        },
+        {
+          "engine": "candidate",
+          "repetition": 2,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 2950.609792000003,
+          "stepTotalMs": 2932.840414999984,
+          "stepP50Ms": 11.980500000005122,
+          "stepP95Ms": 14.997999999992317,
+          "stepP99Ms": 16.291917000009562,
+          "maxStepMs": 17.459499999997206,
+          "cpuDelta": {
+            "user": 2788501,
+            "system": 52584
+          },
+          "memoryBefore": {
+            "rss": 202489856,
+            "heapTotal": 114573312,
+            "heapUsed": 66814232,
+            "external": 8064419,
+            "arrayBuffers": 1196107
+          },
+          "memoryAfter": {
+            "rss": 202522624,
+            "heapTotal": 114573312,
+            "heapUsed": 41012200,
+            "external": 8064419,
+            "arrayBuffers": 1196107
+          },
+          "finalHash": "57d56c38267db2b7fb0f35b81abf483093e6fb5586a844d5010c707b12aa5c10",
+          "hostLoad": [
+            11.744140625,
+            14.5498046875,
+            11.27197265625
+          ]
+        },
+        {
+          "engine": "candidate",
+          "repetition": 3,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 3192.1123750000115,
+          "stepTotalMs": 3171.270417000109,
+          "stepP50Ms": 12.890584000007948,
+          "stepP95Ms": 17.007833000010578,
+          "stepP99Ms": 19.68162499999744,
+          "maxStepMs": 25.03695899999002,
+          "cpuDelta": {
+            "user": 2881528,
+            "system": 61594
+          },
+          "memoryBefore": {
+            "rss": 202244096,
+            "heapTotal": 114573312,
+            "heapUsed": 63103680,
+            "external": 8064451,
+            "arrayBuffers": 1196139
+          },
+          "memoryAfter": {
+            "rss": 183877632,
+            "heapTotal": 114573312,
+            "heapUsed": 69472440,
+            "external": 8064451,
+            "arrayBuffers": 1196139
+          },
+          "finalHash": "57d56c38267db2b7fb0f35b81abf483093e6fb5586a844d5010c707b12aa5c10",
+          "hostLoad": [
+            11.84423828125,
+            14.52392578125,
+            11.28173828125
+          ]
+        },
+        {
+          "engine": "baseline",
+          "repetition": 3,
+          "warmupTicks": 60,
+          "measuredTicks": 240,
+          "activeTicks": 240,
+          "elapsedMs": 2559.2650830000057,
+          "stepTotalMs": 2541.20903800019,
+          "stepP50Ms": 10.206207999988692,
+          "stepP95Ms": 13.638917000003858,
+          "stepP99Ms": 14.908792000001995,
+          "maxStepMs": 15.541500000006636,
+          "cpuDelta": {
+            "user": 2441140,
+            "system": 48814
+          },
+          "memoryBefore": {
+            "rss": 183959552,
+            "heapTotal": 114573312,
+            "heapUsed": 40624904,
+            "external": 8064483,
+            "arrayBuffers": 1196171
+          },
+          "memoryAfter": {
+            "rss": 188612608,
+            "heapTotal": 116932608,
+            "heapUsed": 53066528,
+            "external": 8064483,
+            "arrayBuffers": 1196171
+          },
+          "finalHash": "57d56c38267db2b7fb0f35b81abf483093e6fb5586a844d5010c707b12aa5c10",
+          "hostLoad": [
+            11.84423828125,
+            14.52392578125,
+            11.28173828125
+          ]
+        }
+      ]
+    }
+  ]
+}

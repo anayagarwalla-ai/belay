@@ -1,0 +1,3030 @@
+{
+  "gitHead": "584ee98c8e844acaf1c597b4156c26ae3a982d59",
+  "files": [
+    {
+      "path": "package-lock.json",
+      "sha256": "91d6a3f4a4fc558039673a2414202e77765802b7615117061a261cebd0f68bf3"
+    },
+    {
+      "path": "scripts/phase2-analysis.ts",
+      "sha256": "ff461b94d85b200d5ace96ee4fc9a0728934209821e6fc695e53c41184198b82"
+    },
+    {
+      "path": "scripts/phase2-bench.ts",
+      "sha256": "7c1d53e664394f1e2e0fbc5439194f31827efbc02587b9538146e6e454a517f4"
+    },
+    {
+      "path": "scripts/phase2-harness.ts",
+      "sha256": "e44a8ff52e52e9f164123f2902128de8b5463ac00e76c5a6fbd4057e9101da7a"
+    },
+    {
+      "path": "scripts/phase2-policies.ts",
+      "sha256": "d3809f08131d678b44baeee5e7da66927ea84e073f126da0e780cad23037556c"
+    },
+    {
+      "path": "scripts/phase2-replay.ts",
+      "sha256": "a2973aec36ec30139e46bc60451385e1032bf07d71481e3d61868686c14e7706"
+    },
+    {
+      "path": "scripts/phase2-report.ts",
+      "sha256": "b42c01f94bd8b01420bbf3ecd2961c1b14e8e7a917d2beea81523e3fe6e7c9e7"
+    },
+    {
+      "path": "scripts/phase2-stress.ts",
+      "sha256": "1b0894f31780b95c93fe863684ddee745f89ca6959c7fbed77ac873565d0fb62"
+    },
+    {
+      "path": "shared/contact-geometry.ts",
+      "sha256": "be27fd0e94f87c17d4de8a066b7cfd3c8ab18c307f409deabe3d28df63a8b2cd"
+    },
+    {
+      "path": "shared/expedition-simulation.ts",
+      "sha256": "97afe573eb1b7753094ee2ecd338ccd411bf64f8a0e312a39b7e0fb40e7836a3"
+    },
+    {
+      "path": "shared/flat-simulation.ts",
+      "sha256": "07ebd2d5902fc9d6a5060c2840f5de5c24443573da9fa652d27a819a95dffc9d"
+    },
+    {
+      "path": "shared/movement.ts",
+      "sha256": "de8cfb54596c8741082e3ef40fc2550cfd7494c30761dc8c72889f48227ad45b"
+    },
+    {
+      "path": "shared/physical-diagnostics.ts",
+      "sha256": "0b55613cb72e95ec99081c17b9385fececc9c9425a553b3ba0d7e7583a701670"
+    },
+    {
+      "path": "shared/protocol.ts",
+      "sha256": "1a9dd92feb961fbc61bd27ef3f515d07d3d25f49c15daa6d8f0b7b66ef4f228c"
+    },
+    {
+      "path": "shared/simulation.ts",
+      "sha256": "04a66271386b1e496784e1f801120077159aa6abc280391a97056e60566c55ee"
+    },
+    {
+      "path": "shared/stats.ts",
+      "sha256": "18555b71109353b5ad45db0596484d9f5b9b29f5e9260196f667984e5aa57d87"
+    },
+    {
+      "path": "shared/terrain.ts",
+      "sha256": "d6f36940f9a7901e47f723ba90902bc9e288d2056a7fb12d93673ff67362bee2"
+    },
+    {
+      "path": "tuning.ts",
+      "sha256": "4a099d43f366b6af30950cc5d2ebcaf3e9f286cc24c154dc84b89f29e5fe0c18"
+    }
+  ],
+  "sourceManifestSha256": "b10299e84a69fc2a7829d96f78c31342e9d2b1adfaa121cbfd5b917eed2ffb24",
+  "tuning": {
+    "version": "phase2-1",
+    "phase": 2,
+    "seed": 1701,
+    "players": 2,
+    "hardCap": 6,
+    "tickHz": 30,
+    "physicsHz": 60,
+    "solverIterations": 8,
+    "maximumSolverIterations": 32,
+    "maximumCatchupTicks": 4,
+    "gravity": 9.81,
+    "body": {
+      "mass": 80,
+      "width": 0.55,
+      "height": 0.9,
+      "depth": 0.55,
+      "walkSpeed": 3.1,
+      "acceleration": 10,
+      "coastDeceleration": 1.4,
+      "braceFriction": 1.6,
+      "braceMassMultiplier": 6,
+      "groundFriction": 0.08,
+      "contactPredictionM": 0.12,
+      "harnessHeight": 0.42,
+      "maximumInputAgeMs": 250
+    },
+    "rope": {
+      "length": 3.6,
+      "segments": 12,
+      "particleMass": 0.2,
+      "drag": 2.5,
+      "floorHeight": 0.04,
+      "radius": 0.035,
+      "tensionReferenceN": 700,
+      "tensionSmoothingSeconds": 0.1,
+      "tautFraction": 0.97,
+      "initialSpacing": 2.5,
+      "initialSag": 0.35,
+      "initialBend": 0.6,
+      "solverToleranceM": 0.01
+    },
+    "terrain": {
+      "halfExtent": 500,
+      "gridUnit": 1,
+      "landmarkCount": 24,
+      "landmarkRange": 36,
+      "markSize": 0.18
+    },
+    "camera": {
+      "bridgeCueSagM": 0.06,
+      "catchRadiusMultiplier": 1.75,
+      "terrainEdgeWidthM": 0.04,
+      "wallCueReachM": 0.8,
+      "maximumCueEvidence": 256,
+      "localWeight": 0.35,
+      "elevationDegrees": 55,
+      "azimuthDegrees": 45,
+      "baseVerticalSpan": 11,
+      "maximumVerticalSpan": 24,
+      "margin": 4,
+      "smoothingSeconds": 0.22,
+      "distance": 60,
+      "maximumPixelRatio": 2,
+      "edgeInsetPx": 36,
+      "labelOffsetPx": 26,
+      "braceVisualHeight": 0.58
+    },
+    "network": {
+      "inputHz": 60,
+      "interpolationMs": 70,
+      "snapshotHistory": 32,
+      "reconciliationSeconds": 0.07,
+      "hardCorrectionDistance": 1.5,
+      "maximumPredictionMs": 100,
+      "pingIntervalMs": 500,
+      "staleSnapshotMs": 1000,
+      "probeTimeoutMs": 2000,
+      "maximumMessagesPerSecond": 120,
+      "maximumFrameBytes": 4096,
+      "telemetrySamples": 2048,
+      "debugTimeoutMs": 5000,
+      "joinTimeoutMs": 10000,
+      "maximumPendingDebugCommands": 8,
+      "maximumDebugCommandsPerSecond": 12,
+      "maximumSnapshotBufferedBytes": 65536,
+      "maximumDebugResponseBytes": 16777216,
+      "hudUpdateMs": 250,
+      "maximumStepTicks": 3600,
+      "rttBracketsMs": [
+        30,
+        60,
+        100,
+        150,
+        250
+      ],
+      "emulatedJitterMs": 10,
+      "maximumAddedRttMs": 500,
+      "maximumJitterMs": 50,
+      "maximumDelayedBytes": 1048576,
+      "maximumTapeSeconds": 1200
+    },
+    "server": {
+      "host": "127.0.0.1",
+      "port": 2567,
+      "webPort": 5173,
+      "gatewayPort": 8787,
+      "protectedPort": 8788,
+      "sessionLifetimeSeconds": 7200,
+      "tokenBytes": 32,
+      "maximumAuthBodyBytes": 1024,
+      "authAttemptsPerMinute": 15,
+      "roomIdleMinutes": 30,
+      "httpTimeoutMs": 15000
+    },
+    "bot": {
+      "actionSeconds": 1.2,
+      "braceChance": 0.22,
+      "idleChance": 0.12,
+      "benchmarkRuns": 1000,
+      "benchmarkSeconds": 20
+    },
+    "physicsDiagnostics": {
+      "scenarioSeconds": 60,
+      "longWalkSeconds": 1200,
+      "crossingRadiansPerSecond": 0.6,
+      "circlingRadiansPerSecond": 2,
+      "circlingPhaseRadians": 1,
+      "circleBracePeriodsTicks": [
+        100,
+        70
+      ],
+      "circleBraceTicks": 20,
+      "togglePeriodsTicks": [
+        2,
+        3
+      ],
+      "randomActionSeconds": 0.1,
+      "randomBraceChance": 0.25,
+      "maximumBodyOverlapM": 0.005,
+      "maximumFloorErrorM": 0.001,
+      "maximumSpanErrorM": 0.01,
+      "maximumSegmentErrorM": 0.02,
+      "maximumSpeedMultiplier": 4,
+      "minimumWalkSpeedFraction": 0.8
+    },
+    "phase2": {
+      "defaultScene": "crossing",
+      "defaultPlayers": 4,
+      "routeHalfWidth": 12,
+      "routeStartZ": -16,
+      "finishZ": 55,
+      "finishApronM": 30,
+      "crevasseStarts": [
+        8,
+        20,
+        32,
+        44
+      ],
+      "crevasseWidth": 2.8,
+      "crevasseDepth": 12,
+      "terminalY": -16,
+      "bridgeHalfWidth": 1.1,
+      "bridgeThickness": 0.25,
+      "bridgeCapacityBodyWeights": [
+        0.9,
+        1.45
+      ],
+      "bridgeOverloadSeconds": 0.32,
+      "bridgeRecoveryRate": 2,
+      "bridgeCueStartFraction": 0.65,
+      "bridgeWarningSeconds": 0.4,
+      "rescueLipZ": 0,
+      "rescueSafeOffset": 0.8,
+      "rescueFallerAdvance": 0.7,
+      "rescueSpacing": 1.6,
+      "groundContactTolerance": 0.045,
+      "wallContactTolerance": 0.05,
+      "collisionSkin": 0.004,
+      "contactPredictionM": 0.002,
+      "collisionSweepPasses": 4,
+      "solverIterations": 12,
+      "maximumSolverIterations": 256,
+      "solverToleranceM": 0.005,
+      "iceTractionMultiplier": 0.3,
+      "wallClimbSpeed": 1.6,
+      "wallDescendSpeed": 1.8,
+      "wallAcceleration": 5,
+      "wallPressSpeed": 0.45,
+      "wallNormalEffortN": 900,
+      "wallFriction": 1.3,
+      "wallRopeSupportFraction": 0.08,
+      "fallDepth": 0.2,
+      "fallSpeed": 0.5,
+      "catchSpeed": 0.35,
+      "catchConfirmSeconds": 0.12,
+      "recoveryConfirmSeconds": 0.3,
+      "catchHighlightSeconds": 0.5,
+      "energyToleranceJ": 0.01,
+      "mechanicsProbeSeconds": 10,
+      "mechanicsLoadSeed": 2000,
+      "inputChangeEpsilon": 0.08,
+      "usefulMotionMps": 0.04,
+      "maximumIncidents": 64,
+      "maximumEvents": 256
+    },
+    "phase2Evidence": {
+      "targets": {
+        "rescueSeconds": [
+          10,
+          20
+        ],
+        "firstAttemptRecoveryFraction": [
+          0.6,
+          0.75
+        ],
+        "eventualRecoveryFraction": [
+          0.88,
+          0.92
+        ],
+        "fourIncidentCompletionFraction": [
+          0.6,
+          0.72
+        ],
+        "incidentsPerRun": [
+          3,
+          6
+        ],
+        "firstFallBeforeSeconds": 45,
+        "runSeconds": [
+          300,
+          600
+        ],
+        "maximumIdleFraction": 0.2
+      },
+      "trajectoryRuns": 1000,
+      "smokeTrajectories": 10,
+      "teamSizes": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "crossingSeconds": 600,
+      "rescueSeconds": 60,
+      "actionSeconds": 0.5,
+      "badWrongWayChance": 0.2,
+      "recoveryBraceCycleSeconds": 2,
+      "recoveryBraceFraction": 0.5,
+      "movementEpsilonM": 0.01,
+      "inputChangeEpsilon": 0.05,
+      "lifecycleRuns": 25,
+      "lifecycleSeconds": 2,
+      "replaySeconds": 20,
+      "maximumTimingBytes": 268435456,
+      "maximumReportBytes": 16777216,
+      "maximumSavedTapes": 20,
+      "maximumTapeOutputBytes": 33554432
+    },
+    "localLoad": {
+      "smokeRooms": 10,
+      "smokeSeconds": 30,
+      "largeRooms": 300,
+      "largeSeconds": 30,
+      "generatorProcesses": 4,
+      "maximumRooms": 300,
+      "maximumSeconds": 120,
+      "warmupMs": 2000,
+      "startLeadMs": 1000,
+      "sampleMs": 1000,
+      "startupTimeoutMs": 120000,
+      "maximumWallMs": 180000,
+      "shutdownGraceMs": 3000,
+      "maximumTotalRssBytes": 3221225472,
+      "minimumFreeMemoryBytes": 536870912,
+      "authorityHeapMiB": 1024,
+      "generatorHeapMiB": 256,
+      "maximumReportBytes": 67108864,
+      "maximumChildLogBytes": 16384,
+      "maximumInputBufferedBytes": 16384,
+      "maximumLatePeriods": 4,
+      "lifecycleCycles": 3,
+      "lifecycleRooms": 2,
+      "lifecycleHoldMs": 250,
+      "slowReaderStartFraction": 0.25,
+      "slowReaderDurationFraction": 0.25,
+      "churnStartFraction": 0.5,
+      "churnEveryRooms": 10,
+      "probePollMs": 25,
+      "eventLoopResolutionMs": 20
+    },
+    "clip": {
+      "seconds": 15,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "videoBitsPerSecond": 800000,
+      "audioBitsPerSecond": 48000,
+      "maximumBytes": 2097152,
+      "retentionDays": 7,
+      "permanentSlots": 1,
+      "uploadsPerIdentityPerUtcDay": 3,
+      "globalBytes": 268435456,
+      "uploadsEnabled": false
+    },
+    "later": {
+      "idleBotSeconds": 20,
+      "reconnectSeconds": 60,
+      "attachWaitSeconds": 30,
+      "stableTensionFraction": 0.2,
+      "stableSeconds": 0.5,
+      "publicTeamSize": 4,
+      "minimumVoteTeam": 4,
+      "agreeingVotes": 3,
+      "dailyAttempts": 3
+    },
+    "gates": {
+      "tuningSessions": 6,
+      "sessionsPerFamily": 2,
+      "diagnosticSessions": 3,
+      "freePlayMinutes": 10
+    },
+    "tools": {
+      "operations": {
+        "startupTimeoutMs": 120000,
+        "tunnelStartupTimeoutMs": 90000,
+        "probeTimeoutMs": 3000,
+        "pollMs": 250,
+        "shutdownGraceMs": 3000,
+        "stopTimeoutMs": 15000,
+        "downloadTimeoutMs": 120000,
+        "maximumTunnelLogBytes": 16384,
+        "maximumDownloadBytes": 67108864
+      },
+      "cloudflaredVersion": "2026.8.3",
+      "cloudflaredSha256": {
+        "arm64": "40c9144d86df8937c5b43293a1f7d2d2107029aa74725023dd46b1b27154352f",
+        "x64": "61e1316266a00fd70ce40da011d612badc805367fb65293dd1925f938f704c99"
+      }
+    }
+  },
+  "familyDefinitions": {
+    "balanced": {
+      "label": "Intermediate / strong brace",
+      "ropeLength": 3.6,
+      "ropeDrag": 2.5,
+      "braceMassMultiplier": 6,
+      "braceFriction": 1.6
+    },
+    "short": {
+      "label": "Short / damped",
+      "ropeLength": 3,
+      "ropeDrag": 5,
+      "braceMassMultiplier": 4,
+      "braceFriction": 1.2
+    },
+    "loose": {
+      "label": "Long / momentum",
+      "ropeLength": 4.5,
+      "ropeDrag": 1.2,
+      "braceMassMultiplier": 4,
+      "braceFriction": 1.2
+    }
+  },
+  "machine": {
+    "platform": "darwin",
+    "release": "27.0.0",
+    "arch": "arm64",
+    "cpu": "Apple M4",
+    "availableCpus": 10,
+    "totalMemoryBytes": 17179869184,
+    "node": "v26.5.0"
+  },
+  "generatedAt": "2026-09-07T22:48:58.929Z",
+  "scope": "Bounded same-build local accepted-input replay across every scene/team/policy cell; no determinism claim across devices or versions.",
+  "results": [
+    {
+      "spec": {
+        "ordinal": 0,
+        "seed": 1701,
+        "playerCount": 2,
+        "scene": "crossing",
+        "policy": "recovery",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "complete",
+      "frames": 561,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "42b8dcc47ea3dc2b85cac992bbbc80dcb0b31b21ce4f30ad80b8d6fea1854546",
+      "replayFinalStateSha256": "42b8dcc47ea3dc2b85cac992bbbc80dcb0b31b21ce4f30ad80b8d6fea1854546",
+      "recordedPolicyInputsSha256": "12dbd617056a11dfbf0d1f58631bee3ce99bada4b75399efbda0a7fc4bc5bac7",
+      "tapeInputsSha256": "12dbd617056a11dfbf0d1f58631bee3ce99bada4b75399efbda0a7fc4bc5bac7",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 1,
+        "seed": 1701,
+        "playerCount": 3,
+        "scene": "crossing",
+        "policy": "recovery",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "complete",
+      "frames": 586,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "4d3e0c6c4e3327cdfcaf8b8cd37c25129a884bfd2857477c2faef5c46a60f4a7",
+      "replayFinalStateSha256": "4d3e0c6c4e3327cdfcaf8b8cd37c25129a884bfd2857477c2faef5c46a60f4a7",
+      "recordedPolicyInputsSha256": "edba48773dbd6249df3a8d1f574bb4ebe2fee1d4e3c2136d538dad7dd61f617f",
+      "tapeInputsSha256": "edba48773dbd6249df3a8d1f574bb4ebe2fee1d4e3c2136d538dad7dd61f617f",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 2,
+        "seed": 1701,
+        "playerCount": 4,
+        "scene": "crossing",
+        "policy": "recovery",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "d4f2f0e86e8083f07859a0bb1d1e01557cc3d347a845678ad63ed3bc17f8c2db",
+      "replayFinalStateSha256": "d4f2f0e86e8083f07859a0bb1d1e01557cc3d347a845678ad63ed3bc17f8c2db",
+      "recordedPolicyInputsSha256": "ca8eca8588d16a501c7349ca50e3f177810ab6990f165171cf32083e96a8caf1",
+      "tapeInputsSha256": "ca8eca8588d16a501c7349ca50e3f177810ab6990f165171cf32083e96a8caf1",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 3,
+        "seed": 1701,
+        "playerCount": 5,
+        "scene": "crossing",
+        "policy": "recovery",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "66dba0026edfd020aa7eb62c1477c063a1acfcb6ff2c9b8d7fa18fa2681fb059",
+      "replayFinalStateSha256": "66dba0026edfd020aa7eb62c1477c063a1acfcb6ff2c9b8d7fa18fa2681fb059",
+      "recordedPolicyInputsSha256": "a20f402a5d59899c7794a92284ceb9aefb75c32a5295477cf74fa7ea7ea30c08",
+      "tapeInputsSha256": "a20f402a5d59899c7794a92284ceb9aefb75c32a5295477cf74fa7ea7ea30c08",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 4,
+        "seed": 1701,
+        "playerCount": 6,
+        "scene": "crossing",
+        "policy": "recovery",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "231f8c678134db14d66f49fa561e13e0557ba7efd9f9a5c2e5da1f2da2ee5231",
+      "replayFinalStateSha256": "231f8c678134db14d66f49fa561e13e0557ba7efd9f9a5c2e5da1f2da2ee5231",
+      "recordedPolicyInputsSha256": "a84d54ac33ce966b8d6e5d07db712df12538bb7c5f3b16704e76d11ed366de13",
+      "tapeInputsSha256": "a84d54ac33ce966b8d6e5d07db712df12538bb7c5f3b16704e76d11ed366de13",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 5,
+        "seed": 1701,
+        "playerCount": 2,
+        "scene": "rescue",
+        "policy": "recovery",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 75,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "78ee485a1296b9b7f8f13c5dba9e18d9a464a21b67b5deb2a7dcaac7fa43c21a",
+      "replayFinalStateSha256": "78ee485a1296b9b7f8f13c5dba9e18d9a464a21b67b5deb2a7dcaac7fa43c21a",
+      "recordedPolicyInputsSha256": "d99f8491e743efab7e9d127afa6ef6c9624660201814a48f6f64604653cd1ac4",
+      "tapeInputsSha256": "d99f8491e743efab7e9d127afa6ef6c9624660201814a48f6f64604653cd1ac4",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1
+          ],
+          "status": "recovered",
+          "recoveredTick": 74,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0.35,
+            1.7999999999999985
+          ],
+          "roleIdleSeconds": [
+            1.949999999999998,
+            0.49999999999999994
+          ],
+          "staticHoldSeconds": [
+            1.2833333333333337,
+            0
+          ],
+          "observedUntilTick": 75
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 6,
+        "seed": 1701,
+        "playerCount": 3,
+        "scene": "rescue",
+        "policy": "recovery",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 70,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "1c59dd2c4363c3e3d03b4a1d88b9748bb1f0c4aa1b4b3a90e1e546fc422aee15",
+      "replayFinalStateSha256": "1c59dd2c4363c3e3d03b4a1d88b9748bb1f0c4aa1b4b3a90e1e546fc422aee15",
+      "recordedPolicyInputsSha256": "de0eb7676e34dfabe14b01364824dfafd61c7c428db4ff73720dcc5c74bcf10c",
+      "tapeInputsSha256": "de0eb7676e34dfabe14b01364824dfafd61c7c428db4ff73720dcc5c74bcf10c",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1
+          ],
+          "status": "recovered",
+          "recoveredTick": 69,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0.4666666666666666,
+            1.8499999999999983,
+            0.3833333333333333
+          ],
+          "roleIdleSeconds": [
+            1.6666666666666656,
+            0.2833333333333333,
+            1.7499999999999987
+          ],
+          "staticHoldSeconds": [
+            1.1166666666666676,
+            0,
+            0.9833333333333347
+          ],
+          "observedUntilTick": 70
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 7,
+        "seed": 1701,
+        "playerCount": 4,
+        "scene": "rescue",
+        "policy": "recovery",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 57,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "e3da70b7576b2b5ba7d2f115f7c05e4bc342b62b984e27c4d947d328741b2314",
+      "replayFinalStateSha256": "e3da70b7576b2b5ba7d2f115f7c05e4bc342b62b984e27c4d947d328741b2314",
+      "recordedPolicyInputsSha256": "f3bfe7aeb81d98d196e52c463eda529b31ffa4b4c5c478e6815376936308c7ff",
+      "tapeInputsSha256": "f3bfe7aeb81d98d196e52c463eda529b31ffa4b4c5c478e6815376936308c7ff",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            2
+          ],
+          "status": "recovered",
+          "recoveredTick": 56,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0.4333333333333333,
+            1.483333333333333,
+            0.3833333333333333
+          ],
+          "roleIdleSeconds": [
+            1.6833333333333322,
+            1.2500000000000004,
+            0.19999999999999998,
+            1.3000000000000003
+          ],
+          "staticHoldSeconds": [
+            0.8000000000000008,
+            0.6666666666666671,
+            0,
+            0.9833333333333347
+          ],
+          "observedUntilTick": 57
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 8,
+        "seed": 1701,
+        "playerCount": 5,
+        "scene": "rescue",
+        "policy": "recovery",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 63,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "23c1a63fbceac0cf35578794d3a7bef7bafda20b12a1210a5b10ce4caf92a19c",
+      "replayFinalStateSha256": "23c1a63fbceac0cf35578794d3a7bef7bafda20b12a1210a5b10ce4caf92a19c",
+      "recordedPolicyInputsSha256": "86f34972e0e17a09548d829054640613b3aa9f4cd24e0d0f572c4fce496eb735",
+      "tapeInputsSha256": "86f34972e0e17a09548d829054640613b3aa9f4cd24e0d0f572c4fce496eb735",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            2
+          ],
+          "status": "recovered",
+          "recoveredTick": 62,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0.4666666666666666,
+            1.6833333333333322,
+            0.35,
+            0.016666666666666666
+          ],
+          "roleIdleSeconds": [
+            1.8833333333333315,
+            1.4166666666666665,
+            0.19999999999999998,
+            1.5333333333333328,
+            1.866666666666665
+          ],
+          "staticHoldSeconds": [
+            0.8666666666666677,
+            0.8666666666666677,
+            0,
+            0.9833333333333347,
+            0.9833333333333347
+          ],
+          "observedUntilTick": 63
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 9,
+        "seed": 1701,
+        "playerCount": 6,
+        "scene": "rescue",
+        "policy": "recovery",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 61,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "639a5af67c1c3c476051478bc2125fc150699a517bcc5b93095202b0280f9680",
+      "replayFinalStateSha256": "639a5af67c1c3c476051478bc2125fc150699a517bcc5b93095202b0280f9680",
+      "recordedPolicyInputsSha256": "3494ac1e0addf055da96d63ed674d4ef19f650a43e0793285160261246ef1989",
+      "tapeInputsSha256": "3494ac1e0addf055da96d63ed674d4ef19f650a43e0793285160261246ef1989",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            3
+          ],
+          "status": "recovered",
+          "recoveredTick": 60,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0,
+            0.5333333333333333,
+            1.6166666666666658,
+            0.35,
+            0.016666666666666666
+          ],
+          "roleIdleSeconds": [
+            1.816666666666665,
+            1.816666666666665,
+            1.2833333333333337,
+            0.19999999999999998,
+            1.4666666666666663,
+            1.7999999999999985
+          ],
+          "staticHoldSeconds": [
+            0.8000000000000008,
+            0.8000000000000008,
+            0.8000000000000008,
+            0,
+            0.9833333333333347,
+            0.9833333333333347
+          ],
+          "observedUntilTick": 61
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 10,
+        "seed": 1701,
+        "playerCount": 2,
+        "scene": "crossing",
+        "policy": "walk",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "complete",
+      "frames": 561,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "42b8dcc47ea3dc2b85cac992bbbc80dcb0b31b21ce4f30ad80b8d6fea1854546",
+      "replayFinalStateSha256": "42b8dcc47ea3dc2b85cac992bbbc80dcb0b31b21ce4f30ad80b8d6fea1854546",
+      "recordedPolicyInputsSha256": "12dbd617056a11dfbf0d1f58631bee3ce99bada4b75399efbda0a7fc4bc5bac7",
+      "tapeInputsSha256": "12dbd617056a11dfbf0d1f58631bee3ce99bada4b75399efbda0a7fc4bc5bac7",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 11,
+        "seed": 1701,
+        "playerCount": 3,
+        "scene": "crossing",
+        "policy": "walk",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "complete",
+      "frames": 586,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "4d3e0c6c4e3327cdfcaf8b8cd37c25129a884bfd2857477c2faef5c46a60f4a7",
+      "replayFinalStateSha256": "4d3e0c6c4e3327cdfcaf8b8cd37c25129a884bfd2857477c2faef5c46a60f4a7",
+      "recordedPolicyInputsSha256": "edba48773dbd6249df3a8d1f574bb4ebe2fee1d4e3c2136d538dad7dd61f617f",
+      "tapeInputsSha256": "edba48773dbd6249df3a8d1f574bb4ebe2fee1d4e3c2136d538dad7dd61f617f",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 12,
+        "seed": 1701,
+        "playerCount": 4,
+        "scene": "crossing",
+        "policy": "walk",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "d4f2f0e86e8083f07859a0bb1d1e01557cc3d347a845678ad63ed3bc17f8c2db",
+      "replayFinalStateSha256": "d4f2f0e86e8083f07859a0bb1d1e01557cc3d347a845678ad63ed3bc17f8c2db",
+      "recordedPolicyInputsSha256": "ca8eca8588d16a501c7349ca50e3f177810ab6990f165171cf32083e96a8caf1",
+      "tapeInputsSha256": "ca8eca8588d16a501c7349ca50e3f177810ab6990f165171cf32083e96a8caf1",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 13,
+        "seed": 1701,
+        "playerCount": 5,
+        "scene": "crossing",
+        "policy": "walk",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "66dba0026edfd020aa7eb62c1477c063a1acfcb6ff2c9b8d7fa18fa2681fb059",
+      "replayFinalStateSha256": "66dba0026edfd020aa7eb62c1477c063a1acfcb6ff2c9b8d7fa18fa2681fb059",
+      "recordedPolicyInputsSha256": "a20f402a5d59899c7794a92284ceb9aefb75c32a5295477cf74fa7ea7ea30c08",
+      "tapeInputsSha256": "a20f402a5d59899c7794a92284ceb9aefb75c32a5295477cf74fa7ea7ea30c08",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 14,
+        "seed": 1701,
+        "playerCount": 6,
+        "scene": "crossing",
+        "policy": "walk",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "231f8c678134db14d66f49fa561e13e0557ba7efd9f9a5c2e5da1f2da2ee5231",
+      "replayFinalStateSha256": "231f8c678134db14d66f49fa561e13e0557ba7efd9f9a5c2e5da1f2da2ee5231",
+      "recordedPolicyInputsSha256": "a84d54ac33ce966b8d6e5d07db712df12538bb7c5f3b16704e76d11ed366de13",
+      "tapeInputsSha256": "a84d54ac33ce966b8d6e5d07db712df12538bb7c5f3b16704e76d11ed366de13",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 15,
+        "seed": 1701,
+        "playerCount": 2,
+        "scene": "rescue",
+        "policy": "walk",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "failed",
+      "frames": 70,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "6886e52effa1383278cad5eb31ec074b3fe1423f6114e15a5a239d76338032e3",
+      "replayFinalStateSha256": "6886e52effa1383278cad5eb31ec074b3fe1423f6114e15a5a239d76338032e3",
+      "recordedPolicyInputsSha256": "63f814dc6f46e4d607d7259f56c9f0e41036d13d264cd54d76456e707c64a9e0",
+      "tapeInputsSha256": "63f814dc6f46e4d607d7259f56c9f0e41036d13d264cd54d76456e707c64a9e0",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1,
+            0
+          ],
+          "status": "failed",
+          "recoveredTick": null,
+          "cascades": 1,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0.6333333333333336,
+            0.6333333333333336
+          ],
+          "roleIdleSeconds": [
+            1.4999999999999996,
+            1.4999999999999996
+          ],
+          "staticHoldSeconds": [
+            0,
+            0
+          ],
+          "observedUntilTick": 70
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 16,
+        "seed": 1701,
+        "playerCount": 3,
+        "scene": "rescue",
+        "policy": "walk",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "failed",
+      "frames": 74,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "bc08b0844bd4c4ad14f481959ebc7748a7cdc6fa6aa921fcb7180c4f9f1023dc",
+      "replayFinalStateSha256": "bc08b0844bd4c4ad14f481959ebc7748a7cdc6fa6aa921fcb7180c4f9f1023dc",
+      "recordedPolicyInputsSha256": "fa8ba0920fb3d2a50fc25dbef61608acab46d5f4c0fbf4ac10f230c1df1dd628",
+      "tapeInputsSha256": "fa8ba0920fb3d2a50fc25dbef61608acab46d5f4c0fbf4ac10f230c1df1dd628",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1,
+            0,
+            2
+          ],
+          "status": "failed",
+          "recoveredTick": null,
+          "cascades": 2,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0.6166666666666669,
+            0.7666666666666674,
+            0.6166666666666669
+          ],
+          "roleIdleSeconds": [
+            1.6333333333333324,
+            1.483333333333333,
+            1.6333333333333324
+          ],
+          "staticHoldSeconds": [
+            0,
+            0,
+            0
+          ],
+          "observedUntilTick": 74
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 17,
+        "seed": 1701,
+        "playerCount": 4,
+        "scene": "rescue",
+        "policy": "walk",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "failed",
+      "frames": 86,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "84826985447b730a06fe50d55aa99d861d5a25a03507f48b12a9609e133ce964",
+      "replayFinalStateSha256": "84826985447b730a06fe50d55aa99d861d5a25a03507f48b12a9609e133ce964",
+      "recordedPolicyInputsSha256": "1ff26f5b95266ea5fdb4261fcdd998e41529c211d737f3faed5ee962fb646452",
+      "tapeInputsSha256": "1ff26f5b95266ea5fdb4261fcdd998e41529c211d737f3faed5ee962fb646452",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            2,
+            1,
+            0,
+            3
+          ],
+          "status": "failed",
+          "recoveredTick": null,
+          "cascades": 3,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0.5166666666666666,
+            1.1166666666666676,
+            1.2333333333333338,
+            0.35
+          ],
+          "roleIdleSeconds": [
+            2.1333333333333306,
+            1.5333333333333328,
+            1.4166666666666665,
+            2.2999999999999967
+          ],
+          "staticHoldSeconds": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "observedUntilTick": 86
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 18,
+        "seed": 1701,
+        "playerCount": 5,
+        "scene": "rescue",
+        "policy": "walk",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "failed",
+      "frames": 84,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "ec48a7960aba202e92fe4f87b3375f540def09793fcd9e3ad029ff853f39bbcf",
+      "replayFinalStateSha256": "ec48a7960aba202e92fe4f87b3375f540def09793fcd9e3ad029ff853f39bbcf",
+      "recordedPolicyInputsSha256": "40dd7257ec39993ff316efae740adf50042309b16928459c3b4ff7dc8ef14c6b",
+      "tapeInputsSha256": "40dd7257ec39993ff316efae740adf50042309b16928459c3b4ff7dc8ef14c6b",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            2,
+            0,
+            1,
+            3,
+            4
+          ],
+          "status": "failed",
+          "recoveredTick": null,
+          "cascades": 4,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0.6166666666666669,
+            1.100000000000001,
+            1.183333333333334,
+            1.0333333333333345,
+            0.5833333333333335
+          ],
+          "roleIdleSeconds": [
+            1.9666666666666646,
+            1.483333333333333,
+            1.4,
+            1.5499999999999994,
+            1.9999999999999978
+          ],
+          "staticHoldSeconds": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "observedUntilTick": 84
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 19,
+        "seed": 1701,
+        "playerCount": 6,
+        "scene": "rescue",
+        "policy": "walk",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "failed",
+      "frames": 92,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "8f4431e354703d09945e469a425ce44a5cdcf6eb8b2c0c718329c786e69d6783",
+      "replayFinalStateSha256": "8f4431e354703d09945e469a425ce44a5cdcf6eb8b2c0c718329c786e69d6783",
+      "recordedPolicyInputsSha256": "4f660579e3370b55be132df27c337d24b91fb4be50327fa166223e661e6ca3ad",
+      "tapeInputsSha256": "4f660579e3370b55be132df27c337d24b91fb4be50327fa166223e661e6ca3ad",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            3,
+            2,
+            4,
+            0,
+            1,
+            5
+          ],
+          "status": "failed",
+          "recoveredTick": null,
+          "cascades": 5,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0.3,
+            0.8833333333333344,
+            1.3666666666666667,
+            1.1166666666666676,
+            1.100000000000001,
+            0.8000000000000008
+          ],
+          "roleIdleSeconds": [
+            2.5666666666666624,
+            1.9833333333333312,
+            1.4999999999999996,
+            1.7499999999999987,
+            1.7666666666666653,
+            2.066666666666664
+          ],
+          "staticHoldSeconds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "observedUntilTick": 92
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 20,
+        "seed": 1701,
+        "playerCount": 2,
+        "scene": "crossing",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "failed",
+      "frames": 457,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "a3760e33b7fb6eeb784c0755516aba3145539ecd52214bb94a444a5f371501bd",
+      "replayFinalStateSha256": "a3760e33b7fb6eeb784c0755516aba3145539ecd52214bb94a444a5f371501bd",
+      "recordedPolicyInputsSha256": "8a9a56371b32c2197a942ee0fd95cd3b56c1f8f4c7d9f221a6bfcd42d6a74b76",
+      "tapeInputsSha256": "8a9a56371b32c2197a942ee0fd95cd3b56c1f8f4c7d9f221a6bfcd42d6a74b76",
+      "counterPolicy": {
+        "armedTick": 391,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 390,
+          "playerIds": [
+            0,
+            1
+          ],
+          "status": "failed",
+          "recoveredTick": null,
+          "cascades": 1,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0.9500000000000013,
+            0.9500000000000013
+          ],
+          "roleIdleSeconds": [
+            1.266666666666667,
+            1.266666666666667
+          ],
+          "staticHoldSeconds": [
+            0,
+            0
+          ],
+          "observedUntilTick": 457
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 21,
+        "seed": 1701,
+        "playerCount": 3,
+        "scene": "crossing",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "failed",
+      "frames": 248,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "657a53973671257188fe59fdc63b69bac87da95f4b1e412299140bb9bdd137f0",
+      "replayFinalStateSha256": "657a53973671257188fe59fdc63b69bac87da95f4b1e412299140bb9bdd137f0",
+      "recordedPolicyInputsSha256": "b551bbfc5868a1f94882f9daadf5103391fdba5fffdad6872bc3b6d8c1ca8c51",
+      "tapeInputsSha256": "b551bbfc5868a1f94882f9daadf5103391fdba5fffdad6872bc3b6d8c1ca8c51",
+      "counterPolicy": {
+        "armedTick": 180,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 179,
+          "playerIds": [
+            0,
+            1,
+            2
+          ],
+          "status": "failed",
+          "recoveredTick": null,
+          "cascades": 2,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            1.0500000000000012,
+            1.3333333333333335,
+            0.9333333333333346
+          ],
+          "roleIdleSeconds": [
+            1.2333333333333338,
+            0.9500000000000013,
+            1.35
+          ],
+          "staticHoldSeconds": [
+            0.733333333333334,
+            0.5333333333333333,
+            0.2333333333333333
+          ],
+          "observedUntilTick": 248
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 22,
+        "seed": 1701,
+        "playerCount": 4,
+        "scene": "crossing",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "257bc293171403c92b402e2a51911b0a5780d7b3eb831e1aa3c55e58ad709da6",
+      "replayFinalStateSha256": "257bc293171403c92b402e2a51911b0a5780d7b3eb831e1aa3c55e58ad709da6",
+      "recordedPolicyInputsSha256": "c01f1c190cee0bb70df11c39423f175c0521584b0f6147bced246163aadc96ba",
+      "tapeInputsSha256": "c01f1c190cee0bb70df11c39423f175c0521584b0f6147bced246163aadc96ba",
+      "counterPolicy": {
+        "armedTick": 384,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 383,
+          "playerIds": [
+            3
+          ],
+          "status": "recovered",
+          "recoveredTick": 523,
+          "cascades": 0,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0.966666666666668,
+            2.066666666666664,
+            2.749999999999995,
+            2.933333333333328
+          ],
+          "roleIdleSeconds": [
+            3.6999999999999917,
+            2.5999999999999956,
+            1.9166666666666647,
+            1.733333333333332
+          ],
+          "staticHoldSeconds": [
+            0,
+            0.6333333333333336,
+            0.016666666666666666,
+            2.466666666666663
+          ],
+          "observedUntilTick": 600
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 23,
+        "seed": 1701,
+        "playerCount": 5,
+        "scene": "crossing",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "85e0f6c1028cc476f1b63b4d874f13289313f45c0fdc8e10ea40134128589fdd",
+      "replayFinalStateSha256": "85e0f6c1028cc476f1b63b4d874f13289313f45c0fdc8e10ea40134128589fdd",
+      "recordedPolicyInputsSha256": "80f2fe40ef80aae1eff309547b721c43c95b3c9d39bb0b953c7622d6ecc99165",
+      "tapeInputsSha256": "80f2fe40ef80aae1eff309547b721c43c95b3c9d39bb0b953c7622d6ecc99165",
+      "counterPolicy": {
+        "armedTick": 260,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 259,
+          "playerIds": [
+            1,
+            2,
+            3,
+            4,
+            0
+          ],
+          "status": "active",
+          "recoveredTick": null,
+          "cascades": 4,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            4.34999999999999,
+            8.700000000000012,
+            8.216666666666654,
+            6.416666666666649,
+            4.983333333333321
+          ],
+          "roleIdleSeconds": [
+            7.016666666666647,
+            2.666666666666662,
+            3.1499999999999937,
+            4.949999999999988,
+            6.383333333333316
+          ],
+          "staticHoldSeconds": [
+            0.966666666666668,
+            3.433333333333326,
+            2.4833333333333294,
+            2.2666666666666635,
+            2.933333333333328
+          ],
+          "observedUntilTick": 600
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 24,
+        "seed": 1701,
+        "playerCount": 6,
+        "scene": "crossing",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "d0e9d7f6f3d113ae0206d9de22bb3eb08b41d486c210d334f5f32d0f09566257",
+      "replayFinalStateSha256": "d0e9d7f6f3d113ae0206d9de22bb3eb08b41d486c210d334f5f32d0f09566257",
+      "recordedPolicyInputsSha256": "0d61d4d62408accde0ce98ec1523025b4494bd708fe93074ef95c0e64f245faa",
+      "tapeInputsSha256": "0d61d4d62408accde0ce98ec1523025b4494bd708fe93074ef95c0e64f245faa",
+      "counterPolicy": {
+        "armedTick": 340,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 339,
+          "playerIds": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "status": "active",
+          "recoveredTick": null,
+          "cascades": 3,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            3.566666666666659,
+            4.699999999999989,
+            6.499999999999982,
+            6.666666666666648,
+            5.449999999999986,
+            4.999999999999988
+          ],
+          "roleIdleSeconds": [
+            5.13333333333332,
+            3.9999999999999907,
+            2.199999999999997,
+            2.033333333333331,
+            3.2499999999999933,
+            3.6999999999999917
+          ],
+          "staticHoldSeconds": [
+            1.949999999999998,
+            1.949999999999998,
+            0,
+            1.4499999999999997,
+            0.966666666666668,
+            1.9333333333333313
+          ],
+          "observedUntilTick": 600
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 25,
+        "seed": 1701,
+        "playerCount": 2,
+        "scene": "rescue",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "failed",
+      "frames": 68,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "a3ac893546dfce3a05cdf83747ad092d601c3c8cd2512de009b7845ed0abaaa9",
+      "replayFinalStateSha256": "a3ac893546dfce3a05cdf83747ad092d601c3c8cd2512de009b7845ed0abaaa9",
+      "recordedPolicyInputsSha256": "7fc4805305befcc661ae3c58687dff840640c9a684ff081cce6058446770dced",
+      "tapeInputsSha256": "7fc4805305befcc661ae3c58687dff840640c9a684ff081cce6058446770dced",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1,
+            0
+          ],
+          "status": "failed",
+          "recoveredTick": null,
+          "cascades": 1,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0.9833333333333347,
+            0.9833333333333347
+          ],
+          "roleIdleSeconds": [
+            1.0833333333333344,
+            1.0833333333333344
+          ],
+          "staticHoldSeconds": [
+            0,
+            0.4833333333333333
+          ],
+          "observedUntilTick": 68
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 26,
+        "seed": 1701,
+        "playerCount": 3,
+        "scene": "rescue",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "failed",
+      "frames": 108,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "ab45f5bb1dbd9b1f8f87635acd4c3db24fa64a273245c30783ba068a34310315",
+      "replayFinalStateSha256": "ab45f5bb1dbd9b1f8f87635acd4c3db24fa64a273245c30783ba068a34310315",
+      "recordedPolicyInputsSha256": "c4ea36a46a91c6f685846176b55de3f34064fe52a67cdc74a055b7f36cfaff1f",
+      "tapeInputsSha256": "c4ea36a46a91c6f685846176b55de3f34064fe52a67cdc74a055b7f36cfaff1f",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1,
+            0,
+            2
+          ],
+          "status": "failed",
+          "recoveredTick": null,
+          "cascades": 2,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            1.266666666666667,
+            2.1333333333333306,
+            1.5166666666666662
+          ],
+          "roleIdleSeconds": [
+            2.1333333333333306,
+            1.266666666666667,
+            1.8833333333333315
+          ],
+          "staticHoldSeconds": [
+            0.4833333333333333,
+            1.4666666666666663,
+            0.4833333333333333
+          ],
+          "observedUntilTick": 108
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 27,
+        "seed": 1701,
+        "playerCount": 4,
+        "scene": "rescue",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "failed",
+      "frames": 118,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "e014e70456d2f5727731631c9539a2138a2f2601cec2455dbed1e8ce76073ba3",
+      "replayFinalStateSha256": "e014e70456d2f5727731631c9539a2138a2f2601cec2455dbed1e8ce76073ba3",
+      "recordedPolicyInputsSha256": "97086792d8f1ef6211554b0dee613674737afbaee4b09dda6cf787d9d5685947",
+      "tapeInputsSha256": "97086792d8f1ef6211554b0dee613674737afbaee4b09dda6cf787d9d5685947",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            2,
+            1,
+            0,
+            3
+          ],
+          "status": "failed",
+          "recoveredTick": null,
+          "cascades": 3,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            1.0500000000000012,
+            1.4666666666666663,
+            2.416666666666663,
+            1.566666666666666
+          ],
+          "roleIdleSeconds": [
+            2.666666666666662,
+            2.249999999999997,
+            1.3000000000000003,
+            2.1499999999999972
+          ],
+          "staticHoldSeconds": [
+            0.4833333333333333,
+            0,
+            0.4833333333333333,
+            1.9833333333333312
+          ],
+          "observedUntilTick": 118
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 28,
+        "seed": 1701,
+        "playerCount": 5,
+        "scene": "rescue",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "failed",
+      "frames": 85,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "8158bde0b8e90439ed331a5e71b870aeeda0d430a93ca6732c0769f7744d1d06",
+      "replayFinalStateSha256": "8158bde0b8e90439ed331a5e71b870aeeda0d430a93ca6732c0769f7744d1d06",
+      "recordedPolicyInputsSha256": "72156e548c359a7b07cb0e3a44bbfefc714100ae2d6e9dca4f50c1024e88ccab",
+      "tapeInputsSha256": "72156e548c359a7b07cb0e3a44bbfefc714100ae2d6e9dca4f50c1024e88ccab",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            2,
+            3,
+            0,
+            1,
+            4
+          ],
+          "status": "failed",
+          "recoveredTick": null,
+          "cascades": 4,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0.55,
+            0.8333333333333343,
+            1.6999999999999988,
+            1.7499999999999987,
+            1.4166666666666665
+          ],
+          "roleIdleSeconds": [
+            2.083333333333331,
+            1.7999999999999985,
+            0.9333333333333346,
+            0.8833333333333344,
+            1.2166666666666672
+          ],
+          "staticHoldSeconds": [
+            0.9833333333333347,
+            0.4833333333333333,
+            0.4833333333333333,
+            0,
+            0.9833333333333347
+          ],
+          "observedUntilTick": 85
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 29,
+        "seed": 1701,
+        "playerCount": 6,
+        "scene": "rescue",
+        "policy": "bad",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "failed",
+      "frames": 106,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "f37960c8f2b11e6f1b28203229fdb94bf7ab91464a50b70963e5f65a2070d4d1",
+      "replayFinalStateSha256": "f37960c8f2b11e6f1b28203229fdb94bf7ab91464a50b70963e5f65a2070d4d1",
+      "recordedPolicyInputsSha256": "29871228afe325fa5bfc4f54844c38f361dfdc205e09b61f0a79160d0e7ed641",
+      "tapeInputsSha256": "29871228afe325fa5bfc4f54844c38f361dfdc205e09b61f0a79160d0e7ed641",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            3,
+            0,
+            2,
+            4,
+            5,
+            1
+          ],
+          "status": "failed",
+          "recoveredTick": null,
+          "cascades": 5,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            1.3333333333333335,
+            1.2833333333333337,
+            0.4666666666666666,
+            0.6166666666666669,
+            0.966666666666668,
+            0.6500000000000004
+          ],
+          "roleIdleSeconds": [
+            1.9833333333333312,
+            2.033333333333331,
+            2.8499999999999948,
+            2.6999999999999953,
+            2.3499999999999965,
+            2.666666666666662
+          ],
+          "staticHoldSeconds": [
+            0.4833333333333333,
+            1.4499999999999997,
+            0,
+            0.4833333333333333,
+            0.966666666666668,
+            0.4833333333333333
+          ],
+          "observedUntilTick": 106
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 30,
+        "seed": 1701,
+        "playerCount": 2,
+        "scene": "crossing",
+        "policy": "static-brace",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "complete",
+      "frames": 561,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "42b8dcc47ea3dc2b85cac992bbbc80dcb0b31b21ce4f30ad80b8d6fea1854546",
+      "replayFinalStateSha256": "42b8dcc47ea3dc2b85cac992bbbc80dcb0b31b21ce4f30ad80b8d6fea1854546",
+      "recordedPolicyInputsSha256": "12dbd617056a11dfbf0d1f58631bee3ce99bada4b75399efbda0a7fc4bc5bac7",
+      "tapeInputsSha256": "12dbd617056a11dfbf0d1f58631bee3ce99bada4b75399efbda0a7fc4bc5bac7",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 31,
+        "seed": 1701,
+        "playerCount": 3,
+        "scene": "crossing",
+        "policy": "static-brace",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "complete",
+      "frames": 586,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "4d3e0c6c4e3327cdfcaf8b8cd37c25129a884bfd2857477c2faef5c46a60f4a7",
+      "replayFinalStateSha256": "4d3e0c6c4e3327cdfcaf8b8cd37c25129a884bfd2857477c2faef5c46a60f4a7",
+      "recordedPolicyInputsSha256": "edba48773dbd6249df3a8d1f574bb4ebe2fee1d4e3c2136d538dad7dd61f617f",
+      "tapeInputsSha256": "edba48773dbd6249df3a8d1f574bb4ebe2fee1d4e3c2136d538dad7dd61f617f",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 32,
+        "seed": 1701,
+        "playerCount": 4,
+        "scene": "crossing",
+        "policy": "static-brace",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "d4f2f0e86e8083f07859a0bb1d1e01557cc3d347a845678ad63ed3bc17f8c2db",
+      "replayFinalStateSha256": "d4f2f0e86e8083f07859a0bb1d1e01557cc3d347a845678ad63ed3bc17f8c2db",
+      "recordedPolicyInputsSha256": "ca8eca8588d16a501c7349ca50e3f177810ab6990f165171cf32083e96a8caf1",
+      "tapeInputsSha256": "ca8eca8588d16a501c7349ca50e3f177810ab6990f165171cf32083e96a8caf1",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 33,
+        "seed": 1701,
+        "playerCount": 5,
+        "scene": "crossing",
+        "policy": "static-brace",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "66dba0026edfd020aa7eb62c1477c063a1acfcb6ff2c9b8d7fa18fa2681fb059",
+      "replayFinalStateSha256": "66dba0026edfd020aa7eb62c1477c063a1acfcb6ff2c9b8d7fa18fa2681fb059",
+      "recordedPolicyInputsSha256": "a20f402a5d59899c7794a92284ceb9aefb75c32a5295477cf74fa7ea7ea30c08",
+      "tapeInputsSha256": "a20f402a5d59899c7794a92284ceb9aefb75c32a5295477cf74fa7ea7ea30c08",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 34,
+        "seed": 1701,
+        "playerCount": 6,
+        "scene": "crossing",
+        "policy": "static-brace",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "231f8c678134db14d66f49fa561e13e0557ba7efd9f9a5c2e5da1f2da2ee5231",
+      "replayFinalStateSha256": "231f8c678134db14d66f49fa561e13e0557ba7efd9f9a5c2e5da1f2da2ee5231",
+      "recordedPolicyInputsSha256": "a84d54ac33ce966b8d6e5d07db712df12538bb7c5f3b16704e76d11ed366de13",
+      "tapeInputsSha256": "a84d54ac33ce966b8d6e5d07db712df12538bb7c5f3b16704e76d11ed366de13",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 35,
+        "seed": 1701,
+        "playerCount": 2,
+        "scene": "rescue",
+        "policy": "static-brace",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 87,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "0bca6aa2da7539e717fa5913048b9241dc64d3ffbda068200eef29b6367cf5ce",
+      "replayFinalStateSha256": "0bca6aa2da7539e717fa5913048b9241dc64d3ffbda068200eef29b6367cf5ce",
+      "recordedPolicyInputsSha256": "d350470d5fab54c57719f3611556035a264eee261f1dd264d7668f85313a2728",
+      "tapeInputsSha256": "d350470d5fab54c57719f3611556035a264eee261f1dd264d7668f85313a2728",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [
+          0
+        ],
+        "wholeEpisodeHoldVerifiedIds": [
+          0
+        ],
+        "interventions": [
+          {
+            "armedTick": 0,
+            "releasedTick": null,
+            "heldPlayerIds": [
+              0
+            ],
+            "incidentIds": []
+          }
+        ]
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1
+          ],
+          "status": "recovered",
+          "recoveredTick": 86,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0.09999999999999999,
+            2.1833333333333305
+          ],
+          "roleIdleSeconds": [
+            2.583333333333329,
+            0.49999999999999994
+          ],
+          "staticHoldSeconds": [
+            2.6833333333333287,
+            0
+          ],
+          "observedUntilTick": 87
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 36,
+        "seed": 1701,
+        "playerCount": 3,
+        "scene": "rescue",
+        "policy": "static-brace",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 84,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "56cab0cfb7f14cb71bebb950b49f427ffa690689e2385d661ea2ef47983e89af",
+      "replayFinalStateSha256": "56cab0cfb7f14cb71bebb950b49f427ffa690689e2385d661ea2ef47983e89af",
+      "recordedPolicyInputsSha256": "add60321b3bf892fd5206fab57ee0738a3b812633b7cb36ad45b304e4f7f1a82",
+      "tapeInputsSha256": "add60321b3bf892fd5206fab57ee0738a3b812633b7cb36ad45b304e4f7f1a82",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [
+          0,
+          2
+        ],
+        "wholeEpisodeHoldVerifiedIds": [
+          0
+        ],
+        "interventions": [
+          {
+            "armedTick": 0,
+            "releasedTick": null,
+            "heldPlayerIds": [
+              0,
+              2
+            ],
+            "incidentIds": []
+          }
+        ]
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1
+          ],
+          "status": "recovered",
+          "recoveredTick": 83,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0.09999999999999999,
+            2.199999999999997,
+            0.09999999999999999
+          ],
+          "roleIdleSeconds": [
+            2.499999999999996,
+            0.39999999999999997,
+            2.499999999999996
+          ],
+          "staticHoldSeconds": [
+            2.5999999999999956,
+            0,
+            2.5999999999999956
+          ],
+          "observedUntilTick": 84
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 37,
+        "seed": 1701,
+        "playerCount": 4,
+        "scene": "rescue",
+        "policy": "static-brace",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 85,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "545b691ccfc8d9841b0fa79b529fdb8de734183058625b91ec5f2903afaae4f3",
+      "replayFinalStateSha256": "545b691ccfc8d9841b0fa79b529fdb8de734183058625b91ec5f2903afaae4f3",
+      "recordedPolicyInputsSha256": "4b15446fa793c0ad7ad814e91f6e45d820fadccef78cbce82764ebae48d9e2bd",
+      "tapeInputsSha256": "4b15446fa793c0ad7ad814e91f6e45d820fadccef78cbce82764ebae48d9e2bd",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [
+          0,
+          1,
+          3
+        ],
+        "wholeEpisodeHoldVerifiedIds": [
+          0
+        ],
+        "interventions": [
+          {
+            "armedTick": 0,
+            "releasedTick": null,
+            "heldPlayerIds": [
+              0,
+              1,
+              3
+            ],
+            "incidentIds": []
+          }
+        ]
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            2
+          ],
+          "status": "recovered",
+          "recoveredTick": 84,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0.09999999999999999,
+            2.2333333333333303,
+            0.09999999999999999
+          ],
+          "roleIdleSeconds": [
+            2.633333333333329,
+            2.533333333333329,
+            0.39999999999999997,
+            2.533333333333329
+          ],
+          "staticHoldSeconds": [
+            2.633333333333329,
+            2.633333333333329,
+            0,
+            2.633333333333329
+          ],
+          "observedUntilTick": 85
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 38,
+        "seed": 1701,
+        "playerCount": 5,
+        "scene": "rescue",
+        "policy": "static-brace",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 85,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "61700a0a2ee44d27df21b658270d26399794fe46965aa6ce343e3af3d55d2f10",
+      "replayFinalStateSha256": "61700a0a2ee44d27df21b658270d26399794fe46965aa6ce343e3af3d55d2f10",
+      "recordedPolicyInputsSha256": "e36fa9f52f822a9e91caf5d572434f6c2f10e1d98caee3510f24ee44c887f68c",
+      "tapeInputsSha256": "e36fa9f52f822a9e91caf5d572434f6c2f10e1d98caee3510f24ee44c887f68c",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "wholeEpisodeHoldVerifiedIds": [
+          0
+        ],
+        "interventions": [
+          {
+            "armedTick": 0,
+            "releasedTick": null,
+            "heldPlayerIds": [
+              0,
+              1,
+              3,
+              4
+            ],
+            "incidentIds": []
+          }
+        ]
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            2
+          ],
+          "status": "recovered",
+          "recoveredTick": 84,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0.09999999999999999,
+            2.2166666666666637,
+            0.08333333333333333,
+            0
+          ],
+          "roleIdleSeconds": [
+            2.6166666666666623,
+            2.5166666666666626,
+            0.39999999999999997,
+            2.533333333333329,
+            2.6166666666666623
+          ],
+          "staticHoldSeconds": [
+            2.6166666666666623,
+            2.6166666666666623,
+            0,
+            2.6166666666666623,
+            2.6166666666666623
+          ],
+          "observedUntilTick": 85
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 39,
+        "seed": 1701,
+        "playerCount": 6,
+        "scene": "rescue",
+        "policy": "static-brace",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 84,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "ec83b851853835d538e69e7d1ec5d8b0500b59da6485b25285506575d13e0a09",
+      "replayFinalStateSha256": "ec83b851853835d538e69e7d1ec5d8b0500b59da6485b25285506575d13e0a09",
+      "recordedPolicyInputsSha256": "876a7b3bf26a1f997312154b51666f0a305cf44b7190a5f4be381cd550f46ff2",
+      "tapeInputsSha256": "876a7b3bf26a1f997312154b51666f0a305cf44b7190a5f4be381cd550f46ff2",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [
+          0,
+          1,
+          2,
+          4,
+          5
+        ],
+        "wholeEpisodeHoldVerifiedIds": [
+          0
+        ],
+        "interventions": [
+          {
+            "armedTick": 0,
+            "releasedTick": null,
+            "heldPlayerIds": [
+              0,
+              1,
+              2,
+              4,
+              5
+            ],
+            "incidentIds": []
+          }
+        ]
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            3
+          ],
+          "status": "recovered",
+          "recoveredTick": 83,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0,
+            0.11666666666666665,
+            2.1833333333333305,
+            0.08333333333333333,
+            0
+          ],
+          "roleIdleSeconds": [
+            2.5999999999999956,
+            2.5999999999999956,
+            2.4833333333333294,
+            0.41666666666666663,
+            2.5166666666666626,
+            2.5999999999999956
+          ],
+          "staticHoldSeconds": [
+            2.5999999999999956,
+            2.5999999999999956,
+            2.5999999999999956,
+            0,
+            2.5999999999999956,
+            2.5999999999999956
+          ],
+          "observedUntilTick": 84
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 40,
+        "seed": 1701,
+        "playerCount": 2,
+        "scene": "crossing",
+        "policy": "frozen-tail",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "complete",
+      "frames": 561,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "42b8dcc47ea3dc2b85cac992bbbc80dcb0b31b21ce4f30ad80b8d6fea1854546",
+      "replayFinalStateSha256": "42b8dcc47ea3dc2b85cac992bbbc80dcb0b31b21ce4f30ad80b8d6fea1854546",
+      "recordedPolicyInputsSha256": "12dbd617056a11dfbf0d1f58631bee3ce99bada4b75399efbda0a7fc4bc5bac7",
+      "tapeInputsSha256": "12dbd617056a11dfbf0d1f58631bee3ce99bada4b75399efbda0a7fc4bc5bac7",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 41,
+        "seed": 1701,
+        "playerCount": 3,
+        "scene": "crossing",
+        "policy": "frozen-tail",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "complete",
+      "frames": 586,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "4d3e0c6c4e3327cdfcaf8b8cd37c25129a884bfd2857477c2faef5c46a60f4a7",
+      "replayFinalStateSha256": "4d3e0c6c4e3327cdfcaf8b8cd37c25129a884bfd2857477c2faef5c46a60f4a7",
+      "recordedPolicyInputsSha256": "edba48773dbd6249df3a8d1f574bb4ebe2fee1d4e3c2136d538dad7dd61f617f",
+      "tapeInputsSha256": "edba48773dbd6249df3a8d1f574bb4ebe2fee1d4e3c2136d538dad7dd61f617f",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 42,
+        "seed": 1701,
+        "playerCount": 4,
+        "scene": "crossing",
+        "policy": "frozen-tail",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "d4f2f0e86e8083f07859a0bb1d1e01557cc3d347a845678ad63ed3bc17f8c2db",
+      "replayFinalStateSha256": "d4f2f0e86e8083f07859a0bb1d1e01557cc3d347a845678ad63ed3bc17f8c2db",
+      "recordedPolicyInputsSha256": "ca8eca8588d16a501c7349ca50e3f177810ab6990f165171cf32083e96a8caf1",
+      "tapeInputsSha256": "ca8eca8588d16a501c7349ca50e3f177810ab6990f165171cf32083e96a8caf1",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 43,
+        "seed": 1701,
+        "playerCount": 5,
+        "scene": "crossing",
+        "policy": "frozen-tail",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "66dba0026edfd020aa7eb62c1477c063a1acfcb6ff2c9b8d7fa18fa2681fb059",
+      "replayFinalStateSha256": "66dba0026edfd020aa7eb62c1477c063a1acfcb6ff2c9b8d7fa18fa2681fb059",
+      "recordedPolicyInputsSha256": "a20f402a5d59899c7794a92284ceb9aefb75c32a5295477cf74fa7ea7ea30c08",
+      "tapeInputsSha256": "a20f402a5d59899c7794a92284ceb9aefb75c32a5295477cf74fa7ea7ea30c08",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 44,
+        "seed": 1701,
+        "playerCount": 6,
+        "scene": "crossing",
+        "policy": "frozen-tail",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "231f8c678134db14d66f49fa561e13e0557ba7efd9f9a5c2e5da1f2da2ee5231",
+      "replayFinalStateSha256": "231f8c678134db14d66f49fa561e13e0557ba7efd9f9a5c2e5da1f2da2ee5231",
+      "recordedPolicyInputsSha256": "a84d54ac33ce966b8d6e5d07db712df12538bb7c5f3b16704e76d11ed366de13",
+      "tapeInputsSha256": "a84d54ac33ce966b8d6e5d07db712df12538bb7c5f3b16704e76d11ed366de13",
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "episodes": [],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 45,
+        "seed": 1701,
+        "playerCount": 2,
+        "scene": "rescue",
+        "policy": "frozen-tail",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "censored",
+      "frames": 600,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "183eaeb670801357c37378a5d417912c999e6e5079982b7f7f453c09fbc3db16",
+      "replayFinalStateSha256": "183eaeb670801357c37378a5d417912c999e6e5079982b7f7f453c09fbc3db16",
+      "recordedPolicyInputsSha256": "c2cca71b17d56dde1800c5305ba2cbd7bcbaca32aa8268e99574bb6c90c2ee6b",
+      "tapeInputsSha256": "c2cca71b17d56dde1800c5305ba2cbd7bcbaca32aa8268e99574bb6c90c2ee6b",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [
+          1
+        ],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": [
+          {
+            "armedTick": 0,
+            "releasedTick": null,
+            "heldPlayerIds": [
+              1
+            ],
+            "incidentIds": []
+          }
+        ]
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1
+          ],
+          "status": "active",
+          "recoveredTick": null,
+          "cascades": 0,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            8.950000000000024,
+            17.900000000000265
+          ],
+          "roleIdleSeconds": [
+            10.850000000000119,
+            1.8999999999999981
+          ],
+          "staticHoldSeconds": [
+            9.650000000000059,
+            0
+          ],
+          "observedUntilTick": 600
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 46,
+        "seed": 1701,
+        "playerCount": 3,
+        "scene": "rescue",
+        "policy": "frozen-tail",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 74,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "b5819a1a6eb8810d1b6126b5bcffa3fd66b79924219eecf25ba0eecb825555af",
+      "replayFinalStateSha256": "b5819a1a6eb8810d1b6126b5bcffa3fd66b79924219eecf25ba0eecb825555af",
+      "recordedPolicyInputsSha256": "92db792a96b06e763934f6cbde0f606ff92636cf5b8dfc71172bf3bdd6f7bb75",
+      "tapeInputsSha256": "92db792a96b06e763934f6cbde0f606ff92636cf5b8dfc71172bf3bdd6f7bb75",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [
+          2
+        ],
+        "wholeEpisodeHoldVerifiedIds": [
+          0
+        ],
+        "interventions": [
+          {
+            "armedTick": 0,
+            "releasedTick": null,
+            "heldPlayerIds": [
+              2
+            ],
+            "incidentIds": []
+          }
+        ]
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1
+          ],
+          "status": "recovered",
+          "recoveredTick": 73,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0.5333333333333333,
+            1.816666666666665,
+            0.2833333333333333
+          ],
+          "roleIdleSeconds": [
+            1.733333333333332,
+            0.44999999999999996,
+            1.9833333333333312
+          ],
+          "staticHoldSeconds": [
+            1.2500000000000004,
+            0,
+            0
+          ],
+          "observedUntilTick": 74
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 47,
+        "seed": 1701,
+        "playerCount": 4,
+        "scene": "rescue",
+        "policy": "frozen-tail",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 109,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "7e74654dff081a9998c7ad4f242c22e031aefeb47a9468354290544077f86303",
+      "replayFinalStateSha256": "7e74654dff081a9998c7ad4f242c22e031aefeb47a9468354290544077f86303",
+      "recordedPolicyInputsSha256": "229e9d10810447b93b0d1be3c52a06e4d74c46cab889aed52b3b03ec9833090d",
+      "tapeInputsSha256": "229e9d10810447b93b0d1be3c52a06e4d74c46cab889aed52b3b03ec9833090d",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [
+          3
+        ],
+        "wholeEpisodeHoldVerifiedIds": [
+          0
+        ],
+        "interventions": [
+          {
+            "armedTick": 0,
+            "releasedTick": null,
+            "heldPlayerIds": [
+              3
+            ],
+            "incidentIds": []
+          }
+        ]
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            2
+          ],
+          "status": "recovered",
+          "recoveredTick": 108,
+          "cascades": 0,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0.13333333333333333,
+            1.4666666666666663,
+            2.966666666666661,
+            0.15
+          ],
+          "roleIdleSeconds": [
+            3.299999999999993,
+            1.9666666666666646,
+            0.4666666666666666,
+            3.2833333333333266
+          ],
+          "staticHoldSeconds": [
+            1.7833333333333319,
+            1.4,
+            0,
+            0
+          ],
+          "observedUntilTick": 109
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 48,
+        "seed": 1701,
+        "playerCount": 5,
+        "scene": "rescue",
+        "policy": "frozen-tail",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 74,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "497679c44c864c0f2e4035916ea7c684c427b7844d309d0cd2264e5c5cd64375",
+      "replayFinalStateSha256": "497679c44c864c0f2e4035916ea7c684c427b7844d309d0cd2264e5c5cd64375",
+      "recordedPolicyInputsSha256": "8e9307dda64665697cf5a81904e658c007b9063280e4281fa47e7f99f82aedfd",
+      "tapeInputsSha256": "8e9307dda64665697cf5a81904e658c007b9063280e4281fa47e7f99f82aedfd",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [
+          4
+        ],
+        "wholeEpisodeHoldVerifiedIds": [
+          0
+        ],
+        "interventions": [
+          {
+            "armedTick": 0,
+            "releasedTick": null,
+            "heldPlayerIds": [
+              4
+            ],
+            "incidentIds": []
+          }
+        ]
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            2
+          ],
+          "status": "recovered",
+          "recoveredTick": 73,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0.4333333333333333,
+            1.949999999999998,
+            0.36666666666666664,
+            0
+          ],
+          "roleIdleSeconds": [
+            2.249999999999997,
+            1.816666666666665,
+            0.3,
+            1.8833333333333315,
+            2.249999999999997
+          ],
+          "staticHoldSeconds": [
+            1.2333333333333338,
+            1.2333333333333338,
+            0,
+            0.9833333333333347,
+            0
+          ],
+          "observedUntilTick": 74
+        }
+      ],
+      "error": null
+    },
+    {
+      "spec": {
+        "ordinal": 49,
+        "seed": 1701,
+        "playerCount": 6,
+        "scene": "rescue",
+        "policy": "frozen-tail",
+        "family": "balanced",
+        "tickHz": 30,
+        "horizonSeconds": 20
+      },
+      "ending": "fixture-recovered",
+      "frames": 53,
+      "matched": true,
+      "replayError": null,
+      "originalFinalStateSha256": "d42eb2775cf0e3212a2325e9c7e77686490baa85146b301fe39ecaab8a5a21db",
+      "replayFinalStateSha256": "d42eb2775cf0e3212a2325e9c7e77686490baa85146b301fe39ecaab8a5a21db",
+      "recordedPolicyInputsSha256": "299e10dadf2664e0ade32f4cfd238e9ec13f2afb47c5a280f5f5b904a8464bf3",
+      "tapeInputsSha256": "299e10dadf2664e0ade32f4cfd238e9ec13f2afb47c5a280f5f5b904a8464bf3",
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [
+          5
+        ],
+        "wholeEpisodeHoldVerifiedIds": [
+          0
+        ],
+        "interventions": [
+          {
+            "armedTick": 0,
+            "releasedTick": null,
+            "heldPlayerIds": [
+              5
+            ],
+            "incidentIds": []
+          }
+        ]
+      },
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            3
+          ],
+          "status": "recovered",
+          "recoveredTick": 52,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0,
+            0.5333333333333333,
+            1.35,
+            0.3333333333333333,
+            0
+          ],
+          "roleIdleSeconds": [
+            1.5499999999999994,
+            1.5499999999999994,
+            1.016666666666668,
+            0.19999999999999998,
+            1.2166666666666672,
+            1.5499999999999994
+          ],
+          "staticHoldSeconds": [
+            0.8000000000000008,
+            0.8000000000000008,
+            0.5333333333333333,
+            0,
+            0.733333333333334,
+            0
+          ],
+          "observedUntilTick": 53
+        }
+      ],
+      "error": null
+    }
+  ],
+  "matched": 50,
+  "mismatched": 0,
+  "artifacts": [
+    {
+      "path": "reports/phase2-tapes/rescue-2-static-brace-1701.json",
+      "bytes": 30608,
+      "sha256": "91a53e188afad23beea591c260dbe76d866aaa0cf2434902e08920d6dcd1d1ba"
+    },
+    {
+      "path": "reports/phase2-tapes/rescue-3-static-brace-1701.json",
+      "bytes": 40252,
+      "sha256": "eaf1dc88e34a0d97b8c5cf936e44cfe013036c51dc55c51cf80980cff9c9b312"
+    },
+    {
+      "path": "reports/phase2-tapes/rescue-4-static-brace-1701.json",
+      "bytes": 50998,
+      "sha256": "a5eb631a9b543fd493fc29cb85a5bdffd1321aff47ff287e0b3cac48bd65110f"
+    },
+    {
+      "path": "reports/phase2-tapes/rescue-5-static-brace-1701.json",
+      "bytes": 61360,
+      "sha256": "883fe465a54eb2ec40c0d05328e85b61504a9020273bf848225df83f00e729cc"
+    },
+    {
+      "path": "reports/phase2-tapes/rescue-6-static-brace-1701.json",
+      "bytes": 71066,
+      "sha256": "faf2b7711b35716f1ebc34e4f11dc240a3e82a1eca3919736ddee280f0beced2"
+    },
+    {
+      "path": "reports/phase2-tapes/rescue-2-frozen-tail-1701.json",
+      "bytes": 175589,
+      "sha256": "3dddcac8c90a7e582952eb7784da7ce9715bf083901aaaca4c67b6d804b328f0"
+    },
+    {
+      "path": "reports/phase2-tapes/rescue-3-frozen-tail-1701.json",
+      "bytes": 37977,
+      "sha256": "03917afbf31b4bdfe965d7ec25240f6263d82198cc4853a9ab53ac2fb7ca2d08"
+    },
+    {
+      "path": "reports/phase2-tapes/rescue-4-frozen-tail-1701.json",
+      "bytes": 66254,
+      "sha256": "eb90544f67c2a8415d3f66140dfe24142c07a4b0385b53c1fc990e22d207f7de"
+    },
+    {
+      "path": "reports/phase2-tapes/rescue-5-frozen-tail-1701.json",
+      "bytes": 59329,
+      "sha256": "13b55c6a2344f389553f890bbd72704df4d377db84ee589052acfaf8a33ca14e"
+    },
+    {
+      "path": "reports/phase2-tapes/rescue-6-frozen-tail-1701.json",
+      "bytes": 55631,
+      "sha256": "d57055d3858909e7bac382cbf62fc0581ec7333917767b771f20085914dc6f32"
+    }
+  ],
+  "artifactBytes": 649064,
+  "artifactCap": 33554432
+}

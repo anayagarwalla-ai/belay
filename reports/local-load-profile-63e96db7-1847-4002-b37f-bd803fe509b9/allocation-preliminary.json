@@ -1,0 +1,266 @@
+[
+  {
+    "scene": "crossing",
+    "total": 15111526432,
+    "top": [
+      {
+        "name": "sweepBox",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+        "line": 1,
+        "sampledEstimateBytes": 5673515896,
+        "percent": 37.54429389731156
+      },
+      {
+        "name": "contactNormalsAt",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+        "line": 1,
+        "sampledEstimateBytes": 4073105728,
+        "percent": 26.953635334778866
+      },
+      {
+        "name": "projectMotion",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+        "line": 1,
+        "sampledEstimateBytes": 3146857664,
+        "percent": 20.82422102201568
+      },
+      {
+        "name": "constrain",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+        "line": 1,
+        "sampledEstimateBytes": 1366912536,
+        "percent": 9.045496112857542
+      },
+      {
+        "name": "",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+        "line": 1,
+        "sampledEstimateBytes": 305137456,
+        "percent": 2.019236490589358
+      },
+      {
+        "name": "substep",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+        "line": 1,
+        "sampledEstimateBytes": 109161384,
+        "percent": 0.7223716577621243
+      },
+      {
+        "name": "__name",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+        "line": 1,
+        "sampledEstimateBytes": 99153088,
+        "percent": 0.6561421074580165
+      },
+      {
+        "name": "next",
+        "url": "",
+        "line": 0,
+        "sampledEstimateBytes": 77004176,
+        "percent": 0.5095724534944188
+      },
+      {
+        "name": "penetration",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+        "line": 1,
+        "sampledEstimateBytes": 69116888,
+        "percent": 0.45737859977956197
+      },
+      {
+        "name": "hypot",
+        "url": "",
+        "line": 0,
+        "sampledEstimateBytes": 44509856,
+        "percent": 0.294542422304516
+      },
+      {
+        "name": "separateBodies",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+        "line": 1,
+        "sampledEstimateBytes": 40521408,
+        "percent": 0.26814900653710483
+      },
+      {
+        "name": "",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+        "line": 1,
+        "sampledEstimateBytes": 32379568,
+        "percent": 0.21427066382541865
+      },
+      {
+        "name": "map",
+        "url": "",
+        "line": 0,
+        "sampledEstimateBytes": 19481752,
+        "percent": 0.1289198155306512
+      },
+      {
+        "name": "supportAt",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+        "line": 1,
+        "sampledEstimateBytes": 6494464,
+        "percent": 0.04297688939118285
+      },
+      {
+        "name": "translation",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+        "line": 1,
+        "sampledEstimateBytes": 5937936,
+        "percent": 0.03929408472876633
+      },
+      {
+        "name": "segmentError",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+        "line": 1,
+        "sampledEstimateBytes": 4949264,
+        "percent": 0.03275158219304367
+      },
+      {
+        "name": "childProfile",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/scripts/local-load-profile.ts",
+        "line": 1,
+        "sampledEstimateBytes": 4736296,
+        "percent": 0.03134227386831334
+      },
+      {
+        "name": "values",
+        "url": "",
+        "line": 0,
+        "sampledEstimateBytes": 4033432,
+        "percent": 0.026691095821126644
+      }
+    ]
+  },
+  {
+    "scene": "rescue",
+    "total": 4540582552,
+    "top": [
+      {
+        "name": "constrain",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+        "line": 1,
+        "sampledEstimateBytes": 1541660968,
+        "percent": 33.9529333591995
+      },
+      {
+        "name": "sweepBox",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+        "line": 1,
+        "sampledEstimateBytes": 1081683984,
+        "percent": 23.82258160956788
+      },
+      {
+        "name": "contactNormalsAt",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+        "line": 1,
+        "sampledEstimateBytes": 763436504,
+        "percent": 16.813624579157306
+      },
+      {
+        "name": "projectMotion",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+        "line": 1,
+        "sampledEstimateBytes": 706318480,
+        "percent": 15.555679737369523
+      },
+      {
+        "name": "",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+        "line": 1,
+        "sampledEstimateBytes": 194755224,
+        "percent": 4.289212271104194
+      },
+      {
+        "name": "substep",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+        "line": 1,
+        "sampledEstimateBytes": 80705120,
+        "percent": 1.7774177448761865
+      },
+      {
+        "name": "hypot",
+        "url": "",
+        "line": 0,
+        "sampledEstimateBytes": 39265712,
+        "percent": 0.8647725605760553
+      },
+      {
+        "name": "separateBodies",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+        "line": 1,
+        "sampledEstimateBytes": 32732544,
+        "percent": 0.7208886442463693
+      },
+      {
+        "name": "next",
+        "url": "",
+        "line": 0,
+        "sampledEstimateBytes": 21345040,
+        "percent": 0.47009474567526816
+      },
+      {
+        "name": "segmentError",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+        "line": 1,
+        "sampledEstimateBytes": 13602048,
+        "percent": 0.29956614254284786
+      },
+      {
+        "name": "map",
+        "url": "",
+        "line": 0,
+        "sampledEstimateBytes": 13588992,
+        "percent": 0.29927860234617754
+      },
+      {
+        "name": "structuredClone",
+        "url": "node:internal/worker/js_transferable",
+        "line": 113,
+        "sampledEstimateBytes": 9022344,
+        "percent": 0.19870454719573172
+      },
+      {
+        "name": "childProfile",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/scripts/local-load-profile.ts",
+        "line": 1,
+        "sampledEstimateBytes": 7327768,
+        "percent": 0.16138387345853503
+      },
+      {
+        "name": "supportAt",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+        "line": 1,
+        "sampledEstimateBytes": 4887744,
+        "percent": 0.10764574686230702
+      },
+      {
+        "name": "translation",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+        "line": 1,
+        "sampledEstimateBytes": 4658368,
+        "percent": 0.10259406026982416
+      },
+      {
+        "name": "",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+        "line": 1,
+        "sampledEstimateBytes": 4227968,
+        "percent": 0.09311510035507885
+      },
+      {
+        "name": "penetration",
+        "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+        "line": 1,
+        "sampledEstimateBytes": 3150872,
+        "percent": 0.0693935626963137
+      },
+      {
+        "name": "",
+        "url": "node:internal/webidl",
+        "line": 712,
+        "sampledEstimateBytes": 2856568,
+        "percent": 0.06291192742970307
+      }
+    ]
+  }
+]

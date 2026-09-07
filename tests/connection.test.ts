@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { BelayConnection } from '../client/connection';
 import { TUNING } from '../tuning';
 import type { Snapshot } from '../shared/protocol';
+import { phase2State } from './fixtures/phase2-state';
 
 const transport = vi.hoisted(() => ({ join: vi.fn() }));
 vi.mock('@colyseus/sdk', () => ({ Client: class { joinById = transport.join; } }));
@@ -45,6 +46,15 @@ async function joined(c = make()) {
 }
 
 describe('connection lifetime', () => {
+  it('accepts the sixth harness identity and releases held controls when scene/team topology resets', async () => {
+    const { c, room } = await joined();
+    room.emit('snapshot', phase2State(6)); room.emit('identity', { id: 5 });
+    expect(c.localId).toBe(5); c.input = { x: 1, z: 0, brace: true };
+    const next = phase2State(6, 'flat'); next.epoch++;
+    room.emit('snapshot', next);
+    expect(c.input).toEqual({ x: 0, z: 0, brace: false }); expect(c.history).toHaveLength(1);
+    room.emit('identity', { id: 6 }); expect(c.localId).toBe(5);
+  });
   it('clears live state, inputs, timers and pending commands immediately on a dropped socket', async () => {
     const { c, room } = await joined();
     c.input = { x: 1, z: 0, brace: true }; const command = c.command('counters'); const rejected = expect(command).rejects.toThrow('closed');
@@ -112,6 +122,18 @@ describe('connection lifetime', () => {
   });
 });
 describe('measurement and command bounds', () => {
+  it('keeps delta event and cue evidence available in the closed-session report', async () => {
+    const { c, room } = await joined(); c.operator = false;
+    const scene = phase2State(4, 'crossing');
+    scene.events = [{ id: 1, epoch: scene.epoch, tick: 30, substep: 0, kind: 'collapse', incidentId: null, playerIds: [], spanIds: [], surfaceIds: [0] }];
+    room.emit('snapshot', scene); scene.events = []; room.emit('snapshot', scene);
+    c.evidence.drawn(scene, new Set([0]), new Set(), performance.now());
+    room.drop();
+    const report = await c.captureReport();
+    expect(report.lastClosedSession?.presentation.physicalEvents).toHaveLength(1);
+    expect(report.lastClosedSession?.presentation.observations[0].firstDrawnAtMs).not.toBeNull();
+    expect(report.rescueVerdict).toBe('NOT EVALUATED');
+  });
   it('starts a clean measurement window on scene reset and rejoin', async () => {
     const { c, room } = await joined();
     await vi.advanceTimersByTimeAsync(TUNING.network.pingIntervalMs);

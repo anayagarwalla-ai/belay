@@ -1,0 +1,18 @@
+{
+  "startedAt": "2026-09-07T22:58:26.192Z",
+  "finishedAt": "2026-09-07T22:58:26.199Z",
+  "note": "Read-only, sequential non-atomic observations; no load or memory_pressure command.",
+  "nodeMetrics": {
+    "node": "v26.5.0",
+    "uv": "1.52.1",
+    "platform": "darwin",
+    "arch": "arm64",
+    "release": "27.0.0",
+    "rawFreeBytes": 647839744,
+    "totalBytes": 17179869184,
+    "availableHeuristicBytes": 4844240896,
+    "constrainedBytes": 0
+  },
+  "sysctl": "kern.memorystatus_level: 54\nkern.memorystatus_vm_pressure_level: 1\nvm.swapusage: total = 9216.00M  used = 8127.00M  free = 1089.00M  (encrypted)\n",
+  "vmStat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    23377.\nPages active:                                 265258.\nPages inactive:                               248292.\nPages speculative:                             17233.\nPages throttled:                                   0.\nPages wired down:                             196496.\nPages purgeable:                                9292.\n\"Translation faults\":                      925292980.\nPages copy-on-write:                        24038245.\nPages zero filled:                         778339140.\nPages reactivated:                         136921996.\nPages purged:                               15462746.\nFile-backed pages:                            147493.\nAnonymous pages:                              383290.\nPages stored in compressor:                   449220.\nPages occupied by compressor:                 257448.\nDecompressions:                            118329863.\nCompressions:                              141275071.\nPageins:                                    29636786.\nPageouts:                                     139191.\nSwapins:                                      207730.\nSwapouts:                                     832670.\n"
+}

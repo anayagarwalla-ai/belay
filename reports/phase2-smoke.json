@@ -1,0 +1,3525 @@
+{
+  "gitHead": "ec8c739edba75c6fa476e65328eda8c6f93ecbe7",
+  "files": [
+    {
+      "path": "package-lock.json",
+      "sha256": "91d6a3f4a4fc558039673a2414202e77765802b7615117061a261cebd0f68bf3"
+    },
+    {
+      "path": "scripts/phase2-analysis.ts",
+      "sha256": "ff461b94d85b200d5ace96ee4fc9a0728934209821e6fc695e53c41184198b82"
+    },
+    {
+      "path": "scripts/phase2-bench.ts",
+      "sha256": "7c1d53e664394f1e2e0fbc5439194f31827efbc02587b9538146e6e454a517f4"
+    },
+    {
+      "path": "scripts/phase2-harness.ts",
+      "sha256": "e44a8ff52e52e9f164123f2902128de8b5463ac00e76c5a6fbd4057e9101da7a"
+    },
+    {
+      "path": "scripts/phase2-policies.ts",
+      "sha256": "d3809f08131d678b44baeee5e7da66927ea84e073f126da0e780cad23037556c"
+    },
+    {
+      "path": "scripts/phase2-replay.ts",
+      "sha256": "a2973aec36ec30139e46bc60451385e1032bf07d71481e3d61868686c14e7706"
+    },
+    {
+      "path": "scripts/phase2-report.ts",
+      "sha256": "b42c01f94bd8b01420bbf3ecd2961c1b14e8e7a917d2beea81523e3fe6e7c9e7"
+    },
+    {
+      "path": "scripts/phase2-stress.ts",
+      "sha256": "1b0894f31780b95c93fe863684ddee745f89ca6959c7fbed77ac873565d0fb62"
+    },
+    {
+      "path": "shared/contact-geometry.ts",
+      "sha256": "be27fd0e94f87c17d4de8a066b7cfd3c8ab18c307f409deabe3d28df63a8b2cd"
+    },
+    {
+      "path": "shared/expedition-simulation.ts",
+      "sha256": "97afe573eb1b7753094ee2ecd338ccd411bf64f8a0e312a39b7e0fb40e7836a3"
+    },
+    {
+      "path": "shared/flat-simulation.ts",
+      "sha256": "07ebd2d5902fc9d6a5060c2840f5de5c24443573da9fa652d27a819a95dffc9d"
+    },
+    {
+      "path": "shared/movement.ts",
+      "sha256": "de8cfb54596c8741082e3ef40fc2550cfd7494c30761dc8c72889f48227ad45b"
+    },
+    {
+      "path": "shared/physical-diagnostics.ts",
+      "sha256": "0b55613cb72e95ec99081c17b9385fececc9c9425a553b3ba0d7e7583a701670"
+    },
+    {
+      "path": "shared/protocol.ts",
+      "sha256": "1a9dd92feb961fbc61bd27ef3f515d07d3d25f49c15daa6d8f0b7b66ef4f228c"
+    },
+    {
+      "path": "shared/simulation.ts",
+      "sha256": "04a66271386b1e496784e1f801120077159aa6abc280391a97056e60566c55ee"
+    },
+    {
+      "path": "shared/stats.ts",
+      "sha256": "18555b71109353b5ad45db0596484d9f5b9b29f5e9260196f667984e5aa57d87"
+    },
+    {
+      "path": "shared/terrain.ts",
+      "sha256": "d6f36940f9a7901e47f723ba90902bc9e288d2056a7fb12d93673ff67362bee2"
+    },
+    {
+      "path": "tuning.ts",
+      "sha256": "4a099d43f366b6af30950cc5d2ebcaf3e9f286cc24c154dc84b89f29e5fe0c18"
+    }
+  ],
+  "sourceManifestSha256": "b10299e84a69fc2a7829d96f78c31342e9d2b1adfaa121cbfd5b917eed2ffb24",
+  "tuning": {
+    "version": "phase2-1",
+    "phase": 2,
+    "seed": 1701,
+    "players": 2,
+    "hardCap": 6,
+    "tickHz": 30,
+    "physicsHz": 60,
+    "solverIterations": 8,
+    "maximumSolverIterations": 32,
+    "maximumCatchupTicks": 4,
+    "gravity": 9.81,
+    "body": {
+      "mass": 80,
+      "width": 0.55,
+      "height": 0.9,
+      "depth": 0.55,
+      "walkSpeed": 3.1,
+      "acceleration": 10,
+      "coastDeceleration": 1.4,
+      "braceFriction": 1.6,
+      "braceMassMultiplier": 6,
+      "groundFriction": 0.08,
+      "contactPredictionM": 0.12,
+      "harnessHeight": 0.42,
+      "maximumInputAgeMs": 250
+    },
+    "rope": {
+      "length": 3.6,
+      "segments": 12,
+      "particleMass": 0.2,
+      "drag": 2.5,
+      "floorHeight": 0.04,
+      "radius": 0.035,
+      "tensionReferenceN": 700,
+      "tensionSmoothingSeconds": 0.1,
+      "tautFraction": 0.97,
+      "initialSpacing": 2.5,
+      "initialSag": 0.35,
+      "initialBend": 0.6,
+      "solverToleranceM": 0.01
+    },
+    "terrain": {
+      "halfExtent": 500,
+      "gridUnit": 1,
+      "landmarkCount": 24,
+      "landmarkRange": 36,
+      "markSize": 0.18
+    },
+    "camera": {
+      "bridgeCueSagM": 0.06,
+      "catchRadiusMultiplier": 1.75,
+      "terrainEdgeWidthM": 0.04,
+      "wallCueReachM": 0.8,
+      "maximumCueEvidence": 256,
+      "localWeight": 0.35,
+      "elevationDegrees": 55,
+      "azimuthDegrees": 45,
+      "baseVerticalSpan": 11,
+      "maximumVerticalSpan": 24,
+      "margin": 4,
+      "smoothingSeconds": 0.22,
+      "distance": 60,
+      "maximumPixelRatio": 2,
+      "edgeInsetPx": 36,
+      "labelOffsetPx": 26,
+      "braceVisualHeight": 0.58
+    },
+    "network": {
+      "inputHz": 60,
+      "interpolationMs": 70,
+      "snapshotHistory": 32,
+      "reconciliationSeconds": 0.07,
+      "hardCorrectionDistance": 1.5,
+      "maximumPredictionMs": 100,
+      "pingIntervalMs": 500,
+      "staleSnapshotMs": 1000,
+      "probeTimeoutMs": 2000,
+      "maximumMessagesPerSecond": 120,
+      "maximumFrameBytes": 4096,
+      "telemetrySamples": 2048,
+      "debugTimeoutMs": 5000,
+      "joinTimeoutMs": 10000,
+      "maximumPendingDebugCommands": 8,
+      "maximumDebugCommandsPerSecond": 12,
+      "maximumSnapshotBufferedBytes": 65536,
+      "maximumDebugResponseBytes": 16777216,
+      "hudUpdateMs": 250,
+      "maximumStepTicks": 3600,
+      "rttBracketsMs": [
+        30,
+        60,
+        100,
+        150,
+        250
+      ],
+      "emulatedJitterMs": 10,
+      "maximumAddedRttMs": 500,
+      "maximumJitterMs": 50,
+      "maximumDelayedBytes": 1048576,
+      "maximumTapeSeconds": 1200
+    },
+    "server": {
+      "host": "127.0.0.1",
+      "port": 2567,
+      "webPort": 5173,
+      "gatewayPort": 8787,
+      "protectedPort": 8788,
+      "sessionLifetimeSeconds": 7200,
+      "tokenBytes": 32,
+      "maximumAuthBodyBytes": 1024,
+      "authAttemptsPerMinute": 15,
+      "roomIdleMinutes": 30,
+      "httpTimeoutMs": 15000
+    },
+    "bot": {
+      "actionSeconds": 1.2,
+      "braceChance": 0.22,
+      "idleChance": 0.12,
+      "benchmarkRuns": 1000,
+      "benchmarkSeconds": 20
+    },
+    "physicsDiagnostics": {
+      "scenarioSeconds": 60,
+      "longWalkSeconds": 1200,
+      "crossingRadiansPerSecond": 0.6,
+      "circlingRadiansPerSecond": 2,
+      "circlingPhaseRadians": 1,
+      "circleBracePeriodsTicks": [
+        100,
+        70
+      ],
+      "circleBraceTicks": 20,
+      "togglePeriodsTicks": [
+        2,
+        3
+      ],
+      "randomActionSeconds": 0.1,
+      "randomBraceChance": 0.25,
+      "maximumBodyOverlapM": 0.005,
+      "maximumFloorErrorM": 0.001,
+      "maximumSpanErrorM": 0.01,
+      "maximumSegmentErrorM": 0.02,
+      "maximumSpeedMultiplier": 4,
+      "minimumWalkSpeedFraction": 0.8
+    },
+    "phase2": {
+      "defaultScene": "crossing",
+      "defaultPlayers": 4,
+      "routeHalfWidth": 12,
+      "routeStartZ": -16,
+      "finishZ": 55,
+      "finishApronM": 30,
+      "crevasseStarts": [
+        8,
+        20,
+        32,
+        44
+      ],
+      "crevasseWidth": 2.8,
+      "crevasseDepth": 12,
+      "terminalY": -16,
+      "bridgeHalfWidth": 1.1,
+      "bridgeThickness": 0.25,
+      "bridgeCapacityBodyWeights": [
+        0.9,
+        1.45
+      ],
+      "bridgeOverloadSeconds": 0.32,
+      "bridgeRecoveryRate": 2,
+      "bridgeCueStartFraction": 0.65,
+      "bridgeWarningSeconds": 0.4,
+      "rescueLipZ": 0,
+      "rescueSafeOffset": 0.8,
+      "rescueFallerAdvance": 0.7,
+      "rescueSpacing": 1.6,
+      "groundContactTolerance": 0.045,
+      "wallContactTolerance": 0.05,
+      "collisionSkin": 0.004,
+      "contactPredictionM": 0.002,
+      "collisionSweepPasses": 4,
+      "solverIterations": 12,
+      "maximumSolverIterations": 256,
+      "solverToleranceM": 0.005,
+      "iceTractionMultiplier": 0.3,
+      "wallClimbSpeed": 1.6,
+      "wallDescendSpeed": 1.8,
+      "wallAcceleration": 5,
+      "wallPressSpeed": 0.45,
+      "wallNormalEffortN": 900,
+      "wallFriction": 1.3,
+      "wallRopeSupportFraction": 0.08,
+      "fallDepth": 0.2,
+      "fallSpeed": 0.5,
+      "catchSpeed": 0.35,
+      "catchConfirmSeconds": 0.12,
+      "recoveryConfirmSeconds": 0.3,
+      "catchHighlightSeconds": 0.5,
+      "energyToleranceJ": 0.01,
+      "mechanicsProbeSeconds": 10,
+      "mechanicsLoadSeed": 2000,
+      "inputChangeEpsilon": 0.08,
+      "usefulMotionMps": 0.04,
+      "maximumIncidents": 64,
+      "maximumEvents": 256
+    },
+    "phase2Evidence": {
+      "targets": {
+        "rescueSeconds": [
+          10,
+          20
+        ],
+        "firstAttemptRecoveryFraction": [
+          0.6,
+          0.75
+        ],
+        "eventualRecoveryFraction": [
+          0.88,
+          0.92
+        ],
+        "fourIncidentCompletionFraction": [
+          0.6,
+          0.72
+        ],
+        "incidentsPerRun": [
+          3,
+          6
+        ],
+        "firstFallBeforeSeconds": 45,
+        "runSeconds": [
+          300,
+          600
+        ],
+        "maximumIdleFraction": 0.2
+      },
+      "trajectoryRuns": 1000,
+      "smokeTrajectories": 10,
+      "teamSizes": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "crossingSeconds": 600,
+      "rescueSeconds": 60,
+      "actionSeconds": 0.5,
+      "badWrongWayChance": 0.2,
+      "recoveryBraceCycleSeconds": 2,
+      "recoveryBraceFraction": 0.5,
+      "movementEpsilonM": 0.01,
+      "inputChangeEpsilon": 0.05,
+      "lifecycleRuns": 25,
+      "lifecycleSeconds": 2,
+      "replaySeconds": 20,
+      "maximumTimingBytes": 268435456,
+      "maximumReportBytes": 16777216,
+      "maximumSavedTapes": 20,
+      "maximumTapeOutputBytes": 33554432
+    },
+    "localLoad": {
+      "smokeRooms": 10,
+      "smokeSeconds": 30,
+      "largeRooms": 300,
+      "largeSeconds": 30,
+      "generatorProcesses": 4,
+      "maximumRooms": 300,
+      "maximumSeconds": 120,
+      "warmupMs": 2000,
+      "startLeadMs": 1000,
+      "sampleMs": 1000,
+      "startupTimeoutMs": 120000,
+      "maximumWallMs": 180000,
+      "shutdownGraceMs": 3000,
+      "maximumTotalRssBytes": 3221225472,
+      "minimumFreeMemoryBytes": 536870912,
+      "authorityHeapMiB": 1024,
+      "generatorHeapMiB": 256,
+      "maximumReportBytes": 67108864,
+      "maximumChildLogBytes": 16384,
+      "maximumInputBufferedBytes": 16384,
+      "maximumLatePeriods": 4,
+      "lifecycleCycles": 3,
+      "lifecycleRooms": 2,
+      "lifecycleHoldMs": 250,
+      "slowReaderStartFraction": 0.25,
+      "slowReaderDurationFraction": 0.25,
+      "churnStartFraction": 0.5,
+      "churnEveryRooms": 10,
+      "probePollMs": 25,
+      "eventLoopResolutionMs": 20
+    },
+    "clip": {
+      "seconds": 15,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "videoBitsPerSecond": 800000,
+      "audioBitsPerSecond": 48000,
+      "maximumBytes": 2097152,
+      "retentionDays": 7,
+      "permanentSlots": 1,
+      "uploadsPerIdentityPerUtcDay": 3,
+      "globalBytes": 268435456,
+      "uploadsEnabled": false
+    },
+    "later": {
+      "idleBotSeconds": 20,
+      "reconnectSeconds": 60,
+      "attachWaitSeconds": 30,
+      "stableTensionFraction": 0.2,
+      "stableSeconds": 0.5,
+      "publicTeamSize": 4,
+      "minimumVoteTeam": 4,
+      "agreeingVotes": 3,
+      "dailyAttempts": 3
+    },
+    "gates": {
+      "tuningSessions": 6,
+      "sessionsPerFamily": 2,
+      "diagnosticSessions": 3,
+      "freePlayMinutes": 10
+    },
+    "tools": {
+      "operations": {
+        "startupTimeoutMs": 120000,
+        "tunnelStartupTimeoutMs": 90000,
+        "probeTimeoutMs": 3000,
+        "pollMs": 250,
+        "shutdownGraceMs": 3000,
+        "stopTimeoutMs": 15000,
+        "downloadTimeoutMs": 120000,
+        "maximumTunnelLogBytes": 16384,
+        "maximumDownloadBytes": 67108864
+      },
+      "cloudflaredVersion": "2026.8.3",
+      "cloudflaredSha256": {
+        "arm64": "40c9144d86df8937c5b43293a1f7d2d2107029aa74725023dd46b1b27154352f",
+        "x64": "61e1316266a00fd70ce40da011d612badc805367fb65293dd1925f938f704c99"
+      }
+    }
+  },
+  "familyDefinitions": {
+    "balanced": {
+      "label": "Intermediate / strong brace",
+      "ropeLength": 3.6,
+      "ropeDrag": 2.5,
+      "braceMassMultiplier": 6,
+      "braceFriction": 1.6
+    },
+    "short": {
+      "label": "Short / damped",
+      "ropeLength": 3,
+      "ropeDrag": 5,
+      "braceMassMultiplier": 4,
+      "braceFriction": 1.2
+    },
+    "loose": {
+      "label": "Long / momentum",
+      "ropeLength": 4.5,
+      "ropeDrag": 1.2,
+      "braceMassMultiplier": 4,
+      "braceFriction": 1.2
+    }
+  },
+  "machine": {
+    "platform": "darwin",
+    "release": "27.0.0",
+    "arch": "arm64",
+    "cpu": "Apple M4",
+    "availableCpus": 10,
+    "totalMemoryBytes": 17179869184,
+    "node": "v26.5.0"
+  },
+  "schema": "phase2-local-evidence-1",
+  "generatedAt": "2026-09-07T22:42:29.695Z",
+  "mode": "smoke",
+  "scope": "10 fixed-profile local synthetic trajectories across teams 2–6, crossing/focused rescue and the declared policy matrix. Bounded observation is not completed-run evidence.",
+  "humanFun": "NOT EVALUATED",
+  "humanRescueStop": "NOT EVALUATED",
+  "productionQualification": "NOT TESTED",
+  "wallSeconds": 19.159997042,
+  "processMemoryBefore": {
+    "rss": 112492544,
+    "heapTotal": 21250048,
+    "heapUsed": 16869704,
+    "external": 10595705,
+    "arrayBuffers": 3753087
+  },
+  "processMemoryAfter": {
+    "rss": 245825536,
+    "heapTotal": 119291904,
+    "heapUsed": 56294512,
+    "external": 8209261,
+    "arrayBuffers": 1366603
+  },
+  "timingMethod": "Exact nearest-rank quantiles of every synchronous simulation.step attempt in this invocation, excluding policy, snapshot collection, network and scheduling. Recording is disabled in benchmark trajectories. Other local tasks may consume CPU; this invocation is not an isolated capacity measurement.",
+  "isolatedStepMs": {
+    "count": 3375,
+    "min": 0.3958329999986745,
+    "p50": 5.338874999999462,
+    "p95": 10.407250000000204,
+    "p99": 15.08612499999981,
+    "max": 50.97504099999969,
+    "mean": 5.584202100148153
+  },
+  "summary": {
+    "trajectories": 10,
+    "crossingTrajectories": 5,
+    "complete": 5,
+    "failed": 0,
+    "fixtureRecovered": 5,
+    "censored": 0,
+    "errors": 0,
+    "incompleteEvidence": 0,
+    "runOutcome": {
+      "started": 5,
+      "successes": 5,
+      "failures": 0,
+      "censored": 0,
+      "conservativeSuccessFraction": 1,
+      "resolvedOnlySuccessFraction": 1,
+      "upperBoundIfAllCensoredSucceed": 1
+    },
+    "incidentCountPerTrajectory": {
+      "count": 10,
+      "min": 0,
+      "p50": 0,
+      "p95": 1,
+      "p99": 1,
+      "max": 1,
+      "mean": 0.5
+    },
+    "trajectoriesWithoutIncident": 5,
+    "firstFallSecondsObservedOnly": {
+      "count": 5,
+      "min": 0.2,
+      "p50": 0.2,
+      "p95": 0.2,
+      "p99": 0.2,
+      "max": 0.2,
+      "mean": 0.2
+    },
+    "eventualRecovery": {
+      "started": 5,
+      "successes": 5,
+      "failures": 0,
+      "censored": 0,
+      "conservativeSuccessFraction": 1,
+      "resolvedOnlySuccessFraction": 1,
+      "upperBoundIfAllCensoredSucceed": 1
+    },
+    "firstAttemptRecovery": {
+      "started": 5,
+      "successes": 5,
+      "failures": 0,
+      "censored": 0,
+      "conservativeSuccessFraction": 1,
+      "resolvedOnlySuccessFraction": 1,
+      "upperBoundIfAllCensoredSucceed": 1
+    },
+    "rescueSecondsSuccessfulOnly": {
+      "count": 5,
+      "min": 1.6666666666666667,
+      "p50": 1.8666666666666667,
+      "p95": 2.2666666666666666,
+      "p99": 2.2666666666666666,
+      "max": 2.2666666666666666,
+      "mean": 1.9400000000000002
+    },
+    "unresolvedRescueObservationSeconds": {
+      "count": 0,
+      "min": null,
+      "p50": null,
+      "p95": null,
+      "p99": null,
+      "max": null,
+      "mean": null
+    },
+    "failedIncidentCount": 0,
+    "cascadingEpisodes": 0,
+    "cascadeCount": 0,
+    "completedRunSecondsOnly": {
+      "count": 5,
+      "min": 18.7,
+      "p50": 20.333333333333332,
+      "p95": 21.933333333333334,
+      "p99": 21.933333333333334,
+      "max": 21.933333333333334,
+      "mean": 20.326666666666664
+    },
+    "anyTerminalRunSecondsOnly": {
+      "count": 5,
+      "min": 18.7,
+      "p50": 20.333333333333332,
+      "p95": 21.933333333333334,
+      "p99": 21.933333333333334,
+      "max": 21.933333333333334,
+      "mean": 20.326666666666664
+    },
+    "observedExposureSecondsIncludingCensoring": {
+      "count": 10,
+      "min": 1.9,
+      "p50": 2.5,
+      "p95": 21.933333333333334,
+      "p99": 21.933333333333334,
+      "max": 21.933333333333334,
+      "mean": 11.249999999999998
+    },
+    "runDurationSurvival": {
+      "observations": 5,
+      "medianSeconds": 20.333333333333332,
+      "method": "Kaplan–Meier time to any terminal run outcome; administrative censoring is not an event; independence is unproven.",
+      "curve": [
+        {
+          "seconds": 18.7,
+          "atRisk": 5,
+          "events": 1,
+          "censored": 0,
+          "survival": 0.8
+        },
+        {
+          "seconds": 19.533333333333335,
+          "atRisk": 4,
+          "events": 1,
+          "censored": 0,
+          "survival": 0.6000000000000001
+        },
+        {
+          "seconds": 20.333333333333332,
+          "atRisk": 3,
+          "events": 1,
+          "censored": 0,
+          "survival": 0.4000000000000001
+        },
+        {
+          "seconds": 21.133333333333333,
+          "atRisk": 2,
+          "events": 1,
+          "censored": 0,
+          "survival": 0.20000000000000004
+        },
+        {
+          "seconds": 21.933333333333334,
+          "atRisk": 1,
+          "events": 1,
+          "censored": 0,
+          "survival": 0
+        }
+      ]
+    },
+    "fourIncidentSelection": {
+      "observedTrajectories": 0,
+      "completed": 0,
+      "status": "Descriptive selection by observed incident count, not a controlled four-incident completion experiment."
+    },
+    "perPlayerSimulationIdleFractionProxy": {
+      "count": 20,
+      "min": 0.10619469026548678,
+      "p50": 0.7812499999999999,
+      "p95": 1,
+      "p99": 1,
+      "max": 1,
+      "mean": 0.6855825735441421
+    },
+    "staticBraceRecoveryCounterexamples": 0,
+    "frozenTailRecoveryCounterexamples": 0,
+    "executedTicks": 3375,
+    "stepAttempts": 3375
+  },
+  "records": [
+    {
+      "ordinal": 0,
+      "seed": 1701,
+      "family": "balanced",
+      "scene": "crossing",
+      "playerCount": 2,
+      "policy": "recovery",
+      "tickHz": 30,
+      "horizonSeconds": 600,
+      "observedSeconds": 18.7,
+      "ticks": 561,
+      "stepAttempts": 561,
+      "ending": "complete",
+      "runStatus": "complete",
+      "progress": 1,
+      "firstFallSeconds": null,
+      "episodes": [],
+      "inputIdleSeconds": [
+        0,
+        0
+      ],
+      "longestUnchangedInputSeconds": [
+        0,
+        0
+      ],
+      "rescueObservationSeconds": [
+        0,
+        0
+      ],
+      "rescueMotionlessSeconds": [
+        0,
+        0
+      ],
+      "staticCounterexampleEpisodes": [],
+      "frozenCounterexampleEpisodes": [],
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.004621090017226437,
+      "maximumSpeedMps": 3.0999999046325684,
+      "stepExecutionMs": {
+        "count": 561,
+        "min": 1.4086660000000393,
+        "p50": 2.125500000000102,
+        "p95": 3.7867919999999913,
+        "p99": 4.706625000000031,
+        "max": 29.780333999999982,
+        "mean": 2.3648721105169335
+      },
+      "finalStateSha256": "42b8dcc47ea3dc2b85cac992bbbc80dcb0b31b21ce4f30ad80b8d6fea1854546",
+      "policyInputsSha256": "12dbd617056a11dfbf0d1f58631bee3ce99bada4b75399efbda0a7fc4bc5bac7",
+      "error": null,
+      "evidenceComplete": true,
+      "eventCounts": {
+        "cue": 4,
+        "complete": 1
+      },
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 1,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 768.0088144487179,
+        "potentialEnergyJ": 712.5984000000001,
+        "motorWorkJ": 2059.960274805405,
+        "gravityWorkJ": 2998.467553067269,
+        "ropeContactWorkJ": -688.609838219783,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 0,
+        "incidentsRecovered": 0,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 1,
+        "maximumEnergyProjectionJ": 0.2927579291086886,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": null,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "finalBodyStates": [
+        {
+          "id": 0,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 57.43297576904297
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 1,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 55.00442123413086
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        }
+      ]
+    },
+    {
+      "ordinal": 1,
+      "seed": 1701,
+      "family": "balanced",
+      "scene": "crossing",
+      "playerCount": 3,
+      "policy": "recovery",
+      "tickHz": 30,
+      "horizonSeconds": 600,
+      "observedSeconds": 19.533333333333335,
+      "ticks": 586,
+      "stepAttempts": 586,
+      "ending": "complete",
+      "runStatus": "complete",
+      "progress": 1,
+      "firstFallSeconds": null,
+      "episodes": [],
+      "inputIdleSeconds": [
+        0,
+        0,
+        0
+      ],
+      "longestUnchangedInputSeconds": [
+        0,
+        0,
+        0
+      ],
+      "rescueObservationSeconds": [
+        0,
+        0,
+        0
+      ],
+      "rescueMotionlessSeconds": [
+        0,
+        0,
+        0
+      ],
+      "staticCounterexampleEpisodes": [],
+      "frozenCounterexampleEpisodes": [],
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.004826561132650786,
+      "maximumSpeedMps": 3.0999999046325684,
+      "stepExecutionMs": {
+        "count": 586,
+        "min": 2.4047920000002705,
+        "p50": 3.957333999999946,
+        "p95": 5.881458000000293,
+        "p99": 7.160292000000027,
+        "max": 9.391083999999864,
+        "mean": 4.144053293515359
+      },
+      "finalStateSha256": "4d3e0c6c4e3327cdfcaf8b8cd37c25129a884bfd2857477c2faef5c46a60f4a7",
+      "policyInputsSha256": "edba48773dbd6249df3a8d1f574bb4ebe2fee1d4e3c2136d538dad7dd61f617f",
+      "error": null,
+      "evidenceComplete": true,
+      "eventCounts": {
+        "cue": 4,
+        "complete": 1
+      },
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 1,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 1151.4407275232616,
+        "potentialEnergyJ": 1068.8976000000002,
+        "motorWorkJ": 3883.962825002722,
+        "gravityWorkJ": 4690.477375531376,
+        "ropeContactWorkJ": -1789.9252049007086,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 0,
+        "incidentsRecovered": 0,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 1,
+        "maximumEnergyProjectionJ": 0.0996496809166274,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": null,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "finalBodyStates": [
+        {
+          "id": 0,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 59.95453643798828
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 1,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 57.451072692871094
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 2,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 55.03558349609375
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        }
+      ]
+    },
+    {
+      "ordinal": 2,
+      "seed": 1701,
+      "family": "balanced",
+      "scene": "crossing",
+      "playerCount": 4,
+      "policy": "recovery",
+      "tickHz": 30,
+      "horizonSeconds": 600,
+      "observedSeconds": 20.333333333333332,
+      "ticks": 610,
+      "stepAttempts": 610,
+      "ending": "complete",
+      "runStatus": "complete",
+      "progress": 1,
+      "firstFallSeconds": null,
+      "episodes": [],
+      "inputIdleSeconds": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "longestUnchangedInputSeconds": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "rescueObservationSeconds": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "rescueMotionlessSeconds": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "staticCounterexampleEpisodes": [],
+      "frozenCounterexampleEpisodes": [],
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.004906993691191908,
+      "maximumSpeedMps": 3.0999999046325684,
+      "stepExecutionMs": {
+        "count": 610,
+        "min": 2.0540829999999914,
+        "p50": 5.358916000000136,
+        "p95": 7.0493749999996,
+        "p99": 8.990292000000409,
+        "max": 11.412959000000228,
+        "mean": 5.507443790163927
+      },
+      "finalStateSha256": "f99ce5e63586935e669c809cd32f873db4fe88f33f8cd38aa983e563f36e409c",
+      "policyInputsSha256": "e8f892568bf206f8a7e9588fd154bc2a730124adbb7e54c93c68f59281538146",
+      "error": null,
+      "evidenceComplete": true,
+      "eventCounts": {
+        "cue": 4,
+        "complete": 1
+      },
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 2,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 1535.070992649431,
+        "potentialEnergyJ": 1425.1968000000002,
+        "motorWorkJ": 6052.220364167545,
+        "gravityWorkJ": 6511.396878934013,
+        "ropeContactWorkJ": -3206.7304991340384,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 0,
+        "incidentsRecovered": 0,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 0,
+        "maximumEnergyProjectionJ": 0,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": null,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "finalBodyStates": [
+        {
+          "id": 0,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 62.41807556152344
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 1,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 59.918426513671875
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 2,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 57.42055892944336
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 3,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 55.01519775390625
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        }
+      ]
+    },
+    {
+      "ordinal": 3,
+      "seed": 1701,
+      "family": "balanced",
+      "scene": "crossing",
+      "playerCount": 5,
+      "policy": "recovery",
+      "tickHz": 30,
+      "horizonSeconds": 600,
+      "observedSeconds": 21.133333333333333,
+      "ticks": 634,
+      "stepAttempts": 634,
+      "ending": "complete",
+      "runStatus": "complete",
+      "progress": 1,
+      "firstFallSeconds": null,
+      "episodes": [],
+      "inputIdleSeconds": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "longestUnchangedInputSeconds": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "rescueObservationSeconds": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "rescueMotionlessSeconds": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "staticCounterexampleEpisodes": [],
+      "frozenCounterexampleEpisodes": [],
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.004833568417136336,
+      "maximumSpeedMps": 3.0999999046325684,
+      "stepExecutionMs": {
+        "count": 634,
+        "min": 4.650249999999687,
+        "p50": 6.044207999999344,
+        "p95": 7.473249999999098,
+        "p99": 9.230332999999519,
+        "max": 15.756749999999556,
+        "mean": 6.2009208075709905
+      },
+      "finalStateSha256": "5340db19bfeb1c8574e71766da22487e1b450e085d415c2edf60c2b2929e6201",
+      "policyInputsSha256": "d42faf02866e949e72d1376a18dffb47e83d388536e7e3453aec0455104bb240",
+      "error": null,
+      "evidenceComplete": true,
+      "eventCounts": {
+        "cue": 4,
+        "complete": 1
+      },
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 5,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 1918.593411959528,
+        "potentialEnergyJ": 1781.496,
+        "motorWorkJ": 8060.865194045702,
+        "gravityWorkJ": 8458.293731403422,
+        "ropeContactWorkJ": -4430.159379525902,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 0,
+        "incidentsRecovered": 0,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 0,
+        "maximumEnergyProjectionJ": 0,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": null,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "finalBodyStates": [
+        {
+          "id": 0,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 64.95414733886719
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 1,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 62.4460334777832
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 2,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 59.9433479309082
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 3,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 57.452301025390625
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 4,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 55.04644775390625
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        }
+      ]
+    },
+    {
+      "ordinal": 4,
+      "seed": 1701,
+      "family": "balanced",
+      "scene": "crossing",
+      "playerCount": 6,
+      "policy": "recovery",
+      "tickHz": 30,
+      "horizonSeconds": 600,
+      "observedSeconds": 21.933333333333334,
+      "ticks": 658,
+      "stepAttempts": 658,
+      "ending": "complete",
+      "runStatus": "complete",
+      "progress": 1,
+      "firstFallSeconds": null,
+      "episodes": [],
+      "inputIdleSeconds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "longestUnchangedInputSeconds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "rescueObservationSeconds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "rescueMotionlessSeconds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "staticCounterexampleEpisodes": [],
+      "frozenCounterexampleEpisodes": [],
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.004899193619091802,
+      "maximumSpeedMps": 3.0999999046325684,
+      "stepExecutionMs": {
+        "count": 658,
+        "min": 5.918459000000439,
+        "p50": 9.284874999999374,
+        "p95": 12.305000000000291,
+        "p99": 15.110584000000017,
+        "max": 50.97504099999969,
+        "mean": 9.684846022796357
+      },
+      "finalStateSha256": "98d049def7ecf9cf38639e40b32dd05a2ba46b1ad9419b2d6c73703a1f65c9d1",
+      "policyInputsSha256": "db7244dd8936545c00865c923a810de322ad07e16a1ba669c3be84c4cb2febe2",
+      "error": null,
+      "evidenceComplete": true,
+      "eventCounts": {
+        "cue": 4,
+        "complete": 1
+      },
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 4,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 2302.064256635596,
+        "potentialEnergyJ": 2137.7952,
+        "motorWorkJ": 10078.715901701613,
+        "gravityWorkJ": 10537.918262744468,
+        "ropeContactWorkJ": -5651.996785445971,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 0,
+        "incidentsRecovered": 0,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 0,
+        "maximumEnergyProjectionJ": 0,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": null,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "counterPolicy": {
+        "armedTick": null,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "finalBodyStates": [
+        {
+          "id": 0,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 67.43605041503906
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 1,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 64.92594146728516
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 2,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 62.42379379272461
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 3,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 59.92728042602539
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 4,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 57.424354553222656
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 5,
+          "position": {
+            "x": 0,
+            "y": 0.45399999618530273,
+            "z": 55.02637481689453
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        }
+      ]
+    },
+    {
+      "ordinal": 5,
+      "seed": 1701,
+      "family": "balanced",
+      "scene": "rescue",
+      "playerCount": 2,
+      "policy": "recovery",
+      "tickHz": 30,
+      "horizonSeconds": 60,
+      "observedSeconds": 2.5,
+      "ticks": 75,
+      "stepAttempts": 75,
+      "ending": "fixture-recovered",
+      "runStatus": "active",
+      "progress": 0,
+      "firstFallSeconds": 0.2,
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1
+          ],
+          "status": "recovered",
+          "recoveredTick": 74,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0.35,
+            1.7999999999999985
+          ],
+          "roleIdleSeconds": [
+            1.949999999999998,
+            0.49999999999999994
+          ],
+          "staticHoldSeconds": [
+            1.2833333333333337,
+            0
+          ],
+          "observedUntilTick": 75
+        }
+      ],
+      "inputIdleSeconds": [
+        0,
+        0
+      ],
+      "longestUnchangedInputSeconds": [
+        0.9999999999999999,
+        2.3000000000000016
+      ],
+      "rescueObservationSeconds": [
+        2.3000000000000016,
+        2.3000000000000016
+      ],
+      "rescueMotionlessSeconds": [
+        1.166666666666667,
+        0
+      ],
+      "staticCounterexampleEpisodes": [],
+      "frozenCounterexampleEpisodes": [],
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.02670579485121427,
+      "maximumSpeedMps": 6.094830332899626,
+      "stepExecutionMs": {
+        "count": 75,
+        "min": 0.3958329999986745,
+        "p50": 0.8759160000008706,
+        "p95": 2.5697499999987485,
+        "p99": 15.931166999998823,
+        "max": 15.931166999998823,
+        "mean": 1.278173866666669
+      },
+      "finalStateSha256": "78ee485a1296b9b7f8f13c5dba9e18d9a464a21b67b5deb2a7dcaac7fa43c21a",
+      "policyInputsSha256": "d99f8491e743efab7e9d127afa6ef6c9624660201814a48f6f64604653cd1ac4",
+      "error": null,
+      "evidenceComplete": true,
+      "eventCounts": {
+        "fall": 1,
+        "catch": 1,
+        "climb": 1,
+        "recovery": 1
+      },
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 74,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 384.0043301007184,
+        "potentialEnergyJ": 712.5984000000001,
+        "motorWorkJ": 2951.7075437755675,
+        "gravityWorkJ": 588.8789706587977,
+        "ropeContactWorkJ": -2701.5737424705976,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 1,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 17,
+        "maximumEnergyProjectionJ": 2939.592213872114,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "finalBodyStates": [
+        {
+          "id": 0,
+          "position": {
+            "x": -2.15378475189209,
+            "y": 0.45399999618530273,
+            "z": -1.9080146551132202
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 1,
+          "position": {
+            "x": 0.46797826886177063,
+            "y": 0.45399999618530273,
+            "z": -0.2782106101512909
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        }
+      ]
+    },
+    {
+      "ordinal": 6,
+      "seed": 1701,
+      "family": "balanced",
+      "scene": "rescue",
+      "playerCount": 3,
+      "policy": "recovery",
+      "tickHz": 30,
+      "horizonSeconds": 60,
+      "observedSeconds": 2.3333333333333335,
+      "ticks": 70,
+      "stepAttempts": 70,
+      "ending": "fixture-recovered",
+      "runStatus": "active",
+      "progress": 0,
+      "firstFallSeconds": 0.2,
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            1
+          ],
+          "status": "recovered",
+          "recoveredTick": 69,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0.4666666666666666,
+            1.8499999999999983,
+            0.3833333333333333
+          ],
+          "roleIdleSeconds": [
+            1.6666666666666656,
+            0.2833333333333333,
+            1.7499999999999987
+          ],
+          "staticHoldSeconds": [
+            1.1166666666666676,
+            0,
+            0.9833333333333347
+          ],
+          "observedUntilTick": 70
+        }
+      ],
+      "inputIdleSeconds": [
+        0,
+        0,
+        0
+      ],
+      "longestUnchangedInputSeconds": [
+        0.9999999999999999,
+        2.1333333333333355,
+        0.9999999999999999
+      ],
+      "rescueObservationSeconds": [
+        2.1333333333333355,
+        2.1333333333333355,
+        2.1333333333333355
+      ],
+      "rescueMotionlessSeconds": [
+        1.2333333333333338,
+        0.1,
+        0.9666666666666666
+      ],
+      "staticCounterexampleEpisodes": [],
+      "frozenCounterexampleEpisodes": [],
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.04755751733573249,
+      "maximumSpeedMps": 4.67504225868464,
+      "stepExecutionMs": {
+        "count": 70,
+        "min": 0.7137920000022859,
+        "p50": 1.8300000000017462,
+        "p95": 26.85658400000102,
+        "p99": 37.097499999999854,
+        "max": 37.097499999999854,
+        "mean": 4.291419614285873
+      },
+      "finalStateSha256": "1c59dd2c4363c3e3d03b4a1d88b9748bb1f0c4aa1b4b3a90e1e546fc422aee15",
+      "policyInputsSha256": "de0eb7676e34dfabe14b01364824dfafd61c7c428db4ff73720dcc5c74bcf10c",
+      "error": null,
+      "evidenceComplete": true,
+      "eventCounts": {
+        "fall": 1,
+        "catch": 1,
+        "climb": 1,
+        "recovery": 1
+      },
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 146,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 746.6606323283198,
+        "potentialEnergyJ": 1068.8976000000002,
+        "motorWorkJ": 3222.8946708674052,
+        "gravityWorkJ": 588.4176428854646,
+        "ropeContactWorkJ": -2495.7041212314734,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 1,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 16,
+        "maximumEnergyProjectionJ": 2242.9892685702507,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "finalBodyStates": [
+        {
+          "id": 0,
+          "position": {
+            "x": -2.7036399841308594,
+            "y": 0.45399999618530273,
+            "z": -1.3116061687469482
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 1,
+          "position": {
+            "x": 0.5195515751838684,
+            "y": 0.45399999618530273,
+            "z": -0.26799190044403076
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 2,
+          "position": {
+            "x": 3.112178087234497,
+            "y": 0.45399999618530273,
+            "z": -0.8612513542175293
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        }
+      ]
+    },
+    {
+      "ordinal": 7,
+      "seed": 1701,
+      "family": "balanced",
+      "scene": "rescue",
+      "playerCount": 4,
+      "policy": "recovery",
+      "tickHz": 30,
+      "horizonSeconds": 60,
+      "observedSeconds": 1.9,
+      "ticks": 57,
+      "stepAttempts": 57,
+      "ending": "fixture-recovered",
+      "runStatus": "active",
+      "progress": 0,
+      "firstFallSeconds": 0.2,
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            2
+          ],
+          "status": "recovered",
+          "recoveredTick": 56,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0.4333333333333333,
+            1.483333333333333,
+            0.3833333333333333
+          ],
+          "roleIdleSeconds": [
+            1.6833333333333322,
+            1.2500000000000004,
+            0.19999999999999998,
+            1.3000000000000003
+          ],
+          "staticHoldSeconds": [
+            0.8000000000000008,
+            0.6666666666666671,
+            0,
+            0.9833333333333347
+          ],
+          "observedUntilTick": 57
+        }
+      ],
+      "inputIdleSeconds": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "longestUnchangedInputSeconds": [
+        0.8999999999999999,
+        0.49999999999999994,
+        1.700000000000002,
+        0.9999999999999999
+      ],
+      "rescueObservationSeconds": [
+        1.700000000000002,
+        1.700000000000002,
+        1.700000000000002,
+        1.700000000000002
+      ],
+      "rescueMotionlessSeconds": [
+        0.8333333333333333,
+        0.7666666666666666,
+        0,
+        0.7333333333333333
+      ],
+      "staticCounterexampleEpisodes": [],
+      "frozenCounterexampleEpisodes": [],
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.047659162126571175,
+      "maximumSpeedMps": 4.688863809034668,
+      "stepExecutionMs": {
+        "count": 57,
+        "min": 0.9703750000007858,
+        "p50": 2.4701249999998254,
+        "p95": 23.19550000000163,
+        "p99": 30.417207999998936,
+        "max": 30.417207999998936,
+        "mean": 5.273141771929914
+      },
+      "finalStateSha256": "e3da70b7576b2b5ba7d2f115f7c05e4bc342b62b984e27c4d947d328741b2314",
+      "policyInputsSha256": "f3bfe7aeb81d98d196e52c463eda529b31ffa4b4c5c478e6815376936308c7ff",
+      "error": null,
+      "evidenceComplete": true,
+      "eventCounts": {
+        "fall": 1,
+        "climb": 1,
+        "recovery": 1
+      },
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 77,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 1143.2131052116933,
+        "potentialEnergyJ": 1425.1968000000002,
+        "motorWorkJ": 3325.233164805824,
+        "gravityWorkJ": 731.0144204422991,
+        "ropeContactWorkJ": -2428.556788923455,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 1,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 10,
+        "maximumEnergyProjectionJ": 2663.9914812928637,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "finalBodyStates": [
+        {
+          "id": 0,
+          "position": {
+            "x": -4.501412868499756,
+            "y": 0.45399999618530273,
+            "z": -1.4217731952667236
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 1,
+          "position": {
+            "x": -1.8191014528274536,
+            "y": 0.45399999618530273,
+            "z": -1.55134117603302
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 2,
+          "position": {
+            "x": 1.2121951580047607,
+            "y": 0.45399999618530273,
+            "z": -0.33001312613487244
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 3,
+          "position": {
+            "x": 3.677713394165039,
+            "y": 0.45399999618530273,
+            "z": -1.3510360717773438
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        }
+      ]
+    },
+    {
+      "ordinal": 8,
+      "seed": 1701,
+      "family": "balanced",
+      "scene": "rescue",
+      "playerCount": 5,
+      "policy": "recovery",
+      "tickHz": 30,
+      "horizonSeconds": 60,
+      "observedSeconds": 2.1,
+      "ticks": 63,
+      "stepAttempts": 63,
+      "ending": "fixture-recovered",
+      "runStatus": "active",
+      "progress": 0,
+      "firstFallSeconds": 0.2,
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            2
+          ],
+          "status": "recovered",
+          "recoveredTick": 62,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0.4666666666666666,
+            1.6833333333333322,
+            0.35,
+            0.016666666666666666
+          ],
+          "roleIdleSeconds": [
+            1.8833333333333315,
+            1.4166666666666665,
+            0.19999999999999998,
+            1.5333333333333328,
+            1.866666666666665
+          ],
+          "staticHoldSeconds": [
+            0.8666666666666677,
+            0.8666666666666677,
+            0,
+            0.9833333333333347,
+            0.9833333333333347
+          ],
+          "observedUntilTick": 63
+        }
+      ],
+      "inputIdleSeconds": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "longestUnchangedInputSeconds": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.8000000000000023,
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "rescueObservationSeconds": [
+        1.9000000000000026,
+        1.9000000000000026,
+        1.9000000000000026,
+        1.9000000000000026,
+        1.9000000000000026
+      ],
+      "rescueMotionlessSeconds": [
+        0.8333333333333333,
+        0.8666666666666666,
+        0,
+        0.9666666666666666,
+        0.8999999999999999
+      ],
+      "staticCounterexampleEpisodes": [],
+      "frozenCounterexampleEpisodes": [],
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.04492764362367069,
+      "maximumSpeedMps": 4.682280827494431,
+      "stepExecutionMs": {
+        "count": 63,
+        "min": 1.316500000000815,
+        "p50": 2.855542000001151,
+        "p95": 16.561957999998413,
+        "p99": 40.65033400000175,
+        "max": 40.65033400000175,
+        "mean": 5.248060920634984
+      },
+      "finalStateSha256": "23c1a63fbceac0cf35578794d3a7bef7bafda20b12a1210a5b10ce4caf92a19c",
+      "policyInputsSha256": "86f34972e0e17a09548d829054640613b3aa9f4cd24e0d0f572c4fce496eb735",
+      "error": null,
+      "evidenceComplete": true,
+      "eventCounts": {
+        "fall": 1,
+        "catch": 1,
+        "climb": 1,
+        "recovery": 1
+      },
+      "diagnostics": {
+        "solverIterations": 14,
+        "contactProjections": 73,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 645.3998303810359,
+        "potentialEnergyJ": 1781.496,
+        "motorWorkJ": 3364.931342190167,
+        "gravityWorkJ": 853.6196404081086,
+        "ropeContactWorkJ": -2762.1189409523668,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 1,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 10,
+        "maximumEnergyProjectionJ": 2457.454350106266,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "finalBodyStates": [
+        {
+          "id": 0,
+          "position": {
+            "x": -5.771818161010742,
+            "y": 0.45399999618530273,
+            "z": -1.520995020866394
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 1,
+          "position": {
+            "x": -3.003683567047119,
+            "y": 0.45399999618530273,
+            "z": -1.4547827243804932
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 2,
+          "position": {
+            "x": 0.37373486161231995,
+            "y": 0.45399999618530273,
+            "z": -0.33273330330848694
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 3,
+          "position": {
+            "x": 2.630244255065918,
+            "y": 0.45399999618530273,
+            "z": -0.5380101203918457
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 4,
+          "position": {
+            "x": 5.673154354095459,
+            "y": 0.45399999618530273,
+            "z": -1.8886364698410034
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        }
+      ]
+    },
+    {
+      "ordinal": 9,
+      "seed": 1701,
+      "family": "balanced",
+      "scene": "rescue",
+      "playerCount": 6,
+      "policy": "recovery",
+      "tickHz": 30,
+      "horizonSeconds": 60,
+      "observedSeconds": 2.033333333333333,
+      "ticks": 61,
+      "stepAttempts": 61,
+      "ending": "fixture-recovered",
+      "runStatus": "active",
+      "progress": 0,
+      "firstFallSeconds": 0.2,
+      "episodes": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            3
+          ],
+          "status": "recovered",
+          "recoveredTick": 60,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0,
+            0.5333333333333333,
+            1.6166666666666658,
+            0.35,
+            0.016666666666666666
+          ],
+          "roleIdleSeconds": [
+            1.816666666666665,
+            1.816666666666665,
+            1.2833333333333337,
+            0.19999999999999998,
+            1.4666666666666663,
+            1.7999999999999985
+          ],
+          "staticHoldSeconds": [
+            0.8000000000000008,
+            0.8000000000000008,
+            0.8000000000000008,
+            0,
+            0.9833333333333347,
+            0.9833333333333347
+          ],
+          "observedUntilTick": 61
+        }
+      ],
+      "inputIdleSeconds": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "longestUnchangedInputSeconds": [
+        0.9999999999999999,
+        0.9999999999999999,
+        0.5333333333333333,
+        1.8000000000000023,
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "rescueObservationSeconds": [
+        1.8333333333333357,
+        1.8333333333333357,
+        1.8333333333333357,
+        1.8333333333333357,
+        1.8333333333333357,
+        1.8333333333333357
+      ],
+      "rescueMotionlessSeconds": [
+        0.8333333333333333,
+        0.8333333333333333,
+        0.8999999999999999,
+        0,
+        1.0333333333333332,
+        0.8999999999999999
+      ],
+      "staticCounterexampleEpisodes": [],
+      "frozenCounterexampleEpisodes": [],
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.04483601525525138,
+      "maximumSpeedMps": 4.683142722270482,
+      "stepExecutionMs": {
+        "count": 61,
+        "min": 1.3677500000012515,
+        "p50": 3.462875000001077,
+        "p95": 30.83650000000125,
+        "p99": 46.150875000003,
+        "max": 46.150875000003,
+        "mean": 6.566575163934266
+      },
+      "finalStateSha256": "639a5af67c1c3c476051478bc2125fc150699a517bcc5b93095202b0280f9680",
+      "policyInputsSha256": "3494ac1e0addf055da96d63ed674d4ef19f650a43e0793285160261246ef1989",
+      "error": null,
+      "evidenceComplete": true,
+      "eventCounts": {
+        "fall": 1,
+        "climb": 1,
+        "recovery": 1
+      },
+      "diagnostics": {
+        "solverIterations": 14,
+        "contactProjections": 73,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 1169.9276622189643,
+        "potentialEnergyJ": 2137.7952,
+        "motorWorkJ": 3814.7887818732493,
+        "gravityWorkJ": 1044.8553502992086,
+        "ropeContactWorkJ": -2620.370724593854,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 1,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 12,
+        "maximumEnergyProjectionJ": 1503.672964229034,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "counterPolicy": {
+        "armedTick": 0,
+        "heldPlayerIds": [],
+        "wholeEpisodeHoldVerifiedIds": [],
+        "interventions": []
+      },
+      "finalBodyStates": [
+        {
+          "id": 0,
+          "position": {
+            "x": -6.672757148742676,
+            "y": 0.45399999618530273,
+            "z": -1.3447753190994263
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 1,
+          "position": {
+            "x": -5.016746997833252,
+            "y": 0.45399999618530273,
+            "z": -1.5639057159423828
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 2,
+          "position": {
+            "x": -1.7708861827850342,
+            "y": 0.45399999618530273,
+            "z": -1.6079758405685425
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 3,
+          "position": {
+            "x": 1.263795018196106,
+            "y": 0.45399999618530273,
+            "z": -0.3195469379425049
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 4,
+          "position": {
+            "x": 3.335489273071289,
+            "y": 0.45399999618530273,
+            "z": -0.5446488261222839
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        },
+        {
+          "id": 5,
+          "position": {
+            "x": 6.284638404846191,
+            "y": 0.45399999618530273,
+            "z": -1.8063836097717285
+          },
+          "support": "ground",
+          "rescueState": "safe"
+        }
+      ]
+    }
+  ],
+  "strata": [
+    {
+      "scene": "crossing",
+      "playerCount": 2,
+      "policy": "recovery",
+      "metrics": {
+        "trajectories": 1,
+        "crossingTrajectories": 1,
+        "complete": 1,
+        "failed": 0,
+        "fixtureRecovered": 0,
+        "censored": 0,
+        "errors": 0,
+        "incompleteEvidence": 0,
+        "runOutcome": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "incidentCountPerTrajectory": {
+          "count": 1,
+          "min": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "trajectoriesWithoutIncident": 1,
+        "firstFallSecondsObservedOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "eventualRecovery": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "firstAttemptRecovery": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "rescueSecondsSuccessfulOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "unresolvedRescueObservationSeconds": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "failedIncidentCount": 0,
+        "cascadingEpisodes": 0,
+        "cascadeCount": 0,
+        "completedRunSecondsOnly": {
+          "count": 1,
+          "min": 18.7,
+          "p50": 18.7,
+          "p95": 18.7,
+          "p99": 18.7,
+          "max": 18.7,
+          "mean": 18.7
+        },
+        "anyTerminalRunSecondsOnly": {
+          "count": 1,
+          "min": 18.7,
+          "p50": 18.7,
+          "p95": 18.7,
+          "p99": 18.7,
+          "max": 18.7,
+          "mean": 18.7
+        },
+        "observedExposureSecondsIncludingCensoring": {
+          "count": 1,
+          "min": 18.7,
+          "p50": 18.7,
+          "p95": 18.7,
+          "p99": 18.7,
+          "max": 18.7,
+          "mean": 18.7
+        },
+        "runDurationSurvival": {
+          "observations": 1,
+          "medianSeconds": 18.7,
+          "method": "Kaplan–Meier time to any terminal run outcome; administrative censoring is not an event; independence is unproven.",
+          "curve": [
+            {
+              "seconds": 18.7,
+              "atRisk": 1,
+              "events": 1,
+              "censored": 0,
+              "survival": 0
+            }
+          ]
+        },
+        "fourIncidentSelection": {
+          "observedTrajectories": 0,
+          "completed": 0,
+          "status": "Descriptive selection by observed incident count, not a controlled four-incident completion experiment."
+        },
+        "perPlayerSimulationIdleFractionProxy": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "staticBraceRecoveryCounterexamples": 0,
+        "frozenTailRecoveryCounterexamples": 0,
+        "executedTicks": 561,
+        "stepAttempts": 561
+      }
+    },
+    {
+      "scene": "crossing",
+      "playerCount": 3,
+      "policy": "recovery",
+      "metrics": {
+        "trajectories": 1,
+        "crossingTrajectories": 1,
+        "complete": 1,
+        "failed": 0,
+        "fixtureRecovered": 0,
+        "censored": 0,
+        "errors": 0,
+        "incompleteEvidence": 0,
+        "runOutcome": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "incidentCountPerTrajectory": {
+          "count": 1,
+          "min": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "trajectoriesWithoutIncident": 1,
+        "firstFallSecondsObservedOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "eventualRecovery": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "firstAttemptRecovery": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "rescueSecondsSuccessfulOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "unresolvedRescueObservationSeconds": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "failedIncidentCount": 0,
+        "cascadingEpisodes": 0,
+        "cascadeCount": 0,
+        "completedRunSecondsOnly": {
+          "count": 1,
+          "min": 19.533333333333335,
+          "p50": 19.533333333333335,
+          "p95": 19.533333333333335,
+          "p99": 19.533333333333335,
+          "max": 19.533333333333335,
+          "mean": 19.533333333333335
+        },
+        "anyTerminalRunSecondsOnly": {
+          "count": 1,
+          "min": 19.533333333333335,
+          "p50": 19.533333333333335,
+          "p95": 19.533333333333335,
+          "p99": 19.533333333333335,
+          "max": 19.533333333333335,
+          "mean": 19.533333333333335
+        },
+        "observedExposureSecondsIncludingCensoring": {
+          "count": 1,
+          "min": 19.533333333333335,
+          "p50": 19.533333333333335,
+          "p95": 19.533333333333335,
+          "p99": 19.533333333333335,
+          "max": 19.533333333333335,
+          "mean": 19.533333333333335
+        },
+        "runDurationSurvival": {
+          "observations": 1,
+          "medianSeconds": 19.533333333333335,
+          "method": "Kaplan–Meier time to any terminal run outcome; administrative censoring is not an event; independence is unproven.",
+          "curve": [
+            {
+              "seconds": 19.533333333333335,
+              "atRisk": 1,
+              "events": 1,
+              "censored": 0,
+              "survival": 0
+            }
+          ]
+        },
+        "fourIncidentSelection": {
+          "observedTrajectories": 0,
+          "completed": 0,
+          "status": "Descriptive selection by observed incident count, not a controlled four-incident completion experiment."
+        },
+        "perPlayerSimulationIdleFractionProxy": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "staticBraceRecoveryCounterexamples": 0,
+        "frozenTailRecoveryCounterexamples": 0,
+        "executedTicks": 586,
+        "stepAttempts": 586
+      }
+    },
+    {
+      "scene": "crossing",
+      "playerCount": 4,
+      "policy": "recovery",
+      "metrics": {
+        "trajectories": 1,
+        "crossingTrajectories": 1,
+        "complete": 1,
+        "failed": 0,
+        "fixtureRecovered": 0,
+        "censored": 0,
+        "errors": 0,
+        "incompleteEvidence": 0,
+        "runOutcome": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "incidentCountPerTrajectory": {
+          "count": 1,
+          "min": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "trajectoriesWithoutIncident": 1,
+        "firstFallSecondsObservedOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "eventualRecovery": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "firstAttemptRecovery": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "rescueSecondsSuccessfulOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "unresolvedRescueObservationSeconds": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "failedIncidentCount": 0,
+        "cascadingEpisodes": 0,
+        "cascadeCount": 0,
+        "completedRunSecondsOnly": {
+          "count": 1,
+          "min": 20.333333333333332,
+          "p50": 20.333333333333332,
+          "p95": 20.333333333333332,
+          "p99": 20.333333333333332,
+          "max": 20.333333333333332,
+          "mean": 20.333333333333332
+        },
+        "anyTerminalRunSecondsOnly": {
+          "count": 1,
+          "min": 20.333333333333332,
+          "p50": 20.333333333333332,
+          "p95": 20.333333333333332,
+          "p99": 20.333333333333332,
+          "max": 20.333333333333332,
+          "mean": 20.333333333333332
+        },
+        "observedExposureSecondsIncludingCensoring": {
+          "count": 1,
+          "min": 20.333333333333332,
+          "p50": 20.333333333333332,
+          "p95": 20.333333333333332,
+          "p99": 20.333333333333332,
+          "max": 20.333333333333332,
+          "mean": 20.333333333333332
+        },
+        "runDurationSurvival": {
+          "observations": 1,
+          "medianSeconds": 20.333333333333332,
+          "method": "Kaplan–Meier time to any terminal run outcome; administrative censoring is not an event; independence is unproven.",
+          "curve": [
+            {
+              "seconds": 20.333333333333332,
+              "atRisk": 1,
+              "events": 1,
+              "censored": 0,
+              "survival": 0
+            }
+          ]
+        },
+        "fourIncidentSelection": {
+          "observedTrajectories": 0,
+          "completed": 0,
+          "status": "Descriptive selection by observed incident count, not a controlled four-incident completion experiment."
+        },
+        "perPlayerSimulationIdleFractionProxy": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "staticBraceRecoveryCounterexamples": 0,
+        "frozenTailRecoveryCounterexamples": 0,
+        "executedTicks": 610,
+        "stepAttempts": 610
+      }
+    },
+    {
+      "scene": "crossing",
+      "playerCount": 5,
+      "policy": "recovery",
+      "metrics": {
+        "trajectories": 1,
+        "crossingTrajectories": 1,
+        "complete": 1,
+        "failed": 0,
+        "fixtureRecovered": 0,
+        "censored": 0,
+        "errors": 0,
+        "incompleteEvidence": 0,
+        "runOutcome": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "incidentCountPerTrajectory": {
+          "count": 1,
+          "min": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "trajectoriesWithoutIncident": 1,
+        "firstFallSecondsObservedOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "eventualRecovery": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "firstAttemptRecovery": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "rescueSecondsSuccessfulOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "unresolvedRescueObservationSeconds": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "failedIncidentCount": 0,
+        "cascadingEpisodes": 0,
+        "cascadeCount": 0,
+        "completedRunSecondsOnly": {
+          "count": 1,
+          "min": 21.133333333333333,
+          "p50": 21.133333333333333,
+          "p95": 21.133333333333333,
+          "p99": 21.133333333333333,
+          "max": 21.133333333333333,
+          "mean": 21.133333333333333
+        },
+        "anyTerminalRunSecondsOnly": {
+          "count": 1,
+          "min": 21.133333333333333,
+          "p50": 21.133333333333333,
+          "p95": 21.133333333333333,
+          "p99": 21.133333333333333,
+          "max": 21.133333333333333,
+          "mean": 21.133333333333333
+        },
+        "observedExposureSecondsIncludingCensoring": {
+          "count": 1,
+          "min": 21.133333333333333,
+          "p50": 21.133333333333333,
+          "p95": 21.133333333333333,
+          "p99": 21.133333333333333,
+          "max": 21.133333333333333,
+          "mean": 21.133333333333333
+        },
+        "runDurationSurvival": {
+          "observations": 1,
+          "medianSeconds": 21.133333333333333,
+          "method": "Kaplan–Meier time to any terminal run outcome; administrative censoring is not an event; independence is unproven.",
+          "curve": [
+            {
+              "seconds": 21.133333333333333,
+              "atRisk": 1,
+              "events": 1,
+              "censored": 0,
+              "survival": 0
+            }
+          ]
+        },
+        "fourIncidentSelection": {
+          "observedTrajectories": 0,
+          "completed": 0,
+          "status": "Descriptive selection by observed incident count, not a controlled four-incident completion experiment."
+        },
+        "perPlayerSimulationIdleFractionProxy": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "staticBraceRecoveryCounterexamples": 0,
+        "frozenTailRecoveryCounterexamples": 0,
+        "executedTicks": 634,
+        "stepAttempts": 634
+      }
+    },
+    {
+      "scene": "crossing",
+      "playerCount": 6,
+      "policy": "recovery",
+      "metrics": {
+        "trajectories": 1,
+        "crossingTrajectories": 1,
+        "complete": 1,
+        "failed": 0,
+        "fixtureRecovered": 0,
+        "censored": 0,
+        "errors": 0,
+        "incompleteEvidence": 0,
+        "runOutcome": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "incidentCountPerTrajectory": {
+          "count": 1,
+          "min": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "trajectoriesWithoutIncident": 1,
+        "firstFallSecondsObservedOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "eventualRecovery": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "firstAttemptRecovery": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "rescueSecondsSuccessfulOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "unresolvedRescueObservationSeconds": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "failedIncidentCount": 0,
+        "cascadingEpisodes": 0,
+        "cascadeCount": 0,
+        "completedRunSecondsOnly": {
+          "count": 1,
+          "min": 21.933333333333334,
+          "p50": 21.933333333333334,
+          "p95": 21.933333333333334,
+          "p99": 21.933333333333334,
+          "max": 21.933333333333334,
+          "mean": 21.933333333333334
+        },
+        "anyTerminalRunSecondsOnly": {
+          "count": 1,
+          "min": 21.933333333333334,
+          "p50": 21.933333333333334,
+          "p95": 21.933333333333334,
+          "p99": 21.933333333333334,
+          "max": 21.933333333333334,
+          "mean": 21.933333333333334
+        },
+        "observedExposureSecondsIncludingCensoring": {
+          "count": 1,
+          "min": 21.933333333333334,
+          "p50": 21.933333333333334,
+          "p95": 21.933333333333334,
+          "p99": 21.933333333333334,
+          "max": 21.933333333333334,
+          "mean": 21.933333333333334
+        },
+        "runDurationSurvival": {
+          "observations": 1,
+          "medianSeconds": 21.933333333333334,
+          "method": "Kaplan–Meier time to any terminal run outcome; administrative censoring is not an event; independence is unproven.",
+          "curve": [
+            {
+              "seconds": 21.933333333333334,
+              "atRisk": 1,
+              "events": 1,
+              "censored": 0,
+              "survival": 0
+            }
+          ]
+        },
+        "fourIncidentSelection": {
+          "observedTrajectories": 0,
+          "completed": 0,
+          "status": "Descriptive selection by observed incident count, not a controlled four-incident completion experiment."
+        },
+        "perPlayerSimulationIdleFractionProxy": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "staticBraceRecoveryCounterexamples": 0,
+        "frozenTailRecoveryCounterexamples": 0,
+        "executedTicks": 658,
+        "stepAttempts": 658
+      }
+    },
+    {
+      "scene": "rescue",
+      "playerCount": 2,
+      "policy": "recovery",
+      "metrics": {
+        "trajectories": 1,
+        "crossingTrajectories": 0,
+        "complete": 0,
+        "failed": 0,
+        "fixtureRecovered": 1,
+        "censored": 0,
+        "errors": 0,
+        "incompleteEvidence": 0,
+        "runOutcome": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "incidentCountPerTrajectory": {
+          "count": 1,
+          "min": 1,
+          "p50": 1,
+          "p95": 1,
+          "p99": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "trajectoriesWithoutIncident": 0,
+        "firstFallSecondsObservedOnly": {
+          "count": 1,
+          "min": 0.2,
+          "p50": 0.2,
+          "p95": 0.2,
+          "p99": 0.2,
+          "max": 0.2,
+          "mean": 0.2
+        },
+        "eventualRecovery": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "firstAttemptRecovery": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "rescueSecondsSuccessfulOnly": {
+          "count": 1,
+          "min": 2.2666666666666666,
+          "p50": 2.2666666666666666,
+          "p95": 2.2666666666666666,
+          "p99": 2.2666666666666666,
+          "max": 2.2666666666666666,
+          "mean": 2.2666666666666666
+        },
+        "unresolvedRescueObservationSeconds": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "failedIncidentCount": 0,
+        "cascadingEpisodes": 0,
+        "cascadeCount": 0,
+        "completedRunSecondsOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "anyTerminalRunSecondsOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "observedExposureSecondsIncludingCensoring": {
+          "count": 1,
+          "min": 2.5,
+          "p50": 2.5,
+          "p95": 2.5,
+          "p99": 2.5,
+          "max": 2.5,
+          "mean": 2.5
+        },
+        "runDurationSurvival": {
+          "observations": 0,
+          "medianSeconds": null,
+          "method": "Kaplan–Meier time to any terminal run outcome; administrative censoring is not an event; independence is unproven.",
+          "curve": []
+        },
+        "fourIncidentSelection": {
+          "observedTrajectories": 0,
+          "completed": 0,
+          "status": "Descriptive selection by observed incident count, not a controlled four-incident completion experiment."
+        },
+        "perPlayerSimulationIdleFractionProxy": {
+          "count": 2,
+          "min": 0.2173913043478262,
+          "p50": 0.2173913043478262,
+          "p95": 0.8478260869565216,
+          "p99": 0.8478260869565216,
+          "max": 0.8478260869565216,
+          "mean": 0.532608695652174
+        },
+        "staticBraceRecoveryCounterexamples": 0,
+        "frozenTailRecoveryCounterexamples": 0,
+        "executedTicks": 75,
+        "stepAttempts": 75
+      }
+    },
+    {
+      "scene": "rescue",
+      "playerCount": 3,
+      "policy": "recovery",
+      "metrics": {
+        "trajectories": 1,
+        "crossingTrajectories": 0,
+        "complete": 0,
+        "failed": 0,
+        "fixtureRecovered": 1,
+        "censored": 0,
+        "errors": 0,
+        "incompleteEvidence": 0,
+        "runOutcome": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "incidentCountPerTrajectory": {
+          "count": 1,
+          "min": 1,
+          "p50": 1,
+          "p95": 1,
+          "p99": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "trajectoriesWithoutIncident": 0,
+        "firstFallSecondsObservedOnly": {
+          "count": 1,
+          "min": 0.2,
+          "p50": 0.2,
+          "p95": 0.2,
+          "p99": 0.2,
+          "max": 0.2,
+          "mean": 0.2
+        },
+        "eventualRecovery": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "firstAttemptRecovery": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "rescueSecondsSuccessfulOnly": {
+          "count": 1,
+          "min": 2.1,
+          "p50": 2.1,
+          "p95": 2.1,
+          "p99": 2.1,
+          "max": 2.1,
+          "mean": 2.1
+        },
+        "unresolvedRescueObservationSeconds": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "failedIncidentCount": 0,
+        "cascadingEpisodes": 0,
+        "cascadeCount": 0,
+        "completedRunSecondsOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "anyTerminalRunSecondsOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "observedExposureSecondsIncludingCensoring": {
+          "count": 1,
+          "min": 2.3333333333333335,
+          "p50": 2.3333333333333335,
+          "p95": 2.3333333333333335,
+          "p99": 2.3333333333333335,
+          "max": 2.3333333333333335,
+          "mean": 2.3333333333333335
+        },
+        "runDurationSurvival": {
+          "observations": 0,
+          "medianSeconds": null,
+          "method": "Kaplan–Meier time to any terminal run outcome; administrative censoring is not an event; independence is unproven.",
+          "curve": []
+        },
+        "fourIncidentSelection": {
+          "observedTrajectories": 0,
+          "completed": 0,
+          "status": "Descriptive selection by observed incident count, not a controlled four-incident completion experiment."
+        },
+        "perPlayerSimulationIdleFractionProxy": {
+          "count": 3,
+          "min": 0.1328125000000001,
+          "p50": 0.7812499999999999,
+          "p95": 0.8203124999999999,
+          "p99": 0.8203124999999999,
+          "max": 0.8203124999999999,
+          "mean": 0.578125
+        },
+        "staticBraceRecoveryCounterexamples": 0,
+        "frozenTailRecoveryCounterexamples": 0,
+        "executedTicks": 70,
+        "stepAttempts": 70
+      }
+    },
+    {
+      "scene": "rescue",
+      "playerCount": 4,
+      "policy": "recovery",
+      "metrics": {
+        "trajectories": 1,
+        "crossingTrajectories": 0,
+        "complete": 0,
+        "failed": 0,
+        "fixtureRecovered": 1,
+        "censored": 0,
+        "errors": 0,
+        "incompleteEvidence": 0,
+        "runOutcome": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "incidentCountPerTrajectory": {
+          "count": 1,
+          "min": 1,
+          "p50": 1,
+          "p95": 1,
+          "p99": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "trajectoriesWithoutIncident": 0,
+        "firstFallSecondsObservedOnly": {
+          "count": 1,
+          "min": 0.2,
+          "p50": 0.2,
+          "p95": 0.2,
+          "p99": 0.2,
+          "max": 0.2,
+          "mean": 0.2
+        },
+        "eventualRecovery": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "firstAttemptRecovery": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "rescueSecondsSuccessfulOnly": {
+          "count": 1,
+          "min": 1.6666666666666667,
+          "p50": 1.6666666666666667,
+          "p95": 1.6666666666666667,
+          "p99": 1.6666666666666667,
+          "max": 1.6666666666666667,
+          "mean": 1.6666666666666667
+        },
+        "unresolvedRescueObservationSeconds": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "failedIncidentCount": 0,
+        "cascadingEpisodes": 0,
+        "cascadeCount": 0,
+        "completedRunSecondsOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "anyTerminalRunSecondsOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "observedExposureSecondsIncludingCensoring": {
+          "count": 1,
+          "min": 1.9,
+          "p50": 1.9,
+          "p95": 1.9,
+          "p99": 1.9,
+          "max": 1.9,
+          "mean": 1.9
+        },
+        "runDurationSurvival": {
+          "observations": 0,
+          "medianSeconds": null,
+          "method": "Kaplan–Meier time to any terminal run outcome; administrative censoring is not an event; independence is unproven.",
+          "curve": []
+        },
+        "fourIncidentSelection": {
+          "observedTrajectories": 0,
+          "completed": 0,
+          "status": "Descriptive selection by observed incident count, not a controlled four-incident completion experiment."
+        },
+        "perPlayerSimulationIdleFractionProxy": {
+          "count": 4,
+          "min": 0.11881188118811883,
+          "p50": 0.7425742574257427,
+          "p95": 1,
+          "p99": 1,
+          "max": 1,
+          "mean": 0.6584158415841586
+        },
+        "staticBraceRecoveryCounterexamples": 0,
+        "frozenTailRecoveryCounterexamples": 0,
+        "executedTicks": 57,
+        "stepAttempts": 57
+      }
+    },
+    {
+      "scene": "rescue",
+      "playerCount": 5,
+      "policy": "recovery",
+      "metrics": {
+        "trajectories": 1,
+        "crossingTrajectories": 0,
+        "complete": 0,
+        "failed": 0,
+        "fixtureRecovered": 1,
+        "censored": 0,
+        "errors": 0,
+        "incompleteEvidence": 0,
+        "runOutcome": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "incidentCountPerTrajectory": {
+          "count": 1,
+          "min": 1,
+          "p50": 1,
+          "p95": 1,
+          "p99": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "trajectoriesWithoutIncident": 0,
+        "firstFallSecondsObservedOnly": {
+          "count": 1,
+          "min": 0.2,
+          "p50": 0.2,
+          "p95": 0.2,
+          "p99": 0.2,
+          "max": 0.2,
+          "mean": 0.2
+        },
+        "eventualRecovery": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "firstAttemptRecovery": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "rescueSecondsSuccessfulOnly": {
+          "count": 1,
+          "min": 1.8666666666666667,
+          "p50": 1.8666666666666667,
+          "p95": 1.8666666666666667,
+          "p99": 1.8666666666666667,
+          "max": 1.8666666666666667,
+          "mean": 1.8666666666666667
+        },
+        "unresolvedRescueObservationSeconds": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "failedIncidentCount": 0,
+        "cascadingEpisodes": 0,
+        "cascadeCount": 0,
+        "completedRunSecondsOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "anyTerminalRunSecondsOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "observedExposureSecondsIncludingCensoring": {
+          "count": 1,
+          "min": 2.1,
+          "p50": 2.1,
+          "p95": 2.1,
+          "p99": 2.1,
+          "max": 2.1,
+          "mean": 2.1
+        },
+        "runDurationSurvival": {
+          "observations": 0,
+          "medianSeconds": null,
+          "method": "Kaplan–Meier time to any terminal run outcome; administrative censoring is not an event; independence is unproven.",
+          "curve": []
+        },
+        "fourIncidentSelection": {
+          "observedTrajectories": 0,
+          "completed": 0,
+          "status": "Descriptive selection by observed incident count, not a controlled four-incident completion experiment."
+        },
+        "perPlayerSimulationIdleFractionProxy": {
+          "count": 5,
+          "min": 0.10619469026548678,
+          "p50": 0.8141592920353982,
+          "p95": 1,
+          "p99": 1,
+          "max": 1,
+          "mean": 0.7327433628318584
+        },
+        "staticBraceRecoveryCounterexamples": 0,
+        "frozenTailRecoveryCounterexamples": 0,
+        "executedTicks": 63,
+        "stepAttempts": 63
+      }
+    },
+    {
+      "scene": "rescue",
+      "playerCount": 6,
+      "policy": "recovery",
+      "metrics": {
+        "trajectories": 1,
+        "crossingTrajectories": 0,
+        "complete": 0,
+        "failed": 0,
+        "fixtureRecovered": 1,
+        "censored": 0,
+        "errors": 0,
+        "incompleteEvidence": 0,
+        "runOutcome": {
+          "started": 0,
+          "successes": 0,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": null,
+          "resolvedOnlySuccessFraction": null,
+          "upperBoundIfAllCensoredSucceed": null
+        },
+        "incidentCountPerTrajectory": {
+          "count": 1,
+          "min": 1,
+          "p50": 1,
+          "p95": 1,
+          "p99": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "trajectoriesWithoutIncident": 0,
+        "firstFallSecondsObservedOnly": {
+          "count": 1,
+          "min": 0.2,
+          "p50": 0.2,
+          "p95": 0.2,
+          "p99": 0.2,
+          "max": 0.2,
+          "mean": 0.2
+        },
+        "eventualRecovery": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "firstAttemptRecovery": {
+          "started": 1,
+          "successes": 1,
+          "failures": 0,
+          "censored": 0,
+          "conservativeSuccessFraction": 1,
+          "resolvedOnlySuccessFraction": 1,
+          "upperBoundIfAllCensoredSucceed": 1
+        },
+        "rescueSecondsSuccessfulOnly": {
+          "count": 1,
+          "min": 1.8,
+          "p50": 1.8,
+          "p95": 1.8,
+          "p99": 1.8,
+          "max": 1.8,
+          "mean": 1.8
+        },
+        "unresolvedRescueObservationSeconds": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "failedIncidentCount": 0,
+        "cascadingEpisodes": 0,
+        "cascadeCount": 0,
+        "completedRunSecondsOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "anyTerminalRunSecondsOnly": {
+          "count": 0,
+          "min": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null,
+          "mean": null
+        },
+        "observedExposureSecondsIncludingCensoring": {
+          "count": 1,
+          "min": 2.033333333333333,
+          "p50": 2.033333333333333,
+          "p95": 2.033333333333333,
+          "p99": 2.033333333333333,
+          "max": 2.033333333333333,
+          "mean": 2.033333333333333
+        },
+        "runDurationSurvival": {
+          "observations": 0,
+          "medianSeconds": null,
+          "method": "Kaplan–Meier time to any terminal run outcome; administrative censoring is not an event; independence is unproven.",
+          "curve": []
+        },
+        "fourIncidentSelection": {
+          "observedTrajectories": 0,
+          "completed": 0,
+          "status": "Descriptive selection by observed incident count, not a controlled four-incident completion experiment."
+        },
+        "perPlayerSimulationIdleFractionProxy": {
+          "count": 6,
+          "min": 0.1100917431192661,
+          "p50": 0.8073394495412843,
+          "p95": 1,
+          "p99": 1,
+          "max": 1,
+          "mean": 0.7691131498470948
+        },
+        "staticBraceRecoveryCounterexamples": 0,
+        "frozenTailRecoveryCounterexamples": 0,
+        "executedTicks": 61,
+        "stepAttempts": 61
+      }
+    }
+  ]
+}

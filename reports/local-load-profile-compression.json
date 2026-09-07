@@ -1,0 +1,19 @@
+{
+  "purpose": "Lossless transport/storage packaging only; gzip mtime 0, original raw SHA-256 retained. Analyzer accepts raw JSON or gzip. No measurements changed.",
+  "artifacts": [
+    {
+      "path": "local-load-profile-63e96db7-1847-4002-b37f-bd803fe509b9/allocation-crossing.heapprofile.json.gz",
+      "compressedBytes": 2069568,
+      "compressedSha256": "5e59dabba517e9296c0fbc1ef2a26e9db7fc5193d2404a7471c99fa032df1201",
+      "decompressedBytes": 20099951,
+      "decompressedSha256": "6fc57ce17658851ae3e515a9e0d50cab6fe6bb89131e8f38f09df90089ad0354"
+    },
+    {
+      "path": "local-load-profile-63e96db7-1847-4002-b37f-bd803fe509b9/allocation-rescue.heapprofile.json.gz",
+      "compressedBytes": 595519,
+      "compressedSha256": "1a9cf85563a6d9903b3ef0d31185304d4257983868a240714e9733a7dc5432c1",
+      "decompressedBytes": 6010769,
+      "decompressedSha256": "8281eeffc594416e47a6c4aaef8d688ab13e911cc7215aafc5c7f17981d68de4"
+    }
+  ]
+}

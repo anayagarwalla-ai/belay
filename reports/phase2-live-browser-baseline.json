@@ -1,0 +1,2258 @@
+{
+  "scope": "Real loopback Colyseus/WebSocket/browser integration. One automated browser controls P1 with synthetic Space key down for five seconds; five visibly labeled SDK recovery bots control P2\u2013P6. No humans or stranger gate evidence. Room paused for capture. Later source changes do not retroactively qualify this baseline.",
+  "sourceCommit": "3506f9480e0b0c6d3eb4c2da80afc6a2880dc513",
+  "sourceSha256": {
+    "tuning.ts": "4a099d43f366b6af30950cc5d2ebcaf3e9f286cc24c154dc84b89f29e5fe0c18",
+    "shared/expedition-simulation.ts": "97afe573eb1b7753094ee2ecd338ccd411bf64f8a0e312a39b7e0fb40e7836a3",
+    "shared/contact-geometry.ts": "be27fd0e94f87c17d4de8a066b7cfd3c8ab18c307f409deabe3d28df63a8b2cd",
+    "client/connection.ts": "b7aa5836f1dfd96a6e1785432f2dbe9b2d68a5be145255908484423ab9f0dc18",
+    "client/viewport.ts": "a086396ed2c057fb91b2944de3d70411ac8b486d9860681bf4988562801b576b",
+    "scripts/bot-team.ts": "9c4e3d62378a428e758c35faf603ae7b1f6290904fe8044f90008a5e7afbb61f"
+  },
+  "observedReport": {
+    "generatedAt": "2026-09-07T23:03:02.417Z",
+    "captureStartedAt": "2026-09-07T23:03:02.407Z",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+    "phase": 2,
+    "gateVerdict": "NOT EVALUATED",
+    "tuning": {
+      "version": "phase2-1",
+      "phase": 2,
+      "seed": 1701,
+      "players": 2,
+      "hardCap": 6,
+      "tickHz": 30,
+      "physicsHz": 60,
+      "solverIterations": 8,
+      "maximumSolverIterations": 32,
+      "maximumCatchupTicks": 4,
+      "gravity": 9.81,
+      "body": {
+        "mass": 80,
+        "width": 0.55,
+        "height": 0.9,
+        "depth": 0.55,
+        "walkSpeed": 3.1,
+        "acceleration": 10,
+        "coastDeceleration": 1.4,
+        "braceFriction": 1.6,
+        "braceMassMultiplier": 6,
+        "groundFriction": 0.08,
+        "contactPredictionM": 0.12,
+        "harnessHeight": 0.42,
+        "maximumInputAgeMs": 250
+      },
+      "rope": {
+        "length": 3.6,
+        "segments": 12,
+        "particleMass": 0.2,
+        "drag": 2.5,
+        "floorHeight": 0.04,
+        "radius": 0.035,
+        "tensionReferenceN": 700,
+        "tensionSmoothingSeconds": 0.1,
+        "tautFraction": 0.97,
+        "initialSpacing": 2.5,
+        "initialSag": 0.35,
+        "initialBend": 0.6,
+        "solverToleranceM": 0.01
+      },
+      "terrain": {
+        "halfExtent": 500,
+        "gridUnit": 1,
+        "landmarkCount": 24,
+        "landmarkRange": 36,
+        "markSize": 0.18
+      },
+      "camera": {
+        "bridgeCueSagM": 0.06,
+        "catchRadiusMultiplier": 1.75,
+        "terrainEdgeWidthM": 0.04,
+        "wallCueReachM": 0.8,
+        "maximumCueEvidence": 256,
+        "localWeight": 0.35,
+        "elevationDegrees": 55,
+        "azimuthDegrees": 45,
+        "baseVerticalSpan": 11,
+        "maximumVerticalSpan": 24,
+        "margin": 4,
+        "smoothingSeconds": 0.22,
+        "distance": 60,
+        "maximumPixelRatio": 2,
+        "edgeInsetPx": 36,
+        "labelOffsetPx": 26,
+        "braceVisualHeight": 0.58
+      },
+      "network": {
+        "inputHz": 60,
+        "interpolationMs": 70,
+        "snapshotHistory": 32,
+        "reconciliationSeconds": 0.07,
+        "hardCorrectionDistance": 1.5,
+        "maximumPredictionMs": 100,
+        "pingIntervalMs": 500,
+        "staleSnapshotMs": 1000,
+        "probeTimeoutMs": 2000,
+        "maximumMessagesPerSecond": 120,
+        "maximumFrameBytes": 4096,
+        "telemetrySamples": 2048,
+        "debugTimeoutMs": 5000,
+        "joinTimeoutMs": 10000,
+        "maximumPendingDebugCommands": 8,
+        "maximumDebugCommandsPerSecond": 12,
+        "maximumSnapshotBufferedBytes": 65536,
+        "maximumDebugResponseBytes": 16777216,
+        "hudUpdateMs": 250,
+        "maximumStepTicks": 3600,
+        "rttBracketsMs": [
+          30,
+          60,
+          100,
+          150,
+          250
+        ],
+        "emulatedJitterMs": 10,
+        "maximumAddedRttMs": 500,
+        "maximumJitterMs": 50,
+        "maximumDelayedBytes": 1048576,
+        "maximumTapeSeconds": 1200
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "port": 2567,
+        "webPort": 5173,
+        "gatewayPort": 8787,
+        "protectedPort": 8788,
+        "sessionLifetimeSeconds": 7200,
+        "tokenBytes": 32,
+        "maximumAuthBodyBytes": 1024,
+        "authAttemptsPerMinute": 15,
+        "roomIdleMinutes": 30,
+        "httpTimeoutMs": 15000
+      },
+      "bot": {
+        "actionSeconds": 1.2,
+        "braceChance": 0.22,
+        "idleChance": 0.12,
+        "benchmarkRuns": 1000,
+        "benchmarkSeconds": 20
+      },
+      "physicsDiagnostics": {
+        "scenarioSeconds": 60,
+        "longWalkSeconds": 1200,
+        "crossingRadiansPerSecond": 0.6,
+        "circlingRadiansPerSecond": 2,
+        "circlingPhaseRadians": 1,
+        "circleBracePeriodsTicks": [
+          100,
+          70
+        ],
+        "circleBraceTicks": 20,
+        "togglePeriodsTicks": [
+          2,
+          3
+        ],
+        "randomActionSeconds": 0.1,
+        "randomBraceChance": 0.25,
+        "maximumBodyOverlapM": 0.005,
+        "maximumFloorErrorM": 0.001,
+        "maximumSpanErrorM": 0.01,
+        "maximumSegmentErrorM": 0.02,
+        "maximumSpeedMultiplier": 4,
+        "minimumWalkSpeedFraction": 0.8
+      },
+      "phase2": {
+        "defaultScene": "crossing",
+        "defaultPlayers": 4,
+        "routeHalfWidth": 12,
+        "routeStartZ": -16,
+        "finishZ": 55,
+        "finishApronM": 30,
+        "crevasseStarts": [
+          8,
+          20,
+          32,
+          44
+        ],
+        "crevasseWidth": 2.8,
+        "crevasseDepth": 12,
+        "terminalY": -16,
+        "bridgeHalfWidth": 1.1,
+        "bridgeThickness": 0.25,
+        "bridgeCapacityBodyWeights": [
+          0.9,
+          1.45
+        ],
+        "bridgeOverloadSeconds": 0.32,
+        "bridgeRecoveryRate": 2,
+        "bridgeCueStartFraction": 0.65,
+        "bridgeWarningSeconds": 0.4,
+        "rescueLipZ": 0,
+        "rescueSafeOffset": 0.8,
+        "rescueFallerAdvance": 0.7,
+        "rescueSpacing": 1.6,
+        "groundContactTolerance": 0.045,
+        "wallContactTolerance": 0.05,
+        "collisionSkin": 0.004,
+        "contactPredictionM": 0.002,
+        "collisionSweepPasses": 4,
+        "solverIterations": 12,
+        "maximumSolverIterations": 256,
+        "solverToleranceM": 0.005,
+        "iceTractionMultiplier": 0.3,
+        "wallClimbSpeed": 1.6,
+        "wallDescendSpeed": 1.8,
+        "wallAcceleration": 5,
+        "wallPressSpeed": 0.45,
+        "wallNormalEffortN": 900,
+        "wallFriction": 1.3,
+        "wallRopeSupportFraction": 0.08,
+        "fallDepth": 0.2,
+        "fallSpeed": 0.5,
+        "catchSpeed": 0.35,
+        "catchConfirmSeconds": 0.12,
+        "recoveryConfirmSeconds": 0.3,
+        "catchHighlightSeconds": 0.5,
+        "energyToleranceJ": 0.01,
+        "mechanicsProbeSeconds": 10,
+        "mechanicsLoadSeed": 2000,
+        "inputChangeEpsilon": 0.08,
+        "usefulMotionMps": 0.04,
+        "maximumIncidents": 64,
+        "maximumEvents": 256
+      },
+      "phase2Evidence": {
+        "targets": {
+          "rescueSeconds": [
+            10,
+            20
+          ],
+          "firstAttemptRecoveryFraction": [
+            0.6,
+            0.75
+          ],
+          "eventualRecoveryFraction": [
+            0.88,
+            0.92
+          ],
+          "fourIncidentCompletionFraction": [
+            0.6,
+            0.72
+          ],
+          "incidentsPerRun": [
+            3,
+            6
+          ],
+          "firstFallBeforeSeconds": 45,
+          "runSeconds": [
+            300,
+            600
+          ],
+          "maximumIdleFraction": 0.2
+        },
+        "trajectoryRuns": 1000,
+        "smokeTrajectories": 10,
+        "teamSizes": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "crossingSeconds": 600,
+        "rescueSeconds": 60,
+        "actionSeconds": 0.5,
+        "badWrongWayChance": 0.2,
+        "recoveryBraceCycleSeconds": 2,
+        "recoveryBraceFraction": 0.5,
+        "movementEpsilonM": 0.01,
+        "inputChangeEpsilon": 0.05,
+        "lifecycleRuns": 25,
+        "lifecycleSeconds": 2,
+        "replaySeconds": 20,
+        "maximumTimingBytes": 268435456,
+        "maximumReportBytes": 16777216,
+        "maximumSavedTapes": 20,
+        "maximumTapeOutputBytes": 33554432
+      },
+      "localLoad": {
+        "smokeRooms": 10,
+        "smokeSeconds": 30,
+        "largeRooms": 300,
+        "largeSeconds": 30,
+        "generatorProcesses": 4,
+        "maximumRooms": 300,
+        "maximumSeconds": 120,
+        "warmupMs": 2000,
+        "startLeadMs": 1000,
+        "sampleMs": 1000,
+        "startupTimeoutMs": 120000,
+        "maximumWallMs": 180000,
+        "shutdownGraceMs": 3000,
+        "maximumTotalRssBytes": 3221225472,
+        "minimumFreeMemoryBytes": 536870912,
+        "authorityHeapMiB": 1024,
+        "generatorHeapMiB": 256,
+        "maximumReportBytes": 67108864,
+        "maximumChildLogBytes": 16384,
+        "maximumInputBufferedBytes": 16384,
+        "maximumLatePeriods": 4,
+        "lifecycleCycles": 3,
+        "lifecycleRooms": 2,
+        "lifecycleHoldMs": 250,
+        "slowReaderStartFraction": 0.25,
+        "slowReaderDurationFraction": 0.25,
+        "churnStartFraction": 0.5,
+        "churnEveryRooms": 10,
+        "probePollMs": 25,
+        "eventLoopResolutionMs": 20
+      },
+      "clip": {
+        "seconds": 15,
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "videoBitsPerSecond": 800000,
+        "audioBitsPerSecond": 48000,
+        "maximumBytes": 2097152,
+        "retentionDays": 7,
+        "permanentSlots": 1,
+        "uploadsPerIdentityPerUtcDay": 3,
+        "globalBytes": 268435456,
+        "uploadsEnabled": false
+      },
+      "later": {
+        "idleBotSeconds": 20,
+        "reconnectSeconds": 60,
+        "attachWaitSeconds": 30,
+        "stableTensionFraction": 0.2,
+        "stableSeconds": 0.5,
+        "publicTeamSize": 4,
+        "minimumVoteTeam": 4,
+        "agreeingVotes": 3,
+        "dailyAttempts": 3
+      },
+      "gates": {
+        "tuningSessions": 6,
+        "sessionsPerFamily": 2,
+        "diagnosticSessions": 3,
+        "freePlayMinutes": 10
+      },
+      "tools": {
+        "operations": {
+          "startupTimeoutMs": 120000,
+          "tunnelStartupTimeoutMs": 90000,
+          "probeTimeoutMs": 3000,
+          "pollMs": 250,
+          "shutdownGraceMs": 3000,
+          "stopTimeoutMs": 15000,
+          "downloadTimeoutMs": 120000,
+          "maximumTunnelLogBytes": 16384,
+          "maximumDownloadBytes": 67108864
+        },
+        "cloudflaredVersion": "2026.8.3",
+        "cloudflaredSha256": {
+          "arm64": "40c9144d86df8937c5b43293a1f7d2d2107029aa74725023dd46b1b27154352f",
+          "x64": "61e1316266a00fd70ce40da011d612badc805367fb65293dd1925f938f704c99"
+        }
+      }
+    },
+    "familyDefinitions": {
+      "balanced": {
+        "label": "Intermediate / strong brace",
+        "ropeLength": 3.6,
+        "ropeDrag": 2.5,
+        "braceMassMultiplier": 6,
+        "braceFriction": 1.6
+      },
+      "short": {
+        "label": "Short / damped",
+        "ropeLength": 3,
+        "ropeDrag": 5,
+        "braceMassMultiplier": 4,
+        "braceFriction": 1.2
+      },
+      "loose": {
+        "label": "Long / momentum",
+        "ropeLength": 4.5,
+        "ropeDrag": 1.2,
+        "braceMassMultiplier": 4,
+        "braceFriction": 1.2
+      }
+    },
+    "connection": {
+      "connected": true,
+      "localPlayerId": 0,
+      "status": "Connected",
+      "sessionNumber": 1,
+      "roomId": "FDlBIWeOi"
+    },
+    "client": {
+      "measurementStartedAt": "2026-09-07T23:01:59.522Z",
+      "sessionNumber": 1,
+      "sceneEpoch": 4,
+      "rttMs": {
+        "samples": 125,
+        "p50": 0.4000000059604645,
+        "p95": 1.199999988079071,
+        "p99": 7.9000000059604645,
+        "max": 27.5
+      },
+      "jitterSuccessiveRttDifferenceMs": {
+        "samples": 124,
+        "p50": 0.10000002384185791,
+        "p95": 2,
+        "p99": 19.599999994039536,
+        "max": 27.299999982118607
+      },
+      "snapshotIntervalMs": {
+        "samples": 1892,
+        "p50": 33.30000001192093,
+        "p95": 35.19999998807907,
+        "p99": 40.5,
+        "max": 91.2000000178814
+      },
+      "receivedSnapshots": 1893,
+      "missedEchoProbes": 0,
+      "packetLoss": null,
+      "packetLossNote": "Wire loss is unavailable from WebSocket. Missed probes are not packet loss.",
+      "lastSnapshotAgeMs": 14.399999976158142,
+      "interpolationMs": 70,
+      "inputHz": 60
+    },
+    "server": {
+      "physics": {
+        "ticks": 150,
+        "elapsedSeconds": 5,
+        "maximumSpanErrorM": 0.0013156839154939703,
+        "maximumSegmentErrorM": 0.0448548476830577,
+        "maximumSpeedMps": 7.654124837009192,
+        "maximumJoltMps2": 249.76244814239675,
+        "tautTransitions": 7,
+        "totalTensionSeconds": 3.3666666666666596,
+        "distanceTravelledM": [
+          0.4150087992492906,
+          5.557999434329872,
+          6.053570841386288,
+          12.424426739400362,
+          12.253476632430129,
+          11.239649529796004
+        ]
+      },
+      "tickExecutionMs": {
+        "samples": 1886,
+        "p50": 0.27391699980944395,
+        "p95": 4.305249999975786,
+        "p99": 11.155499999877065,
+        "max": 53.441584000131115
+      },
+      "schedulingLatenessMs": {
+        "samples": 1886,
+        "p50": 0.6743330059107393,
+        "p95": 1.4181243693456054,
+        "p99": 4.892499692039564,
+        "max": 58.973999394336715
+      },
+      "schedulingPlusExecutionMs": {
+        "samples": 1886,
+        "p50": 0.9836666674818844,
+        "p95": 5.266708475071937,
+        "p99": 16.454375138040632,
+        "max": 59.40274939429946
+      },
+      "rejectedInputs": 0,
+      "acceptedInputs": 5928,
+      "snapshotDeliveries": 2924,
+      "snapshotJsonBytesTotal": 24775733,
+      "byteAccounting": "UTF-8 JSON estimate for actual snapshot recipients; excludes transport encoding, framing and TLS.",
+      "timingScope": "Most recent 2048 completed callbacks; skipped required deadlines are separately counted, not included in these percentiles.",
+      "droppedWallMs": 0,
+      "skippedTickSlots": 0,
+      "skippedSnapshots": 0,
+      "rejectedDebugCommands": 0,
+      "state": {
+        "version": "phase2-1",
+        "epoch": 4,
+        "tick": 150,
+        "serverTime": 1788822182409,
+        "seed": 2000,
+        "family": "balanced",
+        "tickHz": 30,
+        "paused": true,
+        "scene": "rescue",
+        "playerCount": 6,
+        "players": [
+          {
+            "id": 0,
+            "position": {
+              "x": -4.312944412231445,
+              "y": 0.45399999618530273,
+              "z": -0.6979758143424988
+            },
+            "velocity": {
+              "x": -1.2723209152909476e-08,
+              "y": 0,
+              "z": -6.319503995655396e-07
+            },
+            "brace": true,
+            "connected": true,
+            "label": "Climber 1",
+            "ackSeq": 3995,
+            "support": "ground",
+            "rescueState": "safe",
+            "activeIncidentId": null
+          },
+          {
+            "id": 1,
+            "position": {
+              "x": -2.7554328441619873,
+              "y": 0.45399999618530273,
+              "z": 0.09396594017744064
+            },
+            "velocity": {
+              "x": 0.0006704726838506758,
+              "y": 0,
+              "z": -0.00012922860332764685
+            },
+            "brace": true,
+            "connected": true,
+            "label": "BOT 2",
+            "ackSeq": 402,
+            "support": "ground",
+            "rescueState": "safe",
+            "activeIncidentId": null
+          },
+          {
+            "id": 2,
+            "position": {
+              "x": 0.15645697712898254,
+              "y": -1.5275698900222778,
+              "z": 0.27900010347366333
+            },
+            "velocity": {
+              "x": -0.002978222444653511,
+              "y": -0.06207229569554329,
+              "z": 5.482873802975519e-06
+            },
+            "brace": false,
+            "connected": true,
+            "label": "BOT 3",
+            "ackSeq": 401,
+            "support": "wall",
+            "rescueState": "hanging",
+            "activeIncidentId": 1
+          },
+          {
+            "id": 3,
+            "position": {
+              "x": 0.7122822403907776,
+              "y": -4.750074863433838,
+              "z": 0.2790203392505646
+            },
+            "velocity": {
+              "x": 0.24371884763240814,
+              "y": 0.1293884962797165,
+              "z": 6.081537503632717e-05
+            },
+            "brace": false,
+            "connected": true,
+            "label": "BOT 4",
+            "ackSeq": 399,
+            "support": "wall",
+            "rescueState": "hanging",
+            "activeIncidentId": 1
+          },
+          {
+            "id": 4,
+            "position": {
+              "x": 4.185683727264404,
+              "y": -5.689195156097412,
+              "z": 0.27902114391326904
+            },
+            "velocity": {
+              "x": -0.24288080632686615,
+              "y": -1.655362606048584,
+              "z": 0
+            },
+            "brace": false,
+            "connected": true,
+            "label": "BOT 5",
+            "ackSeq": 396,
+            "support": "wall",
+            "rescueState": "falling",
+            "activeIncidentId": 1
+          },
+          {
+            "id": 5,
+            "position": {
+              "x": 5.766047477722168,
+              "y": -2.5643374919891357,
+              "z": 0.27900001406669617
+            },
+            "velocity": {
+              "x": -0.0009758720989339054,
+              "y": -2.5170793533325195,
+              "z": 2.315044412171119e-06
+            },
+            "brace": false,
+            "connected": true,
+            "label": "BOT 6",
+            "ackSeq": 394,
+            "support": "wall",
+            "rescueState": "falling",
+            "activeIncidentId": 1
+          }
+        ],
+        "rope": {
+          "points": [
+            {
+              "x": -4.312944412231445,
+              "y": 0.4239999961853027,
+              "z": -0.6979758143424988
+            },
+            {
+              "x": -4.313000440707128,
+              "y": 0.12230979571405312,
+              "z": -0.7007587014148657
+            },
+            {
+              "x": -4.077166812466768,
+              "y": 0.03900000000000001,
+              "z": -0.7999976077710709
+            },
+            {
+              "x": -3.777167154847479,
+              "y": 0.03900000000000001,
+              "z": -0.7995443657724134
+            },
+            {
+              "x": -3.4781315195428344,
+              "y": 0.03900000000000001,
+              "z": -0.7755088826991429
+            },
+            {
+              "x": -3.1971065373570813,
+              "y": 0.03900000000000001,
+              "z": -0.6705089871665161
+            },
+            {
+              "x": -2.9520906881621403,
+              "y": 0.03900000000000001,
+              "z": -0.49739846400839316
+            },
+            {
+              "x": -2.6947360635463724,
+              "y": 0.03900000000000001,
+              "z": -0.34322773289036373
+            },
+            {
+              "x": -2.487924108227294,
+              "y": 0.03900000000000001,
+              "z": -0.12590579676877903
+            },
+            {
+              "x": -2.4602211023019898,
+              "y": 0.03900000000000001,
+              "z": 0.0311373710570513
+            },
+            {
+              "x": -2.7601049333593966,
+              "y": 0.03627500000000001,
+              "z": 0.03900000000000001
+            },
+            {
+              "x": -2.7230193731489374,
+              "y": 0.1242831020346206,
+              "z": 0.10564867233954756
+            },
+            {
+              "x": -2.7554328441619873,
+              "y": 0.4239999961853027,
+              "z": 0.09396594017744064
+            },
+            {
+              "x": -2.7554328441619873,
+              "y": 0.4239999961853027,
+              "z": 0.09396594017744064
+            },
+            {
+              "x": -2.582282069304771,
+              "y": 0.18207681824533611,
+              "z": 0.045871261218500575
+            },
+            {
+              "x": -2.381930401838667,
+              "y": -0.044240507861349,
+              "z": 0.04105224978723922
+            },
+            {
+              "x": -2.1660252853331743,
+              "y": -0.2557407867785748,
+              "z": 0.040453482690320015
+            },
+            {
+              "x": -1.9389804455461606,
+              "y": -0.45547474010239725,
+              "z": 0.03990663999345531
+            },
+            {
+              "x": -1.7039366391339992,
+              "y": -0.6460266279106527,
+              "z": 0.040371964632575766
+            },
+            {
+              "x": -1.4618340450877134,
+              "y": -0.827537973922232,
+              "z": 0.04257993387060384
+            },
+            {
+              "x": -1.2104189247783859,
+              "y": -0.9958412624555208,
+              "z": 0.04416615625086229
+            },
+            {
+              "x": -0.949222330510632,
+              "y": -1.14758730551666,
+              "z": 0.059292779373322134
+            },
+            {
+              "x": -0.6812953688723832,
+              "y": -1.283432091602862,
+              "z": 0.09730394762685236
+            },
+            {
+              "x": -0.4087421401578099,
+              "y": -1.4047216816877026,
+              "z": 0.14790666905541475
+            },
+            {
+              "x": -0.13060063643679884,
+              "y": -1.5047413791876325,
+              "z": 0.20966468273386457
+            },
+            {
+              "x": 0.15645697712898254,
+              "y": -1.5575698900222779,
+              "z": 0.27900010347366333
+            },
+            {
+              "x": 0.15645697712898254,
+              "y": -1.5575698900222779,
+              "z": 0.27900010347366333
+            },
+            {
+              "x": 0.1748599755057132,
+              "y": -1.8569545892155597,
+              "z": 0.2735675530035775
+            },
+            {
+              "x": 0.20614783624360433,
+              "y": -2.1552157478495158,
+              "z": 0.26029633572696187
+            },
+            {
+              "x": 0.24566470224350226,
+              "y": -2.45196776090087,
+              "z": 0.2332347033666845
+            },
+            {
+              "x": 0.2959479185690006,
+              "y": -2.746495803000707,
+              "z": 0.1977288053162065
+            },
+            {
+              "x": 0.3513566206133436,
+              "y": -3.0395455727677385,
+              "z": 0.1578468495390336
+            },
+            {
+              "x": 0.4100181087932627,
+              "y": -3.3314919405050287,
+              "z": 0.11580451341243396
+            },
+            {
+              "x": 0.47498385222095835,
+              "y": -3.622719335032142,
+              "z": 0.07890227423778422
+            },
+            {
+              "x": 0.5446596500459133,
+              "y": -3.9145020568549898,
+              "z": 0.060258984431806446
+            },
+            {
+              "x": 0.6072078894518467,
+              "y": -4.207922495970887,
+              "z": 0.0440184224643539
+            },
+            {
+              "x": 0.660752297748534,
+              "y": -4.503397672901764,
+              "z": 0.03992744262643872
+            },
+            {
+              "x": 0.7057407402572452,
+              "y": -4.800169735650367,
+              "z": 0.039617459712536
+            },
+            {
+              "x": 0.7122822403907776,
+              "y": -4.780074863433838,
+              "z": 0.2790203392505646
+            },
+            {
+              "x": 0.7122822403907776,
+              "y": -4.780074863433838,
+              "z": 0.2790203392505646
+            },
+            {
+              "x": 0.9908181168380765,
+              "y": -4.893046189902951,
+              "z": 0.27907833727382153
+            },
+            {
+              "x": 1.2744810009454675,
+              "y": -4.994916052620626,
+              "z": 0.28705898245752315
+            },
+            {
+              "x": 1.5617940693715273,
+              "y": -5.083120478244404,
+              "z": 0.29935942452044795
+            },
+            {
+              "x": 1.8512518168965244,
+              "y": -5.163245877440855,
+              "z": 0.3136408109996679
+            },
+            {
+              "x": 2.1413746021623536,
+              "y": -5.241468132278533,
+              "z": 0.3287549794414219
+            },
+            {
+              "x": 2.4314745994305875,
+              "y": -5.3201859877165045,
+              "z": 0.3380173840766212
+            },
+            {
+              "x": 2.722345397449229,
+              "y": -5.394394600082139,
+              "z": 0.3348234328687857
+            },
+            {
+              "x": 3.013723662618597,
+              "y": -5.465593491908237,
+              "z": 0.32572806426735523
+            },
+            {
+              "x": 3.305063117100332,
+              "y": -5.5364896832809,
+              "z": 0.31249108532040126
+            },
+            {
+              "x": 3.5957709964492848,
+              "y": -5.610851590485109,
+              "z": 0.2952475701384534
+            },
+            {
+              "x": 3.8881091833411663,
+              "y": -5.681110062077101,
+              "z": 0.27876820278878844
+            },
+            {
+              "x": 4.185683727264404,
+              "y": -5.719195156097412,
+              "z": 0.27902114391326904
+            },
+            {
+              "x": 4.185683727264404,
+              "y": -5.719195156097412,
+              "z": 0.27902114391326904
+            },
+            {
+              "x": 4.454134963749953,
+              "y": -5.595225785440647,
+              "z": 0.2283712141242208
+            },
+            {
+              "x": 4.631144812509551,
+              "y": -5.355169820465451,
+              "z": 0.1897335809510808
+            },
+            {
+              "x": 4.78447026111064,
+              "y": -5.097793917265494,
+              "z": 0.16131499149402345
+            },
+            {
+              "x": 4.927628467097551,
+              "y": -4.83372707772291,
+              "z": 0.14352659661095288
+            },
+            {
+              "x": 5.064364092144562,
+              "y": -4.565658751071954,
+              "z": 0.13637665865828352
+            },
+            {
+              "x": 5.194419955609103,
+              "y": -4.294092378807553,
+              "z": 0.1360838313057149
+            },
+            {
+              "x": 5.316549072636407,
+              "y": -4.018916076352621,
+              "z": 0.14395898367134385
+            },
+            {
+              "x": 5.430401375130872,
+              "y": -3.7404679008986803,
+              "z": 0.1618608077595567
+            },
+            {
+              "x": 5.536327727369077,
+              "y": -3.4598337444446554,
+              "z": 0.18876581745562457
+            },
+            {
+              "x": 5.632035322359912,
+              "y": -3.1764704943881923,
+              "z": 0.22277765369894997
+            },
+            {
+              "x": 5.712472483790365,
+              "y": -2.888632834286236,
+              "z": 0.25619588418757305
+            },
+            {
+              "x": 5.766047477722168,
+              "y": -2.594337491989136,
+              "z": 0.27900001406669617
+            }
+          ],
+          "length": 18,
+          "tension": 0.9269417234846022,
+          "tensionN": 1216.1142191467422,
+          "slackM": 2.3557168771949617,
+          "spans": [
+            {
+              "id": 0,
+              "a": 0,
+              "b": 1,
+              "startPoint": 0,
+              "endPoint": 12,
+              "length": 3.6,
+              "tension": 0.0028999339122385073,
+              "tensionN": 1.99653165456299,
+              "slackM": 1.8527123799378933,
+              "catchHighlight": false
+            },
+            {
+              "id": 1,
+              "a": 1,
+              "b": 2,
+              "startPoint": 13,
+              "endPoint": 25,
+              "length": 3.6,
+              "tension": 0.04937293863485259,
+              "tensionN": 31.13240279424815,
+              "slackM": 0.07296736804868598,
+              "catchHighlight": true
+            },
+            {
+              "id": 2,
+              "a": 2,
+              "b": 3,
+              "startPoint": 26,
+              "endPoint": 38,
+              "length": 3.6,
+              "tension": 0.044647705832663885,
+              "tensionN": 30.82745136539008,
+              "slackM": 0.3299113120051671,
+              "catchHighlight": true
+            },
+            {
+              "id": 3,
+              "a": 3,
+              "b": 4,
+              "startPoint": 39,
+              "endPoint": 51,
+              "length": 3.6,
+              "tension": 0.9269417234846022,
+              "tensionN": 1216.1142191467422,
+              "slackM": 0.0018803781545724263,
+              "catchHighlight": true
+            },
+            {
+              "id": 4,
+              "a": 4,
+              "b": 5,
+              "startPoint": 52,
+              "endPoint": 64,
+              "length": 3.6,
+              "tension": 0.0395990830620677,
+              "tensionN": 20.283674947964414,
+              "slackM": 0.09824543904864269,
+              "catchHighlight": false
+            }
+          ]
+        },
+        "terrain": {
+          "bounds": {
+            "minX": -12,
+            "maxX": 12,
+            "minZ": -16,
+            "maxZ": 85
+          },
+          "finishZ": null,
+          "crevasses": [
+            {
+              "id": 0,
+              "minX": -12,
+              "maxX": 12,
+              "minZ": 0,
+              "maxZ": 2.8,
+              "depth": 12
+            }
+          ],
+          "bridges": [],
+          "ice": []
+        },
+        "incidents": [
+          {
+            "id": 0,
+            "fallTick": 6,
+            "playerIds": [
+              3
+            ],
+            "status": "recovered",
+            "recoveredTick": 60,
+            "cascades": 0,
+            "firstAttemptSuccess": true,
+            "roleActiveSeconds": [
+              0,
+              0,
+              0.44999999999999996,
+              1.6333333333333324,
+              0.39999999999999997,
+              0.03333333333333333
+            ],
+            "roleIdleSeconds": [
+              1.8333333333333317,
+              1.8333333333333317,
+              1.3833333333333333,
+              0.19999999999999998,
+              1.4333333333333331,
+              1.7999999999999985
+            ],
+            "staticHoldSeconds": [
+              1.8333333333333317,
+              0.8166666666666675,
+              0.850000000000001,
+              0,
+              0.9833333333333347,
+              0.9500000000000013
+            ]
+          },
+          {
+            "id": 1,
+            "fallTick": 90,
+            "playerIds": [
+              3,
+              4,
+              2,
+              5
+            ],
+            "status": "active",
+            "recoveredTick": null,
+            "cascades": 3,
+            "firstAttemptSuccess": false,
+            "roleActiveSeconds": [
+              0,
+              0.05,
+              0.8666666666666677,
+              1.4166666666666665,
+              1.5499999999999994,
+              1.1666666666666674
+            ],
+            "roleIdleSeconds": [
+              1.9833333333333312,
+              1.9333333333333313,
+              1.1166666666666676,
+              0.5666666666666668,
+              0.4333333333333333,
+              0.8166666666666675
+            ],
+            "staticHoldSeconds": [
+              1.9833333333333312,
+              0.9833333333333347,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "events": [
+          {
+            "id": 0,
+            "epoch": 4,
+            "tick": 6,
+            "substep": 0,
+            "kind": "fall",
+            "incidentId": 0,
+            "playerIds": [
+              3
+            ],
+            "spanIds": [
+              2,
+              3
+            ],
+            "surfaceIds": []
+          },
+          {
+            "id": 1,
+            "epoch": 4,
+            "tick": 23,
+            "substep": 0,
+            "kind": "climb",
+            "incidentId": 0,
+            "playerIds": [
+              3
+            ],
+            "spanIds": [
+              2,
+              3
+            ],
+            "surfaceIds": []
+          },
+          {
+            "id": 2,
+            "epoch": 4,
+            "tick": 60,
+            "substep": 1,
+            "kind": "recovery",
+            "incidentId": 0,
+            "playerIds": [
+              3
+            ],
+            "spanIds": [
+              2,
+              3
+            ],
+            "surfaceIds": []
+          },
+          {
+            "id": 3,
+            "epoch": 4,
+            "tick": 90,
+            "substep": 1,
+            "kind": "fall",
+            "incidentId": 1,
+            "playerIds": [
+              3
+            ],
+            "spanIds": [
+              2,
+              3
+            ],
+            "surfaceIds": []
+          },
+          {
+            "id": 4,
+            "epoch": 4,
+            "tick": 104,
+            "substep": 0,
+            "kind": "fall",
+            "incidentId": 1,
+            "playerIds": [
+              4
+            ],
+            "spanIds": [
+              3,
+              4
+            ],
+            "surfaceIds": []
+          },
+          {
+            "id": 5,
+            "epoch": 4,
+            "tick": 115,
+            "substep": 0,
+            "kind": "fall",
+            "incidentId": 1,
+            "playerIds": [
+              2
+            ],
+            "spanIds": [
+              1,
+              2
+            ],
+            "surfaceIds": []
+          },
+          {
+            "id": 6,
+            "epoch": 4,
+            "tick": 125,
+            "substep": 0,
+            "kind": "fall",
+            "incidentId": 1,
+            "playerIds": [
+              5
+            ],
+            "spanIds": [
+              4
+            ],
+            "surfaceIds": []
+          },
+          {
+            "id": 7,
+            "epoch": 4,
+            "tick": 142,
+            "substep": 1,
+            "kind": "catch",
+            "incidentId": 1,
+            "playerIds": [
+              3
+            ],
+            "spanIds": [
+              2,
+              3
+            ],
+            "surfaceIds": []
+          },
+          {
+            "id": 8,
+            "epoch": 4,
+            "tick": 148,
+            "substep": 0,
+            "kind": "catch",
+            "incidentId": 1,
+            "playerIds": [
+              2
+            ],
+            "spanIds": [
+              1,
+              2
+            ],
+            "surfaceIds": []
+          }
+        ],
+        "diagnostics": {
+          "solverIterations": 12,
+          "contactProjections": 271,
+          "maximumTerrainPenetrationM": 0,
+          "maximumBodyOverlapM": 0,
+          "kineticEnergyJ": 368.59632051031736,
+          "potentialEnergyJ": -10691.46980351736,
+          "motorWorkJ": -3339.708008442351,
+          "gravityWorkJ": 14834.889397653029,
+          "ropeContactWorkJ": -8748.142959683903,
+          "maximumUnexplainedEnergyGainJ": 0,
+          "incidentsStarted": 2,
+          "incidentsRecovered": 1,
+          "incidentsFailed": 0,
+          "energyProjectionCount": 16,
+          "maximumEnergyProjectionJ": 2090.803523986091,
+          "maximumPotentialExcessJ": 0,
+          "cascades": 3,
+          "firstFallSeconds": 0.2,
+          "eventsTruncated": false,
+          "incidentsTruncated": false
+        },
+        "counters": {
+          "ticks": 150,
+          "elapsedSeconds": 5,
+          "maximumSpanErrorM": 0.0013156839154939703,
+          "maximumSegmentErrorM": 0.0448548476830577,
+          "maximumSpeedMps": 7.654124837009192,
+          "maximumJoltMps2": 249.76244814239675,
+          "tautTransitions": 7,
+          "totalTensionSeconds": 3.3666666666666596,
+          "distanceTravelledM": [
+            0.4150087992492906,
+            5.557999434329872,
+            6.053570841386288,
+            12.424426739400362,
+            12.253476632430129,
+            11.239649529796004
+          ]
+        },
+        "run": {
+          "status": "active",
+          "elapsedSeconds": 5,
+          "progress": 0,
+          "reason": null
+        }
+      },
+      "snapshotBytes": 9810,
+      "ropePointCount": 65,
+      "tapeFrames": 150,
+      "tapeTruncated": false,
+      "processMemory": {
+        "rss": 137101312,
+        "heapTotal": 42270720,
+        "heapUsed": 27027472,
+        "external": 15856280,
+        "arrayBuffers": 8968248
+      },
+      "memoryAttribution": "Process RSS/heap includes all rooms and shared runtime; not per-room memory.",
+      "tickHz": 30,
+      "physicsHz": 60,
+      "family": "balanced",
+      "seed": 2000,
+      "simulatedPlayers": 6,
+      "connectedPlayers": 6,
+      "scene": "rescue",
+      "playerCount": 6,
+      "phase": 2,
+      "gateVerdict": "HUMAN EVIDENCE UNMEASURED",
+      "gate1Authorization": "Implementation stop bypassed by user instruction on 2026-09-07",
+      "packetLoss": "Unknown; WebSocket does not expose wire retransmissions."
+    },
+    "impairment": {
+      "addedRttMs": 0,
+      "jitterMs": 0,
+      "kind": "Added ordered-stream delay; not total RTT or packet loss."
+    },
+    "state": {
+      "version": "phase2-1",
+      "epoch": 4,
+      "tick": 150,
+      "serverTime": 1788822182393,
+      "seed": 2000,
+      "family": "balanced",
+      "tickHz": 30,
+      "paused": false,
+      "scene": "rescue",
+      "playerCount": 6,
+      "players": [
+        {
+          "id": 0,
+          "position": {
+            "x": -4.312944412231445,
+            "y": 0.45399999618530273,
+            "z": -0.6979758143424988
+          },
+          "velocity": {
+            "x": -1.2723209152909476e-08,
+            "y": 0,
+            "z": -6.319503995655396e-07
+          },
+          "brace": true,
+          "connected": true,
+          "label": "Climber 1",
+          "ackSeq": 3994,
+          "support": "ground",
+          "rescueState": "safe",
+          "activeIncidentId": null
+        },
+        {
+          "id": 1,
+          "position": {
+            "x": -2.7554328441619873,
+            "y": 0.45399999618530273,
+            "z": 0.09396594017744064
+          },
+          "velocity": {
+            "x": 0.0006704726838506758,
+            "y": 0,
+            "z": -0.00012922860332764685
+          },
+          "brace": true,
+          "connected": true,
+          "label": "BOT 2",
+          "ackSeq": 401,
+          "support": "ground",
+          "rescueState": "safe",
+          "activeIncidentId": null
+        },
+        {
+          "id": 2,
+          "position": {
+            "x": 0.15645697712898254,
+            "y": -1.5275698900222778,
+            "z": 0.27900010347366333
+          },
+          "velocity": {
+            "x": -0.002978222444653511,
+            "y": -0.06207229569554329,
+            "z": 5.482873802975519e-06
+          },
+          "brace": false,
+          "connected": true,
+          "label": "BOT 3",
+          "ackSeq": 400,
+          "support": "wall",
+          "rescueState": "hanging",
+          "activeIncidentId": 1
+        },
+        {
+          "id": 3,
+          "position": {
+            "x": 0.7122822403907776,
+            "y": -4.750074863433838,
+            "z": 0.2790203392505646
+          },
+          "velocity": {
+            "x": 0.24371884763240814,
+            "y": 0.1293884962797165,
+            "z": 6.081537503632717e-05
+          },
+          "brace": false,
+          "connected": true,
+          "label": "BOT 4",
+          "ackSeq": 398,
+          "support": "wall",
+          "rescueState": "hanging",
+          "activeIncidentId": 1
+        },
+        {
+          "id": 4,
+          "position": {
+            "x": 4.185683727264404,
+            "y": -5.689195156097412,
+            "z": 0.27902114391326904
+          },
+          "velocity": {
+            "x": -0.24288080632686615,
+            "y": -1.655362606048584,
+            "z": 0
+          },
+          "brace": false,
+          "connected": true,
+          "label": "BOT 5",
+          "ackSeq": 395,
+          "support": "wall",
+          "rescueState": "falling",
+          "activeIncidentId": 1
+        },
+        {
+          "id": 5,
+          "position": {
+            "x": 5.766047477722168,
+            "y": -2.5643374919891357,
+            "z": 0.27900001406669617
+          },
+          "velocity": {
+            "x": -0.0009758720989339054,
+            "y": -2.5170793533325195,
+            "z": 2.315044412171119e-06
+          },
+          "brace": false,
+          "connected": true,
+          "label": "BOT 6",
+          "ackSeq": 393,
+          "support": "wall",
+          "rescueState": "falling",
+          "activeIncidentId": 1
+        }
+      ],
+      "rope": {
+        "points": [
+          {
+            "x": -4.312944412231445,
+            "y": 0.4239999961853027,
+            "z": -0.6979758143424988
+          },
+          {
+            "x": -4.313000440707128,
+            "y": 0.12230979571405312,
+            "z": -0.7007587014148657
+          },
+          {
+            "x": -4.077166812466768,
+            "y": 0.03900000000000001,
+            "z": -0.7999976077710709
+          },
+          {
+            "x": -3.777167154847479,
+            "y": 0.03900000000000001,
+            "z": -0.7995443657724134
+          },
+          {
+            "x": -3.4781315195428344,
+            "y": 0.03900000000000001,
+            "z": -0.7755088826991429
+          },
+          {
+            "x": -3.1971065373570813,
+            "y": 0.03900000000000001,
+            "z": -0.6705089871665161
+          },
+          {
+            "x": -2.9520906881621403,
+            "y": 0.03900000000000001,
+            "z": -0.49739846400839316
+          },
+          {
+            "x": -2.6947360635463724,
+            "y": 0.03900000000000001,
+            "z": -0.34322773289036373
+          },
+          {
+            "x": -2.487924108227294,
+            "y": 0.03900000000000001,
+            "z": -0.12590579676877903
+          },
+          {
+            "x": -2.4602211023019898,
+            "y": 0.03900000000000001,
+            "z": 0.0311373710570513
+          },
+          {
+            "x": -2.7601049333593966,
+            "y": 0.03627500000000001,
+            "z": 0.03900000000000001
+          },
+          {
+            "x": -2.7230193731489374,
+            "y": 0.1242831020346206,
+            "z": 0.10564867233954756
+          },
+          {
+            "x": -2.7554328441619873,
+            "y": 0.4239999961853027,
+            "z": 0.09396594017744064
+          },
+          {
+            "x": -2.7554328441619873,
+            "y": 0.4239999961853027,
+            "z": 0.09396594017744064
+          },
+          {
+            "x": -2.582282069304771,
+            "y": 0.18207681824533611,
+            "z": 0.045871261218500575
+          },
+          {
+            "x": -2.381930401838667,
+            "y": -0.044240507861349,
+            "z": 0.04105224978723922
+          },
+          {
+            "x": -2.1660252853331743,
+            "y": -0.2557407867785748,
+            "z": 0.040453482690320015
+          },
+          {
+            "x": -1.9389804455461606,
+            "y": -0.45547474010239725,
+            "z": 0.03990663999345531
+          },
+          {
+            "x": -1.7039366391339992,
+            "y": -0.6460266279106527,
+            "z": 0.040371964632575766
+          },
+          {
+            "x": -1.4618340450877134,
+            "y": -0.827537973922232,
+            "z": 0.04257993387060384
+          },
+          {
+            "x": -1.2104189247783859,
+            "y": -0.9958412624555208,
+            "z": 0.04416615625086229
+          },
+          {
+            "x": -0.949222330510632,
+            "y": -1.14758730551666,
+            "z": 0.059292779373322134
+          },
+          {
+            "x": -0.6812953688723832,
+            "y": -1.283432091602862,
+            "z": 0.09730394762685236
+          },
+          {
+            "x": -0.4087421401578099,
+            "y": -1.4047216816877026,
+            "z": 0.14790666905541475
+          },
+          {
+            "x": -0.13060063643679884,
+            "y": -1.5047413791876325,
+            "z": 0.20966468273386457
+          },
+          {
+            "x": 0.15645697712898254,
+            "y": -1.5575698900222779,
+            "z": 0.27900010347366333
+          },
+          {
+            "x": 0.15645697712898254,
+            "y": -1.5575698900222779,
+            "z": 0.27900010347366333
+          },
+          {
+            "x": 0.1748599755057132,
+            "y": -1.8569545892155597,
+            "z": 0.2735675530035775
+          },
+          {
+            "x": 0.20614783624360433,
+            "y": -2.1552157478495158,
+            "z": 0.26029633572696187
+          },
+          {
+            "x": 0.24566470224350226,
+            "y": -2.45196776090087,
+            "z": 0.2332347033666845
+          },
+          {
+            "x": 0.2959479185690006,
+            "y": -2.746495803000707,
+            "z": 0.1977288053162065
+          },
+          {
+            "x": 0.3513566206133436,
+            "y": -3.0395455727677385,
+            "z": 0.1578468495390336
+          },
+          {
+            "x": 0.4100181087932627,
+            "y": -3.3314919405050287,
+            "z": 0.11580451341243396
+          },
+          {
+            "x": 0.47498385222095835,
+            "y": -3.622719335032142,
+            "z": 0.07890227423778422
+          },
+          {
+            "x": 0.5446596500459133,
+            "y": -3.9145020568549898,
+            "z": 0.060258984431806446
+          },
+          {
+            "x": 0.6072078894518467,
+            "y": -4.207922495970887,
+            "z": 0.0440184224643539
+          },
+          {
+            "x": 0.660752297748534,
+            "y": -4.503397672901764,
+            "z": 0.03992744262643872
+          },
+          {
+            "x": 0.7057407402572452,
+            "y": -4.800169735650367,
+            "z": 0.039617459712536
+          },
+          {
+            "x": 0.7122822403907776,
+            "y": -4.780074863433838,
+            "z": 0.2790203392505646
+          },
+          {
+            "x": 0.7122822403907776,
+            "y": -4.780074863433838,
+            "z": 0.2790203392505646
+          },
+          {
+            "x": 0.9908181168380765,
+            "y": -4.893046189902951,
+            "z": 0.27907833727382153
+          },
+          {
+            "x": 1.2744810009454675,
+            "y": -4.994916052620626,
+            "z": 0.28705898245752315
+          },
+          {
+            "x": 1.5617940693715273,
+            "y": -5.083120478244404,
+            "z": 0.29935942452044795
+          },
+          {
+            "x": 1.8512518168965244,
+            "y": -5.163245877440855,
+            "z": 0.3136408109996679
+          },
+          {
+            "x": 2.1413746021623536,
+            "y": -5.241468132278533,
+            "z": 0.3287549794414219
+          },
+          {
+            "x": 2.4314745994305875,
+            "y": -5.3201859877165045,
+            "z": 0.3380173840766212
+          },
+          {
+            "x": 2.722345397449229,
+            "y": -5.394394600082139,
+            "z": 0.3348234328687857
+          },
+          {
+            "x": 3.013723662618597,
+            "y": -5.465593491908237,
+            "z": 0.32572806426735523
+          },
+          {
+            "x": 3.305063117100332,
+            "y": -5.5364896832809,
+            "z": 0.31249108532040126
+          },
+          {
+            "x": 3.5957709964492848,
+            "y": -5.610851590485109,
+            "z": 0.2952475701384534
+          },
+          {
+            "x": 3.8881091833411663,
+            "y": -5.681110062077101,
+            "z": 0.27876820278878844
+          },
+          {
+            "x": 4.185683727264404,
+            "y": -5.719195156097412,
+            "z": 0.27902114391326904
+          },
+          {
+            "x": 4.185683727264404,
+            "y": -5.719195156097412,
+            "z": 0.27902114391326904
+          },
+          {
+            "x": 4.454134963749953,
+            "y": -5.595225785440647,
+            "z": 0.2283712141242208
+          },
+          {
+            "x": 4.631144812509551,
+            "y": -5.355169820465451,
+            "z": 0.1897335809510808
+          },
+          {
+            "x": 4.78447026111064,
+            "y": -5.097793917265494,
+            "z": 0.16131499149402345
+          },
+          {
+            "x": 4.927628467097551,
+            "y": -4.83372707772291,
+            "z": 0.14352659661095288
+          },
+          {
+            "x": 5.064364092144562,
+            "y": -4.565658751071954,
+            "z": 0.13637665865828352
+          },
+          {
+            "x": 5.194419955609103,
+            "y": -4.294092378807553,
+            "z": 0.1360838313057149
+          },
+          {
+            "x": 5.316549072636407,
+            "y": -4.018916076352621,
+            "z": 0.14395898367134385
+          },
+          {
+            "x": 5.430401375130872,
+            "y": -3.7404679008986803,
+            "z": 0.1618608077595567
+          },
+          {
+            "x": 5.536327727369077,
+            "y": -3.4598337444446554,
+            "z": 0.18876581745562457
+          },
+          {
+            "x": 5.632035322359912,
+            "y": -3.1764704943881923,
+            "z": 0.22277765369894997
+          },
+          {
+            "x": 5.712472483790365,
+            "y": -2.888632834286236,
+            "z": 0.25619588418757305
+          },
+          {
+            "x": 5.766047477722168,
+            "y": -2.594337491989136,
+            "z": 0.27900001406669617
+          }
+        ],
+        "length": 18,
+        "tension": 0.9269417234846022,
+        "tensionN": 1216.1142191467422,
+        "slackM": 2.3557168771949617,
+        "spans": [
+          {
+            "id": 0,
+            "a": 0,
+            "b": 1,
+            "startPoint": 0,
+            "endPoint": 12,
+            "length": 3.6,
+            "tension": 0.0028999339122385073,
+            "tensionN": 1.99653165456299,
+            "slackM": 1.8527123799378933,
+            "catchHighlight": false
+          },
+          {
+            "id": 1,
+            "a": 1,
+            "b": 2,
+            "startPoint": 13,
+            "endPoint": 25,
+            "length": 3.6,
+            "tension": 0.04937293863485259,
+            "tensionN": 31.13240279424815,
+            "slackM": 0.07296736804868598,
+            "catchHighlight": true
+          },
+          {
+            "id": 2,
+            "a": 2,
+            "b": 3,
+            "startPoint": 26,
+            "endPoint": 38,
+            "length": 3.6,
+            "tension": 0.044647705832663885,
+            "tensionN": 30.82745136539008,
+            "slackM": 0.3299113120051671,
+            "catchHighlight": true
+          },
+          {
+            "id": 3,
+            "a": 3,
+            "b": 4,
+            "startPoint": 39,
+            "endPoint": 51,
+            "length": 3.6,
+            "tension": 0.9269417234846022,
+            "tensionN": 1216.1142191467422,
+            "slackM": 0.0018803781545724263,
+            "catchHighlight": true
+          },
+          {
+            "id": 4,
+            "a": 4,
+            "b": 5,
+            "startPoint": 52,
+            "endPoint": 64,
+            "length": 3.6,
+            "tension": 0.0395990830620677,
+            "tensionN": 20.283674947964414,
+            "slackM": 0.09824543904864269,
+            "catchHighlight": false
+          }
+        ]
+      },
+      "terrain": {
+        "bounds": {
+          "minX": -12,
+          "maxX": 12,
+          "minZ": -16,
+          "maxZ": 85
+        },
+        "finishZ": null,
+        "crevasses": [
+          {
+            "id": 0,
+            "minX": -12,
+            "maxX": 12,
+            "minZ": 0,
+            "maxZ": 2.8,
+            "depth": 12
+          }
+        ],
+        "bridges": [],
+        "ice": []
+      },
+      "incidents": [
+        {
+          "id": 0,
+          "fallTick": 6,
+          "playerIds": [
+            3
+          ],
+          "status": "recovered",
+          "recoveredTick": 60,
+          "cascades": 0,
+          "firstAttemptSuccess": true,
+          "roleActiveSeconds": [
+            0,
+            0,
+            0.44999999999999996,
+            1.6333333333333324,
+            0.39999999999999997,
+            0.03333333333333333
+          ],
+          "roleIdleSeconds": [
+            1.8333333333333317,
+            1.8333333333333317,
+            1.3833333333333333,
+            0.19999999999999998,
+            1.4333333333333331,
+            1.7999999999999985
+          ],
+          "staticHoldSeconds": [
+            1.8333333333333317,
+            0.8166666666666675,
+            0.850000000000001,
+            0,
+            0.9833333333333347,
+            0.9500000000000013
+          ]
+        },
+        {
+          "id": 1,
+          "fallTick": 90,
+          "playerIds": [
+            3,
+            4,
+            2,
+            5
+          ],
+          "status": "active",
+          "recoveredTick": null,
+          "cascades": 3,
+          "firstAttemptSuccess": false,
+          "roleActiveSeconds": [
+            0,
+            0.05,
+            0.8666666666666677,
+            1.4166666666666665,
+            1.5499999999999994,
+            1.1666666666666674
+          ],
+          "roleIdleSeconds": [
+            1.9833333333333312,
+            1.9333333333333313,
+            1.1166666666666676,
+            0.5666666666666668,
+            0.4333333333333333,
+            0.8166666666666675
+          ],
+          "staticHoldSeconds": [
+            1.9833333333333312,
+            0.9833333333333347,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "events": [],
+      "diagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 271,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 368.59632051031736,
+        "potentialEnergyJ": -10691.46980351736,
+        "motorWorkJ": -3339.708008442351,
+        "gravityWorkJ": 14834.889397653029,
+        "ropeContactWorkJ": -8748.142959683903,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 2,
+        "incidentsRecovered": 1,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 16,
+        "maximumEnergyProjectionJ": 2090.803523986091,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 3,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "counters": {
+        "ticks": 150,
+        "elapsedSeconds": 5,
+        "maximumSpanErrorM": 0.0013156839154939703,
+        "maximumSegmentErrorM": 0.0448548476830577,
+        "maximumSpeedMps": 7.654124837009192,
+        "maximumJoltMps2": 249.76244814239675,
+        "tautTransitions": 7,
+        "totalTensionSeconds": 3.3666666666666596,
+        "distanceTravelledM": [
+          0.4150087992492906,
+          5.557999434329872,
+          6.053570841386288,
+          12.424426739400362,
+          12.253476632430129,
+          11.239649529796004
+        ]
+      },
+      "run": {
+        "status": "active",
+        "elapsedSeconds": 5,
+        "progress": 0,
+        "reason": null
+      }
+    },
+    "lastClosedSession": null,
+    "presentation": {
+      "sceneEpoch": 4,
+      "truncated": false,
+      "observations": [
+        {
+          "kind": "fall",
+          "id": 3,
+          "epoch": 4,
+          "firstReceivedTick": 7,
+          "firstReceivedAtMs": 58104.19999998808,
+          "firstDrawnTick": 7,
+          "firstDrawnAtMs": 58114.699999994045,
+          "localPlayerId": 0,
+          "drawnInCameraFrame": true,
+          "cue": null,
+          "endedBeforeDraw": false,
+          "serverCueOnset": null,
+          "incidentId": 0,
+          "playerId": 3
+        },
+        {
+          "kind": "fall",
+          "id": 9,
+          "epoch": 4,
+          "firstReceivedTick": 91,
+          "firstReceivedAtMs": 60903.89999997616,
+          "firstDrawnTick": 91,
+          "firstDrawnAtMs": 60914.499999994034,
+          "localPlayerId": 0,
+          "drawnInCameraFrame": true,
+          "cue": null,
+          "endedBeforeDraw": false,
+          "serverCueOnset": null,
+          "incidentId": 1,
+          "playerId": 3
+        },
+        {
+          "kind": "fall",
+          "id": 10,
+          "epoch": 4,
+          "firstReceivedTick": 105,
+          "firstReceivedAtMs": 61374.29999998212,
+          "firstDrawnTick": 105,
+          "firstDrawnAtMs": 61381.29999999405,
+          "localPlayerId": 0,
+          "drawnInCameraFrame": true,
+          "cue": null,
+          "endedBeforeDraw": false,
+          "serverCueOnset": null,
+          "incidentId": 1,
+          "playerId": 4
+        },
+        {
+          "kind": "fall",
+          "id": 8,
+          "epoch": 4,
+          "firstReceivedTick": 116,
+          "firstReceivedAtMs": 61738.5,
+          "firstDrawnTick": 116,
+          "firstDrawnAtMs": 61747.89999999403,
+          "localPlayerId": 0,
+          "drawnInCameraFrame": true,
+          "cue": null,
+          "endedBeforeDraw": false,
+          "serverCueOnset": null,
+          "incidentId": 1,
+          "playerId": 2
+        },
+        {
+          "kind": "fall",
+          "id": 11,
+          "epoch": 4,
+          "firstReceivedTick": 126,
+          "firstReceivedAtMs": 62072.19999998808,
+          "firstDrawnTick": 126,
+          "firstDrawnAtMs": 62081.199999994045,
+          "localPlayerId": 0,
+          "drawnInCameraFrame": true,
+          "cue": null,
+          "endedBeforeDraw": false,
+          "serverCueOnset": null,
+          "incidentId": 1,
+          "playerId": 5
+        }
+      ],
+      "physicalEvents": [
+        {
+          "id": 0,
+          "epoch": 4,
+          "tick": 6,
+          "substep": 0,
+          "kind": "fall",
+          "incidentId": 0,
+          "playerIds": [
+            3
+          ],
+          "spanIds": [
+            2,
+            3
+          ],
+          "surfaceIds": []
+        },
+        {
+          "id": 1,
+          "epoch": 4,
+          "tick": 23,
+          "substep": 0,
+          "kind": "climb",
+          "incidentId": 0,
+          "playerIds": [
+            3
+          ],
+          "spanIds": [
+            2,
+            3
+          ],
+          "surfaceIds": []
+        },
+        {
+          "id": 2,
+          "epoch": 4,
+          "tick": 60,
+          "substep": 1,
+          "kind": "recovery",
+          "incidentId": 0,
+          "playerIds": [
+            3
+          ],
+          "spanIds": [
+            2,
+            3
+          ],
+          "surfaceIds": []
+        },
+        {
+          "id": 3,
+          "epoch": 4,
+          "tick": 90,
+          "substep": 1,
+          "kind": "fall",
+          "incidentId": 1,
+          "playerIds": [
+            3
+          ],
+          "spanIds": [
+            2,
+            3
+          ],
+          "surfaceIds": []
+        },
+        {
+          "id": 4,
+          "epoch": 4,
+          "tick": 104,
+          "substep": 0,
+          "kind": "fall",
+          "incidentId": 1,
+          "playerIds": [
+            4
+          ],
+          "spanIds": [
+            3,
+            4
+          ],
+          "surfaceIds": []
+        },
+        {
+          "id": 5,
+          "epoch": 4,
+          "tick": 115,
+          "substep": 0,
+          "kind": "fall",
+          "incidentId": 1,
+          "playerIds": [
+            2
+          ],
+          "spanIds": [
+            1,
+            2
+          ],
+          "surfaceIds": []
+        },
+        {
+          "id": 6,
+          "epoch": 4,
+          "tick": 125,
+          "substep": 0,
+          "kind": "fall",
+          "incidentId": 1,
+          "playerIds": [
+            5
+          ],
+          "spanIds": [
+            4
+          ],
+          "surfaceIds": []
+        },
+        {
+          "id": 7,
+          "epoch": 4,
+          "tick": 142,
+          "substep": 1,
+          "kind": "catch",
+          "incidentId": 1,
+          "playerIds": [
+            3
+          ],
+          "spanIds": [
+            2,
+            3
+          ],
+          "surfaceIds": []
+        },
+        {
+          "id": 8,
+          "epoch": 4,
+          "tick": 148,
+          "substep": 0,
+          "kind": "catch",
+          "incidentId": 1,
+          "playerIds": [
+            2
+          ],
+          "spanIds": [
+            1,
+            2
+          ],
+          "surfaceIds": []
+        }
+      ],
+      "scope": "First received cue/fall per surface or incident and first draw in the camera frame, relative to this scene window. Ended unseen cues/falls never receive a retrospective draw timestamp. Server cue onset is included only when that event was received. Not proof of human attention, unobstructed visibility or functional rescue activity."
+    },
+    "view": {
+      "playersDrawn": 6,
+      "spansDrawn": 5,
+      "segmentsDrawn": 60,
+      "cameraTarget": {
+        "x": -1.1141423224770715,
+        "y": -1.1025058659567017,
+        "z": -0.1755199777019235
+      },
+      "verticalSpan": 15.14880304177565,
+      "viewport": {
+        "width": 1280,
+        "height": 374
+      },
+      "drawCalls": 84,
+      "geometries": 17,
+      "prediction": "Own ordinary-ground body only; contact/rope limits. Ice, wall and air use authoritative interpolation.",
+      "cutawayTopFaces": 1,
+      "bodiesCoveredByOverlays": 0,
+      "cutaway": "Near walls and any top faces blocking a climber are outlines; no physical wall or support is removed."
+    },
+    "rescueVerdict": "NOT EVALUATED",
+    "roleEvidenceNote": "Role active/idle/unchanged-hold seconds are mechanical/input proxies. Being dragged under load can accrue roleActiveSeconds without purposeful input; it cannot establish agency or pass the human rescue stop.",
+    "captureChange": {
+      "sessionChanged": false,
+      "sceneChanged": false,
+      "serverSceneMatches": true
+    },
+    "connectionAtFinish": {
+      "connected": true,
+      "sessionNumber": 1,
+      "sceneEpoch": 4
+    }
+  }
+}

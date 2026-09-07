@@ -1,0 +1,456 @@
+{
+  "status": "INCOMPLETE",
+  "failure": "Host free memory guard reached",
+  "elapsedMs": 1965.834541,
+  "audit": {
+    "expectedScheduled": 36000,
+    "observedSlots": 0,
+    "counts": {
+      "pending": 0,
+      "offered": 0,
+      "late": 0,
+      "disconnected": 0,
+      "backpressure": 0,
+      "sendError": 0
+    },
+    "observedAcknowledged": 0,
+    "offeredByRoom": {},
+    "latenessMs": {
+      "count": 0,
+      "p50": null,
+      "p95": null,
+      "p99": null,
+      "max": null
+    },
+    "offeredLatenessMs": {
+      "count": 0,
+      "p50": null,
+      "p95": null,
+      "p99": null,
+      "max": null
+    },
+    "problems": [
+      "Total schedule population differs from frozen manifest",
+      "Missing generator results"
+    ],
+    "percentileDefinition": "Nearest rank ceil(n*p)-1 over full decoded observation planes; no averaging of generator percentiles.",
+    "acknowledgementScope": "Exact seq values observed in snapshots form a lower bound on accepted input count. Use the separate server acceptedInputs delta for the exact total."
+  },
+  "acceptance": [],
+  "functional": [
+    {
+      "name": "private authentication, creation authorization and actual room cap",
+      "status": "PASS",
+      "evidence": {
+        "roomIds": [
+          "a4PhEhxKF",
+          "0s-DrdQjB"
+        ],
+        "seats": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "name": "room timing/state isolation",
+      "status": "PASS",
+      "evidence": {
+        "pausedTick": 2,
+        "otherBefore": 1,
+        "otherAfter": 2
+      }
+    },
+    {
+      "name": "input expiry on a still-connected socket",
+      "status": "PASS",
+      "evidence": {
+        "observedClearDelayMs": 231.6379169999999,
+        "configuredInputAgeMs": 250
+      }
+    },
+    {
+      "name": "abrupt disconnect clears input and current seat",
+      "status": "PASS",
+      "evidence": {
+        "playerId": 1,
+        "observedClearDelayMs": 25.39316699999995,
+        "sameBodyReconnect": "UNIMPLEMENTED (Phase 4)"
+      }
+    }
+  ],
+  "preparation": [],
+  "lifecycle": [
+    {
+      "kind": "initialized-empty-baseline",
+      "sample": {
+        "process": {
+          "pid": 90705,
+          "role": "authority",
+          "fromMonoMs": 895.728459,
+          "toMonoMs": 1348.508167,
+          "wallAtMs": 1788820138276,
+          "memory": {
+            "rss": 226426880,
+            "heapTotal": 44482560,
+            "heapUsed": 31965552,
+            "external": 12570473,
+            "arrayBuffers": 5670069
+          },
+          "cpuMicroseconds": {
+            "user": 213173,
+            "system": 11969
+          },
+          "eventLoopUtilization": {
+            "idle": 404.23233500000003,
+            "active": 48.54795596126553,
+            "utilization": 0.10722188427901053
+          },
+          "loopDelayMs": {
+            "samples": 21,
+            "p50": 20.692991,
+            "p95": 21.561343,
+            "p99": 21.839871,
+            "max": 21.839871
+          },
+          "gcDurationsMs": [],
+          "gcOmitted": 0,
+          "memoryScope": "Whole child process; arrayBuffers is included in external. No per-room attribution."
+        },
+        "population": {
+          "atMonoMs": 1348.574584,
+          "worldCount": 0,
+          "connected": 0,
+          "totalBufferedBytes": 0,
+          "maximumBufferedBytes": 0,
+          "rooms": []
+        }
+      }
+    }
+  ],
+  "generators": [],
+  "samples": [
+    {
+      "stage": "functional",
+      "sequence": 0,
+      "controllerMonoMs": 992.759875,
+      "controllerMemory": {
+        "rss": 82657280,
+        "heapTotal": 13778944,
+        "heapUsed": 9248896,
+        "external": 2717978,
+        "arrayBuffers": 213327
+      },
+      "hostFreeMemoryBytes": 100843520,
+      "hostLoadAverage": [
+        3.1396484375,
+        3.59765625,
+        3.54443359375
+      ],
+      "totalOwnedRssBytes": 707837952,
+      "workers": [
+        {
+          "process": {
+            "pid": 90705,
+            "role": "authority",
+            "fromMonoMs": 169.400667,
+            "toMonoMs": 895.728459,
+            "wallAtMs": 1788820137823,
+            "memory": {
+              "rss": 131530752,
+              "heapTotal": 43958272,
+              "heapUsed": 25765320,
+              "external": 12345229,
+              "arrayBuffers": 5445706
+            },
+            "cpuMicroseconds": {
+              "user": 43311,
+              "system": 1570
+            },
+            "eventLoopUtilization": {
+              "idle": 700.610998,
+              "active": 25.623127018119817,
+              "utilization": 0.03528218536615931
+            },
+            "loopDelayMs": {
+              "samples": 33,
+              "p50": 21.037055,
+              "p95": 21.053439,
+              "p99": 21.069823,
+              "max": 21.069823
+            },
+            "gcDurationsMs": [
+              0.06437504291534424,
+              1.6235840320587158
+            ],
+            "gcOmitted": 0,
+            "memoryScope": "Whole child process; arrayBuffers is included in external. No per-room attribution."
+          },
+          "population": {
+            "atMonoMs": 896.165292,
+            "worldCount": 0,
+            "connected": 0,
+            "totalBufferedBytes": 0,
+            "maximumBufferedBytes": 0,
+            "rooms": []
+          }
+        },
+        {
+          "process": {
+            "pid": 90706,
+            "role": "generator",
+            "fromMonoMs": 152.150083,
+            "toMonoMs": 682.487667,
+            "wallAtMs": 1788820137823,
+            "memory": {
+              "rss": 123256832,
+              "heapTotal": 41254912,
+              "heapUsed": 22156624,
+              "external": 10292471,
+              "arrayBuffers": 3424398
+            },
+            "cpuMicroseconds": {
+              "user": 12860,
+              "system": 736
+            },
+            "eventLoopUtilization": {
+              "idle": 526.179375,
+              "active": 4.070958070754955,
+              "utilization": 0.007677426711227993
+            },
+            "loopDelayMs": {
+              "samples": 24,
+              "p50": 21.037055,
+              "p95": 21.037055,
+              "p99": 21.037055,
+              "max": 21.037055
+            },
+            "gcDurationsMs": [
+              0.06066691875457764,
+              0.7486250400543213
+            ],
+            "gcOmitted": 0,
+            "memoryScope": "Whole child process; arrayBuffers is included in external. No per-room attribution."
+          },
+          "population": {
+            "generator": -1,
+            "atMonoMs": 682.732208,
+            "logicalClients": 0,
+            "openSockets": 0,
+            "processedScheduled": 0,
+            "snapshotsReceived": 0,
+            "latestSnapshotAgeMs": [],
+            "faultsApplied": 0,
+            "running": false
+          }
+        },
+        {
+          "process": {
+            "pid": 90707,
+            "role": "generator",
+            "fromMonoMs": 146.450459,
+            "toMonoMs": 510.03475,
+            "wallAtMs": 1788820137823,
+            "memory": {
+              "rss": 122028032,
+              "heapTotal": 39944192,
+              "heapUsed": 22149376,
+              "external": 10292471,
+              "arrayBuffers": 3424398
+            },
+            "cpuMicroseconds": {
+              "user": 12796,
+              "system": 695
+            },
+            "eventLoopUtilization": {
+              "idle": 359.511499,
+              "active": 3.988376068664536,
+              "utilization": 0.010972152515626417
+            },
+            "loopDelayMs": {
+              "samples": 16,
+              "p50": 21.037055,
+              "p95": 21.037055,
+              "p99": 21.053439,
+              "max": 21.053439
+            },
+            "gcDurationsMs": [
+              0.06683290004730225,
+              0.8346250057220459
+            ],
+            "gcOmitted": 0,
+            "memoryScope": "Whole child process; arrayBuffers is included in external. No per-room attribution."
+          },
+          "population": {
+            "generator": -1,
+            "atMonoMs": 510.317709,
+            "logicalClients": 0,
+            "openSockets": 0,
+            "processedScheduled": 0,
+            "snapshotsReceived": 0,
+            "latestSnapshotAgeMs": [],
+            "faultsApplied": 0,
+            "running": false
+          }
+        },
+        {
+          "process": {
+            "pid": 90708,
+            "role": "generator",
+            "fromMonoMs": 154.224417,
+            "toMonoMs": 343.217792,
+            "wallAtMs": 1788820137823,
+            "memory": {
+              "rss": 122519552,
+              "heapTotal": 40730624,
+              "heapUsed": 22144128,
+              "external": 10292471,
+              "arrayBuffers": 3424398
+            },
+            "cpuMicroseconds": {
+              "user": 13147,
+              "system": 719
+            },
+            "eventLoopUtilization": {
+              "idle": 184.90754,
+              "active": 3.9855019683456305,
+              "utilization": 0.02109925239603857
+            },
+            "loopDelayMs": {
+              "samples": 7,
+              "p50": 21.037055,
+              "p95": 21.053439,
+              "p99": 21.053439,
+              "max": 21.053439
+            },
+            "gcDurationsMs": [
+              0.0690000057220459,
+              0.8060001134872437
+            ],
+            "gcOmitted": 0,
+            "memoryScope": "Whole child process; arrayBuffers is included in external. No per-room attribution."
+          },
+          "population": {
+            "generator": -1,
+            "atMonoMs": 343.475208,
+            "logicalClients": 0,
+            "openSockets": 0,
+            "processedScheduled": 0,
+            "snapshotsReceived": 0,
+            "latestSnapshotAgeMs": [],
+            "faultsApplied": 0,
+            "running": false
+          }
+        },
+        {
+          "process": {
+            "pid": 90709,
+            "role": "generator",
+            "fromMonoMs": 166.494958,
+            "toMonoMs": 168.337041,
+            "wallAtMs": 1788820137823,
+            "memory": {
+              "rss": 125845504,
+              "heapTotal": 43843584,
+              "heapUsed": 25351240,
+              "external": 14391035,
+              "arrayBuffers": 4665372
+            },
+            "cpuMicroseconds": {
+              "user": 5493,
+              "system": 251
+            },
+            "eventLoopUtilization": {
+              "idle": 0,
+              "active": 1.7335000038146973,
+              "utilization": 1
+            },
+            "loopDelayMs": {
+              "samples": 0,
+              "p50": 0.000511,
+              "p95": 0.000511,
+              "p99": 0.000511,
+              "max": 0
+            },
+            "gcDurationsMs": [
+              0.07012498378753662
+            ],
+            "gcOmitted": 0,
+            "memoryScope": "Whole child process; arrayBuffers is included in external. No per-room attribution."
+          },
+          "population": {
+            "generator": -1,
+            "atMonoMs": 168.485416,
+            "logicalClients": 0,
+            "openSockets": 0,
+            "processedScheduled": 0,
+            "snapshotsReceived": 0,
+            "latestSnapshotAgeMs": [],
+            "faultsApplied": 0,
+            "running": false
+          }
+        }
+      ]
+    }
+  ],
+  "resource": {
+    "peakOwnedRssBytes": 707837952,
+    "peakScope": "Observed sum of separate authority/generator/controller process RSS; overlapping fields such as external/arrayBuffers are not added.",
+    "perRoomMemory": "NOT RUN: no exact JS/native/WASM ownership attribution. Post-disposal memory growth is observational; allocator retention, GC timing and reachable leaks are not distinguished."
+  },
+  "timing": {
+    "status": "NOT RUN: full-slot deadline qualification",
+    "scope": "Existing room summaries retain at most 2048 recent completed callbacks. Creation/warm-up/drain may overlap the ring. They exclude dropped callback completions and do not expose raw due/start/finish slots. No aggregate room p99 or full fixed-window deadline pass is computed.",
+    "roomWindows": []
+  },
+  "reconnect": {
+    "status": "UNIMPLEMENTED",
+    "eligibleTrials": 0,
+    "successes": 0,
+    "successFraction": null,
+    "explanation": "Phase 4 same-body reservation/reconnection is absent. Fresh joins in churn never enter a reconnect denominator."
+  },
+  "slowReader": {
+    "faults": [],
+    "snapshotSkipsObserved": null,
+    "interpretation": "A real ws receive pause is applied. Healthy partner progress is checked. If skip count stays zero, the server backpressure threshold was NOT EXERCISED; OS socket buffers may absorb the bounded pause."
+  },
+  "teardown": {
+    "ownedChildren": [
+      {
+        "pid": 90709,
+        "role": "generator",
+        "code": 0,
+        "signal": null
+      },
+      {
+        "pid": 90708,
+        "role": "generator",
+        "code": 0,
+        "signal": null
+      },
+      {
+        "pid": 90707,
+        "role": "generator",
+        "code": 0,
+        "signal": null
+      },
+      {
+        "pid": 90706,
+        "role": "generator",
+        "code": 0,
+        "signal": null
+      },
+      {
+        "pid": 90705,
+        "role": "authority",
+        "code": 0,
+        "signal": null
+      }
+    ],
+    "ownedOnly": true,
+    "credentials": "Ephemeral authority exited; no tokens were written to disk.",
+    "allWorkloadRoomsAbsentBeforeShutdown": false
+  },
+  "qualification": "NOT RUN — future production launch protocol is not satisfied by this local diagnostic."
+}

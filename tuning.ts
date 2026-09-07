@@ -2,8 +2,8 @@
  * Changes are recorded by the reports' full configuration and simulation version.
  * Nothing here is a human Gate 1 verdict. */
 export const TUNING = {
-  version: 'phase1-2',
-  phase: 1,
+  version: 'phase2-1',
+  phase: 2,
   seed: 1701, // Reproducible default flat test surface; no hazards are generated.
   players: 2, // Gate 1 is exactly two bodies. Later phases must still respect hardCap.
   hardCap: 6,
@@ -49,6 +49,11 @@ export const TUNING = {
     markSize: 0.18,
   },
   camera: {
+    bridgeCueSagM: 0.06, // Small gray surface displacement makes a server cue readable without depicting a collapse early.
+    catchRadiusMultiplier: 1.75, // A caught span gets a thicker black stroke; no color, flash, slow motion or force change.
+    terrainEdgeWidthM: 0.04, // Flush gray seams separate bridge/ice patches from ordinary ground.
+    wallCueReachM: 0.8, // Show a direction cue only near a known crevasse wall, not a distant implied foothold.
+    maximumCueEvidence: 256, // Bound per-client first-visible cue/collapse observations between scene resets.
     localWeight: 0.35,
     elevationDegrees: 55,
     azimuthDegrees: 45,
@@ -123,6 +128,72 @@ export const TUNING = {
     maximumSpanErrorM: 0.01, maximumSegmentErrorM: 0.02, // Preserve the existing rope regression tolerances.
     maximumSpeedMultiplier: 4, // Explosion guard only; a rope catch may exceed walking speed.
     minimumWalkSpeedFraction: 0.8, // Broad correctness guard for long travel, not a feel target.
+  },
+  phase2: {
+    defaultScene: 'crossing' as const, defaultPlayers: 4, // Application default; simulation's legacy default stays flat/two.
+    routeHalfWidth: 12, routeStartZ: -16, finishZ: 55, // Fixed grey-box route; no procedural daily or run-length claim.
+    finishApronM: 30, // All six climbers must fit safely beyond the finish, including the longest family spans.
+    crevasseStarts: [8, 20, 32, 44], crevasseWidth: 2.8, crevasseDepth: 12,
+    terminalY: -16, // Explicit out-of-world boundary; hanging duration never ends a run.
+    bridgeHalfWidth: 1.1, bridgeThickness: 0.25,
+    bridgeCapacityBodyWeights: [0.9, 1.45], // Seeded once; supported load includes weight, landing and rope corrections.
+    bridgeOverloadSeconds: 0.32, bridgeRecoveryRate: 2, // Sustained overload memory; never a per-entry random roll.
+    bridgeCueStartFraction: 0.65, bridgeWarningSeconds: 0.4, // Cue and collapse derive from the same support load.
+    rescueLipZ: 0, rescueSafeOffset: 0.8, rescueFallerAdvance: 0.7, rescueSpacing: 1.6,
+    groundContactTolerance: 0.045, wallContactTolerance: 0.05, collisionSkin: 0.004,
+    contactPredictionM: 0.002, // Wide predictive contacts snag coplanar bank/bridge seams; swept body projection handles the residual here.
+    collisionSweepPasses: 4, // Sweep PBD corrections too; Rapier CCD only covers the Rapier step.
+    solverIterations: 12, maximumSolverIterations: 256, solverToleranceM: 0.005, // Extra bounded passes handle the large rope/body mass ratio at a lip contact.
+    iceTractionMultiplier: 0.3, // A known low-traction patch, not a hidden difficulty adjustment.
+    wallClimbSpeed: 1.6, wallDescendSpeed: 1.8, wallAcceleration: 5,
+    wallPressSpeed: 0.45, wallNormalEffortN: 900, wallFriction: 1.3,
+    wallRopeSupportFraction: 0.08, // Loaded-rope participation proxy only; wall ascent is limited by contact pressing/friction.
+    fallDepth: 0.2, fallSpeed: 0.5, catchSpeed: 0.35, catchConfirmSeconds: 0.12,
+    recoveryConfirmSeconds: 0.3, catchHighlightSeconds: 0.5,
+    energyToleranceJ: 0.01, // Per internal step roundoff allowance; contacts/rope cannot supply unexplained kinetic energy.
+    mechanicsProbeSeconds: 10, // Bounded per-size/rate regression window; evidence scenarios run longer separately.
+    mechanicsLoadSeed: 2000, // Reproduces a first bridge whose fixed capacity is below one supported body's weight.
+    inputChangeEpsilon: 0.08, usefulMotionMps: 0.04, // Participation proxies; static-brace success remains a design counterexample.
+    maximumIncidents: 64, maximumEvents: 256, // Bound retained evidence and disclose truncation; lifetime totals remain.
+  },
+  phase2Evidence: {
+    targets: {
+      rescueSeconds: [10, 20], firstAttemptRecoveryFraction: [0.6, 0.75], eventualRecoveryFraction: [0.88, 0.92],
+      fourIncidentCompletionFraction: [0.6, 0.72], incidentsPerRun: [3, 6], firstFallBeforeSeconds: 45,
+      runSeconds: [300, 600], maximumIdleFraction: 0.2,
+    }, // Existing PLAN.md targets, quoted centrally; bots cannot pass the human rescue stop.
+    trajectoryRuns: 1000, // Fixed evidence budget across every scene/team/policy; never adapt chance to hit targets.
+    smokeTrajectories: 10, // Covers both scenes at all five team sizes with the recovery policy before the full run.
+    teamSizes: [2, 3, 4, 5, 6], // Every approved Phase 2 rope size, reported separately.
+    crossingSeconds: 600, // Observe up to the run target's ten-minute upper end; unfinished trajectories are censored.
+    rescueSeconds: 60, // Focused recovery gets three times the normal 20-second upper target before censoring.
+    actionSeconds: 0.5, // Bounded state-reactive bot decision cadence; no per-tick omniscient steering.
+    badWrongWayChance: 0.2, // Fixed diagnostic mistake chance; existing bot brace/idle chances are reused unchanged.
+    recoveryBraceCycleSeconds: 2, recoveryBraceFraction: 0.5, // Helpers alternate a planted catch and a repositioning step; a policy hypothesis.
+    movementEpsilonM: 0.01, // Input/movement inactivity proxy only, not proof of useful rescue contribution.
+    inputChangeEpsilon: 0.05, // Ignore numerical steering jitter when measuring continuous held controls.
+    lifecycleRuns: 25, lifecycleSeconds: 2, // Sequential create/step/free stress; explicitly not 300-room qualification.
+    replaySeconds: 20, // Bounded same-build accepted-input replay checks across scene/team/policy fixtures.
+    maximumTimingBytes: 256 * 1024 * 1024, // Reserve exact full-window Float64 timing storage plus sorting copy, or refuse the run.
+    maximumReportBytes: 16 * 1024 * 1024, // Bound aggregate/raw-trajectory report output.
+    maximumSavedTapes: 20, maximumTapeOutputBytes: 32 * 1024 * 1024, // Bound representative failure/counterexample artifacts; report omitted/truncated evidence.
+  },
+  localLoad: {
+    smokeRooms: 10, smokeSeconds: 30, // Default finite loopback diagnostic; no production qualification.
+    largeRooms: 300, largeSeconds: 30, // Explicit profile only, after six-body integration and coordination.
+    generatorProcesses: 4, // Independent event loops; actual population and lateness remain measured.
+    maximumRooms: 300, maximumSeconds: 120, // Refuse larger or longer profiles rather than grow the test allocation.
+    warmupMs: 2000, startLeadMs: 1000, sampleMs: 1000, // Fixed warm-up, IPC start lead and process/population cadence.
+    startupTimeoutMs: 120000, maximumWallMs: 180000, shutdownGraceMs: 3000, // Bound startup, whole-run lifetime and owned-child shutdown.
+    maximumTotalRssBytes: 3 * 1024 * 1024 * 1024, minimumFreeMemoryBytes: 512 * 1024 * 1024, // Local safety caps, not per-room attribution or provider sizing.
+    authorityHeapMiB: 1024, generatorHeapMiB: 256, // V8 caps supplement sampled RSS; native/WASM memory is separately observed.
+    maximumReportBytes: 64 * 1024 * 1024, maximumChildLogBytes: 16 * 1024, // Bound retained evidence and child diagnostics.
+    maximumInputBufferedBytes: 16 * 1024, // Skip/report offers when the actual client socket backs up.
+    maximumLatePeriods: 4, // Drop overdue scheduled offers beyond this age; never catch up with an unbounded burst.
+    lifecycleCycles: 3, lifecycleRooms: 2, lifecycleHoldMs: 250, // Repeat real create/join/leave/dispose and compare natural memory samples.
+    slowReaderStartFraction: 0.25, slowReaderDurationFraction: 0.25, // Pause one real SDK socket's reads; no fake bufferedAmount injection.
+    churnStartFraction: 0.5, churnEveryRooms: 10, // Disconnect/rejoin one non-owner per cohort; explicitly a fresh seat, not reconnect.
+    probePollMs: 25, eventLoopResolutionMs: 20, // Bounded functional polling and process loop-delay probe (converted ns to ms).
   },
   clip: {
     seconds: 15, width: 1280, height: 720, fps: 24,

@@ -1,0 +1,217 @@
+{
+  "inputs": {
+    "tuning.ts": {
+      "bytes": 16998,
+      "imports": [],
+      "format": "esm"
+    },
+    "shared/protocol.ts": {
+      "bytes": 5547,
+      "imports": [
+        {
+          "path": "tuning.ts",
+          "kind": "import-statement",
+          "original": "../tuning"
+        }
+      ],
+      "format": "esm"
+    },
+    "shared/movement.ts": {
+      "bytes": 776,
+      "imports": [
+        {
+          "path": "tuning.ts",
+          "kind": "import-statement",
+          "original": "../tuning"
+        }
+      ],
+      "format": "esm"
+    },
+    "shared/physical-diagnostics.ts": {
+      "bytes": 601,
+      "imports": [],
+      "format": "esm"
+    },
+    "shared/flat-simulation.ts": {
+      "bytes": 11668,
+      "imports": [
+        {
+          "path": "@dimforge/rapier3d-compat",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "tuning.ts",
+          "kind": "import-statement",
+          "original": "../tuning"
+        },
+        {
+          "path": "shared/protocol.ts",
+          "kind": "import-statement",
+          "original": "./protocol"
+        },
+        {
+          "path": "shared/movement.ts",
+          "kind": "import-statement",
+          "original": "./movement"
+        },
+        {
+          "path": "shared/physical-diagnostics.ts",
+          "kind": "import-statement",
+          "original": "./physical-diagnostics"
+        }
+      ],
+      "format": "esm"
+    },
+    "shared/terrain.ts": {
+      "bytes": 2673,
+      "imports": [
+        {
+          "path": "tuning.ts",
+          "kind": "import-statement",
+          "original": "../tuning"
+        }
+      ],
+      "format": "esm"
+    },
+    "shared/contact-geometry.ts": {
+      "bytes": 5675,
+      "imports": [
+        {
+          "path": "tuning.ts",
+          "kind": "import-statement",
+          "original": "../tuning"
+        }
+      ],
+      "format": "esm"
+    },
+    "shared/expedition-simulation.ts": {
+      "bytes": 35276,
+      "imports": [
+        {
+          "path": "@dimforge/rapier3d-compat",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "tuning.ts",
+          "kind": "import-statement",
+          "original": "../tuning"
+        },
+        {
+          "path": "shared/protocol.ts",
+          "kind": "import-statement",
+          "original": "./protocol"
+        },
+        {
+          "path": "shared/movement.ts",
+          "kind": "import-statement",
+          "original": "./movement"
+        },
+        {
+          "path": "shared/terrain.ts",
+          "kind": "import-statement",
+          "original": "./terrain"
+        },
+        {
+          "path": "shared/physical-diagnostics.ts",
+          "kind": "import-statement",
+          "original": "./physical-diagnostics"
+        },
+        {
+          "path": "shared/contact-geometry.ts",
+          "kind": "import-statement",
+          "original": "./contact-geometry"
+        }
+      ],
+      "format": "esm"
+    },
+    "shared/simulation.ts": {
+      "bytes": 2509,
+      "imports": [
+        {
+          "path": "@dimforge/rapier3d-compat",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "tuning.ts",
+          "kind": "import-statement",
+          "original": "../tuning"
+        },
+        {
+          "path": "shared/protocol.ts",
+          "kind": "import-statement",
+          "original": "./protocol"
+        },
+        {
+          "path": "shared/flat-simulation.ts",
+          "kind": "import-statement",
+          "original": "./flat-simulation"
+        },
+        {
+          "path": "shared/expedition-simulation.ts",
+          "kind": "import-statement",
+          "original": "./expedition-simulation"
+        }
+      ],
+      "format": "esm"
+    }
+  },
+  "outputs": {
+    "work/local-load-runtime-483fda44-4031-4b15-9376-5f7b22c8cdf0/simulation.mjs": {
+      "imports": [
+        {
+          "path": "@dimforge/rapier3d-compat",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "@dimforge/rapier3d-compat",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "@dimforge/rapier3d-compat",
+          "kind": "import-statement",
+          "external": true
+        }
+      ],
+      "exports": [
+        "BelaySimulation",
+        "initializePhysics"
+      ],
+      "entryPoint": "shared/simulation.ts",
+      "inputs": {
+        "shared/simulation.ts": {
+          "bytesInOutput": 2068
+        },
+        "tuning.ts": {
+          "bytesInOutput": 17261
+        },
+        "shared/protocol.ts": {
+          "bytesInOutput": 293
+        },
+        "shared/flat-simulation.ts": {
+          "bytesInOutput": 10440
+        },
+        "shared/movement.ts": {
+          "bytesInOutput": 625
+        },
+        "shared/physical-diagnostics.ts": {
+          "bytesInOutput": 544
+        },
+        "shared/expedition-simulation.ts": {
+          "bytesInOutput": 33765
+        },
+        "shared/terrain.ts": {
+          "bytesInOutput": 2140
+        },
+        "shared/contact-geometry.ts": {
+          "bytesInOutput": 5112
+        }
+      },
+      "bytes": 72628
+    }
+  }
+}

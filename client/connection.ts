@@ -2,6 +2,8 @@ import { Client, type Room } from '@colyseus/sdk';
 import { TUNING, FAMILIES } from '../tuning';
 import { REST, type ClientConfig, type DebugCommand, type Move, type SceneOptions, type Snapshot } from '../shared/protocol';
 import { Samples } from '../shared/stats';
+import { ClientEvidence } from './evidence';
+import { sameTopology } from './presentation';
 
 export class BelayConnection {
   room?: Room;
@@ -12,6 +14,8 @@ export class BelayConnection {
   status = 'Ready';
   input: Move = { ...REST };
   sessionNumber = 0;
+  readonly evidence = new ClientEvidence();
+  viewCounters: () => unknown = () => null;
   private seq = 0;
   private generation = 0;
   private disposed = false;
@@ -29,7 +33,7 @@ export class BelayConnection {
   private lastSnapshotAt: number | null = null;
   private joinedAt: number | null = null;
   private measurementsStartedAt = new Date().toISOString();
-  private lastSession: { reason: string; state: Snapshot | null; network: ReturnType<BelayConnection['networkCounters']> } | null = null;
+  private lastSession: { reason: string; state: Snapshot | null; network: ReturnType<BelayConnection['networkCounters']>; presentation: ReturnType<ClientEvidence['report']> } | null = null;
   missedProbes = 0;
   receivedSnapshots = 0;
   onChange: () => void = () => {};
@@ -55,7 +59,7 @@ export class BelayConnection {
       if (generation !== this.generation || this.disposed) return;
       const client = new Client(location.origin.replace(/^http/, 'ws') + config.endpoint);
       const room = await client.joinById(config.roomId, { token: config.token });
-      // Phase 1 has no 60-second body reservation yet; SDK retries would queue stale controls
+      // The current phase has no 60-second body reservation yet; SDK retries would queue stale controls
       // against a body already released by the server. Explicit rejoin is honest at this gate.
       room.reconnection.enabled = false;
       if (generation !== this.generation || this.disposed) { void room.leave(false).catch(() => {}); return; }
@@ -64,7 +68,7 @@ export class BelayConnection {
       const current = () => this.room === room && generation === this.generation && !this.disposed;
       this.joinDeadline = setTimeout(() => { if (current() && !this.latest) this.detach('No game state arrived — try joining again'); }, TUNING.network.joinTimeoutMs);
       const identity = ({ id }: { id: number }) => {
-        if (!current() || !Number.isInteger(id) || id < 0 || id >= TUNING.players) return;
+        if (!current() || !Number.isInteger(id) || id < 0 || id >= TUNING.hardCap) return;
         this.localId = id; this.onChange();
       };
       room.onMessage('seat', identity);
@@ -74,8 +78,10 @@ export class BelayConnection {
         const now = performance.now();
         const firstState = !this.latest;
         if (firstState) clearTimeout(this.joinDeadline);
-        if (this.latest && snapshot.epoch !== this.latest.epoch) {
+        if (this.latest && !sameTopology(snapshot, this.latest)) {
           this.history = []; this.resetMeasurements();
+          this.evidence.reset(snapshot.epoch, now);
+          this.input = { ...REST }; this.onInputReset();
         }
         if (this.receivedSnapshots && this.lastSnapshotAt !== null) this.intervals.add(now - this.lastSnapshotAt);
         this.lastSnapshotAt = now; this.receivedSnapshots++;
@@ -83,6 +89,7 @@ export class BelayConnection {
           this.input = { ...REST }; this.onInputReset(); this.stalled = false; this.status = 'Connected'; this.onChange();
         }
         this.latest = snapshot; this.history.push({ at: now, state: snapshot });
+        this.evidence.receive(snapshot, this.localId, now);
         if (this.history.length > TUNING.network.snapshotHistory) this.history.shift();
         this.onSnapshot(snapshot);
       });
@@ -146,10 +153,11 @@ export class BelayConnection {
   private clearScene() {
     this.latest = undefined; this.history = []; this.localId = -1; this.operator = false;
     this.seq = 0; this.stalled = false; this.lastSnapshotAt = null; this.joinedAt = null; this.input = { ...REST }; this.onInputReset();
+    this.evidence.reset();
   }
   private detach(reason: string) {
     const room = this.room;
-    if (this.status !== 'Ready' || this.latest) this.lastSession = { reason, state: this.latest ? structuredClone(this.latest) : null, network: this.networkCounters() };
+    if (this.status !== 'Ready' || this.latest) this.lastSession = { reason, state: this.latest ? structuredClone(this.latest) : null, network: this.networkCounters(), presentation: this.evidence.report() };
     ++this.generation;
     this.joinAbort?.abort(); this.joinAbort = undefined;
     clearTimeout(this.joinDeadline); clearInterval(this.inputTimer); clearInterval(this.pingTimer);
@@ -206,6 +214,7 @@ export class BelayConnection {
     const connection = { connected: Boolean(this.room?.connection.isOpen), localPlayerId: this.localId, status: this.status,
       sessionNumber: this.sessionNumber, roomId: this.room?.roomId ?? null };
     const lastClosedSession = this.lastSession ? structuredClone(this.lastSession) : null;
+    const presentation = this.evidence.report(), view = structuredClone(this.viewCounters());
     let server: unknown = null;
     try { if (this.operator && this.room?.connection.isOpen) server = await this.command('counters'); }
     catch (error) { server = { unavailable: true, reason: error instanceof Error ? error.message : 'Server report unavailable.' }; }
@@ -215,7 +224,9 @@ export class BelayConnection {
     const serverState = (server as { state?: Snapshot } | null)?.state;
     return { generatedAt: new Date().toISOString(), captureStartedAt, userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'unknown',
       phase: TUNING.phase, gateVerdict: 'NOT EVALUATED', tuning: TUNING, familyDefinitions: FAMILIES,
-      connection, client, server, impairment, state, lastClosedSession,
+      connection, client, server, impairment, state, lastClosedSession, presentation, view,
+      rescueVerdict: 'NOT EVALUATED',
+      roleEvidenceNote: 'Role active/idle/unchanged-hold seconds are mechanical/input proxies. Being dragged under load can accrue roleActiveSeconds without purposeful input; it cannot establish agency or pass the human rescue stop.',
       captureChange: { sessionChanged: generation !== this.generation, sceneChanged: state?.epoch !== this.latest?.epoch,
         serverSceneMatches: serverState ? serverState.epoch === state?.epoch : null },
       connectionAtFinish: { connected: Boolean(this.room?.connection.isOpen), sessionNumber: this.sessionNumber, sceneEpoch: this.latest?.epoch ?? null } };
@@ -232,6 +243,7 @@ export class BelayConnection {
       serverCounters: () => this.command('counters'), tape: () => this.command('tape'),
       networkProfile: (profile?: { addedRttMs: number; jitterMs: number }) => this.networkProfile(profile),
       resetMeasurements: () => this.resetMeasurements(), captureReport: () => this.captureReport(),
+      presentation: () => ({ view: this.viewCounters(), cues: this.evidence.report() }),
     };
   }
 }

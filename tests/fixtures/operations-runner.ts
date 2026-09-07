@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { runDev } from '../../scripts/dev';
 import { runPlaytest } from '../../scripts/playtest';
 import { childEnvironment, OwnedProcess } from '../../scripts/operations';
+import { TUNING } from '../../tuning';
 
 const options = JSON.parse(await readFile(process.argv[2], 'utf8'));
 const service = fileURLToPath(new URL('./operations-service.mjs', import.meta.url));
@@ -26,7 +27,7 @@ if (options.mode === 'dev') {
   process.exitCode = await runDev({ root: options.root, ports: options.ports, gatewayFactory: gateway,
     startupTimeoutMs: options.timeout ?? 5000,
     commands: {
-      authority: [process.execPath, service, 'authority', join(options.root, 'authority.json'), String(options.ports.authority), String(options.delay ?? 0)],
+      authority: [process.execPath, service, 'authority', join(options.root, 'authority.json'), String(options.ports.authority), String(options.delay ?? 0), String(TUNING.phase)],
       web: [process.execPath, service, options.webFailure ? 'fail' : 'web', join(options.root, 'web.json'), String(options.ports.web), String(options.delay ?? 0)],
     } });
 } else if (options.mode === 'playtest') {

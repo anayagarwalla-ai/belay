@@ -1,0 +1,265 @@
+[
+  {
+    "sourceFileSha256": "21c07c14c84f006aaa88c4627585c0b06d5bd1c6de14db38231846a40eebb69d",
+    "sourceManifestSha256": "b10299e84a69fc2a7829d96f78c31342e9d2b1adfaa121cbfd5b917eed2ffb24",
+    "options": {
+      "scene": "rescue",
+      "seed": 1701,
+      "family": "balanced",
+      "tickHz": 30,
+      "playerCount": 2
+    },
+    "recordedFrames": 75,
+    "runs": [
+      {
+        "ticks": 30,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "ticks": 15,
+        "inputs": [
+          {
+            "x": -0.7728618727536516,
+            "z": -0.6345742869386676,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "ticks": 15,
+        "inputs": [
+          {
+            "x": -0.7716699620332848,
+            "z": -0.6360231675776826,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "ticks": 15,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sourceFileSha256": "b10432b5b69ec872af9c788f728408525eeebab1340979a0e8a676852c91581c",
+    "sourceManifestSha256": "b10299e84a69fc2a7829d96f78c31342e9d2b1adfaa121cbfd5b917eed2ffb24",
+    "options": {
+      "scene": "rescue",
+      "seed": 1701,
+      "family": "balanced",
+      "tickHz": 30,
+      "playerCount": 6
+    },
+    "recordedFrames": 61,
+    "runs": [
+      {
+        "ticks": 15,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0.7295372219381597,
+            "z": -0.6839411098967162,
+            "brace": false
+          },
+          {
+            "x": 0.9054589353512248,
+            "z": -0.424433877527026,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "ticks": 15,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": -0.7409039714435453,
+            "z": -0.6716109775005037,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0.7351050252594782,
+            "z": -0.677953244581263,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "ticks": 15,
+        "inputs": [
+          {
+            "x": -0.9800712247577504,
+            "z": -0.19864640545915507,
+            "brace": false
+          },
+          {
+            "x": -0.9604857666847199,
+            "z": -0.27832910734608063,
+            "brace": false
+          },
+          {
+            "x": -0.8558470872090984,
+            "z": -0.517228927377135,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          }
+        ]
+      },
+      {
+        "ticks": 15,
+        "inputs": [
+          {
+            "x": -0.9797242446629988,
+            "z": -0.20035070356631313,
+            "brace": false
+          },
+          {
+            "x": -0.9595891525438007,
+            "z": -0.2814047944159271,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": -1,
+            "brace": false
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0.9229009317366079,
+            "z": -0.38503749194033127,
+            "brace": false
+          }
+        ]
+      },
+      {
+        "ticks": 1,
+        "inputs": [
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 0,
+            "brace": true
+          },
+          {
+            "x": 0,
+            "z": 1,
+            "brace": false
+          },
+          {
+            "x": 0.988238817270486,
+            "z": -0.15291840974791268,
+            "brace": false
+          },
+          {
+            "x": 0.9539043008432613,
+            "z": -0.3001109542031565,
+            "brace": false
+          }
+        ]
+      }
+    ]
+  }
+]

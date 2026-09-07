@@ -1,7 +1,7 @@
 import http from 'node:http';
 import { spawn } from 'node:child_process';
 import { writeFileSync } from 'node:fs';
-const [mode, output, portOrBehavior, wait = '0'] = process.argv.slice(2);
+const [mode, output, portOrBehavior, wait = '0', phase] = process.argv.slice(2);
 writeFileSync(output, JSON.stringify({ pid: process.pid, hasSecret: Boolean(process.env.BELAY_SESSION_SECRET) }));
 if (mode === 'tree') {
   process.on('SIGTERM', () => {});
@@ -23,7 +23,7 @@ if (mode === 'tree') {
 } else {
   const server = http.createServer((req, res) => {
     if (mode === 'web') res.end('BELAY Join test rope');
-    else if (req.url === '/health') res.end(JSON.stringify({ ok: true, phase: 1 }));
+    else if (req.url === '/health') res.end(JSON.stringify({ ok: true, phase: Number(phase) }));
     else if (req.headers['x-belay-gateway'] === process.env.BELAY_SESSION_SECRET) {
       res.end(JSON.stringify({ roomId: 'fixture-room', operator: true, token: 'fixture-token' }));
     } else res.writeHead(401).end();

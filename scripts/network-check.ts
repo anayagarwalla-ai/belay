@@ -22,7 +22,7 @@ try {
   await delay(250);
   assert.equal(a.latest?.players.filter(p => p.connected).length, 2);
   assert.notEqual(a.localId, b.localId); checks.push('Two real WebSocket clients get distinct bodies.');
-  await assert.rejects(client.joinById(room.roomId, { token: config.token })); checks.push('Third player rejected by the Phase 1 room cap.');
+  await assert.rejects(client.joinById(room.roomId, { token: config.token })); checks.push('Third player rejected by the explicit two-climber flat regression room cap.');
   await a.command('pause');
   await a.command('loadScene', { seed: 44, family: 'balanced' });
   room.send('input', { x: -1, z: 0, brace: false, seq: 100 });
@@ -87,10 +87,11 @@ try {
   assert.equal(status, 401); checks.push('Gateway rejects unauthenticated WebSocket upgrades.');
   await a.command('resume'); await delay(600);
   const server = await a.command('counters');
-  const report = { generatedAt: new Date().toISOString(), scope: 'Local protocol integration; not a human remote session or 300-room load test.',
+  const report = { generatedAt: new Date().toISOString(), phase: TUNING.phase,
+    scope: 'Local protocol/access integration on the two-climber flat regression scene in the current server. Six-climber admission and scene reset have separate integration tests. Not a human remote session or 300-room load test.',
     checks, localEchoRttMs: probes, server, humanGate: 'NOT EVALUATED', packetLoss: 'unknown' };
   await mkdir('reports', { recursive: true });
-  await writeFile('reports/phase1-network.json', JSON.stringify(report, null, 2) + '\n');
+  await writeFile(`reports/phase${TUNING.phase}-network.json`, JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify(report, null, 2));
 } finally {
   await Promise.allSettled([room, second, other, tester].filter(r => r?.connection.isOpen).map(r => r!.leave()));

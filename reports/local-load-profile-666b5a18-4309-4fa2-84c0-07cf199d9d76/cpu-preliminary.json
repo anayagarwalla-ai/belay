@@ -1,0 +1,145 @@
+{
+  "scope": "Whole-process sampled CPU including initialization/warmup; CPU clock differs from process.hrtime on this host so no uncalibrated phase slicing",
+  "top": [
+    {
+      "name": "sweepBox",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+      "line": 1,
+      "ms": 2465.845,
+      "percent": 18.44230370968643
+    },
+    {
+      "name": "",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+      "line": 1,
+      "ms": 2014.639,
+      "percent": 15.067688481384256
+    },
+    {
+      "name": "contactNormalsAt",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+      "line": 1,
+      "ms": 1205.011,
+      "percent": 9.012398928364497
+    },
+    {
+      "name": "__name",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+      "line": 1,
+      "ms": 1031.76,
+      "percent": 7.716637207734498
+    },
+    {
+      "name": "constrain",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+      "line": 1,
+      "ms": 975.94,
+      "percent": 7.299153792079946
+    },
+    {
+      "name": "",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+      "line": 1,
+      "ms": 974.482,
+      "percent": 7.288249262878507
+    },
+    {
+      "name": "set MIMEParams",
+      "url": "",
+      "line": 0,
+      "ms": 958.486,
+      "percent": 7.168613563903047
+    },
+    {
+      "name": "substep",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+      "line": 1,
+      "ms": 938.81,
+      "percent": 7.021454773390346
+    },
+    {
+      "name": "projectMotion",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+      "line": 1,
+      "ms": 775.801,
+      "percent": 5.802294004805023
+    },
+    {
+      "name": "routeRope",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+      "line": 1,
+      "ms": 591.288,
+      "percent": 4.4223026491499144
+    },
+    {
+      "name": "(garbage collector)",
+      "url": "",
+      "line": 0,
+      "ms": 332.695,
+      "percent": 2.488259494288622
+    },
+    {
+      "name": "(program)",
+      "url": "",
+      "line": 0,
+      "ms": 137.489,
+      "percent": 1.028294112055331
+    },
+    {
+      "name": "step",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/expedition-simulation.ts",
+      "line": 1,
+      "ms": 79.003,
+      "percent": 0.5908714132382031
+    },
+    {
+      "name": "structuredClone",
+      "url": "node:internal/worker/js_transferable",
+      "line": 113,
+      "ms": 68.256,
+      "percent": 0.510493515208116
+    },
+    {
+      "name": "penetration",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/shared/contact-geometry.ts",
+      "line": 1,
+      "ms": 68.215,
+      "percent": 0.5101868720687066
+    },
+    {
+      "name": "childProfile",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/scripts/local-load-profile.ts",
+      "line": 1,
+      "ms": 66.796,
+      "percent": 0.49957402780475446
+    },
+    {
+      "name": "runCallSync",
+      "url": "file:///Users/anayagarwalla/.codex/worktrees/38d1/testastra/node_modules/tsx/node_modules/esbuild/lib/main.js",
+      "line": 2428,
+      "ms": 46.406,
+      "percent": 0.3470751592057524
+    },
+    {
+      "name": "wasm-function[35]",
+      "url": "wasm://wasm/007b5d42",
+      "line": 1,
+      "ms": 45.409,
+      "percent": 0.33961849554742946
+    },
+    {
+      "name": "wasm-function[227]",
+      "url": "wasm://wasm/007b5d42",
+      "line": 1,
+      "ms": 33.367,
+      "percent": 0.24955516177257983
+    },
+    {
+      "name": "wasm-function[251]",
+      "url": "wasm://wasm/007b5d42",
+      "line": 1,
+      "ms": 24.416,
+      "percent": 0.18260972906881978
+    }
+  ]
+}

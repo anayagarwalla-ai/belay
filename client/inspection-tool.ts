@@ -14,13 +14,13 @@ export function registerInspectionTool(api: BelayDebugApi) {
     try {
       void Promise.resolve(context.registerTool({
         name: 'read_belay_rope_test', title: 'Read BELAY rope test',
-        description: 'Read the connected Phase 1 room, rope and network measurements. Does not join, move, reset, or evaluate the human playtest.',
+        description: 'Read the connected rope test, terrain, incidents and network measurements. Does not join, move, reset, or evaluate the human playtest.',
         inputSchema: { type: 'object', properties: {}, additionalProperties: false },
         annotations: { readOnlyHint: true, untrustedContentHint: false },
         execute(input) {
           if (!input || typeof input !== 'object' || Array.isArray(input) || Object.keys(input).length) throw new Error('Expected an empty object.');
           const state = api.getState();
-          return { connected: state !== null, state, measurements: api.counters(), humanVerdict: 'NOT EVALUATED' };
+          return { connected: state !== null, state, measurements: api.counters(), presentation: api.presentation(), humanVerdict: 'NOT EVALUATED' };
         },
       }, { signal: lifetime.signal })).catch(() => { /* Unsupported draft implementations cannot interrupt play. */ });
     } catch { /* Optional API; the visible controls and window.BELAY remain available. */ }

@@ -1,0 +1,1263 @@
+{
+  "gitHead": "ec8c739edba75c6fa476e65328eda8c6f93ecbe7",
+  "files": [
+    {
+      "path": "package-lock.json",
+      "sha256": "91d6a3f4a4fc558039673a2414202e77765802b7615117061a261cebd0f68bf3"
+    },
+    {
+      "path": "scripts/phase2-analysis.ts",
+      "sha256": "ff461b94d85b200d5ace96ee4fc9a0728934209821e6fc695e53c41184198b82"
+    },
+    {
+      "path": "scripts/phase2-bench.ts",
+      "sha256": "7c1d53e664394f1e2e0fbc5439194f31827efbc02587b9538146e6e454a517f4"
+    },
+    {
+      "path": "scripts/phase2-harness.ts",
+      "sha256": "e44a8ff52e52e9f164123f2902128de8b5463ac00e76c5a6fbd4057e9101da7a"
+    },
+    {
+      "path": "scripts/phase2-policies.ts",
+      "sha256": "d3809f08131d678b44baeee5e7da66927ea84e073f126da0e780cad23037556c"
+    },
+    {
+      "path": "scripts/phase2-replay.ts",
+      "sha256": "a2973aec36ec30139e46bc60451385e1032bf07d71481e3d61868686c14e7706"
+    },
+    {
+      "path": "scripts/phase2-report.ts",
+      "sha256": "b42c01f94bd8b01420bbf3ecd2961c1b14e8e7a917d2beea81523e3fe6e7c9e7"
+    },
+    {
+      "path": "scripts/phase2-stress.ts",
+      "sha256": "1b0894f31780b95c93fe863684ddee745f89ca6959c7fbed77ac873565d0fb62"
+    },
+    {
+      "path": "shared/contact-geometry.ts",
+      "sha256": "be27fd0e94f87c17d4de8a066b7cfd3c8ab18c307f409deabe3d28df63a8b2cd"
+    },
+    {
+      "path": "shared/expedition-simulation.ts",
+      "sha256": "97afe573eb1b7753094ee2ecd338ccd411bf64f8a0e312a39b7e0fb40e7836a3"
+    },
+    {
+      "path": "shared/flat-simulation.ts",
+      "sha256": "07ebd2d5902fc9d6a5060c2840f5de5c24443573da9fa652d27a819a95dffc9d"
+    },
+    {
+      "path": "shared/movement.ts",
+      "sha256": "de8cfb54596c8741082e3ef40fc2550cfd7494c30761dc8c72889f48227ad45b"
+    },
+    {
+      "path": "shared/physical-diagnostics.ts",
+      "sha256": "0b55613cb72e95ec99081c17b9385fececc9c9425a553b3ba0d7e7583a701670"
+    },
+    {
+      "path": "shared/protocol.ts",
+      "sha256": "1a9dd92feb961fbc61bd27ef3f515d07d3d25f49c15daa6d8f0b7b66ef4f228c"
+    },
+    {
+      "path": "shared/simulation.ts",
+      "sha256": "04a66271386b1e496784e1f801120077159aa6abc280391a97056e60566c55ee"
+    },
+    {
+      "path": "shared/stats.ts",
+      "sha256": "18555b71109353b5ad45db0596484d9f5b9b29f5e9260196f667984e5aa57d87"
+    },
+    {
+      "path": "shared/terrain.ts",
+      "sha256": "d6f36940f9a7901e47f723ba90902bc9e288d2056a7fb12d93673ff67362bee2"
+    },
+    {
+      "path": "tuning.ts",
+      "sha256": "4a099d43f366b6af30950cc5d2ebcaf3e9f286cc24c154dc84b89f29e5fe0c18"
+    }
+  ],
+  "sourceManifestSha256": "b10299e84a69fc2a7829d96f78c31342e9d2b1adfaa121cbfd5b917eed2ffb24",
+  "tuning": {
+    "version": "phase2-1",
+    "phase": 2,
+    "seed": 1701,
+    "players": 2,
+    "hardCap": 6,
+    "tickHz": 30,
+    "physicsHz": 60,
+    "solverIterations": 8,
+    "maximumSolverIterations": 32,
+    "maximumCatchupTicks": 4,
+    "gravity": 9.81,
+    "body": {
+      "mass": 80,
+      "width": 0.55,
+      "height": 0.9,
+      "depth": 0.55,
+      "walkSpeed": 3.1,
+      "acceleration": 10,
+      "coastDeceleration": 1.4,
+      "braceFriction": 1.6,
+      "braceMassMultiplier": 6,
+      "groundFriction": 0.08,
+      "contactPredictionM": 0.12,
+      "harnessHeight": 0.42,
+      "maximumInputAgeMs": 250
+    },
+    "rope": {
+      "length": 3.6,
+      "segments": 12,
+      "particleMass": 0.2,
+      "drag": 2.5,
+      "floorHeight": 0.04,
+      "radius": 0.035,
+      "tensionReferenceN": 700,
+      "tensionSmoothingSeconds": 0.1,
+      "tautFraction": 0.97,
+      "initialSpacing": 2.5,
+      "initialSag": 0.35,
+      "initialBend": 0.6,
+      "solverToleranceM": 0.01
+    },
+    "terrain": {
+      "halfExtent": 500,
+      "gridUnit": 1,
+      "landmarkCount": 24,
+      "landmarkRange": 36,
+      "markSize": 0.18
+    },
+    "camera": {
+      "bridgeCueSagM": 0.06,
+      "catchRadiusMultiplier": 1.75,
+      "terrainEdgeWidthM": 0.04,
+      "wallCueReachM": 0.8,
+      "maximumCueEvidence": 256,
+      "localWeight": 0.35,
+      "elevationDegrees": 55,
+      "azimuthDegrees": 45,
+      "baseVerticalSpan": 11,
+      "maximumVerticalSpan": 24,
+      "margin": 4,
+      "smoothingSeconds": 0.22,
+      "distance": 60,
+      "maximumPixelRatio": 2,
+      "edgeInsetPx": 36,
+      "labelOffsetPx": 26,
+      "braceVisualHeight": 0.58
+    },
+    "network": {
+      "inputHz": 60,
+      "interpolationMs": 70,
+      "snapshotHistory": 32,
+      "reconciliationSeconds": 0.07,
+      "hardCorrectionDistance": 1.5,
+      "maximumPredictionMs": 100,
+      "pingIntervalMs": 500,
+      "staleSnapshotMs": 1000,
+      "probeTimeoutMs": 2000,
+      "maximumMessagesPerSecond": 120,
+      "maximumFrameBytes": 4096,
+      "telemetrySamples": 2048,
+      "debugTimeoutMs": 5000,
+      "joinTimeoutMs": 10000,
+      "maximumPendingDebugCommands": 8,
+      "maximumDebugCommandsPerSecond": 12,
+      "maximumSnapshotBufferedBytes": 65536,
+      "maximumDebugResponseBytes": 16777216,
+      "hudUpdateMs": 250,
+      "maximumStepTicks": 3600,
+      "rttBracketsMs": [
+        30,
+        60,
+        100,
+        150,
+        250
+      ],
+      "emulatedJitterMs": 10,
+      "maximumAddedRttMs": 500,
+      "maximumJitterMs": 50,
+      "maximumDelayedBytes": 1048576,
+      "maximumTapeSeconds": 1200
+    },
+    "server": {
+      "host": "127.0.0.1",
+      "port": 2567,
+      "webPort": 5173,
+      "gatewayPort": 8787,
+      "protectedPort": 8788,
+      "sessionLifetimeSeconds": 7200,
+      "tokenBytes": 32,
+      "maximumAuthBodyBytes": 1024,
+      "authAttemptsPerMinute": 15,
+      "roomIdleMinutes": 30,
+      "httpTimeoutMs": 15000
+    },
+    "bot": {
+      "actionSeconds": 1.2,
+      "braceChance": 0.22,
+      "idleChance": 0.12,
+      "benchmarkRuns": 1000,
+      "benchmarkSeconds": 20
+    },
+    "physicsDiagnostics": {
+      "scenarioSeconds": 60,
+      "longWalkSeconds": 1200,
+      "crossingRadiansPerSecond": 0.6,
+      "circlingRadiansPerSecond": 2,
+      "circlingPhaseRadians": 1,
+      "circleBracePeriodsTicks": [
+        100,
+        70
+      ],
+      "circleBraceTicks": 20,
+      "togglePeriodsTicks": [
+        2,
+        3
+      ],
+      "randomActionSeconds": 0.1,
+      "randomBraceChance": 0.25,
+      "maximumBodyOverlapM": 0.005,
+      "maximumFloorErrorM": 0.001,
+      "maximumSpanErrorM": 0.01,
+      "maximumSegmentErrorM": 0.02,
+      "maximumSpeedMultiplier": 4,
+      "minimumWalkSpeedFraction": 0.8
+    },
+    "phase2": {
+      "defaultScene": "crossing",
+      "defaultPlayers": 4,
+      "routeHalfWidth": 12,
+      "routeStartZ": -16,
+      "finishZ": 55,
+      "finishApronM": 30,
+      "crevasseStarts": [
+        8,
+        20,
+        32,
+        44
+      ],
+      "crevasseWidth": 2.8,
+      "crevasseDepth": 12,
+      "terminalY": -16,
+      "bridgeHalfWidth": 1.1,
+      "bridgeThickness": 0.25,
+      "bridgeCapacityBodyWeights": [
+        0.9,
+        1.45
+      ],
+      "bridgeOverloadSeconds": 0.32,
+      "bridgeRecoveryRate": 2,
+      "bridgeCueStartFraction": 0.65,
+      "bridgeWarningSeconds": 0.4,
+      "rescueLipZ": 0,
+      "rescueSafeOffset": 0.8,
+      "rescueFallerAdvance": 0.7,
+      "rescueSpacing": 1.6,
+      "groundContactTolerance": 0.045,
+      "wallContactTolerance": 0.05,
+      "collisionSkin": 0.004,
+      "contactPredictionM": 0.002,
+      "collisionSweepPasses": 4,
+      "solverIterations": 12,
+      "maximumSolverIterations": 256,
+      "solverToleranceM": 0.005,
+      "iceTractionMultiplier": 0.3,
+      "wallClimbSpeed": 1.6,
+      "wallDescendSpeed": 1.8,
+      "wallAcceleration": 5,
+      "wallPressSpeed": 0.45,
+      "wallNormalEffortN": 900,
+      "wallFriction": 1.3,
+      "wallRopeSupportFraction": 0.08,
+      "fallDepth": 0.2,
+      "fallSpeed": 0.5,
+      "catchSpeed": 0.35,
+      "catchConfirmSeconds": 0.12,
+      "recoveryConfirmSeconds": 0.3,
+      "catchHighlightSeconds": 0.5,
+      "energyToleranceJ": 0.01,
+      "mechanicsProbeSeconds": 10,
+      "mechanicsLoadSeed": 2000,
+      "inputChangeEpsilon": 0.08,
+      "usefulMotionMps": 0.04,
+      "maximumIncidents": 64,
+      "maximumEvents": 256
+    },
+    "phase2Evidence": {
+      "targets": {
+        "rescueSeconds": [
+          10,
+          20
+        ],
+        "firstAttemptRecoveryFraction": [
+          0.6,
+          0.75
+        ],
+        "eventualRecoveryFraction": [
+          0.88,
+          0.92
+        ],
+        "fourIncidentCompletionFraction": [
+          0.6,
+          0.72
+        ],
+        "incidentsPerRun": [
+          3,
+          6
+        ],
+        "firstFallBeforeSeconds": 45,
+        "runSeconds": [
+          300,
+          600
+        ],
+        "maximumIdleFraction": 0.2
+      },
+      "trajectoryRuns": 1000,
+      "smokeTrajectories": 10,
+      "teamSizes": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "crossingSeconds": 600,
+      "rescueSeconds": 60,
+      "actionSeconds": 0.5,
+      "badWrongWayChance": 0.2,
+      "recoveryBraceCycleSeconds": 2,
+      "recoveryBraceFraction": 0.5,
+      "movementEpsilonM": 0.01,
+      "inputChangeEpsilon": 0.05,
+      "lifecycleRuns": 25,
+      "lifecycleSeconds": 2,
+      "replaySeconds": 20,
+      "maximumTimingBytes": 268435456,
+      "maximumReportBytes": 16777216,
+      "maximumSavedTapes": 20,
+      "maximumTapeOutputBytes": 33554432
+    },
+    "localLoad": {
+      "smokeRooms": 10,
+      "smokeSeconds": 30,
+      "largeRooms": 300,
+      "largeSeconds": 30,
+      "generatorProcesses": 4,
+      "maximumRooms": 300,
+      "maximumSeconds": 120,
+      "warmupMs": 2000,
+      "startLeadMs": 1000,
+      "sampleMs": 1000,
+      "startupTimeoutMs": 120000,
+      "maximumWallMs": 180000,
+      "shutdownGraceMs": 3000,
+      "maximumTotalRssBytes": 3221225472,
+      "minimumFreeMemoryBytes": 536870912,
+      "authorityHeapMiB": 1024,
+      "generatorHeapMiB": 256,
+      "maximumReportBytes": 67108864,
+      "maximumChildLogBytes": 16384,
+      "maximumInputBufferedBytes": 16384,
+      "maximumLatePeriods": 4,
+      "lifecycleCycles": 3,
+      "lifecycleRooms": 2,
+      "lifecycleHoldMs": 250,
+      "slowReaderStartFraction": 0.25,
+      "slowReaderDurationFraction": 0.25,
+      "churnStartFraction": 0.5,
+      "churnEveryRooms": 10,
+      "probePollMs": 25,
+      "eventLoopResolutionMs": 20
+    },
+    "clip": {
+      "seconds": 15,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "videoBitsPerSecond": 800000,
+      "audioBitsPerSecond": 48000,
+      "maximumBytes": 2097152,
+      "retentionDays": 7,
+      "permanentSlots": 1,
+      "uploadsPerIdentityPerUtcDay": 3,
+      "globalBytes": 268435456,
+      "uploadsEnabled": false
+    },
+    "later": {
+      "idleBotSeconds": 20,
+      "reconnectSeconds": 60,
+      "attachWaitSeconds": 30,
+      "stableTensionFraction": 0.2,
+      "stableSeconds": 0.5,
+      "publicTeamSize": 4,
+      "minimumVoteTeam": 4,
+      "agreeingVotes": 3,
+      "dailyAttempts": 3
+    },
+    "gates": {
+      "tuningSessions": 6,
+      "sessionsPerFamily": 2,
+      "diagnosticSessions": 3,
+      "freePlayMinutes": 10
+    },
+    "tools": {
+      "operations": {
+        "startupTimeoutMs": 120000,
+        "tunnelStartupTimeoutMs": 90000,
+        "probeTimeoutMs": 3000,
+        "pollMs": 250,
+        "shutdownGraceMs": 3000,
+        "stopTimeoutMs": 15000,
+        "downloadTimeoutMs": 120000,
+        "maximumTunnelLogBytes": 16384,
+        "maximumDownloadBytes": 67108864
+      },
+      "cloudflaredVersion": "2026.8.3",
+      "cloudflaredSha256": {
+        "arm64": "40c9144d86df8937c5b43293a1f7d2d2107029aa74725023dd46b1b27154352f",
+        "x64": "61e1316266a00fd70ce40da011d612badc805367fb65293dd1925f938f704c99"
+      }
+    }
+  },
+  "familyDefinitions": {
+    "balanced": {
+      "label": "Intermediate / strong brace",
+      "ropeLength": 3.6,
+      "ropeDrag": 2.5,
+      "braceMassMultiplier": 6,
+      "braceFriction": 1.6
+    },
+    "short": {
+      "label": "Short / damped",
+      "ropeLength": 3,
+      "ropeDrag": 5,
+      "braceMassMultiplier": 4,
+      "braceFriction": 1.2
+    },
+    "loose": {
+      "label": "Long / momentum",
+      "ropeLength": 4.5,
+      "ropeDrag": 1.2,
+      "braceMassMultiplier": 4,
+      "braceFriction": 1.2
+    }
+  },
+  "machine": {
+    "platform": "darwin",
+    "release": "27.0.0",
+    "arch": "arm64",
+    "cpu": "Apple M4",
+    "availableCpus": 10,
+    "totalMemoryBytes": 17179869184,
+    "node": "v26.5.0"
+  },
+  "generatedAt": "2026-09-07T22:44:30.200Z",
+  "scope": "Sequential local create/step/free and bounded tape-retention checks. Process memory is shared runtime/allocator/harness memory, not per-room attribution or a leak proof.",
+  "wallSeconds": 91.06723391700001,
+  "processMemoryBefore": {
+    "rss": 97124352,
+    "heapTotal": 22036480,
+    "heapUsed": 15077456,
+    "external": 7527709,
+    "arrayBuffers": 685051
+  },
+  "processMemoryAfter": {
+    "rss": 126205952,
+    "heapTotal": 100777984,
+    "heapUsed": 45641240,
+    "external": 7528332,
+    "arrayBuffers": 685634
+  },
+  "lifecycle": [
+    {
+      "index": 0,
+      "scene": "crossing",
+      "playerCount": 2,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "f971ed198170ba94704e5906c53df43a0773a846991c1e32fa57c14826e4562d",
+      "ticks": 60,
+      "bodyCount": 2,
+      "ropePoints": 13,
+      "spans": 1,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 202915840,
+        "heapTotal": 34095104,
+        "heapUsed": 23634512,
+        "external": 7527532,
+        "arrayBuffers": 684834
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 203014144,
+        "heapTotal": 34095104,
+        "heapUsed": 23654656,
+        "external": 7527532,
+        "arrayBuffers": 684834
+      }
+    },
+    {
+      "index": 1,
+      "scene": "crossing",
+      "playerCount": 3,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "9f59371025f36bec5c185738001d8a8f5ff3483c2769e9a905ef41cd00800ac4",
+      "ticks": 60,
+      "bodyCount": 3,
+      "ropePoints": 26,
+      "spans": 2,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 182075392,
+        "heapTotal": 34095104,
+        "heapUsed": 17738088,
+        "external": 7527564,
+        "arrayBuffers": 684866
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 182108160,
+        "heapTotal": 34095104,
+        "heapUsed": 17739056,
+        "external": 7527564,
+        "arrayBuffers": 684866
+      }
+    },
+    {
+      "index": 2,
+      "scene": "crossing",
+      "playerCount": 4,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "d557a2470fd80e91a35f8c412f6254c6e824a485c996047db0de8727d24ff3c2",
+      "ticks": 60,
+      "bodyCount": 4,
+      "ropePoints": 39,
+      "spans": 3,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 178798592,
+        "heapTotal": 34095104,
+        "heapUsed": 22232000,
+        "external": 7527596,
+        "arrayBuffers": 684898
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 178798592,
+        "heapTotal": 34095104,
+        "heapUsed": 22233360,
+        "external": 7527596,
+        "arrayBuffers": 684898
+      }
+    },
+    {
+      "index": 3,
+      "scene": "crossing",
+      "playerCount": 5,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "c2aa63b7612503f5a0600b4c9f12420879cc16a8715ab8203dc2b907d4db0f11",
+      "ticks": 60,
+      "bodyCount": 5,
+      "ropePoints": 52,
+      "spans": 4,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 176111616,
+        "heapTotal": 34095104,
+        "heapUsed": 23090024,
+        "external": 7527628,
+        "arrayBuffers": 684930
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 176111616,
+        "heapTotal": 34095104,
+        "heapUsed": 23091248,
+        "external": 7527628,
+        "arrayBuffers": 684930
+      }
+    },
+    {
+      "index": 4,
+      "scene": "crossing",
+      "playerCount": 6,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "168a062d7834d38ae6d313f214f6a06fa2c1cd7ea6501f501345dd3004b329d8",
+      "ticks": 60,
+      "bodyCount": 6,
+      "ropePoints": 65,
+      "spans": 5,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 193544192,
+        "heapTotal": 52183040,
+        "heapUsed": 24377408,
+        "external": 7527660,
+        "arrayBuffers": 684962
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 193544192,
+        "heapTotal": 52183040,
+        "heapUsed": 24378440,
+        "external": 7527660,
+        "arrayBuffers": 684962
+      }
+    },
+    {
+      "index": 5,
+      "scene": "rescue",
+      "playerCount": 2,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "e4a67c07f403c7d090ab012c8f9297ef26637c3ce4b5e5c96bebddc09bb9c1c2",
+      "ticks": 60,
+      "bodyCount": 2,
+      "ropePoints": 13,
+      "spans": 1,
+      "incidentsRetained": 1,
+      "eventsRetained": 6,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 194772992,
+        "heapTotal": 53231616,
+        "heapUsed": 28141384,
+        "external": 7527692,
+        "arrayBuffers": 684994
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 194772992,
+        "heapTotal": 53231616,
+        "heapUsed": 28142416,
+        "external": 7527692,
+        "arrayBuffers": 684994
+      }
+    },
+    {
+      "index": 6,
+      "scene": "rescue",
+      "playerCount": 3,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "3508c63594b3e6af3fb997b68fb7d8930ab90fe07b0ead55ef03615a4b7142f1",
+      "ticks": 60,
+      "bodyCount": 3,
+      "ropePoints": 26,
+      "spans": 2,
+      "incidentsRetained": 1,
+      "eventsRetained": 9,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 194920448,
+        "heapTotal": 53755904,
+        "heapUsed": 29692496,
+        "external": 7527724,
+        "arrayBuffers": 685026
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 194920448,
+        "heapTotal": 53755904,
+        "heapUsed": 29693528,
+        "external": 7527724,
+        "arrayBuffers": 685026
+      }
+    },
+    {
+      "index": 7,
+      "scene": "rescue",
+      "playerCount": 4,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "1debef7e8f87376fba4aa6d9d42722eba320ac86a059a68eeba18ae2290c325b",
+      "ticks": 60,
+      "bodyCount": 4,
+      "ropePoints": 39,
+      "spans": 3,
+      "incidentsRetained": 1,
+      "eventsRetained": 10,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 192020480,
+        "heapTotal": 53755904,
+        "heapUsed": 29083712,
+        "external": 7527756,
+        "arrayBuffers": 685058
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 192020480,
+        "heapTotal": 53755904,
+        "heapUsed": 29084744,
+        "external": 7527756,
+        "arrayBuffers": 685058
+      }
+    },
+    {
+      "index": 8,
+      "scene": "rescue",
+      "playerCount": 5,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "289907b141ad72d089466e4576b98014e6e87c4b6c8f465e6d9870e6ed72f98d",
+      "ticks": 60,
+      "bodyCount": 5,
+      "ropePoints": 52,
+      "spans": 4,
+      "incidentsRetained": 1,
+      "eventsRetained": 5,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 136953856,
+        "heapTotal": 54804480,
+        "heapUsed": 26680752,
+        "external": 7527788,
+        "arrayBuffers": 685090
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 136986624,
+        "heapTotal": 54804480,
+        "heapUsed": 26687560,
+        "external": 7527788,
+        "arrayBuffers": 685090
+      }
+    },
+    {
+      "index": 9,
+      "scene": "rescue",
+      "playerCount": 6,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "3926d2f0501489821753db83d10b048e0f3b74d65040f6291e1c28b9847b6a29",
+      "ticks": 60,
+      "bodyCount": 6,
+      "ropePoints": 65,
+      "spans": 5,
+      "incidentsRetained": 1,
+      "eventsRetained": 10,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 140247040,
+        "heapTotal": 56115200,
+        "heapUsed": 25824632,
+        "external": 7527820,
+        "arrayBuffers": 685122
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 140247040,
+        "heapTotal": 56115200,
+        "heapUsed": 25827488,
+        "external": 7527820,
+        "arrayBuffers": 685122
+      }
+    },
+    {
+      "index": 10,
+      "scene": "crossing",
+      "playerCount": 2,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "f971ed198170ba94704e5906c53df43a0773a846991c1e32fa57c14826e4562d",
+      "ticks": 60,
+      "bodyCount": 2,
+      "ropePoints": 13,
+      "spans": 1,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 140345344,
+        "heapTotal": 56115200,
+        "heapUsed": 28488032,
+        "external": 7527852,
+        "arrayBuffers": 685154
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 140345344,
+        "heapTotal": 56115200,
+        "heapUsed": 28489192,
+        "external": 7527852,
+        "arrayBuffers": 685154
+      }
+    },
+    {
+      "index": 11,
+      "scene": "crossing",
+      "playerCount": 3,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "9f59371025f36bec5c185738001d8a8f5ff3483c2769e9a905ef41cd00800ac4",
+      "ticks": 60,
+      "bodyCount": 3,
+      "ropePoints": 26,
+      "spans": 2,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 139984896,
+        "heapTotal": 56377344,
+        "heapUsed": 34296344,
+        "external": 7527884,
+        "arrayBuffers": 685186
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 139984896,
+        "heapTotal": 56377344,
+        "heapUsed": 34297376,
+        "external": 7527884,
+        "arrayBuffers": 685186
+      }
+    },
+    {
+      "index": 12,
+      "scene": "crossing",
+      "playerCount": 4,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "d557a2470fd80e91a35f8c412f6254c6e824a485c996047db0de8727d24ff3c2",
+      "ticks": 60,
+      "bodyCount": 4,
+      "ropePoints": 39,
+      "spans": 3,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 140099584,
+        "heapTotal": 56377344,
+        "heapUsed": 26544072,
+        "external": 7527916,
+        "arrayBuffers": 685218
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 140099584,
+        "heapTotal": 56377344,
+        "heapUsed": 26545104,
+        "external": 7527916,
+        "arrayBuffers": 685218
+      }
+    },
+    {
+      "index": 13,
+      "scene": "crossing",
+      "playerCount": 5,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "c2aa63b7612503f5a0600b4c9f12420879cc16a8715ab8203dc2b907d4db0f11",
+      "ticks": 60,
+      "bodyCount": 5,
+      "ropePoints": 52,
+      "spans": 4,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 142327808,
+        "heapTotal": 56639488,
+        "heapUsed": 22615544,
+        "external": 7527948,
+        "arrayBuffers": 685250
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 142327808,
+        "heapTotal": 56639488,
+        "heapUsed": 22616576,
+        "external": 7527948,
+        "arrayBuffers": 685250
+      }
+    },
+    {
+      "index": 14,
+      "scene": "crossing",
+      "playerCount": 6,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "168a062d7834d38ae6d313f214f6a06fa2c1cd7ea6501f501345dd3004b329d8",
+      "ticks": 60,
+      "bodyCount": 6,
+      "ropePoints": 65,
+      "spans": 5,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 142606336,
+        "heapTotal": 56639488,
+        "heapUsed": 36729008,
+        "external": 7527980,
+        "arrayBuffers": 685282
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 142606336,
+        "heapTotal": 56639488,
+        "heapUsed": 36730040,
+        "external": 7527980,
+        "arrayBuffers": 685282
+      }
+    },
+    {
+      "index": 15,
+      "scene": "rescue",
+      "playerCount": 2,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "e4a67c07f403c7d090ab012c8f9297ef26637c3ce4b5e5c96bebddc09bb9c1c2",
+      "ticks": 60,
+      "bodyCount": 2,
+      "ropePoints": 13,
+      "spans": 1,
+      "incidentsRetained": 1,
+      "eventsRetained": 6,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 142704640,
+        "heapTotal": 56639488,
+        "heapUsed": 29500408,
+        "external": 7528012,
+        "arrayBuffers": 685314
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 142704640,
+        "heapTotal": 56639488,
+        "heapUsed": 29501440,
+        "external": 7528012,
+        "arrayBuffers": 685314
+      }
+    },
+    {
+      "index": 16,
+      "scene": "rescue",
+      "playerCount": 3,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "3508c63594b3e6af3fb997b68fb7d8930ab90fe07b0ead55ef03615a4b7142f1",
+      "ticks": 60,
+      "bodyCount": 3,
+      "ropePoints": 26,
+      "spans": 2,
+      "incidentsRetained": 1,
+      "eventsRetained": 9,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 142819328,
+        "heapTotal": 56639488,
+        "heapUsed": 27642056,
+        "external": 7528044,
+        "arrayBuffers": 685346
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 142819328,
+        "heapTotal": 56639488,
+        "heapUsed": 27643088,
+        "external": 7528044,
+        "arrayBuffers": 685346
+      }
+    },
+    {
+      "index": 17,
+      "scene": "rescue",
+      "playerCount": 4,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "1debef7e8f87376fba4aa6d9d42722eba320ac86a059a68eeba18ae2290c325b",
+      "ticks": 60,
+      "bodyCount": 4,
+      "ropePoints": 39,
+      "spans": 3,
+      "incidentsRetained": 1,
+      "eventsRetained": 10,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 177242112,
+        "heapTotal": 90456064,
+        "heapUsed": 23228864,
+        "external": 7528076,
+        "arrayBuffers": 685378
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 177242112,
+        "heapTotal": 90456064,
+        "heapUsed": 23229896,
+        "external": 7528076,
+        "arrayBuffers": 685378
+      }
+    },
+    {
+      "index": 18,
+      "scene": "rescue",
+      "playerCount": 5,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "289907b141ad72d089466e4576b98014e6e87c4b6c8f465e6d9870e6ed72f98d",
+      "ticks": 60,
+      "bodyCount": 5,
+      "ropePoints": 52,
+      "spans": 4,
+      "incidentsRetained": 1,
+      "eventsRetained": 5,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 177553408,
+        "heapTotal": 90456064,
+        "heapUsed": 49253024,
+        "external": 7528108,
+        "arrayBuffers": 685410
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 177553408,
+        "heapTotal": 90456064,
+        "heapUsed": 49254056,
+        "external": 7528108,
+        "arrayBuffers": 685410
+      }
+    },
+    {
+      "index": 19,
+      "scene": "rescue",
+      "playerCount": 6,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "3926d2f0501489821753db83d10b048e0f3b74d65040f6291e1c28b9847b6a29",
+      "ticks": 60,
+      "bodyCount": 6,
+      "ropePoints": 65,
+      "spans": 5,
+      "incidentsRetained": 1,
+      "eventsRetained": 10,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 177815552,
+        "heapTotal": 90718208,
+        "heapUsed": 39585000,
+        "external": 7528140,
+        "arrayBuffers": 685442
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 177815552,
+        "heapTotal": 90718208,
+        "heapUsed": 39586032,
+        "external": 7528140,
+        "arrayBuffers": 685442
+      }
+    },
+    {
+      "index": 20,
+      "scene": "crossing",
+      "playerCount": 2,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "f971ed198170ba94704e5906c53df43a0773a846991c1e32fa57c14826e4562d",
+      "ticks": 60,
+      "bodyCount": 2,
+      "ropePoints": 13,
+      "spans": 1,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 177881088,
+        "heapTotal": 90718208,
+        "heapUsed": 24316264,
+        "external": 7528172,
+        "arrayBuffers": 685474
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 177881088,
+        "heapTotal": 90718208,
+        "heapUsed": 24317296,
+        "external": 7528172,
+        "arrayBuffers": 685474
+      }
+    },
+    {
+      "index": 21,
+      "scene": "crossing",
+      "playerCount": 3,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "9f59371025f36bec5c185738001d8a8f5ff3483c2769e9a905ef41cd00800ac4",
+      "ticks": 60,
+      "bodyCount": 3,
+      "ropePoints": 26,
+      "spans": 2,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 177913856,
+        "heapTotal": 90718208,
+        "heapUsed": 44981752,
+        "external": 7528204,
+        "arrayBuffers": 685506
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 177913856,
+        "heapTotal": 90718208,
+        "heapUsed": 44982784,
+        "external": 7528204,
+        "arrayBuffers": 685506
+      }
+    },
+    {
+      "index": 22,
+      "scene": "crossing",
+      "playerCount": 4,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "d557a2470fd80e91a35f8c412f6254c6e824a485c996047db0de8727d24ff3c2",
+      "ticks": 60,
+      "bodyCount": 4,
+      "ropePoints": 39,
+      "spans": 3,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 177979392,
+        "heapTotal": 90718208,
+        "heapUsed": 34361920,
+        "external": 7528236,
+        "arrayBuffers": 685538
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 177979392,
+        "heapTotal": 90718208,
+        "heapUsed": 34362952,
+        "external": 7528236,
+        "arrayBuffers": 685538
+      }
+    },
+    {
+      "index": 23,
+      "scene": "crossing",
+      "playerCount": 5,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "c2aa63b7612503f5a0600b4c9f12420879cc16a8715ab8203dc2b907d4db0f11",
+      "ticks": 60,
+      "bodyCount": 5,
+      "ropePoints": 52,
+      "spans": 4,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 178012160,
+        "heapTotal": 90718208,
+        "heapUsed": 25848112,
+        "external": 7528268,
+        "arrayBuffers": 685570
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 178012160,
+        "heapTotal": 90718208,
+        "heapUsed": 25849144,
+        "external": 7528268,
+        "arrayBuffers": 685570
+      }
+    },
+    {
+      "index": 24,
+      "scene": "crossing",
+      "playerCount": 6,
+      "seed": 1701,
+      "identicalInitialState": true,
+      "initialStateSha256": "168a062d7834d38ae6d313f214f6a06fa2c1cd7ea6501f501345dd3004b329d8",
+      "ticks": 60,
+      "bodyCount": 6,
+      "ropePoints": 65,
+      "spans": 5,
+      "incidentsRetained": 0,
+      "eventsRetained": 0,
+      "incidentRingWithinBound": true,
+      "eventRingWithinBound": true,
+      "memoryBeforeDispose": {
+        "rss": 178159616,
+        "heapTotal": 90718208,
+        "heapUsed": 53042784,
+        "external": 7528300,
+        "arrayBuffers": 685602
+      },
+      "explicitDisposeCompleted": true,
+      "memoryAfterDispose": {
+        "rss": 178159616,
+        "heapTotal": 90718208,
+        "heapUsed": 53043816,
+        "external": 7528300,
+        "arrayBuffers": 685602
+      }
+    }
+  ],
+  "tapeRetention": {
+    "elapsedSeconds": 1200.0333333333333,
+    "steps": 36001,
+    "configuredFrameCap": 36000,
+    "frames": 36000,
+    "truncated": true,
+    "firstTick": 0,
+    "lastTick": 35999,
+    "boundHeld": true,
+    "runStatus": "active",
+    "scope": "First-window input-tape saturation only; no completed run and no event/incident-ring saturation claim."
+  },
+  "forcedGC": false,
+  "simultaneousRooms": 1,
+  "production300RoomQualification": "NOT TESTED",
+  "reconnection": "NOT TESTED",
+  "humanAgency": "NOT EVALUATED"
+}

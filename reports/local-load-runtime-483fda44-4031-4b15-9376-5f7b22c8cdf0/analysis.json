@@ -1,0 +1,86 @@
+{
+  "status": "OFFLINE VALIDATED",
+  "checks": "Exact source hashes, preserved executed harness, two fixtures/602 snapshots/600 tape frames,16 measured runs with240active ticks each, alternating order, per-scene final hash equality, raw timing sums, child exit0.",
+  "startedAt": "2026-09-07T23:01:03.700Z",
+  "finishedAt": "2026-09-07T23:01:57.876Z",
+  "result": [
+    {
+      "scene": "crossing",
+      "paired": [
+        {
+          "repetition": 0,
+          "tsxMs": 2806.709451999999,
+          "esbuildMs": 2903.471541000008,
+          "changePercent": 3.447527813435003
+        },
+        {
+          "repetition": 1,
+          "tsxMs": 2744.709297000016,
+          "esbuildMs": 2502.807257999979,
+          "changePercent": -8.813393799643453
+        },
+        {
+          "repetition": 2,
+          "tsxMs": 2769.9224559999675,
+          "esbuildMs": 2896.9746189999714,
+          "changePercent": 4.586849091200884
+        },
+        {
+          "repetition": 3,
+          "tsxMs": 2810.256331000055,
+          "esbuildMs": 2888.981325000055,
+          "changePercent": 2.801345668421118
+        }
+      ],
+      "tsxMedianMs": 2788.3159539999833,
+      "esbuildMedianMs": 2892.9779720000133,
+      "changeOfMediansPercent": 3.7535924811493038,
+      "medianPairedChangePercent": 3.1244367409280605,
+      "fasterPairs": 1,
+      "hostLoadRange": [
+        9.904296875,
+        10.6533203125
+      ],
+      "peakSampledRss": 263028736
+    },
+    {
+      "scene": "rescue",
+      "paired": [
+        {
+          "repetition": 0,
+          "tsxMs": 1084.8099459999867,
+          "esbuildMs": 819.1987419999714,
+          "changePercent": -24.484584141157807
+        },
+        {
+          "repetition": 1,
+          "tsxMs": 1374.0081700000082,
+          "esbuildMs": 793.0152490000182,
+          "changePercent": -42.28453175791426
+        },
+        {
+          "repetition": 2,
+          "tsxMs": 1089.1249589999934,
+          "esbuildMs": 849.6472860000576,
+          "changePercent": -21.988080524737764
+        },
+        {
+          "repetition": 3,
+          "tsxMs": 1627.7084090000208,
+          "esbuildMs": 1264.6114999999263,
+          "changePercent": -22.307245388205754
+        }
+      ],
+      "tsxMedianMs": 1231.5665645000008,
+      "esbuildMedianMs": 834.4230140000145,
+      "changeOfMediansPercent": -32.24702277145865,
+      "medianPairedChangePercent": -23.39591476468178,
+      "fasterPairs": 4,
+      "hostLoadRange": [
+        10.02978515625,
+        10.486328125
+      ],
+      "peakSampledRss": 169574400
+    }
+  ]
+}
