@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-09-07T21:06:40.563Z",
+  "scope": "Automated 30 Hz transport delay qualification only. Not the conditional human 30/60 Hz comparison.",
+  "rows": [
+    {
+      "addedRttMs": 30,
+      "jitterMs": 10,
+      "actualEchoRttMs": {
+        "samples": 12,
+        "p50": 30.780708000000004,
+        "p95": 48.738624999999956,
+        "p99": 48.738624999999956,
+        "max": 48.738624999999956
+      },
+      "tickHz": 30
+    },
+    {
+      "addedRttMs": 60,
+      "jitterMs": 10,
+      "actualEchoRttMs": {
+        "samples": 12,
+        "p50": 56.68729100000019,
+        "p95": 75.70787500000006,
+        "p99": 75.70787500000006,
+        "max": 75.70787500000006
+      },
+      "tickHz": 30
+    },
+    {
+      "addedRttMs": 100,
+      "jitterMs": 10,
+      "actualEchoRttMs": {
+        "samples": 12,
+        "p50": 103.64204099999961,
+        "p95": 120.52716699999996,
+        "p99": 120.52716699999996,
+        "max": 120.52716699999996
+      },
+      "tickHz": 30
+    },
+    {
+      "addedRttMs": 150,
+      "jitterMs": 10,
+      "actualEchoRttMs": {
+        "samples": 12,
+        "p50": 152.93087500000001,
+        "p95": 169.75941599999987,
+        "p99": 169.75941599999987,
+        "max": 169.75941599999987
+      },
+      "tickHz": 30
+    },
+    {
+      "addedRttMs": 250,
+      "jitterMs": 10,
+      "actualEchoRttMs": {
+        "samples": 12,
+        "p50": 250.643458,
+        "p95": 268.7969579999999,
+        "p99": 268.7969579999999,
+        "max": 268.7969579999999
+      },
+      "tickHz": 30
+    }
+  ],
+  "packetLoss": "unavailable; no loss is simulated",
+  "humanSessionsConsumed": 0
+}

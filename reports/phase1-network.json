@@ -1,0 +1,91 @@
+{
+  "generatedAt": "2026-09-07T21:09:51.667Z",
+  "scope": "Local protocol integration; not a human remote session or 300-room load test.",
+  "checks": [
+    "Two real WebSocket clients get distinct bodies.",
+    "Third player rejected by the Phase 1 room cap.",
+    "Pause/reset/step operate on the authoritative world.",
+    "Forged positions and out-of-order inputs rejected.",
+    "Accepted input tape records exactly the stepped ticks.",
+    "Rooms do not share simulation state.",
+    "Tester invitation cannot invoke operator debug mutations.",
+    "Tester cannot allocate additional rooms.",
+    "Echo telemetry works over the real socket.",
+    "Gateway protects HTTP, validates invitations, and strips spoofed privilege headers.",
+    "Gateway rejects unauthenticated WebSocket upgrades."
+  ],
+  "localEchoRttMs": [
+    0.35675000000003365,
+    0.36879099999998743,
+    0.15370900000016263,
+    0.3398749999998927,
+    0.20058300000005147,
+    0.15179099999977552,
+    0.29700000000002547,
+    0.2465829999998732,
+    0.20162499999992178,
+    0.2690419999998994
+  ],
+  "server": {
+    "physics": {
+      "ticks": 48,
+      "elapsedSeconds": 1.6,
+      "maximumSpanErrorM": 0,
+      "maximumSegmentErrorM": 0.010957091038555855,
+      "maximumSpeedMps": 3.0803782939305946,
+      "maximumJoltMps2": 62.058254008596315,
+      "tautTransitions": 1,
+      "totalTensionSeconds": 0.9833333333333347,
+      "distanceTravelledM": [
+        3.5944264863268565,
+        2.666666598172885
+      ]
+    },
+    "tickExecutionMs": {
+      "samples": 50,
+      "p50": 0.1545829999995476,
+      "p95": 0.31508300000132294,
+      "p99": 0.512166000000434,
+      "max": 0.512166000000434
+    },
+    "schedulingLatenessMs": {
+      "samples": 50,
+      "p50": 0.7872086667121039,
+      "p95": 1.203042000048299,
+      "p99": 1.231459000009636,
+      "max": 1.231459000009636
+    },
+    "schedulingPlusExecutionMs": {
+      "samples": 50,
+      "p50": 0.9347090000192111,
+      "p95": 1.3665420000434096,
+      "p99": 1.3885840000475582,
+      "max": 1.3885840000475582
+    },
+    "rejectedInputs": 2,
+    "droppedWallMs": 0,
+    "snapshotBytes": 1987,
+    "ropePointCount": 13,
+    "tapeFrames": 48,
+    "tapeTruncated": false,
+    "processMemory": {
+      "rss": 199098368,
+      "heapTotal": 43925504,
+      "heapUsed": 30062896,
+      "external": 10532930,
+      "arrayBuffers": 3638320
+    },
+    "memoryAttribution": "Process RSS/heap includes all rooms and shared runtime; not per-room memory.",
+    "tickHz": 30,
+    "physicsHz": 60,
+    "family": "balanced",
+    "seed": 44,
+    "simulatedPlayers": 2,
+    "connectedPlayers": 2,
+    "phase": 1,
+    "gateVerdict": "NOT EVALUATED",
+    "packetLoss": "Unknown; WebSocket does not expose wire retransmissions."
+  },
+  "humanGate": "NOT EVALUATED",
+  "packetLoss": "unknown"
+}

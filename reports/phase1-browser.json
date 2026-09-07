@@ -1,0 +1,60 @@
+{
+  "humanGate": "NOT EVALUATED",
+  "checks": {
+    "connectedBodies": 2,
+    "visibleBot": true,
+    "movementDistance": 1.5299048638230954,
+    "brace": true,
+    "blurReleased": true,
+    "paused": true,
+    "steppedTick": 42
+  },
+  "network": {
+    "rttMs": {
+      "samples": 3,
+      "p50": 0.5,
+      "p95": 2,
+      "p99": 2,
+      "max": 2
+    },
+    "jitterSuccessiveRttDifferenceMs": {
+      "samples": 2,
+      "p50": 1.5,
+      "p95": 1.5,
+      "p99": 1.5,
+      "max": 1.5
+    },
+    "snapshotIntervalMs": {
+      "samples": 60,
+      "p50": 33.30000001192093,
+      "p95": 34.19999998807907,
+      "p99": 36.30000001192093,
+      "max": 36.30000001192093
+    },
+    "receivedSnapshots": 61,
+    "missedEchoProbes": 0,
+    "packetLoss": null,
+    "packetLossNote": "Wire loss is unavailable from WebSocket. Missed probes are not packet loss.",
+    "lastSnapshotAgeMs": 0.5999999940395355,
+    "interpolationMs": 70,
+    "inputHz": 60
+  },
+  "generatedAt": "2026-09-07T21:12:42.584Z",
+  "scope": "Browser keyboard-event handlers plus one labelled bot, not a two-human playtest.",
+  "webmcp": {
+    "registered": true,
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "readOnly": true,
+    "validInvocation": "completed",
+    "invalidInvocation": "failed intentionally",
+    "stateMutation": false
+  },
+  "networkProfile": {
+    "changedOnActiveSocket": true,
+    "resetToZero": true
+  }
+}

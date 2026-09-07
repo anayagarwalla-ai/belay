@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-09-07T21:06:37.280Z",
+  "checks": [
+    "External URL exposes invitation form only; API requires authentication.",
+    "Tester can fetch its room token, cannot change the network profile; cookie is secure and HttpOnly.",
+    "Authenticated page contains the actual Phase 1 UI.",
+    "A real TLS WebSocket receives authoritative snapshots through the protected tunnel."
+  ],
+  "scope": "One local machine reaching itself through the external tunnel; NOT a distinct-city human feel test.",
+  "cost": 0,
+  "paidResources": 0,
+  "humanGate": "NOT EVALUATED",
+  "teardown": {
+    "openedAt": "2026-09-07T20:57:02.122Z",
+    "closedAt": "2026-09-07T21:06:37.447Z",
+    "invitationKeyDiscarded": true,
+    "cost": 0,
+    "cloudflaredStopped": true,
+    "externalStatus": 530
+  }
+}
