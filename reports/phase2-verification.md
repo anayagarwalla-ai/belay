@@ -1,5 +1,7 @@
 # Phase 2 integration checkpoint
 
+**Historical pre-repair checkpoint.** The user reopened fixes on September 8; see [the current repair campaign](phase2-repair/README.md). Figures and defects below belong to the preserved original source.
+
 This is a playable local grey-box diagnostic build, **not a passed rescue gate or launch candidate**. Gate 1's implementation stop was bypassed by the user; no human fun verdict is inferred. Static helpers can succeed unchanged, crossing pacing misses the brief, and recorded rope/contact cases exceed the existing mechanical limits. Phase 3 has not started.
 
 ## Integrated checks

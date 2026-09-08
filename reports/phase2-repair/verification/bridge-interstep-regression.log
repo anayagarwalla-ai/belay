@@ -1,0 +1,11 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'vitest' run tests/phase2-bridge-contact.test.ts --config vitest.config.ts
+
+ RUN  v5.0.0 /Users/anayagarwalla/Documents/ChatGPT/testastra
+
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  09:41:49
+   Duration  90.74s (tests 100%)
+

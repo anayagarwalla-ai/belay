@@ -142,8 +142,14 @@ export class LoadGenerator {
   }
   private async churn(client: LogicalClient) {
     const oldSession = client.watched.room.sessionId;
+    const unacknowledgedOfferedSequences: number[] = [];
+    for (let round = 0; round < this.plan!.framesPerClient; round++) {
+      if (round + 1 > client.lastAck && this.status[client.index * this.plan!.framesPerClient + round] === outcomes.offered)
+        unacknowledgedOfferedSequences.push(round + 1);
+    }
     this.socket(client.watched.room).terminate();
     const event: Record<string, unknown> = { kind: 'disconnect-fresh-join', roomId: client.roomId, seat: client.seat,
+      lastObservedAckAtDisconnect: client.lastAck, unacknowledgedOfferedSequences,
       dueMonoMs: this.origin + this.plan!.seconds * 1000 * this.settings.churnStartFraction,
       appliedMonoMs: performance.now(), sameBodyReconnect: 'UNIMPLEMENTED; replacement join is not counted as reconnection' };
     this.faults.push(event);

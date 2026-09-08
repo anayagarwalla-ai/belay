@@ -1,0 +1,11 @@
+{
+  "schema": "phase2-parallel-job-1",
+  "index": 2,
+  "parentPid": 365,
+  "deadline": 1788970050667,
+  "outputDirectory": "/Users/anayagarwalla/Documents/ChatGPT/testastra/reports/phase2-parallel-2026-09-08T16-07-30.630Z-624595fd-adc3-4749-829a-c197e9c4c769/worker-2",
+  "expectedSource": "a5012a8adb0733360687013c5fe0f3b9b1a602eb393e491a3f5c1e9889d6d059",
+  "expectedRuntime": "6a090feeb9b10a0da6515d99844c284468b271f2cc47ed5ecd7daf2310d19a24",
+  "scheduleSha256": "598d0502785b45555c81f8cd54cebabc2fa9802b928d33a5715d7be39b2d2fba",
+  "assignmentSha256": "2a9f07941471e6ea309fe6108628b46b5fc017d5eaa8d60f1814581d85a076c3"
+}

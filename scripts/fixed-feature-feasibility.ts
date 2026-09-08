@@ -37,7 +37,7 @@ const finite = (a: Vec3) => [a.x, a.y, a.z].every(Number.isFinite);
 export function fixedFeatureLimits() {
   return {
     minimumSweeps: TUNING.phase2.solverIterations,
-    maximumSweeps: TUNING.phase2.maximumSolverIterations,
+    maximumSweeps: TUNING.historicalDiagnostics.fixedFeatureSweeps,
     solverLengthTargetM: TUNING.phase2.solverToleranceM,
     maximumSegmentExcessM: TUNING.physicsDiagnostics.maximumSegmentErrorM,
     maximumSpanExcessM: TUNING.physicsDiagnostics.maximumSpanErrorM,

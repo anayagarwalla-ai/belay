@@ -1,0 +1,36 @@
+✔ valid synthetic final: exact pooled statistics, physical failures and censors retained (169.508459ms)
+✔ pure production plan matches prior schedule pin and maximum reservation without reading any run (1.167833ms)
+✔ refuses duplicate ordinal with refreshed journal hashes (64.28375ms)
+✔ refuses missing ordinal with refreshed journal hashes (54.4195ms)
+✔ refuses one-byte timing tail (158.977917ms)
+✔ refuses one full unattributed sample (37.73475ms)
+✔ refuses incorrect pooled percentile (53.807209ms)
+✔ refuses incorrect trajectory percentile with refreshed hashes (36.002334ms)
+✔ refuses missing worker exit receipt (42.933875ms)
+✔ refuses missing final source receipt (23.56475ms)
+✔ refuses unclean observed close (33.91025ms)
+✔ refuses job belongs to another directory (32.39475ms)
+✔ refuses vacuous owned-exits flag (35.766959ms)
+✔ refuses live controller cannot pass even with final flags (39.680917ms)
+✔ refuses live status refused before missing timing streams (15.167584ms)
+✔ refuses watchdog failure sentinel (17.35675ms)
+✔ refuses error or incomplete physical evidence (36.7525ms)
+✔ refuses short censor (31.829292ms)
+✔ refuses nonfinite timing sample (38.631292ms)
+✔ refuses negative timing sample (42.327833ms)
+✔ refuses stale final runtime identity (43.390667ms)
+✔ refuses frozen source bytes changed (23.279083ms)
+✔ refuses wrong assignment identity (29.635417ms)
+✔ refuses incorrect outcome summary (35.304042ms)
+✔ refuses wrong raw artifact hash (35.890625ms)
+✔ synthetic directory cannot use production pins (16.489666ms)
+✔ new trusted pins cannot turn a shortened synthetic schedule into a real completed matrix (22.508958ms)
+✔ malformed trusted pins fail closed (16.615208ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1352.545208

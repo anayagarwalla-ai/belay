@@ -1,7 +1,7 @@
 import { TUNING } from '../tuning';
 import type { Move, PlayerState, Snapshot, Vec3 } from '../shared/protocol';
 import { onIce, terrainSolids } from './terrain-view';
-import { supportAt } from '../shared/contact-geometry';
+import { expeditionContactHalf, supportAt } from '../shared/contact-geometry';
 
 export const movementKeys = ['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space'];
 export function moveFromKeys(keys: ReadonlySet<string>): Move {
@@ -23,7 +23,7 @@ export function screenDirection(direction: Pick<Vec3, 'x' | 'z'>) {
 
 export function nearestWall(position: Vec3, terrain: Snapshot['terrain']) {
   if (!terrain) return null;
-  const contact = supportAt(position, { x: TUNING.body.width / 2, y: TUNING.body.height / 2, z: TUNING.body.depth / 2 }, terrainSolids(terrain));
+  const contact = supportAt(position, expeditionContactHalf, terrainSolids(terrain));
   if (contact.support !== 'wall' || !contact.solid) return null;
   const direction = { x: -contact.normal.x || 0, y: 0, z: -contact.normal.z || 0 };
   const distance = contact.normal.x ? Math.abs(position.x - (contact.normal.x > 0 ? contact.solid.maxX : contact.solid.minX))
@@ -36,12 +36,18 @@ export function controlHint(player?: PlayerState, snapshot?: Snapshot) {
   if (player.rescueState === 'lost') return 'This body is beyond the scene boundary. The operator can reset the scene after saving evidence.';
   if (player.support === 'air') return 'In the air: movement gives no thrust, and Space cannot anchor you. Partners can change the rope angle to bring you to a wall.';
   if (player.support === 'wall') {
+    if (player.position.y + TUNING.body.height / 2 < 0 && snapshot?.terrain?.bridges.some(b => !b.collapsed
+      && player.position.x + TUNING.body.width / 2 > b.minX && player.position.x - TUNING.body.width / 2 < b.maxX
+      && player.position.z + TUNING.body.depth / 2 > b.minZ && player.position.z - TUNING.body.depth / 2 < b.maxZ)) {
+      return 'Under a snow bridge: move sideways out from under its edge while partners haul, then climb toward the wall.';
+    }
     const wall = nearestWall(player.position, snapshot?.terrain);
     const direction = wall && wall.distance <= TUNING.camera.wallCueReachM ? ` (${screenDirection(wall.direction)})` : '';
-    return `At the wall: move toward it${direction} to climb; move along it to traverse. Space plants a supported stance; release Space to move.`;
+    return `At the wall: move toward it${direction} while partners haul; move along it to traverse. Pull over the lip when it is within reach.`;
   }
+  if (player.support === 'ground' && player.activeIncidentId != null && player.rescueState !== 'safe') return 'Keep stepping back from the lip until your feet are safely on the bank.';
   if (onIce(player.position, snapshot?.terrain)) return 'On ice: traction is lower, so bracing can still slide. Move toward firmer ground to change the support position.';
-  return snapshot?.scene && snapshot.scene !== 'flat'
-    ? 'On ground: move along or away from the lip to change the rope angle. Hold Space to resist; release it to take a hauling step.'
+  return snapshot && (snapshot.scene && snapshot.scene !== 'flat' || snapshot.players.length > TUNING.players)
+    ? 'On ground: hold Space to plant your feet. Move while holding Space to haul; step back from the lip together.'
     : 'Pull against each other, then walk together. Hold Space to brace; release it to move.';
 }

@@ -33,6 +33,13 @@ describe('Phase 2 presentation topology', () => {
     expect(rendered.players).toHaveLength(2); expect(rendered.players[0].position).toEqual(current.players[0].position);
     rendered.players[0].position.x++; expect(current.players[0].position.x).not.toBe(rendered.players[0].position.x);
   });
+  it('continues body interpolation when a rope contact changes its point sampling', () => {
+    const a = phase2State(2, 'flat'), b = structuredClone(a);
+    b.players[0].position.x += 1; b.rope.points.splice(1, 0, { x: 0, y: 0.039, z: 0.039 }); b.rope.spans![0].endPoint++;
+    const rendered = interpolateState(b, [{ at: 0, state: a }, { at: 100, state: b }], 50 + TUNING.network.interpolationMs);
+    expect(rendered.players[0].position.x).toBeCloseTo(a.players[0].position.x + 0.5);
+    expect(rendered.rope.points).toEqual(b.rope.points);
+  });
   it('subtracts pit rectangles without a floor across holes and conserves top-surface area', () => {
     const bounds = { minX: -5, maxX: 5, minZ: -5, maxZ: 5 }, hole = { minX: -2, maxX: 2, minZ: -1, maxZ: 1 };
     const patches = groundPatches(bounds, [hole]);
@@ -53,6 +60,18 @@ describe('Phase 2 presentation topology', () => {
 });
 
 describe('conservative local contact prediction', () => {
+  it.each([2, 3, 4, 5, 6])('matches the selected authority motor for a %i-player flat diagnostic', count => {
+    const state = phase2State(count, 'flat'), prediction = new LocalPrediction();
+    const point = prediction.sample(state, state, 0, { x: 1, z: 0, brace: true }, 0.05, 0, true)!;
+    if (count === 2) {
+      expect(point).toEqual(state.players[0].position);
+      expect(controlHint(state.players[0], state)).toContain('release it to move');
+    } else {
+      expect(point.x).toBeGreaterThan(state.players[0].position.x);
+      expect(point.x - state.players[0].position.x).toBeLessThanOrEqual(TUNING.phase2.haulSpeed * 0.05 + 1e-9);
+      expect(controlHint(state.players[0], state)).toContain('holding Space to haul');
+    }
+  });
   it('checks a whole swept path instead of jumping a narrow unsupported hole', () => {
     const state = phase2State(2, 'crossing'); state.terrain!.bridges = [];
     const a = { x: 0, y: 0.45, z: -1 }, b = { x: 0, y: 0.45, z: 4 };

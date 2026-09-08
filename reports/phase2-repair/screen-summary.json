@@ -1,0 +1,35 @@
+{
+  "scope": "200 fixed early-contact windows, at most 60 seconds each. Not a full run-length benchmark, human gate or capacity test. Two concurrent local processes; build/tests/preview also used this host.",
+  "directories": [
+    "reports/phase2-repair-screen-2026-09-08T16-36-47.523Z-0-6e170c6a-7618-43c7-ada1-a940db56f39a",
+    "reports/phase2-repair-screen-2026-09-08T16-36-48.608Z-1-4cb30662-2d61-4c19-8f3b-c66ac2639c0a"
+  ],
+  "sourceManifestSha256": "b527bd3f09d67e4ad826df2e326396c985f2fb3e8d9f10e6534229f61b2eaeb9",
+  "sourceRecovery": "The only subsequent measured-source change before final checks is a TypeScript-only cast in phase2-repair-screen.ts; original bytes are retained in historical-source/phase2-repair-screen-before-typecheck.ts.txt. Physics, policies, runtime and tuning are unchanged.",
+  "records": 200,
+  "ticks": 186784,
+  "maxSegmentM": 0.012505382517099095,
+  "maxSpanM": 0.004488418051675325,
+  "maxTerrainM": 0,
+  "maxOverlapM": 0,
+  "maxPotentialExcessJ": 0,
+  "maxEnergyProjectionJ": 71.04017606978823,
+  "shards": [
+    {
+      "complete": true,
+      "passed": true,
+      "observed": 100,
+      "planned": 100,
+      "failure": null,
+      "wallSeconds": 759.489
+    },
+    {
+      "complete": true,
+      "passed": true,
+      "observed": 100,
+      "planned": 100,
+      "failure": null,
+      "wallSeconds": 638.114
+    }
+  ]
+}

@@ -18,8 +18,11 @@ function read(name: string) {
   return readFileSync(target);
 }
 function json<T>(name: string): T { return JSON.parse(read(name).toString('utf8')) as T; }
+// These two live probe/test files evolved with the repaired engine. Preserve and
+// verify their original evidence bytes against the unchanged historical hashes.
+const historicalLocations = json<Record<string, string>>('reports/phase2-repair/historical-source/locations.json');
 function verify(name: string, hash: string, size?: number) {
-  const data = read(name);
+  const data = read(historicalLocations[name] ?? name);
   assert.equal(sha(data), hash, `SHA-256 mismatch: ${name}`);
   if (size !== undefined) assert.equal(data.length, size, `Size mismatch: ${name}`);
   checked++;

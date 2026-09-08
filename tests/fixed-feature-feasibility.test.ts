@@ -107,7 +107,7 @@ describe('fixed-feature material-chain feasibility experiment', () => {
     expect(result.status).toBe('bounded-failure');
     expect(result.failureReason).toBe('iteration-budget-exhausted');
     expect(result.acceptedPositions).toBeNull();
-    expect(result.work.sweeps).toBe(TUNING.phase2.maximumSolverIterations);
+    expect(result.work.sweeps).toBe(TUNING.historicalDiagnostics.fixedFeatureSweeps);
     expect(result.validation.maximumSegmentExcessM).toBeGreaterThan(TUNING.physicsDiagnostics.maximumSegmentErrorM);
     // A small iterate change is not a feasibility certificate.
     expect(result.trace.at(-1)!.maximumSweepMoveM).toBeLessThan(TUNING.physicsDiagnostics.maximumFloorErrorM);

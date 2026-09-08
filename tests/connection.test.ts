@@ -55,6 +55,15 @@ describe('connection lifetime', () => {
     expect(c.input).toEqual({ x: 0, z: 0, brace: false }); expect(c.history).toHaveLength(1);
     room.emit('identity', { id: 6 }); expect(c.localId).toBe(5);
   });
+  it('preserves held movement, history and evidence when a material link gains a contact bend', async () => {
+    const { c, room } = await joined();
+    const before = phase2State(2); room.emit('snapshot', before);
+    c.input = { x: 0, z: -1, brace: true };
+    const after = structuredClone(before); after.tick++;
+    after.rope.points.splice(1, 0, { x: 0, y: 0.039, z: 0.039 }); after.rope.spans![0].endPoint++;
+    room.emit('snapshot', after);
+    expect(c.input).toEqual({ x: 0, z: -1, brace: true }); expect(c.history).toHaveLength(2);
+  });
   it('clears live state, inputs, timers and pending commands immediately on a dropped socket', async () => {
     const { c, room } = await joined();
     c.input = { x: 1, z: 0, brace: true }; const command = c.command('counters'); const rejected = expect(command).rejects.toThrow('closed');

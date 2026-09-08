@@ -2,7 +2,7 @@
  * Changes are recorded by the reports' full configuration and simulation version.
  * Nothing here is a human Gate 1 verdict. */
 export const TUNING = {
-  version: 'phase2-1',
+  version: 'phase2-repair-4',
   phase: 2,
   seed: 1701, // Reproducible default flat test surface; no hazards are generated.
   players: 2, // Gate 1 is exactly two bodies. Later phases must still respect hardCap.
@@ -131,24 +131,34 @@ export const TUNING = {
   },
   phase2: {
     defaultScene: 'crossing' as const, defaultPlayers: 4, // Application default; simulation's legacy default stays flat/two.
-    routeHalfWidth: 12, routeStartZ: -16, finishZ: 55, // Fixed grey-box route; no procedural daily or run-length claim.
+    routeHalfWidth: 12, routeStartZ: -16, finishZ: 950, // About five minutes of travel before rescues; fixed grey-box route, not daily generation.
     finishApronM: 30, // All six climbers must fit safely beyond the finish, including the longest family spans.
-    crevasseStarts: [8, 20, 32, 44], crevasseWidth: 2.8, crevasseDepth: 12,
+    crevasseStarts: [8, 230, 480, 740], crevasseWidth: 2.8, crevasseDepth: 12,
     terminalY: -16, // Explicit out-of-world boundary; hanging duration never ends a run.
     bridgeHalfWidth: 1.1, bridgeThickness: 0.25,
-    bridgeCapacityBodyWeights: [0.9, 1.45], // Seeded once; supported load includes weight, landing and rope corrections.
+    bridgeLaneOffsets: [0, -2.2, 2.2], // Adjacent snow bridges leave a physical way around a collapsed crossing.
+    bridgeCapacityBodyWeights: [0.62, 0.92], // Weak central snow bridge: one sustained crossing load can trigger an early catch.
+    alternateBridgeCapacityBodyWeights: [4, 6], // Broad alternate bridges support a hauled team; six bunched climbers or sustained catch loads can still overload them.
     bridgeOverloadSeconds: 0.32, bridgeRecoveryRate: 2, // Sustained overload memory; never a per-entry random roll.
     bridgeCueStartFraction: 0.65, bridgeWarningSeconds: 0.4, // Cue and collapse derive from the same support load.
     rescueLipZ: 0, rescueSafeOffset: 0.8, rescueFallerAdvance: 0.7, rescueSpacing: 1.6,
     groundContactTolerance: 0.045, wallContactTolerance: 0.05, collisionSkin: 0.004,
+    bodyContactSkinM: 0.004, // A matching native/PBD contact envelope prevents coplanar bridge seams snagging a cuboid's lower edge.
+    contactSeparationM: 0.000001, // Projection clearance below the energy roundoff budget; 4 mm ground lifts injected potential every step.
     contactPredictionM: 0.002, // Wide predictive contacts snag coplanar bank/bridge seams; swept body projection handles the residual here.
     collisionSweepPasses: 4, // Sweep PBD corrections too; Rapier CCD only covers the Rapier step.
-    solverIterations: 12, maximumSolverIterations: 256, solverToleranceM: 0.005, // Extra bounded passes handle the large rope/body mass ratio at a lip contact.
+    solverIterations: 12, maximumSolverIterations: 1024, solverToleranceM: 0.005, // Rare bridge/bank corner cascades need bounded refinement for the 400:1 mass ratio; ordinary steps stop at 12. Acceptance tolerances stay unchanged.
+    ropeContactBends: 4, ropeProjectionLineSearchSteps: 12, // Bound contact routing and nonlinear projection within a material link.
     iceTractionMultiplier: 0.3, // A known low-traction patch, not a hidden difficulty adjustment.
-    wallClimbSpeed: 1.6, wallDescendSpeed: 1.8, wallAcceleration: 5,
-    wallPressSpeed: 0.45, wallNormalEffortN: 900, wallFriction: 1.3,
+    wallClimbSpeed: 0.65, wallDescendSpeed: 1, wallAcceleration: 2.5, // Slow footwork leaves time for teammates to haul.
+    wallPressSpeed: 0.45, wallNormalEffortN: 450, wallFriction: 1, // Wall effort stays below body weight: ascent requires rope support and hauling.
+    haulSpeed: 0.22, walkingAcceleration: 3, // Crouched steps provide strong slow traction; ordinary walking has less push.
+    ledgeReachAboveHeadM: 0.05, ledgePullEffortN: 1050, // A hand can pull over the lip only once the head reaches its edge; no remote rescue impulse.
+    rescueSlackTargetM: 0.05, // Take up the final slack before slowing to a planted haul; stopping at 15 cm left outer helpers unloaded.
+    rescueCatchSeconds: 0.8, // Bot reaction/catch window before taking physical hauling steps.
     wallRopeSupportFraction: 0.08, // Loaded-rope participation proxy only; wall ascent is limited by contact pressing/friction.
     fallDepth: 0.2, fallSpeed: 0.5, catchSpeed: 0.35, catchConfirmSeconds: 0.12,
+    recoverySupportFraction: 0.75, // A sliver of foot contact at the lip is not yet a safe recovery.
     recoveryConfirmSeconds: 0.3, catchHighlightSeconds: 0.5,
     energyToleranceJ: 0.01, // Per internal step roundoff allowance; contacts/rope cannot supply unexplained kinetic energy.
     mechanicsProbeSeconds: 10, // Bounded per-size/rate regression window; evidence scenarios run longer separately.
@@ -156,6 +166,11 @@ export const TUNING = {
     inputChangeEpsilon: 0.08, usefulMotionMps: 0.04, // Participation proxies; static-brace success remains a design counterexample.
     maximumIncidents: 64, maximumEvents: 256, // Bound retained evidence and disclose truncation; lifetime totals remain.
   },
+  historicalDiagnostics: {
+    fixedFeatureSweeps: 256, // The unapplied projector's original work budget stays frozen as the live solver changes.
+    wallClimbSpeed: 1.6, wallDescendSpeed: 1.8, wallAcceleration: 5,
+    wallPressSpeed: 0.45, wallNormalEffortN: 900, wallFriction: 1.3,
+  }, // Frozen inputs for the unapplied actuator experiment; never used by the live engine.
   phase2Evidence: {
     targets: {
       rescueSeconds: [10, 20], firstAttemptRecoveryFraction: [0.6, 0.75], eventualRecoveryFraction: [0.88, 0.92],
@@ -164,10 +179,13 @@ export const TUNING = {
     }, // Existing PLAN.md targets, quoted centrally; bots cannot pass the human rescue stop.
     trajectoryRuns: 1000, // Fixed evidence budget across every scene/team/policy; never adapt chance to hit targets.
     smokeTrajectories: 10, // Covers both scenes at all five team sizes with the recovery policy before the full run.
+    repairScreen: { seeds: [1701, 1702, 1703, 1706], seconds: 60, shards: 2, maximumWallMs: 60 * 60 * 1000 }, // Early-contact regression screen: all three families plus the failing loose-rope seed. Short windows never substitute for the full matrix.
     teamSizes: [2, 3, 4, 5, 6], // Every approved Phase 2 rope size, reported separately.
     crossingSeconds: 600, // Observe up to the run target's ten-minute upper end; unfinished trajectories are censored.
     rescueSeconds: 60, // Focused recovery gets three times the normal 20-second upper target before censoring.
     actionSeconds: 0.5, // Bounded state-reactive bot decision cadence; no per-tick omniscient steering.
+    steeringSeconds: 1.5, // Proportional lateral velocity settles into a bridge lane without half-second full-speed oscillation.
+    followingSeconds: 1, // Maintain the initial rope-order spacing after a rescue; bunched bots otherwise all enter the next hole together.
     badWrongWayChance: 0.2, // Fixed diagnostic mistake chance; existing bot brace/idle chances are reused unchanged.
     recoveryBraceCycleSeconds: 2, recoveryBraceFraction: 0.5, // Helpers alternate a planted catch and a repositioning step; a policy hypothesis.
     movementEpsilonM: 0.01, // Input/movement inactivity proxy only, not proof of useful rescue contribution.

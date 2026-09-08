@@ -1,6 +1,6 @@
 # BELAY
 
-Phase 2 grey-box prototype: two to six climbers, a constrained rope, seeded snow bridges, falling, catching and physical rescue. **The rescue gate is not passed:** static helpers can still be carried through a successful rescue. The user authorized continuing past Gate 1; human fun and remote feel remain unmeasured.
+Phase 2 grey-box prototype: two to six climbers, a constrained rope, seeded snow bridges, falling, catching and physical rescue. **The rescue gate is not passed:** the physics and rescue repairs are under verification; a frozen helper can still be carried through some larger-team rescues. The user authorized continuing past Gate 1; human fun and remote feel remain unmeasured.
 
 Use Node >=22.13.0 and run these commands from the same checkout.
 
@@ -28,7 +28,8 @@ Save evidence before resetting. Stop bot terminals with Ctrl+C; stop local dev w
 - `CONSOLIDATION.md` — consolidated batch, verification and remaining human decisions.
 - `WORKSTREAMS.md` — frozen work queue, task handoffs and coordination boundaries.
 - `tuning.ts` — gameplay, network and policy constants with rationale.
-- `reports/phase2-baseline-findings.md` — measured target misses and static-role counterexamples.
+- `reports/phase2-repair/README.md` — current repairs, saved regressions and new verification.
+- `reports/phase2-baseline-findings.md` — preserved historical target misses and static-role counterexamples.
 - `reports/local-load-profile-findings.md` — six-body CPU/allocation evidence; no capacity qualification.
 - `docs/design/` — prepared rescue, clip, stranger-test and production proposals.
 

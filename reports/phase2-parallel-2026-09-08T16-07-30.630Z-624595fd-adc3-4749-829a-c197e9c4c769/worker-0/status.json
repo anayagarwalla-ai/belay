@@ -1,0 +1,22 @@
+{
+  "status": "INCOMPLETE",
+  "phase": "exit",
+  "completed": 15,
+  "assigned": 250,
+  "persistedSamples": 61811,
+  "observedSamples": 61811,
+  "recordBytes": 49925,
+  "artifacts": {
+    "timingsSha256": "4e53aca41d7490b4390104c0c606dee75a651c03edb99aa55b90adcc17c747ae",
+    "recordsSha256": "be082f1b62a19af9191a3803ab8f13bb45a99240558c4a7695b6bcfb5902b4a3"
+  },
+  "failure": "Controller requested termination",
+  "memory": {
+    "rss": 189677568,
+    "heapTotal": 81297408,
+    "heapUsed": 11910704,
+    "external": 35002209,
+    "arrayBuffers": 24415790
+  },
+  "at": "2026-09-08T16:15:04.281Z"
+}

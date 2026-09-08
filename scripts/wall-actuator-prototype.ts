@@ -7,12 +7,12 @@ export function wallActuatorConfig() {
   return {
     massKg: TUNING.body.mass as number,
     gravityMps2: TUNING.gravity as number,
-    climbSpeedMps: TUNING.phase2.wallClimbSpeed as number,
-    descendSpeedMps: TUNING.phase2.wallDescendSpeed as number,
-    servoAccelerationMps2: TUNING.phase2.wallAcceleration as number,
-    pressSpeedMps: TUNING.phase2.wallPressSpeed as number,
-    normalEffortN: TUNING.phase2.wallNormalEffortN as number,
-    nominalTangentialMultiplier: TUNING.phase2.wallFriction as number,
+    climbSpeedMps: TUNING.historicalDiagnostics.wallClimbSpeed as number,
+    descendSpeedMps: TUNING.historicalDiagnostics.wallDescendSpeed as number,
+    servoAccelerationMps2: TUNING.historicalDiagnostics.wallAcceleration as number,
+    pressSpeedMps: TUNING.historicalDiagnostics.wallPressSpeed as number,
+    normalEffortN: TUNING.historicalDiagnostics.wallNormalEffortN as number,
+    nominalTangentialMultiplier: TUNING.historicalDiagnostics.wallFriction as number,
   };
 }
 export type WallActuatorConfig = ReturnType<typeof wallActuatorConfig>;

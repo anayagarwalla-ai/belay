@@ -1,6 +1,7 @@
 import { TUNING } from '../tuning';
 import type { Move, Snapshot, Vec3 } from '../shared/protocol';
 import { motorVelocity } from '../shared/movement';
+import { expeditionMotorVelocity } from '../shared/expedition-movement';
 import { inside, ropeSpans, type Rect } from './presentation';
 import { onIce } from './terrain-view';
 
@@ -90,7 +91,8 @@ export class LocalPrediction {
     this.tick = state.tick;
     if (ageMs < TUNING.network.maximumPredictionMs) {
       const step = Math.min(dt, Math.max(0, TUNING.network.maximumPredictionMs - ageMs) / 1000);
-      this.velocity = motorVelocity(this.velocity, input, step, state.family);
+      const legacyFlat = (!state.scene || state.scene === 'flat') && state.players.length === TUNING.players;
+      this.velocity = (legacyFlat ? motorVelocity : expeditionMotorVelocity)(this.velocity, input, step, state.family);
       this.position = safeGroundPrediction(this.position, { x: this.position.x + this.velocity.x * step, y: this.position.y, z: this.position.z + this.velocity.z * step }, localId, state);
     }
     const decay = Math.exp(-dt / TUNING.network.reconciliationSeconds);

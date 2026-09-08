@@ -1,0 +1,11 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'vitest' run tests/client-presentation.test.ts tests/client-connection.test.ts --config vitest.config.ts
+
+ RUN  v5.0.0 /Users/anayagarwalla/Documents/ChatGPT/testastra
+
+
+ Test Files  1 passed (1)
+      Tests  28 passed (28)
+   Start at  09:52:41
+   Duration  166ms (transform 58%, import 25%, tests 16%, worker 2%)
+

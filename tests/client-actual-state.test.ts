@@ -1,8 +1,10 @@
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import * as THREE from 'three';
 import { BelaySimulation, initializePhysics } from '../shared/simulation';
+import { constructScene } from './fixtures/construct-scene';
+import { Phase2Policy, trajectorySchedule } from '../scripts/phase2-policies';
 import { physicalTerrain } from '../shared/terrain';
-import { penetration, supportAt } from '../shared/contact-geometry';
+import { expeditionContactHalf, penetration, supportAt } from '../shared/contact-geometry';
 import { REST, type Move, type SimulationSnapshot } from '../shared/protocol';
 import { TUNING } from '../tuning';
 import { cameraFrame, displayedSpans, interpolateState } from '../client/presentation';
@@ -12,17 +14,20 @@ import { nearestWall } from '../client/controls';
 import { ClientEvidence } from '../client/evidence';
 import { BelayConnection } from '../client/connection';
 
-type Policy = 'catch' | 'climb' | 'cross' | 'ice' | 'weak-bridge';
+type Policy = 'catch' | 'climb' | 'cross' | 'ice' | 'weak-bridge' | 'stable-cross';
 const traces = new Map<string, SimulationSnapshot[]>();
 const half = { x: TUNING.body.width / 2, y: TUNING.body.height / 2, z: TUNING.body.depth / 2 };
 beforeAll(initializePhysics);
 function trace(count: number, policy: Policy) {
   const key = `${count}:${policy}`, cached = traces.get(key); if (cached) return cached;
   const scene = policy === 'catch' || policy === 'climb' ? 'rescue' : 'crossing';
-  const sim = new BelaySimulation({ scene, playerCount: count, seed: policy === 'weak-bridge' ? TUNING.phase2.mechanicsLoadSeed : TUNING.seed });
+  const options = { scene, playerCount: count, seed: policy === 'weak-bridge' ? TUNING.phase2.mechanicsLoadSeed : TUNING.seed } as const;
+  const sim = policy === 'stable-cross' ? constructScene(options, (p, id) => ({ ...p, x: TUNING.phase2.bridgeLaneOffsets[1], z: -id * 0.65 })) : new BelaySimulation(options);
   const frames = [sim.snapshot(1)];
+  const rescue = new Phase2Policy({ ...trajectorySchedule(10)[5], playerCount: count });
+  const horizon = policy === 'climb' ? TUNING.phase2Evidence.rescueSeconds : TUNING.phase2.mechanicsProbeSeconds;
   try {
-    for (let tick = 0; tick < sim.tickHz * TUNING.phase2.mechanicsProbeSeconds; tick++) {
+    for (let tick = 0; tick < sim.tickHz * horizon; tick++) {
       const inputs: Move[] = sim.bodies.map((body, id) => {
         if (policy === 'catch' || policy === 'climb') return id === Math.floor(count / 2)
           ? policy === 'climb' && tick > sim.tickHz ? { x: 0, z: -1, brace: false } : REST : { ...REST, brace: true };
@@ -32,9 +37,10 @@ function trace(count: number, policy: Policy) {
             ? { x: 0, z: 1, brace: false } : { ...REST, brace: true };
         }
         // A brief common sideways input enters the public ice patch; it is a fixed regression probe, not a recovery policy.
-        return policy === 'ice' && tick < sim.tickHz * 0.7 ? { x: 1, z: 0, brace: false } : { x: 0, z: 1, brace: false };
+        return policy === 'ice' && body.translation().x < frames[0].terrain.ice[0].minX + TUNING.body.width ? { x: 1, z: 0, brace: false } : { x: 0, z: 1, brace: false };
       });
-      sim.step(inputs); frames.push(sim.snapshot(1));
+      sim.step(policy === 'climb' ? rescue.inputs(frames.at(-1)!) : inputs); frames.push(sim.snapshot(1));
+      if (policy === 'climb' && frames.at(-1)!.incidents.some(i => i.status === 'recovered')) break;
     }
   } finally { sim.dispose(); }
   traces.set(key, frames); return frames;
@@ -68,13 +74,13 @@ describe.each([2, 4, 6])('actual %i-player snapshots (bounded 30 Hz review)', co
           if (moved && (!groundSupports(player.position, state) || !supportedSweep(player.position, predicted, state))) unsupportedMoves++;
         } else expect(predicted).toEqual(position);
         if (player.support === 'wall') {
-          const contact = supportAt(player.position, half, actualSolids), cue = nearestWall(player.position, state.terrain);
+          const contact = supportAt(player.position, expeditionContactHalf, actualSolids), cue = nearestWall(player.position, state.terrain);
           if (!cue || contact.support !== 'wall' || cue.direction.x !== -contact.normal.x || cue.direction.z !== -contact.normal.z) wallCueMismatch++;
         }
       }
       const spans = displayedSpans(rendered);
       expect(spans).toHaveLength(count - 1);
-      expect(spans.reduce((sum, span) => sum + span.points.length - 1, 0)).toBe((count - 1) * TUNING.rope.segments);
+      expect(spans.reduce((sum, span) => sum + span.points.length - 1, 0)).toBe(rendered.rope.points.length - spans.length);
       expect(spans.every(span => span.points.every(p => Object.values(p).every(Number.isFinite)))).toBe(true);
     }
     expect(maximumPenetration).toBeLessThanOrEqual(TUNING.physicsDiagnostics.maximumFloorErrorM);
@@ -86,7 +92,7 @@ describe.each([2, 4, 6])('actual %i-player snapshots (bounded 30 Hz review)', co
     if (policy === 'ice') expect(frames.some(frame => frame.players.some(p => onIce(p.position, frame.terrain)))).toBe(true);
   }, 60_000); // Real six-body trajectories can exceed 30 s when the full physics suite shares the machine.
   it('keeps actual bodies framed and identifies near-bank faces hiding deeper ice-offset falls', () => {
-    const frames = trace(count, 'ice'); let blockedFaces = 0, outside = 0;
+    const frames = trace(count, 'ice'); let outside = 0;
     for (const state of frames) {
       for (const localId of [0, Math.floor(count / 2)]) {
         const camera = frameCamera(state, localId);
@@ -95,25 +101,27 @@ describe.each([2, 4, 6])('actual %i-player snapshots (bounded 30 Hz review)', co
           if (Math.abs(projected.x) > 1 || Math.abs(projected.y) > 1 || Math.abs(projected.z) > 1) outside++;
         }
       }
-      for (const patch of groundPatches(state.terrain.bounds, state.terrain.crevasses)) {
-        if (state.players.some(p => topSurfaceOccludesBody(patch, 0, p.position))) blockedFaces++;
-      }
     }
-    expect(outside).toBe(0); expect(blockedFaces).toBeGreaterThan(0);
+    expect(outside).toBe(0);
+    // Whether this policy produces a deep fall changes with physics. Exercise
+    // the occlusion boundary explicitly, using the same actual terrain.
+    const terrain = frames[0].terrain, gap = terrain.crevasses[0];
+    const deep = { x: 0, y: -gap.depth / 2, z: (gap.minZ + gap.maxZ) / 2 };
+    expect(groundPatches(terrain.bounds, terrain.crevasses).some(patch => topSurfaceOccludesBody(patch, 0, deep))).toBe(true);
   });
 });
 
 describe('actual evidence and contact boundary regressions', () => {
   it('never claims an offscreen first warning was drawn after unloading or after a later warning episode', () => {
-    const frames = trace(2, 'cross'), evidence = new ClientEvidence();
-    const firstCue = frames.findIndex(state => state.terrain.bridges[0].cue > 0);
-    const ended = frames.findIndex((state, index) => index > firstCue && state.terrain.bridges[0].cue === 0 && !state.terrain.bridges[0].collapsed);
+    const frames = trace(4, 'stable-cross'), evidence = new ClientEvidence();
+    const firstCue = frames.findIndex(state => state.terrain.bridges[1].cue > 0);
+    const ended = frames.findIndex((state, index) => index > firstCue && state.terrain.bridges[1].cue === 0 && !state.terrain.bridges[1].collapsed);
     expect(firstCue).toBeGreaterThan(0); expect(ended).toBeGreaterThan(firstCue);
     for (let index = firstCue; index <= ended; index++) evidence.receive(frames[index], 0, index);
-    evidence.drawn(frames[ended], new Set([0]), new Set(), ended);
-    const later = frames.find((state, index) => index > ended && state.terrain.bridges[0].cue > 0);
-    if (later) { evidence.receive(later, 0, ended + 1); evidence.drawn(later, new Set([0]), new Set(), ended + 2); }
-    expect(evidence.report().observations.find(o => o.kind === 'bridge-cue' && o.id === 0)).toMatchObject({ firstDrawnAtMs: null, endedBeforeDraw: true });
+    evidence.drawn(frames[ended], new Set([1]), new Set(), ended);
+    const later = frames.find((state, index) => index > ended && state.terrain.bridges[1].cue > 0);
+    if (later) { evidence.receive(later, 0, ended + 1); evidence.drawn(later, new Set([1]), new Set(), ended + 2); }
+    expect(evidence.report().observations.find(o => o.kind === 'bridge-cue' && o.id === 1)).toMatchObject({ firstDrawnAtMs: null, endedBeforeDraw: true });
   });
   it('does not backfill a previously hidden fall after actual recovery at the rim', () => {
     const frames = trace(2, 'climb'), evidence = new ClientEvidence();

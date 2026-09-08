@@ -1,0 +1,4 @@
+{
+  "scripts/phase2-motor-energy-probe.ts": "reports/phase2-repair/historical-source/scripts--phase2-motor-energy-probe.ts.txt",
+  "tests/phase2-motor-energy.test.ts": "reports/phase2-repair/historical-source/tests--phase2-motor-energy.test.ts.txt"
+}

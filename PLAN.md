@@ -2,6 +2,8 @@
 
 Current authorization (2026-09-07): the user instructed us to continue as if Gate 1 is good and proceed, while managing parallel project tasks. **Gate 1's implementation stop is bypassed by the user's instruction; human sessions remain 0/6 and fun/remote-feel evidence is unmeasured.** Phase 2 implementation is now authorized. The other phase checks, cost controls and two open items remain unchanged; this is not a fabricated playtest pass. The original Gate 1 stop below is superseded by this instruction; its human protocol remains available.
 
+Repair authorization (2026-09-08): the user requested “Now fix everything you found that doesn’t work.” Root has reopened Phase 2 mechanical fixes and verification. The previous consolidation freeze applies to the archived task queue, not this repair. No scheduled task is recreated. The human rescue stop, paid-resource gate, and recorded open items remain in force.
+
 ## Outcome and core
 
 Success means four strangers laugh in their first three minutes, somebody clips it, and an outsider understands the clip and follows the link. A technically impressive game that nobody plays fails.

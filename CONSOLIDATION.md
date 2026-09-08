@@ -1,5 +1,9 @@
 # BELAY batch consolidation
 
+**Repair batch reopened on 2026-09-08 by the user's explicit request to fix the recorded failures.** Root owns the current changes and validation on `codex/phase2-repair`. The implemented fixes and new campaign are in [the repair report](reports/phase2-repair/README.md). Supporting tasks remain archived; scheduled follow-ups remain deleted. The consolidation below describes the preserved pre-repair baseline and its completed 1,000-run evidence, not the in-progress repair's results. No new human or production qualification is claimed.
+
+## Preserved consolidation baseline
+
 **Current batch consolidated; the work queue is stopped.** The existing 1,000-trajectory job has finished, independent final reconciliation passed, and the complete lossless package is integrated. The user requested immediate consolidation and deletion of scheduled follow-ups. No new investigation, gameplay change or benchmark was started. All five supporting tasks are archived.
 
 ## Handoffs

@@ -1,5 +1,9 @@
 # BELAY current batch consolidation
 
+**Repair batch reopened on 2026-09-08 by the user's explicit request to fix the recorded failures.** Root owns the current changes and validation on `codex/phase2-repair`. Supporting tasks remain archived; scheduled follow-ups remain deleted. The consolidation below describes the preserved pre-repair baseline and its completed 1,000-run evidence, not the in-progress repair's results. No new human or production qualification is claimed.
+
+## Preserved consolidation baseline
+
 The user froze the queue on 2026-09-08 at approximately 00:26 UTC. The existing 1,000-trajectory job finished at 04:25:36 UTC, and root's independent final reconciliation passed. The user then requested immediate consolidation and deletion of scheduled tasks. All existing handoffs are integrated and validated; all five supporting tasks are archived. No new work or benchmark was started.
 
 | Task | Task ID | Current assignment |

@@ -1,0 +1,219 @@
+{
+  "generatedAt": "2026-09-08T16:54:59.149160+00:00",
+  "version": "phase2-repair-4",
+  "tests": {
+    "passed": 299,
+    "expectedFailure": 1,
+    "files": 32,
+    "expectedFailureScope": "Unapplied historical fixed-feature solver; no expected live-engine defect."
+  },
+  "independentValidatorTests": 28,
+  "typecheck": "PASS",
+  "lint": "PASS",
+  "build": "PASS; existing upstream warnings retained in log",
+  "afterFinalSuite": "UI measurement-description copy changed; 28 presentation tests, typecheck, lint and production build rechecked. Physics unchanged.",
+  "screenSummary": "../screen-summary.json",
+  "browser": "Actual loopback join and DOM keyboard movement, braced haul and release verified. No browser errors or overlay. Browser subsequently closed; preview left available. Screenshot is a grey-box check, not an art approval.",
+  "humanFun": "NOT EVALUATED",
+  "production300Rooms": "NOT TESTED",
+  "sourceFiles": [
+    {
+      "path": "client/IncidentEvidence.tsx",
+      "sha256": "699375b6fc6bbd2837723f031cb3b4811dbb29c561f3c96ae46da0d6d85f65bd"
+    },
+    {
+      "path": "client/README.md",
+      "sha256": "bb0907a6ae6cb3ec8816f52a212a884dc2364a34d8bcd4ef710ded9368822cb3"
+    },
+    {
+      "path": "client/connection.ts",
+      "sha256": "c7a578836df2b9e1764d1c546b1c61b118b1534c6efb0a95ad6dc8fed351a990"
+    },
+    {
+      "path": "client/controls.ts",
+      "sha256": "19ba12b76a6131ea62ab5a423f5be7fe463aa306e203f49bda9613df4cf21691"
+    },
+    {
+      "path": "client/prediction.ts",
+      "sha256": "2bc6cf8eabc73165daa768c0101cc99a08f5a045d14d95ec2f557e85a0ed7d99"
+    },
+    {
+      "path": "client/presentation.ts",
+      "sha256": "9612843e3e8fb487554952d6c6a30d494b239d347dbafdcc6f3c78fb79b4988e"
+    },
+    {
+      "path": "scripts/fixed-feature-feasibility.ts",
+      "sha256": "8883d042a43754e0aa649bc3df56fb107c133009f253dfa12a5259ac2d93b8ad"
+    },
+    {
+      "path": "scripts/local-load-generator.ts",
+      "sha256": "c4d49d7ed3628841957812070c7c8e624be2052225b49eb13dc4f01fbc43bfcd"
+    },
+    {
+      "path": "scripts/phase2-independent-final-validate.mjs",
+      "sha256": "840c46562b77fd330b35603134f4b769b28bcb97cd99424cde5f9c660a0abc32"
+    },
+    {
+      "path": "scripts/phase2-motor-energy-probe.ts",
+      "sha256": "5d5d2fc6d5a28eb8f88117592f3efa0784a1cd0931bf2d0f4ee576b678bf45d6"
+    },
+    {
+      "path": "scripts/phase2-policies.ts",
+      "sha256": "1bd5dd96fd33c0cff68ab3612bd469c2c1e64f49e3d103aaf0559a8aa4527cba"
+    },
+    {
+      "path": "scripts/phase2-repair-screen.ts",
+      "sha256": "9d44618f8a4e560e42e708bfa6aaa78e180b1282f87d48e5a7d5f623ee4c862b"
+    },
+    {
+      "path": "scripts/verify-evidence.ts",
+      "sha256": "7b03c2beb5cc82263381c38e55fc30e45e5e1552890a9c1cc0b05d17553f7097"
+    },
+    {
+      "path": "scripts/wall-actuator-prototype.ts",
+      "sha256": "ddb1100df7e08309e88363f0b9aefcd3300257e728f686d92049e985bd4221b1"
+    },
+    {
+      "path": "shared/contact-geometry.ts",
+      "sha256": "bdf0980dd4e656729e2d8ca44de14687078903592c36243d212e8cad9d56eff3"
+    },
+    {
+      "path": "shared/expedition-movement.ts",
+      "sha256": "c4d50dad911be26f6ead273c500689319507d7f5fa6bbb2f5f72f5a4ce8a5ffe"
+    },
+    {
+      "path": "shared/expedition-simulation.ts",
+      "sha256": "a8f0a49d329c5a73f2ab030c8425f6bcfb8245d03ff9b590941db5a57fed9113"
+    },
+    {
+      "path": "shared/rope-projection.ts",
+      "sha256": "c5eb039ee38bdd42d62f531017cc3bf2d9a98d3d73b8706959987086c6be2a00"
+    },
+    {
+      "path": "shared/rope-route.ts",
+      "sha256": "a3ba2d15481b1e712c94d654cf49578999715cea08ccc1c0fa21d7504712ebc8"
+    },
+    {
+      "path": "shared/terrain.ts",
+      "sha256": "50003dfd38d6ddfde222b68b75c4f456b68297d68b45abad03c7575fcd38bd81"
+    },
+    {
+      "path": "shared/wall-motor.ts",
+      "sha256": "0b58769360f0eb6c2add578e2127696be338c0f7b3d99ff3841e6ad03c7fc5c7"
+    },
+    {
+      "path": "tests/client-actual-state.test.ts",
+      "sha256": "1f43acf37eb38f3b8e21a2d94465734cf897f2367e9f162cf257f85824648d2e"
+    },
+    {
+      "path": "tests/client-presentation.test.ts",
+      "sha256": "852ca6d3274006edea27993865fc12f06f45278f04cd0943cf3046d3cadda56a"
+    },
+    {
+      "path": "tests/connection.test.ts",
+      "sha256": "833bf1d88337820f3de930625d45382ba27f02e4398372cdb4c2860d37964238"
+    },
+    {
+      "path": "tests/expedition-actuators.test.ts",
+      "sha256": "4a555ad0aaee97e78c4b5be4e81829dddd7d2337a8d7e00b74d00966339f83c3"
+    },
+    {
+      "path": "tests/fixed-feature-feasibility.test.ts",
+      "sha256": "ef4ff8e6cbaf6f907ccc33470cca0642b505aa9490722b716f081b0675697e55"
+    },
+    {
+      "path": "tests/fixtures/construct-scene.ts",
+      "sha256": "b473af528a519fbc6433eb6912c55361bba39f9a6a0c915a0a6f4692866540f9"
+    },
+    {
+      "path": "tests/fixtures/phase2-bridge-contact-counterexamples.json",
+      "sha256": "aeecfbd60b5387221a8b9bd3aef8a9d772d32b69a1b25e4287e0e8b66bbd6e08"
+    },
+    {
+      "path": "tests/local-load-diagnostic.test.ts",
+      "sha256": "9f26d05bdfe78ac06d330cf9e2f25c29e6550f66bd7f9791e832c5f0ea378a2f"
+    },
+    {
+      "path": "tests/phase2-bridge-contact.test.ts",
+      "sha256": "8c55ecf9fc01417a18423f05fe5dc5c622554ed43ecfa0edc1b612374d03879d"
+    },
+    {
+      "path": "tests/phase2-independent-final-validate.test.mjs",
+      "sha256": "6b6f85daea270a8f6bbf837e6992bcf4c0f01b158f91379dbbe383b417d8eb20"
+    },
+    {
+      "path": "tests/phase2-known-defects.test.ts",
+      "sha256": "cfb92953ee274274d561434d067b168a7080d8c99a5761731002a414f3eda32e"
+    },
+    {
+      "path": "tests/phase2-mechanics.test.ts",
+      "sha256": "1406e4f841587776a5240af7be2db573af6fcf72cc832f9e9044f8dbc8cb9611"
+    },
+    {
+      "path": "tests/phase2-motor-energy.test.ts",
+      "sha256": "968ddbfbb81c1836939306106fcbe788a2526c6cfce94a5e13981c6bf8aff077"
+    },
+    {
+      "path": "tests/rope-projection.test.ts",
+      "sha256": "da204058b15c9a84189918f14b1c6faa2a4d4722e2edef778c22b71c7c273728"
+    },
+    {
+      "path": "tests/rope-route.test.ts",
+      "sha256": "ce8c73237b702f368fa88b334510d9084a58088ae16fde8339b5c6e7e4373a4d"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "fc47536e5acdc177d49e0301a5c2c4ba5fdf706ca52e955f6f9524a02cfb67af"
+    },
+    {
+      "path": "tuning.ts",
+      "sha256": "36922c6f318fa76e33c9df1616c9556e7757a57f2810c44d532cb7fc6c82cf0f"
+    }
+  ],
+  "logs": [
+    {
+      "path": "bridge-interstep-regression.log",
+      "sha256": "b04fb876e0cdfa4ae50a250e4a383abc773be15b7aaa077ef4864d56a4ecb413"
+    },
+    {
+      "path": "browser-input.json",
+      "sha256": "4df723b1b81f4b821f933e2b94344c80663f6d98136742019e29aeafd684cf1c"
+    },
+    {
+      "path": "browser.png",
+      "sha256": "8f05e348e24b907d3b0618320dd4bdab08d77e4dcee389b65818a45874208b67"
+    },
+    {
+      "path": "disconnect-fixture-recheck.log",
+      "sha256": "c84e904020ab627fe1ff7331bc269ba37ca74a4d7881b8ea346d3b94f7ce8ec1"
+    },
+    {
+      "path": "final-build.log",
+      "sha256": "16ca547f11180665bf003ce2d1929b51278067afa124ddf07c8148221a8f6a8d"
+    },
+    {
+      "path": "final-client-recheck.log",
+      "sha256": "3aed7928fdd0f80d8cffcad058afc60b6016547cd84f31e75be2118a453146b6"
+    },
+    {
+      "path": "final-evidence-integrity.log",
+      "sha256": "77ff17cc64b459c10d520321f23f693d84232fbcaa3cba05adb5d2e43e730dee"
+    },
+    {
+      "path": "final-lint.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final-tests.log",
+      "sha256": "76e097e9b23ee5ee9e115eedbcd763fb628353dd2f99590231b698c2f3206590"
+    },
+    {
+      "path": "final-typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "v4-validator-tests.log",
+      "sha256": "c2e2ac9cdf7dd21ff61afd71e7dd1d5bc384b40c34b7a95a9a00a0f2dc9a1b94"
+    }
+  ]
+}

@@ -1,8 +1,10 @@
 import { afterEach, beforeAll, describe, expect, it } from 'vitest';
+import { constructScene } from './fixtures/construct-scene';
 import { BelaySimulation, initializePhysics } from '../shared/simulation';
 import { physicalTerrain } from '../shared/terrain';
 import { REST, type SceneOptions } from '../shared/protocol';
 import { TUNING } from '../tuning';
+import { Phase2Policy, trajectorySchedule } from '../scripts/phase2-policies';
 
 const sims: BelaySimulation[] = [];
 const create = (options: SceneOptions = {}) => { const s = new BelaySimulation(options); sims.push(s); return s; };
@@ -38,12 +40,43 @@ describe('Phase 2 contract and support', () => {
     expect(s.snapshot().run.status).toBe('failed'); expect(s.snapshot().run.elapsedSeconds).toBe(elapsed);
     expect(s.tick).toBe(TUNING.tickHz + 1); expect(s.tape.frames).toHaveLength(s.tick);
   });
-  it('records a static-helper successful climb as a counterexample, not a forced role gate', () => {
+  it('keeps a static-helper rescue unresolved without a hauling step', () => {
     const s = create({ scene: 'rescue' });
     for (let tick = 0; tick < s.tickHz * TUNING.phase2.mechanicsProbeSeconds; tick++) s.step([hold, { x: 0, z: -1, brace: false }]);
-    const incident = s.snapshot().incidents[0]; expect(incident.status).toBe('recovered');
+    const incident = s.snapshot().incidents[0]; expect(incident.status).toBe('active');
     expect(incident.staticHoldSeconds[0]).toBeGreaterThan(incident.roleActiveSeconds[0]);
-    expect(s.snapshot().events.some(e => e.kind === 'climb')).toBe(true);
+  });
+  it.each([30, 60] as const)('hauls a real first-bridge fall fully over the lip without a stale wall contact at %i Hz', tickHz => {
+    const spec = { ...trajectorySchedule(5)[2], tickHz }, s = create(spec), policy = new Phase2Policy(spec);
+    let recovered = false;
+    for (let tick = 0; tick < tickHz * TUNING.phase2Evidence.targets.firstFallBeforeSeconds; tick++) {
+      s.step(policy.inputs(s.snapshot()));
+      if (s.snapshot().incidents[0]?.status === 'recovered') { recovered = true; break; }
+    }
+    const state = s.snapshot();
+    expect(recovered).toBe(true);
+    expect(state.events.some(e => e.kind === 'collapse')).toBe(true);
+    expect(state.players[0].position.z).toBeLessThan(state.terrain.crevasses[0].minZ);
+    expect(state.players[0].support).toBe('ground');
+    for (const body of s.bodies) {
+      expect(body.mass()).toBe(TUNING.body.mass);
+      expect(body.isCcdEnabled()).toBe(true);
+    }
+    expect(state.counters.maximumSegmentErrorM).toBeLessThan(TUNING.physicsDiagnostics.maximumSegmentErrorM);
+    expect(state.diagnostics.maximumPotentialExcessJ).toBeLessThanOrEqual(TUNING.phase2.energyToleranceJ);
+  });
+  it('can restart angled movement across a coplanar bridge seam after stopping there', () => {
+    const gapEnd = TUNING.phase2.crevasseStarts[1] + TUNING.phase2.crevasseWidth;
+    const s = constructScene({ scene: 'crossing', playerCount: 2 }, (p, id) => ({ ...p,
+      x: TUNING.phase2.bridgeLaneOffsets[1] + (id ? 0 : TUNING.body.width / 3),
+      z: gapEnd - TUNING.body.depth / 2 - id * TUNING.rope.initialSpacing })); sims.push(s);
+    for (let tick = 0; tick < s.tickHz * 2; tick++) s.step([REST, REST]);
+    for (let tick = 0; tick < s.tickHz * TUNING.phase2.mechanicsProbeSeconds; tick++) {
+      s.step([{ x: -0.04, z: 0.99, brace: false }, REST]);
+    }
+    expect(s.bodies[0].translation().z).toBeGreaterThan(gapEnd + TUNING.body.depth);
+    expect(s.snapshot().players[0].support).toBe('ground');
+    expect(s.snapshot().diagnostics.maximumPotentialExcessJ).toBeLessThanOrEqual(TUNING.phase2.energyToleranceJ);
   });
   it.each([30, 60] as const)('shows a load cue before collapse, then records a linked cascade at %i Hz', tickHz => {
     const s = create({ scene: 'crossing', seed: TUNING.phase2.mechanicsLoadSeed, tickHz });
@@ -64,13 +97,15 @@ describe('Phase 2 contract and support', () => {
     expect(v.incidents[0].firstAttemptSuccess).toBe(false); expect(v.incidents[0].playerIds).toEqual(expect.arrayContaining([0, 1]));
   });
   it('emits one cue-onset event for a sustained visible bridge cue', () => {
-    const s = create({ scene: 'crossing' }), gap = s.snapshot().terrain.crevasses[0];
-    for (let tick = 0; tick < s.tickHz * TUNING.phase2.mechanicsProbeSeconds; tick++) {
-      s.step(s.bodies.map((body, id) => body.translation().z < (id ? gap.minZ - TUNING.phase2.rescueSafeOffset : (gap.minZ + gap.maxZ) / 2)
-        ? { x: 0, z: 1, brace: false } : hold));
-    }
-    const v = s.snapshot(7), cues = v.events.filter(e => e.kind === 'cue' && e.surfaceIds.includes(gap.id));
-    expect(v.terrain.bridges[0].cue).toBeGreaterThan(0); expect(v.terrain.bridges[0].collapsed).toBe(false);
+    const lane = TUNING.phase2.bridgeLaneOffsets[1], gapZ = TUNING.phase2.crevasseStarts[0];
+    // Four supported bodies load a broad bridge below its capacity but above its
+    // cue threshold; the remaining harnesses stand beyond it on solid bank.
+    const s = constructScene({ scene: 'crossing', playerCount: 6 }, (p, id) => ({ ...p, x: lane,
+      z: id < 4 ? gapZ + 0.35 + id * 0.65 : gapZ + TUNING.phase2.crevasseWidth + 0.8 + (id - 4) })); sims.push(s);
+    const bridgeId = s.snapshot().terrain.bridges.find(b => (b.minX + b.maxX) / 2 === lane)!.id;
+    for (let tick = 0; tick < s.tickHz * TUNING.phase2.mechanicsProbeSeconds; tick++) s.step(s.bodies.map(() => hold));
+    const v = s.snapshot(7), cues = v.events.filter(e => e.kind === 'cue' && e.surfaceIds.includes(bridgeId));
+    expect(v.terrain.bridges[bridgeId].cue).toBeGreaterThan(0); expect(v.terrain.bridges[bridgeId].collapsed).toBe(false);
     expect(cues).toHaveLength(1); expect(cues[0].epoch).toBe(7);
     expect(cues[0].substep).toBeGreaterThanOrEqual(0); expect(cues[0].substep).toBeLessThan(TUNING.physicsHz / s.tickHz);
     expect(JSON.stringify(cues[0])).not.toContain('capacity');
@@ -79,7 +114,11 @@ describe('Phase 2 contract and support', () => {
 
 describe.each([2, 3, 4, 5, 6])('%i-body shared harness mechanics', playerCount => {
   it.each([30, 60] as const)('fits the whole team past the finish and freezes finish time at %i Hz', tickHz => {
-    const s = create({ scene: 'crossing', playerCount, tickHz });
+    // The finish contract is separate from a successful traversal of the hazards.
+    const s = constructScene({ scene: 'crossing', playerCount, tickHz }, (_p, id) => ({ x: 0,
+      y: TUNING.body.height / 2 + TUNING.phase2.collisionSkin,
+      z: TUNING.phase2.finishZ + 2 * TUNING.body.depth * (playerCount - id - 1) - TUNING.body.depth }));
+    sims.push(s);
     for (let tick = 0; tick < tickHz * TUNING.phase2.mechanicsProbeSeconds * 3; tick++) s.step(s.bodies.map(() => ({ x: 0, z: 1, brace: false })));
     const run = s.snapshot().run; expect(run.status).toBe('complete'); expect(run.progress).toBe(1);
     for (const p of s.snapshot().players) { expect(p.position.z).toBeGreaterThanOrEqual(TUNING.phase2.finishZ); expect(p.support).toBe('ground'); }

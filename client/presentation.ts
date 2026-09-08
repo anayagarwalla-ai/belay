@@ -7,8 +7,7 @@ export const mix = (a: Vec3, b: Vec3, t: number): Vec3 => ({ x: a.x + (b.x - a.x
 export function sameTopology(a: Snapshot, b: Snapshot) {
   return a.epoch === b.epoch && a.scene === b.scene && a.players.length === b.players.length
     && a.players.every((p, i) => p.id === b.players[i]?.id)
-    && a.rope.points.length === b.rope.points.length
-    && JSON.stringify(a.rope.spans?.map(s => [s.id, s.a, s.b, s.startPoint, s.endPoint])) === JSON.stringify(b.rope.spans?.map(s => [s.id, s.a, s.b, s.startPoint, s.endPoint]));
+    && JSON.stringify(a.rope.spans?.map(s => [s.id, s.a, s.b])) === JSON.stringify(b.rope.spans?.map(s => [s.id, s.a, s.b]));
 }
 export function interpolateState(latest: Snapshot, history: readonly { at: number; state: Snapshot }[], now: number): Snapshot {
   const samples = history.filter(sample => sameTopology(sample.state, latest));
@@ -17,12 +16,14 @@ export function interpolateState(latest: Snapshot, history: readonly { at: numbe
   let a = samples[0], b = samples.at(-1)!;
   for (let i = 1; i < samples.length; i++) if (samples[i].at >= at) { a = samples[i - 1]; b = samples[i]; break; }
   const blend = b.at === a.at ? 1 : Math.max(0, Math.min(1, (at - a.at) / (b.at - a.at)));
+  const sameSamples = [a.state, b.state].every(state => state.rope.points.length === latest.rope.points.length
+    && JSON.stringify(state.rope.spans?.map(s => [s.startPoint, s.endPoint])) === JSON.stringify(latest.rope.spans?.map(s => [s.startPoint, s.endPoint])));
   return { ...latest, players: latest.players.map((p, i) => {
     const position = mix(a.state.players[i].position, b.state.players[i].position, blend);
     return { ...p, position: latest.terrain && latest.scene !== 'flat' && blend > 0 && blend < 1
       ? projectDisplayedBody(a.state.players[i].position, position, latest.terrain) : position };
   }),
-    rope: { ...latest.rope, points: latest.rope.points.map((_, i) => mix(a.state.rope.points[i], b.state.rope.points[i], blend)) } };
+    rope: { ...latest.rope, points: latest.rope.points.map((p, i) => sameSamples ? mix(a.state.rope.points[i], b.state.rope.points[i], blend) : { ...p }) } };
 }
 
 export function ropeSpans(snapshot: Snapshot) {

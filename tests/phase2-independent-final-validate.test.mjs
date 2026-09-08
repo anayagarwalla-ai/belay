@@ -163,3 +163,9 @@ for (const [name, corrupt, message] of corruptions) test(`refuses ${String(name)
 test('synthetic directory cannot use production pins', () => withFixture(async f => {
   await assert.rejects(validateFinalMatrix(f.root), /trusted source pin/);
 }));
+test('new trusted pins cannot turn a shortened synthetic schedule into a real completed matrix', () => withFixture(async f => {
+  await assert.rejects(validateFinalMatrix(f.root, null, f.options.expected), /trusted schedule pin|independent schedule reconstruction/);
+}));
+test('malformed trusted pins fail closed', () => withFixture(async f => {
+  await assert.rejects(validateFinalMatrix(f.root, null, { ...EXPECTED, source: 'untrusted' }), /invalid trusted pins/);
+}));
