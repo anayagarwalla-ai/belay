@@ -1,0 +1,59 @@
+diff --git a/shared/expedition-simulation.ts b/shared/expedition-simulation.ts
+--- a/shared/expedition-simulation.ts
++++ b/shared/expedition-simulation.ts
+@@ -3,6 +3,7 @@
+ import { REST, normalizeMove, type Scene, type SceneOptions, type Vec3, type Move, type Tape,
+   type SimulationSnapshot, type IncidentState, type PhysicalEvent, type RescueState, type SimCounters } from './protocol';
+ import { motorVelocity } from './movement';
++import { proposeWallMotor } from '../scripts/wall-actuator-prototype';
+ import { physicalTerrain } from './terrain';
+ import { emptyPhysicalDiagnostics } from './physical-diagnostics';
+ import { dot, vectorDistance as distance, projectMotion, supportAt, penetration, sweepBox, contactNormalsAt, type Contact } from './contact-geometry';
+@@ -169,19 +170,9 @@
+         if (input.brace) traction[id] = Math.max(0, FAMILIES[this.family].braceFriction * scale * mass * TUNING.gravity * dt
+           - mass * Math.hypot(v.x - velocities[id].x, v.z - velocities[id].z));
+       } else if (contact.support === 'wall') {
+-        const toward = -(input.x * contact.normal.x + input.z * contact.normal.z);
+-        if (input.brace || toward !== 0 || input.x || input.z) {
+-          const targetY = input.brace ? 0 : toward * (toward > 0 ? profile.wallClimbSpeed : profile.wallDescendSpeed);
+-          {
+-            const effort = clamp(mass * clamp((targetY - v.y) / dt, -profile.wallAcceleration, profile.wallAcceleration)
+-              + mass * TUNING.gravity, -profile.wallFriction * profile.wallNormalEffortN, profile.wallFriction * profile.wallNormalEffortN);
+-            v.y += effort / mass * dt;
+-          }
+-          const along = { x: input.x + toward * contact.normal.x, z: input.z + toward * contact.normal.z };
+-          const press = toward > 0 || input.brace ? -profile.wallPressSpeed : Math.max(0, -toward) * profile.wallPressSpeed;
+-          v.x = (input.brace ? 0 : along.x * profile.wallClimbSpeed) + press * contact.normal.x;
+-          v.z = (input.brace ? 0 : along.z * profile.wallClimbSpeed) + press * contact.normal.z;
+-        }
++        // Experimental bounded motor proposal. supportAt provides geometry only;
++        // the actual normal reaction and friction feasibility remain unverified.
++        v = proposeWallMotor(v, input, contact.normal, dt).velocity;
+       } // Unsupported inputs never add a motor impulse or change effective mass.
+       motorWork += mass / 2 * (dot(v, v) - dot(velocities[id], velocities[id]));
+       this.bodies[id].setLinvel(v, true);
+diff --git a/tuning.ts b/tuning.ts
+--- a/tuning.ts
++++ b/tuning.ts
+@@ -2,7 +2,7 @@
+  * Changes are recorded by the reports' full configuration and simulation version.
+  * Nothing here is a human Gate 1 verdict. */
+ export const TUNING = {
+-  version: 'phase2-1',
++  version: 'phase2-wall-actuator-prototype-1',
+   phase: 2,
+   seed: 1701, // Reproducible default flat test surface; no hazards are generated.
+   players: 2, // Gate 1 is exactly two bodies. Later phases must still respect hardCap.
+@@ -145,9 +145,11 @@
+     collisionSweepPasses: 4, // Sweep PBD corrections too; Rapier CCD only covers the Rapier step.
+     solverIterations: 12, maximumSolverIterations: 256, solverToleranceM: 0.005, // Extra bounded passes handle the large rope/body mass ratio at a lip contact.
+     iceTractionMultiplier: 0.3, // A known low-traction patch, not a hidden difficulty adjustment.
++    // Prototype: wallAcceleration caps the combined lateral/vertical servo before gravity feedforward.
+     wallClimbSpeed: 1.6, wallDescendSpeed: 1.8, wallAcceleration: 5,
++    // Separate active normal cap and nominal tangential scale; neither measures passive wall reaction.
+     wallPressSpeed: 0.45, wallNormalEffortN: 900, wallFriction: 1.3,
+-    wallRopeSupportFraction: 0.08, // Loaded-rope participation proxy only; wall ascent is limited by contact pressing/friction.
++    wallRopeSupportFraction: 0.08, // Loaded-rope participation proxy only; not proof of friction feasibility.
+     fallDepth: 0.2, fallSpeed: 0.5, catchSpeed: 0.35, catchConfirmSeconds: 0.12,
+     recoveryConfirmSeconds: 0.3, catchHighlightSeconds: 0.5,
+     energyToleranceJ: 0.01, // Per internal step roundoff allowance; contacts/rope cannot supply unexplained kinetic energy.

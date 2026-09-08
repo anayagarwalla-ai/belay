@@ -4,10 +4,10 @@ The user requested continued useful work across the existing project tasks. Reus
 
 | Task | Task ID | Current assignment |
 |---|---|---|
-| BELAY physics and contact diagnostics | `01a07dca-c2f1-7a90-b5b2-857030e6aca1` | Architecture review integrated; prototype a bounded wall-actuator helper and analytical tests, leaving runtime patch unapplied |
+| BELAY physics and contact diagnostics | `01a07dca-c2f1-7a90-b5b2-857030e6aca1` | Wall-actuator prototype reviewed and unapplied; prototype coupled particle/contact feasibility in small pure fixtures |
 | BELAY client reliability | `01a07dca-c2f1-7a90-b5b2-859c68a13db8` | Viewport lifecycle checked and late download fixed; identify avoidable initial CSS scanning/import work |
 | BELAY simulation evidence | `01a07dca-c2f1-7a90-b5b2-855fb9ed02b9` | The reviewed native four-worker runner is executing the fixed 1,000 trajectories; retain final reconciliation and teardown evidence |
-| BELAY load and hosting costs | `01a07df3-f9b1-7490-a101-68c8b49f5d8b` | Runner and bounded-prefix reviews complete; independently review the wall-actuator prototype |
+| BELAY load and hosting costs | `01a07df3-f9b1-7490-a101-68c8b49f5d8b` | Wall-actuator review complete; map installed Rapier contact impulse APIs and solver ownership limits |
 | BELAY bridge diagnostics | `01a07e01-945f-7b10-ae41-ef0e579e11d3` | Playtest corrections integrated; implement an isolated opt-in bridge-load observer with exact mechanics preserved |
 
 The coordinator handles integration, integrity checks, real-build verification and the authorized GitHub pushes. A thread heartbeat checks this queue every 15 minutes for at most 16 runs, ending earlier when the current bounded queue is exhausted or a meaningful next step requires the user's playtest/design decision. Its identifier and teardown are in RUNBOOK.md.
