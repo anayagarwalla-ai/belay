@@ -1,0 +1,100 @@
+{
+  "baselineCommit": "f2fb8fd7f828b706ccdabbaffcbb72a0565b58a1",
+  "investigationStartHead": "73c68f36f73f1f4de2435e3d13242e51bc2349e0",
+  "runtime": "v26.5.0",
+  "rapierVersion": "0.20.0",
+  "mechanicsUnchanged": true,
+  "sourceHashes": {
+    "shared/contact-geometry.ts": "be27fd0e94f87c17d4de8a066b7cfd3c8ab18c307f409deabe3d28df63a8b2cd",
+    "shared/expedition-simulation.ts": "97afe573eb1b7753094ee2ecd338ccd411bf64f8a0e312a39b7e0fb40e7836a3",
+    "shared/flat-simulation.ts": "07ebd2d5902fc9d6a5060c2840f5de5c24443573da9fa652d27a819a95dffc9d",
+    "shared/movement.ts": "de8cfb54596c8741082e3ef40fc2550cfd7494c30761dc8c72889f48227ad45b",
+    "shared/physical-diagnostics.ts": "0b55613cb72e95ec99081c17b9385fececc9c9425a553b3ba0d7e7583a701670",
+    "shared/protocol.ts": "1a9dd92feb961fbc61bd27ef3f515d07d3d25f49c15daa6d8f0b7b66ef4f228c",
+    "shared/simulation.ts": "04a66271386b1e496784e1f801120077159aa6abc280391a97056e60566c55ee",
+    "shared/stats.ts": "18555b71109353b5ad45db0596484d9f5b9b29f5e9260196f667984e5aa57d87",
+    "shared/terrain.ts": "d6f36940f9a7901e47f723ba90902bc9e288d2056a7fb12d93673ff67362bee2",
+    "tuning.ts": "4a099d43f366b6af30950cc5d2ebcaf3e9f286cc24c154dc84b89f29e5fe0c18",
+    "package-lock.json": "91d6a3f4a4fc558039673a2414202e77765802b7615117061a261cebd0f68bf3"
+  },
+  "sourceMatrixSha256": "d15e606ca768b88a36006ad9b075b5770969b52d1ca5f9dabf1be51631f61d3d",
+  "sourceMatrixRowNumbering": "one-based",
+  "cases": [
+    73,
+    237
+  ],
+  "profilesN": [
+    450,
+    900
+  ],
+  "validation": {
+    "matchingSnapshotPairs": 5697,
+    "serverTimeOnlyExcluded": true,
+    "original450InputDigestsAndPeakDiagnosticsExact": true,
+    "row73ProfileBudgetRowsAndFinalSnapshotsExact": true,
+    "maximumProjectionReconstructionErrorJ": 2.2737367544323206e-13,
+    "maximumMotorWorkReconstructionErrorJ": 3.630873379734112e-12,
+    "testsPassed": 5,
+    "expectedFailures": 4,
+    "typecheck": "passed",
+    "focusedLint": "passed"
+  },
+  "knownFailures": [
+    "Potential-only budget is infeasible after accepted position correction",
+    "An individual constraint projection increases its own distance error",
+    "Wall normal actuation bypasses nominal force limit",
+    "Lateral and vertical actuation do not share a bounded vector budget"
+  ],
+  "artifacts": {
+    "reports/phase2-motor-energy-design.md": {
+      "sha256": "0b33f25f5b42341bfb7888da8ab0aeffcfe1a57005be76627bfd3aebc2c598e6",
+      "bytes": 16341
+    },
+    "scripts/phase2-motor-energy-probe.ts": {
+      "sha256": "1463c5efea2f341e95ddf5683bae773ae8d8e95e873ee52eebd229feb98bf42d",
+      "bytes": 21282
+    },
+    "scripts/physics-budget-diagnostics.ts": {
+      "sha256": "c882c85f1310b8840e5c8a8e9e255b6b3bd5169b69e6eece40e4032969b93916",
+      "bytes": 2094
+    },
+    "tests/phase2-motor-energy.test.ts": {
+      "sha256": "9e58c1019ed59a8881ba9fc1e2f7afd0ccb64b9a8da4b8b5f7bea531347878b6",
+      "bytes": 4867
+    },
+    "tests/fixtures/phase2-motor-energy-cases.json": {
+      "sha256": "2145bec540f69472e0cf265e727b862d91fa7f63622e64b8fbaa256d67a1da6d",
+      "bytes": 9111
+    },
+    "reports/phase2-motor-energy-probe.log": {
+      "sha256": "8935e03d3976785fef488fb6e4c10c85e6870091846e70173dbc6d6cf018bb98",
+      "bytes": 1052
+    },
+    "reports/phase2-motor-energy-typecheck.log": {
+      "sha256": "332ca5cdd1cce4a89252107f9619db6e237f3a287629bcfe353c6ab7352f9d2f",
+      "bytes": 65
+    },
+    "reports/phase2-motor-energy-lint.log": {
+      "sha256": "77a8e1642f84f7fb8f35bc17184a42e330a6cc9047e2665fc04d85984b1d5cb4",
+      "bytes": 164
+    },
+    "reports/phase2-motor-energy-tests.log": {
+      "sha256": "7b3a268059265c2b1916fdab51e06e1126093e119cdf480123be4eb2094f4eba",
+      "bytes": 336
+    },
+    "reports/phase2-motor-energy.json.gz": {
+      "sha256": "bb58fbbb3c7e02b539498e8bad94fab237361e8db27aa4b1248f5142e6a840be",
+      "bytes": 919725
+    },
+    "reports/phase2-motor-energy-original-manifest.json": {
+      "sha256": "0cf3c56cdf0225acf78cb06248fc4d9716b26c2a17b251b99b8eff2bb22792bb",
+      "bytes": 4025
+    },
+    "reports/phase2-motor-energy-compression.json": {
+      "sha256": "0f5cf256877996545ec1854dd0fee96d093b2e90a080348ed897678c6175cfec",
+      "bytes": 455
+    }
+  },
+  "verdict": "Diagnosis and design only. No mechanics or topology candidate; retained 900 N diagnostic baseline is not physically accepted.",
+  "packaging": "Lossless gzip; original measurements/source unchanged, historical artifact hashes retained in original manifest."
+}

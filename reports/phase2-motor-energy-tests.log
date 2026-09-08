@@ -1,0 +1,10 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'vitest' run --config vitest.config.ts tests/phase2-motor-energy.test.ts
+
+ RUN  v5.0.0 /Users/anayagarwalla/.codex/worktrees/a377/testastra
+
+
+ Test Files  1 passed (1)
+      Tests  5 passed | 4 expected fail (9)
+   Start at  16:29:17
+   Duration  1.48s (tests 91%, transform 6%, import 3%)

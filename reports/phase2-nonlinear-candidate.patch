@@ -1,0 +1,57 @@
+diff --git a/shared/expedition-simulation.ts b/shared/expedition-simulation.ts
+index 3e34f22..fc2cf45 100644
+--- a/shared/expedition-simulation.ts
++++ b/shared/expedition-simulation.ts
+@@ -202,8 +202,6 @@ export class ExpeditionSimulation {
+     let iterations = 0;
+     for (; iterations < profile.maximumSolverIterations; iterations++) {
+       const prior = this.nodes.map(p => ({ ...p }));
+-      this.nodeNormals = this.nodes.map((p, id) => contactNormalsAt(id < this.playerCount ? this.center(p) : p,
+-        id < this.playerCount ? half : particleHalf, this.terrain.solids));
+       for (const span of this.spans) {
+         for (let k = 0; k < span.nodes.length - 1; k++) {
+           const j = iterations % 2 ? span.nodes.length - k - 2 : k;
+@@ -302,7 +300,12 @@ export class ExpeditionSimulation {
+     const massB = b < this.playerCount ? TUNING.body.mass : TUNING.rope.particleMass;
+     const mobility = (id: number, mass: number, sign: number) => {
+       const v = { x: 1 / mass, y: 1 / mass, z: 1 / mass };
+-      if (id < this.playerCount && this.brace[id] && this.contacts[id].support === 'ground' && traction[id] > 0) {
++      const body = id < this.playerCount, position = body ? this.center(this.nodes[id]) : this.nodes[id];
++      // Earlier constraints may move a node away from a contact within this same
++      // iteration. Its current geometry, not an iteration-start mask, determines
++      // which components of this correction are blocked by terrain.
++      this.nodeNormals[id] = contactNormalsAt(position, body ? half : particleHalf, this.terrain.solids);
++      if (body && this.brace[id] && traction[id] > 0 && supportAt(position, half, this.terrain.solids).support === 'ground') {
+         v.x /= FAMILIES[this.family].braceMassMultiplier; v.z /= FAMILIES[this.family].braceMassMultiplier;
+       }
+       for (const normal of this.nodeNormals[id]) if (sign * dot(direction, normal) < 0) {
+@@ -320,6 +323,16 @@ export class ExpeditionSimulation {
+     if (a < this.playerCount && demand(wa, massA) > traction[a] || b < this.playerCount && demand(wb, massB) > traction[b]) {
+       for (const axis of axes) { if (wa[axis]) wa[axis] = 1 / massA; if (wb[axis]) wb[axis] = 1 / massB; } lambda = lambdaFor();
+     }
++    // The mobility-restricted Newton step is only a local linearization of
++    // distance. Backtrack against the actual nonlinear distance before changing
++    // positions or recording traction/force. Keep the outer solver cap unchanged.
++    let accepted = false;
++    for (let backtrack = 0; backtrack <= 8; backtrack++) {
++      const trialDistance = Math.hypot(...axes.map(axis => q[axis] - p[axis] - lambda * (wa[axis] + wb[axis]) * direction[axis]));
++      if (Number.isFinite(trialDistance) && trialDistance <= d) { accepted = true; break; }
++      lambda *= 0.5;
++    }
++    if (!accepted) return;
+     if (a < this.playerCount) traction[a] -= demand(wa, massA);
+     if (b < this.playerCount) traction[b] -= demand(wb, massB);
+     for (const [id, w, sign] of [[a, wa, 1], [b, wb, -1]] as const) for (const axis of axes) {
+diff --git a/tuning.ts b/tuning.ts
+index d182e59..5699a39 100644
+--- a/tuning.ts
++++ b/tuning.ts
+@@ -2,7 +2,7 @@
+  * Changes are recorded by the reports' full configuration and simulation version.
+  * Nothing here is a human Gate 1 verdict. */
+ export const TUNING = {
+-  version: 'phase2-1',
++  version: 'phase2-nonlinear-projection-1',
+   phase: 2,
+   seed: 1701, // Reproducible default flat test surface; no hazards are generated.
+   players: 2, // Gate 1 is exactly two bodies. Later phases must still respect hardCap.

@@ -120,6 +120,36 @@ describe('connection lifetime', () => {
     room.emit('snapshot', snapshot()); await vi.advanceTimersByTimeAsync(20);
     expect(c.status).toBe('Connected'); expect(room.sent.filter(m => m.type === 'input').at(-1)?.value).toMatchObject({ x: 0, z: 0, brace: false });
   });
+  it('releases controls when a fresh snapshot wins the race against the overdue stale-input timer', async () => {
+    const { c, room } = await joined(); c.input = { x: 1, z: 0, brace: true };
+    const reset = vi.fn(); c.onInputReset = reset;
+    // A suspended event loop may deliver a socket message before its overdue interval.
+    const clock = vi.spyOn(performance, 'now').mockReturnValue(TUNING.network.staleSnapshotMs + 1);
+    const recovered = snapshot(); recovered.tick++;
+    room.emit('snapshot', recovered); c.sendInput(); clock.mockRestore();
+    expect(c.input).toEqual({ x: 0, z: 0, brace: false }); expect(reset).toHaveBeenCalledOnce();
+    expect(c.history).toHaveLength(1); expect(c.history[0].state).toBe(recovered);
+    expect(room.sent.at(-1)?.value).toMatchObject({ x: 0, z: 0, brace: false });
+  });
+  it('waits for an authoritative occupied seat as well as a snapshot before accepting keys', async () => {
+    const c = make(), room = new FakeRoom(); transport.join.mockResolvedValueOnce(room); await c.join();
+    room.emit('snapshot', phase2State(6)); expect(c.acceptsMovement).toBe(false);
+    room.emit('identity', { id: 5 }); expect(c.acceptsMovement).toBe(true);
+    room.emit('snapshot', phase2State(2)); expect(c.acceptsMovement).toBe(false);
+  });
+  it('owns one input and one ping interval across repeated joins and team changes', async () => {
+    const c = make();
+    for (let session = 0; session < 4; session++) {
+      const { room } = await joined(c); await c.join(); await c.join();
+      for (const count of [6, 2, 6, 2]) { const state = phase2State(count); state.epoch = count; room.emit('snapshot', state); }
+      expect(vi.getTimerCount()).toBe(2);
+      const before = room.sent.filter(m => m.type === 'input').length;
+      await vi.advanceTimersByTimeAsync(1000 / TUNING.network.inputHz * 5);
+      expect(room.sent.filter(m => m.type === 'input').length - before).toBe(5);
+      await c.leave(); expect(vi.getTimerCount()).toBe(0);
+      const after = room.sent.length; await vi.advanceTimersByTimeAsync(100); expect(room.sent).toHaveLength(after);
+    }
+  });
 });
 describe('measurement and command bounds', () => {
   it('keeps delta event and cue evidence available in the closed-session report', async () => {

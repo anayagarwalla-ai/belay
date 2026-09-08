@@ -6,17 +6,17 @@ This is a playable local grey-box diagnostic build, **not a passed rescue gate o
 
 | Check | Observed result | Limit |
 |---|---|---|
-| Complete integration suite | 198 passed; 2 explicit expected failures; 20 files | The two expected failures preserve the unchanged 2 cm rope-segment ceiling; they are unresolved defects |
+| Complete integration suite | 211 passed; 6 explicit expected failures; 24 files | Two preserve the unchanged 2 cm rope-segment ceiling; four preserve projection, energy and actuator defects. All six remain unresolved |
 | Typecheck / lint / production build | Passed | Build retains upstream Vite/plugin warnings and a large-client-chunk warning; no three-second arrival or 60 fps qualification |
 | Local network / access regression | 13 passed | Real sockets on the two-climber flat scene; separate tests cover six-climber admission, scene resets and per-seat events |
 | Actual six-connection browser capture | Six bodies, five spans, 60 rope segments; zero body/HTML overlaps; consistent scene/session during capture | One browser with scripted brace plus five labeled SDK bots; no humans |
 | Actual-state client traces | 12 traces across 2/4/6-body rescue, crossing and ice; zero observed interpolated terrain penetration / stale warning backfills | Ten-second traces, not arbitrary-state completeness |
 | Same-build replay | 50/50 exact comparisons | Preserves defects as well as valid behavior; not cross-platform determinism |
 | World lifecycle / tape bound | 25 create/step/free cases; real 36,000-frame saturation | Not production room-memory attribution |
-| 1,000-trajectory matrix | Incomplete baseline prefix preserved; bounded parallel runner in preparation | No full-run percentiles or acceptance claim from a prefix |
+| 1,000-trajectory matrix | Incomplete baseline prefix preserved; bounded parallel runner being implemented and tested | No full-run percentiles or acceptance claim from a prefix |
 | 300-room server qualification | Not performed | Local guarded probes cannot establish production capacity, costs or reconnect success |
 
-The suite result was recorded before the later report-only/build-experiment handoffs; final source validation is reported with its own checkpoint when those land. [Local network evidence](phase2-network.json) includes real RTT samples and server timing, explicitly scoped to its small regression fixture. [Browser capture](phase2-live-browser-baseline.json) includes source hashes, client/server state, actual first-received/drawn observations and the declared synthetic controls. The narrow and desktop screenshots are local ignored review artifacts.
+The complete suite above passed on integrated source `e6e38fa` after the client timestamp and disposal fixes (2026-09-07): 44.35 seconds for tests; typecheck, lint and build also passed. `npm run verify:evidence` passes 75 stored/decompressed and source-bundle integrity checks; it cannot pass physical or human criteria. [Local network evidence](phase2-network.json) includes real RTT samples and server timing, explicitly scoped to its small regression fixture. [Browser capture](phase2-live-browser-baseline.json) includes source hashes, client/server state, actual first-received/drawn observations and the declared synthetic controls. The narrow and desktop screenshots are local ignored review artifacts.
 
 ## Required gameplay table — current baseline
 
@@ -41,3 +41,11 @@ The proposed allocation cache matched 1,136 exact snapshots across 42 fixtures b
 The local load runner has finite owned children, bounded offered inputs, teardown receipts and memory guards. Its default runs and later one-room attempt hit the conservative raw-free-memory guard; none is relabeled as a pass. The macOS available-memory proposal is observational only and does not weaken that policy.
 
 No paid service, upload endpoint, public game deployment, voice service or stranger recruitment has occurred. Daily remains an unimplemented, server-simulated **best-of-three** design. The two requested open items in PLAN.md remain open.
+
+The 250-case experimental re-cut is complete: 76 recoveries, 133 censored and 41 terminal outcomes, with 44 passive recoveries within its contact/rope limits. It remains rejected, with serious energy/geometry failures retained in [the decision](rescue-recut-decision.md). Three alternative rescue arrangements and the current-price hosting proposal are preparatory documents in `docs/design/`; neither changes the game or provisions a service.
+
+A later independent diagnosis preserves four additional expected-failure witnesses: a nonlinear projection that expands its own distance error, unresolved position-level energy excess, and proposed normal/tangential wall-actuator bounds. [Diagnosis and exact observations](phase2-motor-energy-design.md) distinguish these faults; the runtime is unchanged. Their separate targeted result is five passing checks and four explicit expected failures; typecheck/lint and 74 artifact checks also pass. These are separate from the earlier complete-suite checkpoint above.
+
+The eight-case [client latency capture](phase2-client-latency.md) preserved 4,800 frames and exposed negative snapshot ages and draw-before-receipt times. The renderer clock is fixed and regression-tested; a new live timing capture has not been run. The [frontend byte audit](phase2-frontend-budget.md) estimates 361,229 gzip bytes across the initial dependency set of an earlier build: about 2.89 seconds of ideal transfer at 1 Mbps before other work. It does not qualify load time.
+
+The isolated nonlinear projection candidate was rejected after new segment-limit failures; its [counterexamples](phase2-nonlinear-rejection.md) and [architecture review](phase2-solver-architecture-review.md) preserve the reasons. Current gameplay and the full benchmark source remain unchanged.

@@ -1,0 +1,287 @@
+{
+  "sourceReportSha256": "d15e606ca768b88a36006ad9b075b5770969b52d1ca5f9dabf1be51631f61d3d",
+  "sourceBaseline": "ad00223526c9f3ba93320bfe284c74f1f30697fd",
+  "cases": [
+    {
+      "row": 73,
+      "spec": {
+        "variant": "wall-450",
+        "n": 3,
+        "casualty": 2,
+        "bank": "same",
+        "surface": "ice",
+        "policy": "idle-casualty"
+      },
+      "positions": [
+        {
+          "x": -1.6,
+          "y": 0.454,
+          "z": -0.8
+        },
+        {
+          "x": 0,
+          "y": 0.454,
+          "z": -0.8
+        },
+        {
+          "x": 1.6,
+          "y": 0.454,
+          "z": 0.7
+        }
+      ],
+      "horizonSeconds": 30,
+      "decisionSeconds": 0.5,
+      "catchSeconds": 0.75,
+      "sourceObservedSeconds": 30,
+      "sourceEnding": "censored",
+      "sourceInputSha256": "747d731a8b8657674d14477b9bdd396a962c2d1f8795254bcffe1cbac76e2cc2",
+      "sourceDiagnostics": {
+        "solverIterations": 128,
+        "contactProjections": 25,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 0.1628264835946077,
+        "potentialEnergyJ": 330.58806317281073,
+        "motorWorkJ": 2107.3075378377407,
+        "gravityWorkJ": 14983.751186160824,
+        "ropeContactWorkJ": -24701.53379340615,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 0,
+        "incidentsFailed": 0,
+        "energyProjectionCount": 191,
+        "maximumEnergyProjectionJ": 2808519.5024178205,
+        "maximumPotentialExcessJ": 3561.911252017444,
+        "cascades": 0,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "sourceCounters": {
+        "ticks": 1800,
+        "elapsedSeconds": 30,
+        "maximumSpanErrorM": 0,
+        "maximumSegmentErrorM": 0.018807844209188795,
+        "maximumSpeedMps": 8.641735991316665,
+        "maximumJoltMps2": 239.68064732195458,
+        "tautTransitions": 2,
+        "totalTensionSeconds": 23.09999999999997,
+        "distanceTravelledM": [
+          7.491538388123355,
+          6.369484747094962,
+          19.913437590228206
+        ]
+      },
+      "sourceRoles": [
+        {
+          "distanceM": 7.491534529098906,
+          "loadedSeconds": 21.93333333333337,
+          "inputChanges": 2,
+          "motorWorkJ": 1410.1644686803168,
+          "maximumWallEffortN": 0,
+          "maximumMotorHorizontalForceN": 240.000000000001,
+          "maximumResidualVerticalForceN": 1993.6540077209474,
+          "groundSeconds": 29.999999999999577,
+          "wallSeconds": 0,
+          "airSeconds": 0,
+          "heldVerified": true
+        },
+        {
+          "distanceM": 6.369485941438939,
+          "loadedSeconds": 25.649999999999824,
+          "inputChanges": 2,
+          "motorWorkJ": 697.1430691574184,
+          "maximumWallEffortN": 0,
+          "maximumMotorHorizontalForceN": 376.70400000000024,
+          "maximumResidualVerticalForceN": 10155.540509033202,
+          "groundSeconds": 29.783333333332923,
+          "wallSeconds": 0,
+          "airSeconds": 0.21666666666666665,
+          "heldVerified": true
+        },
+        {
+          "distanceM": 19.913436224189123,
+          "loadedSeconds": 25.11666666666652,
+          "inputChanges": 0,
+          "motorWorkJ": 0,
+          "maximumWallEffortN": 0,
+          "maximumMotorHorizontalForceN": 0,
+          "maximumResidualVerticalForceN": 18874.354595947265,
+          "groundSeconds": 0,
+          "wallSeconds": 27.833333333333034,
+          "airSeconds": 2.166666666666664,
+          "heldVerified": true
+        }
+      ]
+    },
+    {
+      "row": 237,
+      "spec": {
+        "variant": "wall-450",
+        "n": 6,
+        "casualty": 0,
+        "bank": "same",
+        "surface": "ice",
+        "policy": "static-helpers"
+      },
+      "positions": [
+        {
+          "x": -4,
+          "y": 0.454,
+          "z": 0.7
+        },
+        {
+          "x": -2.4000000000000004,
+          "y": 0.454,
+          "z": -0.8
+        },
+        {
+          "x": -0.8,
+          "y": 0.454,
+          "z": -0.8
+        },
+        {
+          "x": 0.8,
+          "y": 0.454,
+          "z": -0.8
+        },
+        {
+          "x": 2.4000000000000004,
+          "y": 0.454,
+          "z": -0.8
+        },
+        {
+          "x": 4,
+          "y": 0.454,
+          "z": -0.8
+        }
+      ],
+      "horizonSeconds": 30,
+      "decisionSeconds": 0.5,
+      "catchSeconds": 0.75,
+      "sourceObservedSeconds": 4.95,
+      "sourceEnding": "terminal",
+      "sourceInputSha256": "77f49cc5f66796cb81d3d052516c8b31ce1e8b972454afc4ecd0d35476a318a5",
+      "sourceDiagnostics": {
+        "solverIterations": 12,
+        "contactProjections": 327,
+        "maximumTerrainPenetrationM": 0,
+        "maximumBodyOverlapM": 0,
+        "kineticEnergyJ": 68015.97248660626,
+        "potentialEnergyJ": -116276.6030894978,
+        "motorWorkJ": -31915.264069253262,
+        "gravityWorkJ": 119742.93619366584,
+        "ropeContactWorkJ": -17765.100925325154,
+        "maximumUnexplainedEnergyGainJ": 0,
+        "incidentsStarted": 1,
+        "incidentsRecovered": 0,
+        "incidentsFailed": 1,
+        "energyProjectionCount": 8,
+        "maximumEnergyProjectionJ": 1355.6542534873104,
+        "maximumPotentialExcessJ": 0,
+        "cascades": 5,
+        "firstFallSeconds": 0.2,
+        "eventsTruncated": false,
+        "incidentsTruncated": false
+      },
+      "sourceCounters": {
+        "ticks": 297,
+        "elapsedSeconds": 4.95,
+        "maximumSpanErrorM": 0.0014626422784043136,
+        "maximumSegmentErrorM": 0.09063655992100467,
+        "maximumSpeedMps": 17.32741343596502,
+        "maximumJoltMps2": 541.098187760043,
+        "tautTransitions": 9,
+        "totalTensionSeconds": 4.0666666666666575,
+        "distanceTravelledM": [
+          34.05468190499032,
+          33.5254085906054,
+          30.434129499982397,
+          27.311275419728247,
+          24.006557389470355,
+          19.52376138928606
+        ]
+      },
+      "sourceRoles": [
+        {
+          "distanceM": 34.054683941974865,
+          "loadedSeconds": 2.5666666666666624,
+          "inputChanges": 1,
+          "motorWorkJ": -4574.1969365628165,
+          "maximumWallEffortN": 585,
+          "maximumMotorHorizontalForceN": 11942.842924007698,
+          "maximumResidualVerticalForceN": 11537.065548706054,
+          "groundSeconds": 0,
+          "wallSeconds": 1.866666666666665,
+          "airSeconds": 3.0833333333333273,
+          "heldVerified": true
+        },
+        {
+          "distanceM": 33.5253982738687,
+          "loadedSeconds": 4.233333333333324,
+          "inputChanges": 1,
+          "motorWorkJ": -1541.685936036273,
+          "maximumWallEffortN": 585,
+          "maximumMotorHorizontalForceN": 5967.8629695028985,
+          "maximumResidualVerticalForceN": 3660.0937316894533,
+          "groundSeconds": 0.966666666666668,
+          "wallSeconds": 0.35,
+          "airSeconds": 3.6333333333333253,
+          "heldVerified": true
+        },
+        {
+          "distanceM": 30.43412626089718,
+          "loadedSeconds": 3.733333333333325,
+          "inputChanges": 1,
+          "motorWorkJ": -4545.94967964167,
+          "maximumWallEffortN": 585,
+          "maximumMotorHorizontalForceN": 16859.80573759652,
+          "maximumResidualVerticalForceN": 2783.0199096679726,
+          "groundSeconds": 1.6999999999999988,
+          "wallSeconds": 0.9833333333333347,
+          "airSeconds": 2.2666666666666635,
+          "heldVerified": true
+        },
+        {
+          "distanceM": 27.311279068383413,
+          "loadedSeconds": 2.8499999999999948,
+          "inputChanges": 1,
+          "motorWorkJ": -5316.025530995115,
+          "maximumWallEffortN": 585,
+          "maximumMotorHorizontalForceN": 20539.0987521447,
+          "maximumResidualVerticalForceN": 7403.595776367188,
+          "groundSeconds": 2.366666666666663,
+          "wallSeconds": 0.9166666666666679,
+          "airSeconds": 1.6666666666666656,
+          "heldVerified": true
+        },
+        {
+          "distanceM": 24.00655752372055,
+          "loadedSeconds": 2.633333333333329,
+          "inputChanges": 1,
+          "motorWorkJ": -4547.484854742937,
+          "maximumWallEffortN": 585,
+          "maximumMotorHorizontalForceN": 13524.51984699427,
+          "maximumResidualVerticalForceN": 9936.239666748046,
+          "groundSeconds": 2.8999999999999946,
+          "wallSeconds": 0.5833333333333335,
+          "airSeconds": 1.4666666666666663,
+          "heldVerified": true
+        },
+        {
+          "distanceM": 19.523763288451708,
+          "loadedSeconds": 1.9666666666666646,
+          "inputChanges": 1,
+          "motorWorkJ": -11389.921131274461,
+          "maximumWallEffortN": 585,
+          "maximumMotorHorizontalForceN": 46461.5706182492,
+          "maximumResidualVerticalForceN": 10217.375960540772,
+          "groundSeconds": 3.3666666666666596,
+          "wallSeconds": 1.35,
+          "airSeconds": 0.2333333333333333,
+          "heldVerified": true
+        }
+      ]
+    }
+  ]
+}

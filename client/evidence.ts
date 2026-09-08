@@ -9,7 +9,7 @@ export type CueObservation = {
   endedBeforeDraw: boolean;
   serverCueOnset: { eventId: number; tick: number; substep: number } | null;
 };
-/** First received and first drawn in the camera frame are deliberately separate observations. */
+/** Receipt and renderer submission with geometric frame inclusion are separate observations, not pixel visibility. */
 export class ClientEvidence {
   private observations = new Map<string, CueObservation>();
   private events = new Map<number, PhysicalEvent>();
@@ -76,6 +76,11 @@ export class ClientEvidence {
   report() {
     return { sceneEpoch: this.epoch, truncated: this.truncated, observations: structuredClone([...this.observations.values()]),
       physicalEvents: structuredClone([...this.events.values()]),
-      scope: 'First received cue/fall per surface or incident and first draw in the camera frame, relative to this scene window. Ended unseen cues/falls never receive a retrospective draw timestamp. Server cue onset is included only when that event was received. Not proof of human attention, unobstructed visibility or functional rescue activity.' };
+      scope: 'Scene-relative first receipt and first post-renderer-submission timestamp per kind/bridge or incident/player. '
+        + 'firstDrawn* and drawnInCameraFrame mean a player center is inside the projected frame or bridge bounds intersect the frustum, including hidden collapsed bridge bounds. '
+        + 'Ticks refer to the latest snapshot; displayed bodies may be interpolated/predicted. Occlusion, opening visibility and human attention are unknown. '
+        + 'Ended unsubmitted observations stay undrawn; server cue onset is included only if received when the observation is created. '
+        + 'Event spanIds are adjacent spans; cue/collapse surfaceIds are bridge IDs. Catch records hanging, possibly wall-settled; rescuer, support-loss and causal associations are unknown. '
+        + 'tensionN is a correction-derived solver proxy, tension is smoothed, and slackM is a chord-gap proxy that ignores routing. catchHighlight marks spans adjacent to catch/climb events.' };
   }
 }

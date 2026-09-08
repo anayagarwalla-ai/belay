@@ -1,0 +1,817 @@
+{
+  "generatedAt": "2026-09-07T23:50:56.165Z",
+  "sourceRoot": "/Users/anayagarwalla/Documents/ChatGPT/testastra",
+  "sourceHeadAtStart": "c6c41634073dc0d8459feed03f26b6e81536f99d",
+  "sourceHeadAtEnd": "c6c41634073dc0d8459feed03f26b6e81536f99d",
+  "buildSourceCommit": null,
+  "buildProvenance": "Existing output only. Asset mtimes/hashes and current source hashes are recorded separately; current HEAD is not asserted to have produced these files.",
+  "buildId": "09327f5a-d94a-49b0-b30b-d294c0c6f25e",
+  "manifest": {
+    "path": "dist/server/__vite_rsc_assets_manifest.js",
+    "sha256": "893367a7a0a1efbad3ac6661c4f2c1c0e60874a1c093a196eb06427239804a54"
+  },
+  "compression": {
+    "runtime": "v26.5.0",
+    "zlib": "1.2.12",
+    "brotli": "1.2.0",
+    "scope": "Per-file local gzip level 6 and Brotli quality 5 byte estimates. Actual HTTP content encoding, headers/framing and response timings were not measured."
+  },
+  "assets": [
+    {
+      "path": ".assetsignore",
+      "kind": "metadata",
+      "modifiedAt": "2026-09-07T23:28:47.372Z",
+      "sha256": "14ce8d5101f6d8f172242053466d44f5e2cd622dee81db53c14bd445c25d1942",
+      "rawBytes": 30,
+      "gzip6Bytes": 50,
+      "brotli5Bytes": 34,
+      "imports": [],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": ".vite/manifest.json",
+      "kind": "metadata",
+      "modifiedAt": "2026-09-07T23:28:47.363Z",
+      "sha256": "75c69c73935c8284148b260a9a220083b75515ce28178a3af45dc9b28ca35dd1",
+      "rawBytes": 1715,
+      "gzip6Bytes": 392,
+      "brotli5Bytes": 355,
+      "imports": [],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": "_headers",
+      "kind": "metadata",
+      "modifiedAt": "2026-09-07T23:28:47.372Z",
+      "sha256": "2148fb62669525f5091532d36d4a48a8da95b08a5a797bacde75d2fe981351bb",
+      "rawBytes": 131,
+      "gzip6Bytes": 132,
+      "brotli5Bytes": 102,
+      "imports": [],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": "_next/static/09327f5a-d94a-49b0-b30b-d294c0c6f25e/_buildManifest.js",
+      "kind": "js",
+      "modifiedAt": "2026-09-07T23:28:47.370Z",
+      "sha256": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb",
+      "rawBytes": 159,
+      "gzip6Bytes": 121,
+      "brotli5Bytes": 103,
+      "imports": [],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": "_next/static/09327f5a-d94a-49b0-b30b-d294c0c6f25e/_ssgManifest.js",
+      "kind": "js",
+      "modifiedAt": "2026-09-07T23:28:47.370Z",
+      "sha256": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479",
+      "rawBytes": 76,
+      "gzip6Bytes": 60,
+      "brotli5Bytes": 50,
+      "imports": [],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": "_next/static/chunks/GateClient-C9MZ6YPb.js",
+      "kind": "js",
+      "modifiedAt": "2026-09-07T23:28:47.362Z",
+      "sha256": "3b86cb2d6d0b8d27ce0f857f5a8b63c363c4531caf8ba6d3ab6431c1b2ec8a85",
+      "rawBytes": 773887,
+      "gzip6Bytes": 210510,
+      "brotli5Bytes": 197273,
+      "imports": [
+        {
+          "specifier": "./rolldown-runtime-hePW80VL.js",
+          "dynamic": false,
+          "resolvedPath": "_next/static/chunks/rolldown-runtime-hePW80VL.js"
+        },
+        {
+          "specifier": "./framework-DTZGTDtF.js",
+          "dynamic": false,
+          "resolvedPath": "_next/static/chunks/framework-DTZGTDtF.js"
+        }
+      ],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": "_next/static/chunks/framework-DTZGTDtF.js",
+      "kind": "js",
+      "modifiedAt": "2026-09-07T23:28:47.362Z",
+      "sha256": "2a1edf81f32a49b1eacafc3546b371bca024c82a9191836e274d90890212e9df",
+      "rawBytes": 190109,
+      "gzip6Bytes": 59048,
+      "brotli5Bytes": 55894,
+      "imports": [
+        {
+          "specifier": "./rolldown-runtime-hePW80VL.js",
+          "dynamic": false,
+          "resolvedPath": "_next/static/chunks/rolldown-runtime-hePW80VL.js"
+        }
+      ],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": "_next/static/chunks/index-DyQSaK8v.js",
+      "kind": "js",
+      "modifiedAt": "2026-09-07T23:28:47.362Z",
+      "sha256": "785cb853d095b26e49c029f6e1397861c369e53fd4bf51e5e4536404f2674ecb",
+      "rawBytes": 108730,
+      "gzip6Bytes": 32073,
+      "brotli5Bytes": 30431,
+      "imports": [
+        {
+          "specifier": "./rolldown-runtime-hePW80VL.js",
+          "dynamic": false,
+          "resolvedPath": "_next/static/chunks/rolldown-runtime-hePW80VL.js"
+        },
+        {
+          "specifier": "./framework-DTZGTDtF.js",
+          "dynamic": false,
+          "resolvedPath": "_next/static/chunks/framework-DTZGTDtF.js"
+        },
+        {
+          "specifier": "./vinext-DdlM9mco.js",
+          "dynamic": false,
+          "resolvedPath": "_next/static/chunks/vinext-DdlM9mco.js"
+        },
+        {
+          "specifier": "./vinext-DdlM9mco.js",
+          "dynamic": true,
+          "resolvedPath": "_next/static/chunks/vinext-DdlM9mco.js"
+        },
+        {
+          "specifier": "./layout-segment-context-DZmT84Zs.js",
+          "dynamic": true,
+          "resolvedPath": "_next/static/chunks/layout-segment-context-DZmT84Zs.js"
+        },
+        {
+          "specifier": "./GateClient-C9MZ6YPb.js",
+          "dynamic": true,
+          "resolvedPath": "_next/static/chunks/GateClient-C9MZ6YPb.js"
+        },
+        {
+          "specifier": "./vinext-DdlM9mco.js",
+          "dynamic": true,
+          "resolvedPath": "_next/static/chunks/vinext-DdlM9mco.js"
+        },
+        {
+          "specifier": "./vinext-DdlM9mco.js",
+          "dynamic": true,
+          "resolvedPath": "_next/static/chunks/vinext-DdlM9mco.js"
+        },
+        {
+          "specifier": "./vinext-DdlM9mco.js",
+          "dynamic": true,
+          "resolvedPath": "_next/static/chunks/vinext-DdlM9mco.js"
+        },
+        {
+          "specifier": "./vinext-DdlM9mco.js",
+          "dynamic": true,
+          "resolvedPath": "_next/static/chunks/vinext-DdlM9mco.js"
+        },
+        {
+          "specifier": "./vinext-DdlM9mco.js",
+          "dynamic": true,
+          "resolvedPath": "_next/static/chunks/vinext-DdlM9mco.js"
+        }
+      ],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": "_next/static/chunks/layout-segment-context-DZmT84Zs.js",
+      "kind": "js",
+      "modifiedAt": "2026-09-07T23:28:47.362Z",
+      "sha256": "dfc3a923c6f276db864838e030cd2638968aaa9ac8bf95d7485346ad7c576d0a",
+      "rawBytes": 496,
+      "gzip6Bytes": 345,
+      "brotli5Bytes": 301,
+      "imports": [
+        {
+          "specifier": "./rolldown-runtime-hePW80VL.js",
+          "dynamic": false,
+          "resolvedPath": "_next/static/chunks/rolldown-runtime-hePW80VL.js"
+        },
+        {
+          "specifier": "./framework-DTZGTDtF.js",
+          "dynamic": false,
+          "resolvedPath": "_next/static/chunks/framework-DTZGTDtF.js"
+        },
+        {
+          "specifier": "./vinext-DdlM9mco.js",
+          "dynamic": false,
+          "resolvedPath": "_next/static/chunks/vinext-DdlM9mco.js"
+        }
+      ],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": "_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "kind": "js",
+      "modifiedAt": "2026-09-07T23:28:47.362Z",
+      "sha256": "580ad8c58061a4dde99bde0a56905e382f0568516ee2f5b84dbfb52085709021",
+      "rawBytes": 716,
+      "gzip6Bytes": 430,
+      "brotli5Bytes": 396,
+      "imports": [],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": "_next/static/chunks/vinext-DdlM9mco.js",
+      "kind": "js",
+      "modifiedAt": "2026-09-07T23:28:47.362Z",
+      "sha256": "ed6baeca543bb0ac8f3acb756273467b0218c007437642f216f5e705dfe84117",
+      "rawBytes": 111711,
+      "gzip6Bytes": 32931,
+      "brotli5Bytes": 31355,
+      "imports": [
+        {
+          "specifier": "./rolldown-runtime-hePW80VL.js",
+          "dynamic": false,
+          "resolvedPath": "_next/static/chunks/rolldown-runtime-hePW80VL.js"
+        },
+        {
+          "specifier": "./framework-DTZGTDtF.js",
+          "dynamic": false,
+          "resolvedPath": "_next/static/chunks/framework-DTZGTDtF.js"
+        }
+      ],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": "_next/static/css/index.B-AjPmNL.css",
+      "kind": "css",
+      "modifiedAt": "2026-09-07T23:28:47.363Z",
+      "sha256": "1c2aa855b57b47c578eef568646e312b93e8a4e14fcb4dfc491ed6e7ca42d0d3",
+      "rawBytes": 170055,
+      "gzip6Bytes": 25892,
+      "brotli5Bytes": 23581,
+      "imports": [],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": "favicon.svg",
+      "kind": "image",
+      "modifiedAt": "2026-09-07T23:28:47.290Z",
+      "sha256": "e6d2e59b7b5bbb0342e0fb496dfc262decbfe4426bbb7b047aec8d467d1dc6f7",
+      "rawBytes": 712,
+      "gzip6Bytes": 342,
+      "brotli5Bytes": 318,
+      "imports": [],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    },
+    {
+      "path": "vinext-client-entry-manifest.json",
+      "kind": "metadata",
+      "modifiedAt": "2026-09-07T23:28:47.363Z",
+      "sha256": "76721d5ba035ac4465f56651f81c0d6e4f67160cba34a9e157eb1322340fc7ff",
+      "rawBytes": 65,
+      "gzip6Bytes": 85,
+      "brotli5Bytes": 67,
+      "imports": [],
+      "cssUrls": [],
+      "cssFontFaces": 0
+    }
+  ],
+  "totalsByKind": {
+    "js": {
+      "files": 8,
+      "rawBytes": 1185884,
+      "gzip6Bytes": 335518,
+      "brotli5Bytes": 315803
+    },
+    "css": {
+      "files": 1,
+      "rawBytes": 170055,
+      "gzip6Bytes": 25892,
+      "brotli5Bytes": 23581
+    },
+    "wasm": {
+      "files": 0,
+      "rawBytes": 0,
+      "gzip6Bytes": 0,
+      "brotli5Bytes": 0
+    },
+    "font": {
+      "files": 0,
+      "rawBytes": 0,
+      "gzip6Bytes": 0,
+      "brotli5Bytes": 0
+    },
+    "image": {
+      "files": 1,
+      "rawBytes": 712,
+      "gzip6Bytes": 342,
+      "brotli5Bytes": 318
+    },
+    "metadata": {
+      "files": 4,
+      "rawBytes": 1941,
+      "gzip6Bytes": 659,
+      "brotli5Bytes": 558
+    }
+  },
+  "route": {
+    "selection": "Union of emitted bootstrap, client-reference and server-resource dependencies for the single root-route application; layout context may be conditional. Distinct URLs counted once. Ancillary favicon and compatibility manifests excluded.",
+    "paths": [
+      "_next/static/chunks/GateClient-C9MZ6YPb.js",
+      "_next/static/chunks/framework-DTZGTDtF.js",
+      "_next/static/chunks/index-DyQSaK8v.js",
+      "_next/static/chunks/layout-segment-context-DZmT84Zs.js",
+      "_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "_next/static/chunks/vinext-DdlM9mco.js",
+      "_next/static/css/index.B-AjPmNL.css"
+    ],
+    "rawBytes": 1355704,
+    "gzip6Bytes": 361229,
+    "brotli5Bytes": 339231
+  },
+  "sourceGraph": [
+    {
+      "path": "app/globals.css",
+      "sha256": "34af73100fda8da777f067ce6107633751e42bd398f9b6d1fc6b17703c90c7e7",
+      "imports": []
+    },
+    {
+      "path": "app/layout.tsx",
+      "sha256": "5a66a1345a37e98f62c27ed11532f93721d5dae42c2c4162b77091f5153fab7b",
+      "imports": [
+        {
+          "specifier": "./globals.css",
+          "dynamic": false,
+          "localPath": "app/globals.css"
+        }
+      ]
+    },
+    {
+      "path": "app/page.tsx",
+      "sha256": "d8b51263af437339033f65ea54e8a59e6a55a735f824c372a814208e1f78c77b",
+      "imports": [
+        {
+          "specifier": "../client/GateClient",
+          "dynamic": false,
+          "localPath": "client/GateClient.tsx"
+        }
+      ]
+    },
+    {
+      "path": "client/connection.ts",
+      "sha256": "0e95e1f8a1996ee70c8eb374ff140e8e158824ab393f0be722c179cf50ba2df5",
+      "imports": [
+        {
+          "specifier": "@colyseus/sdk",
+          "dynamic": false,
+          "localPath": null
+        },
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        },
+        {
+          "specifier": "../shared/protocol",
+          "dynamic": false,
+          "localPath": "shared/protocol.ts"
+        },
+        {
+          "specifier": "../shared/stats",
+          "dynamic": false,
+          "localPath": "shared/stats.ts"
+        },
+        {
+          "specifier": "./evidence",
+          "dynamic": false,
+          "localPath": "client/evidence.ts"
+        },
+        {
+          "specifier": "./presentation",
+          "dynamic": false,
+          "localPath": "client/presentation.ts"
+        }
+      ]
+    },
+    {
+      "path": "client/controls.ts",
+      "sha256": "7cce53203f910aa198c2940cfe2e689e2a358078a2f3271d384ae1210cce2170",
+      "imports": [
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        },
+        {
+          "specifier": "./terrain-view",
+          "dynamic": false,
+          "localPath": "client/terrain-view.ts"
+        },
+        {
+          "specifier": "../shared/contact-geometry",
+          "dynamic": false,
+          "localPath": "shared/contact-geometry.ts"
+        }
+      ]
+    },
+    {
+      "path": "client/evidence.ts",
+      "sha256": "5d7d5081d6fc473116acfb9512a555b832f0e28c03583d6dac14390f467750a5",
+      "imports": [
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        }
+      ]
+    },
+    {
+      "path": "client/GateClient.tsx",
+      "sha256": "d5265bf453de2fc17735776702f8c643f1bbca12c2881e65424b3f0fdee8a8da",
+      "imports": [
+        {
+          "specifier": "react",
+          "dynamic": false,
+          "localPath": null
+        },
+        {
+          "specifier": "../components/ui/button",
+          "dynamic": false,
+          "localPath": "components/ui/button.tsx"
+        },
+        {
+          "specifier": "./connection",
+          "dynamic": false,
+          "localPath": "client/connection.ts"
+        },
+        {
+          "specifier": "./viewport",
+          "dynamic": false,
+          "localPath": "client/viewport.ts"
+        },
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        },
+        {
+          "specifier": "./inspection-tool",
+          "dynamic": false,
+          "localPath": "client/inspection-tool.ts"
+        },
+        {
+          "specifier": "./controls",
+          "dynamic": false,
+          "localPath": "client/controls.ts"
+        },
+        {
+          "specifier": "./OperatorControls",
+          "dynamic": false,
+          "localPath": "client/OperatorControls.tsx"
+        },
+        {
+          "specifier": "./IncidentEvidence",
+          "dynamic": false,
+          "localPath": "client/IncidentEvidence.tsx"
+        }
+      ]
+    },
+    {
+      "path": "client/IncidentEvidence.tsx",
+      "sha256": "a48bb0600910cf97e3cdeae1a92e51dc54244f28063026d978ed5b61ccff479d",
+      "imports": [
+        {
+          "specifier": "./presentation",
+          "dynamic": false,
+          "localPath": "client/presentation.ts"
+        }
+      ]
+    },
+    {
+      "path": "client/inspection-tool.ts",
+      "sha256": "5b1a5c45b695f87d7638ff3cffb028b101ecda2f21addc14223333220fe30d0f",
+      "imports": []
+    },
+    {
+      "path": "client/OperatorControls.tsx",
+      "sha256": "2ada3533aa9e54b11214fe359277d030d01783aa3f801819a0537d0852d7df89",
+      "imports": [
+        {
+          "specifier": "react",
+          "dynamic": false,
+          "localPath": null
+        },
+        {
+          "specifier": "../components/ui/button",
+          "dynamic": false,
+          "localPath": "components/ui/button.tsx"
+        },
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        }
+      ]
+    },
+    {
+      "path": "client/overlay-layout.ts",
+      "sha256": "a6a13dd8e470e081b96def67d6438953a12aa789fadc8187a3e8dae5835bd55c",
+      "imports": []
+    },
+    {
+      "path": "client/prediction.ts",
+      "sha256": "fe99fd60e9ef0ae55010764ac956859addb90412cd40c5cddd21c875e6bf8ac0",
+      "imports": [
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        },
+        {
+          "specifier": "../shared/movement",
+          "dynamic": false,
+          "localPath": "shared/movement.ts"
+        },
+        {
+          "specifier": "./presentation",
+          "dynamic": false,
+          "localPath": "client/presentation.ts"
+        },
+        {
+          "specifier": "./terrain-view",
+          "dynamic": false,
+          "localPath": "client/terrain-view.ts"
+        }
+      ]
+    },
+    {
+      "path": "client/presentation.ts",
+      "sha256": "f660cb034274edfd296f256d8bd93cf3790ee3fde4aa39274627a96826cc785c",
+      "imports": [
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        },
+        {
+          "specifier": "./terrain-view",
+          "dynamic": false,
+          "localPath": "client/terrain-view.ts"
+        },
+        {
+          "specifier": "./terrain-view",
+          "dynamic": false,
+          "localPath": "client/terrain-view.ts"
+        }
+      ]
+    },
+    {
+      "path": "client/terrain-view.ts",
+      "sha256": "2c7a860e016a65c6cfaf2b0e8dc26f06b5b3bde4eb9b265b6983785464a3d64d",
+      "imports": [
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        },
+        {
+          "specifier": "../shared/contact-geometry",
+          "dynamic": false,
+          "localPath": "shared/contact-geometry.ts"
+        }
+      ]
+    },
+    {
+      "path": "client/viewport.ts",
+      "sha256": "3a565e9e62f6c501180965707b76c12c018794d8c9ab37dbcf733e32d9d1cba3",
+      "imports": [
+        {
+          "specifier": "three",
+          "dynamic": false,
+          "localPath": null
+        },
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        },
+        {
+          "specifier": "../shared/terrain",
+          "dynamic": false,
+          "localPath": "shared/terrain.ts"
+        },
+        {
+          "specifier": "./presentation",
+          "dynamic": false,
+          "localPath": "client/presentation.ts"
+        },
+        {
+          "specifier": "./prediction",
+          "dynamic": false,
+          "localPath": "client/prediction.ts"
+        },
+        {
+          "specifier": "./terrain-view",
+          "dynamic": false,
+          "localPath": "client/terrain-view.ts"
+        },
+        {
+          "specifier": "./overlay-layout",
+          "dynamic": false,
+          "localPath": "client/overlay-layout.ts"
+        }
+      ]
+    },
+    {
+      "path": "components/ui/button.tsx",
+      "sha256": "081d2a1cb4f3aec636a6894d9eff4e90d476d5db85b82d0399c1f4d18517112e",
+      "imports": [
+        {
+          "specifier": "@base-ui/react/button",
+          "dynamic": false,
+          "localPath": null
+        },
+        {
+          "specifier": "class-variance-authority",
+          "dynamic": false,
+          "localPath": null
+        },
+        {
+          "specifier": "@/lib/utils",
+          "dynamic": false,
+          "localPath": "lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "path": "lib/utils.ts",
+      "sha256": "9304a861c8673bee09e0f12de31773abbde503b02e59dfd74763ddec2e37cf05",
+      "imports": [
+        {
+          "specifier": "clsx",
+          "dynamic": false,
+          "localPath": null
+        },
+        {
+          "specifier": "tailwind-merge",
+          "dynamic": false,
+          "localPath": null
+        }
+      ]
+    },
+    {
+      "path": "shared/contact-geometry.ts",
+      "sha256": "be27fd0e94f87c17d4de8a066b7cfd3c8ab18c307f409deabe3d28df63a8b2cd",
+      "imports": [
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        }
+      ]
+    },
+    {
+      "path": "shared/movement.ts",
+      "sha256": "de8cfb54596c8741082e3ef40fc2550cfd7494c30761dc8c72889f48227ad45b",
+      "imports": [
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        }
+      ]
+    },
+    {
+      "path": "shared/protocol.ts",
+      "sha256": "1a9dd92feb961fbc61bd27ef3f515d07d3d25f49c15daa6d8f0b7b66ef4f228c",
+      "imports": [
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        }
+      ]
+    },
+    {
+      "path": "shared/stats.ts",
+      "sha256": "18555b71109353b5ad45db0596484d9f5b9b29f5e9260196f667984e5aa57d87",
+      "imports": [
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        }
+      ]
+    },
+    {
+      "path": "shared/terrain.ts",
+      "sha256": "d6f36940f9a7901e47f723ba90902bc9e288d2056a7fb12d93673ff67362bee2",
+      "imports": [
+        {
+          "specifier": "../tuning",
+          "dynamic": false,
+          "localPath": "tuning.ts"
+        }
+      ]
+    },
+    {
+      "path": "tuning.ts",
+      "sha256": "2c8bd7fda61a337117b0753e30304971ae1d9143c4e5ea91f2f13d954e98a5af",
+      "imports": []
+    }
+  ],
+  "transferSeconds": [
+    {
+      "mbps": 0.5,
+      "raw": 21.691264,
+      "gzip6": 5.779664,
+      "brotli5": 5.427696
+    },
+    {
+      "mbps": 1,
+      "raw": 10.845632,
+      "gzip6": 2.889832,
+      "brotli5": 2.713848
+    },
+    {
+      "mbps": 2,
+      "raw": 5.422816,
+      "gzip6": 1.444916,
+      "brotli5": 1.356924
+    },
+    {
+      "mbps": 5,
+      "raw": 2.1691264,
+      "gzip6": 0.5779664,
+      "brotli5": 0.5427696
+    },
+    {
+      "mbps": 10,
+      "raw": 1.0845632,
+      "gzip6": 0.2889832,
+      "brotli5": 0.2713848
+    },
+    {
+      "mbps": 25,
+      "raw": 0.43382528,
+      "gzip6": 0.11559328,
+      "brotli5": 0.10855392
+    }
+  ],
+  "minimumMbps": [
+    {
+      "goalSeconds": 3,
+      "reservedSeconds": 0,
+      "raw": 3.6152106666666666,
+      "gzip6": 0.9632773333333333,
+      "brotli5": 0.904616
+    },
+    {
+      "goalSeconds": 3,
+      "reservedSeconds": 1,
+      "raw": 5.422816,
+      "gzip6": 1.444916,
+      "brotli5": 1.356924
+    },
+    {
+      "goalSeconds": 3,
+      "reservedSeconds": 2,
+      "raw": 10.845632,
+      "gzip6": 2.889832,
+      "brotli5": 2.713848
+    },
+    {
+      "goalSeconds": 10,
+      "reservedSeconds": 0,
+      "raw": 1.0845632,
+      "gzip6": 0.2889832,
+      "brotli5": 0.2713848
+    },
+    {
+      "goalSeconds": 10,
+      "reservedSeconds": 1,
+      "raw": 1.2050702222222223,
+      "gzip6": 0.32109244444444446,
+      "brotli5": 0.3015386666666667
+    },
+    {
+      "goalSeconds": 10,
+      "reservedSeconds": 2,
+      "raw": 1.355704,
+      "gzip6": 0.361229,
+      "brotli5": 0.339231
+    }
+  ],
+  "formula": "transferSeconds = 8 × compressed-or-raw route bytes / (1,000,000 × sustained Mbps). Threshold = payload bits / (goal seconds − assumed reserved seconds). Assumes ideal shared throughput; excludes HTML/RSC, requests/handshakes, access/login, user actions, parse/execute/style, GPU and authoritative control response. Compression does not reduce uncompressed parse bytes.",
+  "verdict": "3-second load and 10-second entry are UNMEASURED. No browser, dev server, network fetch or new build was used."
+}

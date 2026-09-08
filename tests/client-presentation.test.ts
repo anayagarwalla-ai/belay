@@ -117,6 +117,23 @@ describe('control and operator readability', () => {
     expect(html).toContain('No samples'); expect(html).toContain('Static hold'); expect(html).toContain('pending');
     expect(html).toContain('Human verdict: not evaluated');
   });
+  it('presents a middle-player climb as adjacent highlights while preserving the received event without catch attribution', () => {
+    const state = phase2State(3), evidence = new ClientEvidence();
+    state.players[1].support = 'wall'; state.players[1].rescueState = 'climbing';
+    state.rope.spans![0].tensionN = 0; // Adjacency can highlight this span without a measured contribution.
+    state.events = [{ id: 1, epoch: state.epoch, tick: state.tick, substep: 0, kind: 'climb', incidentId: 1,
+      playerIds: [1], spanIds: [0, 1], surfaceIds: [] }];
+    const before = structuredClone(state);
+    const html = renderToStaticMarkup(createElement(IncidentEvidence, { snapshot: state }));
+    expect(html.match(/<td>On<\/td>/g)).toHaveLength(2);
+    expect(html).toContain('Chord-gap proxy'); expect(html).toContain('Correction proxy (N)');
+    expect(html).not.toContain('Caught span');
+    evidence.receive(state, 1, 100);
+    expect(evidence.report().physicalEvents).toEqual(state.events);
+    expect(evidence.report().scope).toContain('Event spanIds are adjacent spans');
+    expect(evidence.report().scope).toContain('causal associations are unknown');
+    expect(state).toEqual(before);
+  });
 });
 
 describe('client cue/event evidence', () => {

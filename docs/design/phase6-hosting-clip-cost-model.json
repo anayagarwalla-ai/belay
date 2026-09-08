@@ -1,0 +1,345 @@
+{
+  "title": "Preparatory Phase 6 arithmetic, not executable settings or measured capacity",
+  "asOf": "2026-09-07",
+  "currency": "USD",
+  "periodDays": 30,
+  "sourceRevision": "c510f168b5e8c935ab56a93d86255fa697605c2b",
+  "rootDocumentationInspectedAt": "0513b8c",
+  "contract": {
+    "rooms": 300,
+    "seats": 6,
+    "tickHz": 30,
+    "inputHz": 60,
+    "clipSeconds": 15,
+    "maxClipBytes": 2097152,
+    "retentionDays": 7,
+    "permanentSlotsPerIdentity": 1,
+    "uploadsPerIdentityPerUtcDay": 3,
+    "globalClipBytes": 268435456
+  },
+  "workload": {
+    "clients": 1800,
+    "roomTicksPerSecond": 9000,
+    "snapshotDeliveriesPerSecond": 54000,
+    "inputMessagesPerSecond": 108000,
+    "snapshotDeliveriesPerSustainedHour": 194400000,
+    "inputMessagesPerSustainedHour": 388800000,
+    "network": [
+      {
+        "snapshotPayloadKiB": 2,
+        "wireFactor": 1.2,
+        "egressGbps": 1.0616832,
+        "egressGiBPerHour": 444.9462890625,
+        "egressGiB30Days": 320361.328125,
+        "egressTiB30Days": 312.8528594970703,
+        "generatorHostsAt1GbpsPlanningUtilization": 2
+      },
+      {
+        "snapshotPayloadKiB": 8,
+        "wireFactor": 1.2,
+        "egressGbps": 4.2467328,
+        "egressGiBPerHour": 1779.78515625,
+        "egressGiB30Days": 1281445.3125,
+        "egressTiB30Days": 1251.4114379882812,
+        "generatorHostsAt1GbpsPlanningUtilization": 5
+      },
+      {
+        "snapshotPayloadKiB": 32,
+        "wireFactor": 1.2,
+        "egressGbps": 16.9869312,
+        "egressGiBPerHour": 7119.140625,
+        "egressGiB30Days": 5125781.25,
+        "egressTiB30Days": 5005.645751953125,
+        "generatorHostsAt1GbpsPlanningUtilization": 17
+      }
+    ],
+    "inputWireBytesAssumed": [
+      {
+        "bytes": 128,
+        "ingressMbps": 110.592,
+        "ingressGiBPerHour": 46.34857177734375
+      },
+      {
+        "bytes": 256,
+        "ingressMbps": 221.184,
+        "ingressGiBPerHour": 92.6971435546875
+      },
+      {
+        "bytes": 512,
+        "ingressMbps": 442.368,
+        "ingressGiBPerHour": 185.394287109375
+      }
+    ]
+  },
+  "capacity": {
+    "measuredRoomsPerHost": null,
+    "measuredPerRoomMemoryBytes": null,
+    "priceScenarios": [
+      {
+        "gameHosts": 10,
+        "requiredRoomsPerHost": 30,
+        "gameHostMonthlyUsd": 145,
+        "controlMonthlyUsd": 10.7,
+        "optionAMonthlyUsd": 163.64999999999998,
+        "optionBMonthlyUsdWithFreeR2": 155.7,
+        "optionBMonthlyUsdWithoutR2FreeAllowance": 160.575
+      },
+      {
+        "gameHosts": 20,
+        "requiredRoomsPerHost": 15,
+        "gameHostMonthlyUsd": 290,
+        "controlMonthlyUsd": 10.7,
+        "optionAMonthlyUsd": 308.65,
+        "optionBMonthlyUsdWithFreeR2": 300.7,
+        "optionBMonthlyUsdWithoutR2FreeAllowance": 305.575
+      },
+      {
+        "gameHosts": 60,
+        "requiredRoomsPerHost": 5,
+        "gameHostMonthlyUsd": 870,
+        "controlMonthlyUsd": 10.7,
+        "optionAMonthlyUsd": 888.6500000000001,
+        "optionBMonthlyUsdWithFreeR2": 880.7,
+        "optionBMonthlyUsdWithoutR2FreeAllowance": 885.575
+      }
+    ]
+  },
+  "clipMath": {
+    "maxFullSizeRetainedObjects": 128,
+    "maxRegularFullSizeAdmissionsPerDayWithoutPermanentOrPending": 18.285714285714285,
+    "maxFullUploadIdentitiesAt3PerDayFor7Days": 6,
+    "fullPermanentSlotsToExhaustAllStorage": 128,
+    "uploadDemandAt1800DailyIdentities": {
+      "dailyUploads": 5400,
+      "dailyIngressGiB": 10.546875,
+      "retained7DayGiB": 73.828125
+    },
+    "downloadScenarios": [
+      {
+        "downloads": 1000,
+        "bytes": 2097152000,
+        "GiB": 1.953125
+      },
+      {
+        "downloads": 100000,
+        "bytes": 209715200000,
+        "GiB": 195.3125
+      },
+      {
+        "downloads": 1000000,
+        "bytes": 2097152000000,
+        "GiB": 1953.125
+      }
+    ],
+    "oneFullLibraryReplayGiB": 0.25
+  },
+  "provider": {
+    "ovhCatalog": {
+      "source": "https://api.us.ovhcloud.com/v1/order/catalog/public/vps?ovhSubsidiary=US",
+      "retrievedAt": "2026-09-07T23:17:08.061019+00:00",
+      "catalogId": 3701,
+      "locale": {
+        "currencyCode": "USD",
+        "subsidiary": "US",
+        "taxRate": 0
+      },
+      "rows": [
+        {
+          "planCode": "vps-2027-model2",
+          "invoiceName": "VPS-2 2027",
+          "prices": [
+            {
+              "mode": "default",
+              "commitment": 0,
+              "interval": 1,
+              "intervalUnit": "month",
+              "price": 1000000000,
+              "formattedPrice": "$10.00 USD",
+              "promotions": []
+            }
+          ],
+          "installationFeeUsd": 0
+        },
+        {
+          "planCode": "vps-2027-model1",
+          "invoiceName": "VPS-1 2027",
+          "prices": [
+            {
+              "mode": "default",
+              "commitment": 0,
+              "interval": 1,
+              "intervalUnit": "month",
+              "price": 535000000,
+              "formattedPrice": "$5.35 USD",
+              "promotions": []
+            }
+          ],
+          "installationFeeUsd": 0
+        },
+        {
+          "planCode": "vps-2027-model4",
+          "invoiceName": "VPS-4 2027",
+          "prices": [
+            {
+              "mode": "default",
+              "commitment": 0,
+              "interval": 1,
+              "intervalUnit": "month",
+              "price": 2750000000,
+              "formattedPrice": "$27.50 USD",
+              "promotions": []
+            }
+          ],
+          "installationFeeUsd": 0
+        },
+        {
+          "planCode": "vps-2027-model3",
+          "invoiceName": "VPS-3 2027",
+          "prices": [
+            {
+              "mode": "default",
+              "commitment": 0,
+              "interval": 1,
+              "intervalUnit": "month",
+              "price": 1450000000,
+              "formattedPrice": "$14.50 USD",
+              "promotions": []
+            }
+          ],
+          "installationFeeUsd": 0
+        },
+        {
+          "planCode": "option-linux",
+          "invoiceName": "Linux",
+          "prices": [
+            {
+              "mode": "default",
+              "commitment": 0,
+              "interval": 1,
+              "intervalUnit": "month",
+              "price": 0,
+              "formattedPrice": "$0.00 USD",
+              "promotions": []
+            }
+          ],
+          "installationFeeUsd": 0
+        },
+        {
+          "planCode": "option-auto-backup-2027-1-model3",
+          "invoiceName": "Option Automated Backup Standard - VPS-3 2027",
+          "prices": [
+            {
+              "mode": "default",
+              "commitment": 0,
+              "interval": 1,
+              "intervalUnit": "month",
+              "price": 80000000,
+              "formattedPrice": "$0.80 USD",
+              "promotions": [
+                {
+                  "name": "VPS-2027-AutoBackup-rotation-1-FREE",
+                  "total": {
+                    "value": 0,
+                    "formattedValue": "$0.00 USD",
+                    "tax": 0
+                  },
+                  "endDate": null
+                }
+              ]
+            }
+          ],
+          "installationFeeUsd": 0
+        },
+        {
+          "planCode": "option-storage-local-2027-model3",
+          "invoiceName": "Option Local Storage - VPS-3 2027",
+          "prices": [
+            {
+              "mode": "default",
+              "commitment": 0,
+              "interval": 1,
+              "intervalUnit": "month",
+              "price": 0,
+              "formattedPrice": "$0.00 USD",
+              "promotions": []
+            }
+          ],
+          "installationFeeUsd": 0
+        },
+        {
+          "planCode": "option-additional-disk-2027-50g",
+          "invoiceName": "Option Additional Disk 50GB",
+          "prices": [
+            {
+              "mode": "default",
+              "commitment": 0,
+              "interval": 1,
+              "intervalUnit": "month",
+              "price": 260000000,
+              "formattedPrice": "$2.60 USD",
+              "promotions": []
+            }
+          ],
+          "installationFeeUsd": 0
+        }
+      ]
+    },
+    "r2": {
+      "source": "https://developers.cloudflare.com/r2/pricing/",
+      "retrievedOn": "2026-09-07",
+      "storageUsdPerGBMonth": 0.015,
+      "classAUsdPerMillion": 4.5,
+      "classBUsdPerMillion": 0.36,
+      "egressUsdPerGB": 0,
+      "freeStorageGBMonth": 10,
+      "freeClassAPerMonth": 1000000,
+      "freeClassBPerMonth": 10000000,
+      "roundBillableStorageToGB": 1,
+      "roundBillableOperationsTo": 1000000
+    }
+  },
+  "proposedAllowanceExampleNotApproved": {
+    "r2ClassAAttemptsPerBillingPeriod": 100000,
+    "r2ClassBAttemptsPerBillingPeriod": 1000000,
+    "readBytesPerBillingPeriod": 2097152000000,
+    "r2WorstCostWithNoFreeAllowanceUsd": 4.875,
+    "clipVariableUsdCeiling": 5,
+    "qualificationAllInUsdCeiling": 500,
+    "qualificationExample": {
+      "gameHosts": 20,
+      "controlHosts": 2,
+      "generatorHosts": 5,
+      "optionBComputePlusWorstR2Usd": 378.075,
+      "optionAFixedUsd": 381.15
+    },
+    "excludedUntilQuoted": [
+      "tax",
+      "domain",
+      "Sites frontend hosting",
+      "optional failover/backups/logging/paid monitoring",
+      "additional regions"
+    ]
+  },
+  "formulas": {
+    "egressBytes": "300 * 6 * snapshotHz * snapshotPayloadBytes * wireFactor * secondsAtFullEquivalentLoad",
+    "inputBytes": "300 * 6 * inputHz * inputWireBytes * secondsAtFullEquivalentLoad",
+    "gameHostCount": "ceil(300 / measuredSafeRoomsPerHost); memory and network constraints can require more",
+    "optionA": "14.50 * gameHosts + 2 * 5.35 + 5.35 + 2.60",
+    "optionB": "14.50 * gameHosts + 2 * 5.35 + R2(storage, ClassA, ClassB); Workers/DO remain Free",
+    "r2NoFreeCost": "0.015 * ceil(storageGBMonth) + 4.50 * ceil(ClassAAttempts / 1e6) + 0.36 * ceil(ClassBAttempts / 1e6)",
+    "regularCapacity": "floor((globalBytes - permanentBytes - pendingBytes - replacementOverlapBytes) / maximumClipBytes)",
+    "conservativeCostReservation": "committedInvoices + all pending resource commitments + rounded upper cost of all issued storage/request permits <= approved allowance"
+  },
+  "localJsonSensitivityAnchor": {
+    "report": "reports/phase2-live-browser-baseline.json",
+    "reportSha256": "53ee24e924e712d879c35c3b8497e8cabbedce53139159e478bd42a43b67c108",
+    "sourceCommit": "3506f9480e0b0c6d3eb4c2da80afc6a2880dc513",
+    "scope": "Real loopback Colyseus/WebSocket/browser integration. One automated browser controls P1 with synthetic Space key down for five seconds; five visibly labeled SDK recovery bots control P2–P6. No humans or stranger gate evidence. Room paused for capture. Later source changes do not retroactively qualify this baseline.",
+    "accounting": "UTF-8 JSON estimate for actual snapshot recipients; excludes transport encoding, framing and TLS.",
+    "snapshotDeliveries": 2924,
+    "totalEstimatedJsonBytes": 24775733,
+    "meanEstimatedJsonBytes": 8473.2329001368,
+    "lastEstimatedJsonBytes": 9810,
+    "hypotheticalFleetGbpsIfMeanWereEncodedPayloadWith20PercentOverhead": 4.3925239354309165
+  }
+}

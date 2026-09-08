@@ -120,12 +120,15 @@ export function createViewport(host: HTMLElement, connection: BelayConnection) {
   function resize() { width = Math.max(1, host.clientWidth); height = Math.max(1, host.clientHeight); renderer.setSize(width, height); }
   const observer = new ResizeObserver(resize); observer.observe(host); resize();
   const viewCounters = () => ({ playersDrawn: boxes.size, spansDrawn: spanCount, segmentsDrawn: segmentCount,
+    scope: 'Body, span and segment counts describe constructed scene objects, not visible pixels. Overlay overlap uses projected body rectangles.',
     cameraTarget: { x: cameraTarget.x, y: cameraTarget.y, z: cameraTarget.z }, verticalSpan,
     viewport: { width, height }, drawCalls: renderer.info.render.calls, geometries: renderer.info.memory.geometries,
     prediction: 'Own ordinary-ground body only; contact/rope limits. Ice, wall and air use authoritative interpolation.',
-    cutawayTopFaces, bodiesCoveredByOverlays, cutaway: 'Near walls and any top faces blocking a climber are outlines; no physical wall or support is removed.' });
+    cutawayTopFaces, bodiesCoveredByOverlays, cutaway: 'Near walls and top faces intersecting body-center-to-camera rays are outlines; physical contacts are unchanged.' });
   connection.viewCounters = viewCounters;
-  function render(now: number) {
+  function render() {
+    // A queued receipt may be newer than the rAF timestamp. Use the receipt clock at callback execution.
+    const now = performance.now();
     const dt = Math.min(Math.max(0, (now - previousAt) / 1000), TUNING.network.maximumPredictionMs / 1000); previousAt = now;
     const snapshot = connection.latest;
     const rendered = snapshot ? interpolateState(snapshot, connection.history, now) : undefined;
@@ -232,7 +235,7 @@ export function createViewport(host: HTMLElement, connection: BelayConnection) {
     }
     bodiesCoveredByOverlays = bodyRects.filter(body => placed.some(rect => overlapArea(body, rect) > 0)).length;
     renderer.render(scene, camera);
-    if (snapshot) connection.evidence.drawn(snapshot, visibleBridges, visiblePlayers, now);
+    if (snapshot) connection.evidence.drawn(snapshot, visibleBridges, visiblePlayers);
     frame = requestAnimationFrame(render);
   }
   frame = requestAnimationFrame(render);

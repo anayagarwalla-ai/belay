@@ -37,7 +37,7 @@ for (const [file, prefix] of [
 }
 
 type Compressed = { path: string; compressedBytes: number; compressedSha256: string; decompressedBytes: number; decompressedSha256: string };
-for (const file of ['reports/local-load-profile-compression.json', 'reports/rescue-recut-compression.json']) {
+for (const file of ['reports/local-load-profile-compression.json', 'reports/rescue-recut-compression.json', 'reports/phase2-motor-energy-compression.json']) {
   for (const row of json<{ artifacts: Compressed[] }>(file).artifacts) {
     verify('reports/' + row.path, row.compressedSha256, row.compressedBytes);
     const raw = gunzipSync(read('reports/' + row.path), { maxOutputLength: maximumBytes });
@@ -47,15 +47,19 @@ for (const file of ['reports/local-load-profile-compression.json', 'reports/resc
   }
 }
 
-const recut = json<{ artifacts: Record<string, { sha256: string; bytes: number }> }>('reports/rescue-recut-manifest.json');
-for (const [file, value] of Object.entries(recut.artifacts)) verify(file, value.sha256, value.bytes);
+for (const manifest of ['reports/rescue-recut-manifest.json', 'reports/phase2-motor-energy-manifest.json']) {
+  const saved = json<{ artifacts: Record<string, { sha256: string; bytes: number }> }>(manifest);
+  for (const [file, value] of Object.entries(saved.artifacts)) verify(file, value.sha256, value.bytes);
+}
 const topology = json<{ artifacts: Record<string, string>; candidates: { patchPath: string | null; patchSha256: string | null; resultPath: string; resultSha256: string }[] }>('reports/phase2-topology-manifest.json');
 for (const [file, hash] of Object.entries(topology.artifacts)) verify(file, hash);
 for (const candidate of topology.candidates) {
   verify(candidate.resultPath, candidate.resultSha256);
   if (candidate.patchPath && candidate.patchSha256) verify(candidate.patchPath, candidate.patchSha256);
 }
-const bundle = json<{ sha256: string; bytes: number }>('reports/phase2-baseline-bundle.json');
-verify('reports/phase2-baseline.bundle', bundle.sha256, bundle.bytes);
-execFileSync('git', ['bundle', 'verify', 'reports/phase2-baseline.bundle'], { stdio: 'pipe' });
-console.log(JSON.stringify({ checked, result: 'PASS', scope: 'Stored artifact and decompressed-byte integrity, plus baseline bundle validity. Does not pass gameplay, determinism, capacity, or human gates.' }));
+for (const stem of ['phase2-baseline', 'phase2-client-source']) {
+  const bundle = json<{ sha256: string; bytes: number }>(`reports/${stem}-bundle.json`);
+  verify(`reports/${stem}.bundle`, bundle.sha256, bundle.bytes);
+  execFileSync('git', ['bundle', 'verify', `reports/${stem}.bundle`], { stdio: 'pipe' });
+}
+console.log(JSON.stringify({ checked, result: 'PASS', scope: 'Stored artifact and decompressed-byte integrity, plus source bundle validity. Does not pass gameplay, determinism, capacity, or human gates.' }));

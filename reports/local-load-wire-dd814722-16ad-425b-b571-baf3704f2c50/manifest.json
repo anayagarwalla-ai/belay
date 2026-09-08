@@ -1,0 +1,83 @@
+{
+  "plan": {
+    "players": [
+      2,
+      4,
+      6
+    ],
+    "seed": 2000,
+    "family": "balanced",
+    "tickHz": 30,
+    "epoch": 1,
+    "scenes": [
+      {
+        "scene": "flat",
+        "ticks": 0
+      },
+      {
+        "scene": "crossing",
+        "ticks": 180
+      },
+      {
+        "scene": "rescue",
+        "ticks": 150
+      }
+    ],
+    "policy": "Crossing: every seat walks +z. Rescue: middle seat rests for 60 ticks then walks -z; others hold brace. All declared ticks run, even if terminal.",
+    "delivery": "Simulation state is real; synthetic all-connected Climber labels and ackSeq=2*tick mirror BelayRoom seat decoration. No sockets, joins or transport latency measured."
+  },
+  "hashes": {
+    "package-lock.json": "91d6a3f4a4fc558039673a2414202e77765802b7615117061a261cebd0f68bf3",
+    "server/BelayRoom.ts": "e9341b9a05e6f134ad7f4caf7dcf56b9b22fd224a138b0106e6c2def95ea31cd",
+    "server/main.ts": "5226f5911b95e311b3dc1ea48e48c8459a1ad6973e91f2d758b1a8c8dca67ccc",
+    "shared/contact-geometry.ts": "be27fd0e94f87c17d4de8a066b7cfd3c8ab18c307f409deabe3d28df63a8b2cd",
+    "shared/expedition-simulation.ts": "97afe573eb1b7753094ee2ecd338ccd411bf64f8a0e312a39b7e0fb40e7836a3",
+    "shared/flat-simulation.ts": "07ebd2d5902fc9d6a5060c2840f5de5c24443573da9fa652d27a819a95dffc9d",
+    "shared/movement.ts": "de8cfb54596c8741082e3ef40fc2550cfd7494c30761dc8c72889f48227ad45b",
+    "shared/physical-diagnostics.ts": "0b55613cb72e95ec99081c17b9385fececc9c9425a553b3ba0d7e7583a701670",
+    "shared/protocol.ts": "1a9dd92feb961fbc61bd27ef3f515d07d3d25f49c15daa6d8f0b7b66ef4f228c",
+    "shared/simulation.ts": "04a66271386b1e496784e1f801120077159aa6abc280391a97056e60566c55ee",
+    "shared/stats.ts": "18555b71109353b5ad45db0596484d9f5b9b29f5e9260196f667984e5aa57d87",
+    "shared/terrain.ts": "d6f36940f9a7901e47f723ba90902bc9e288d2056a7fb12d93673ff67362bee2",
+    "tuning.ts": "4a099d43f366b6af30950cc5d2ebcaf3e9f286cc24c154dc84b89f29e5fe0c18",
+    "scripts/local-load-wire-audit.ts": "083cae0490cd59b7ab13eee0925312e3a039a1d422f242683fb184f1369d9ee0",
+    "node_modules/@colyseus/core/build/Protocol.mjs": "64e7fb9c653c64c951329b8a9c380913dbf178ab5da4e04398391ff4166897d8",
+    "node_modules/@colyseus/core/build/Transport.mjs": "2be529dafc8fe99bf512c7a018ec476f465e7fd817adb0a99faf0c92061c94c1",
+    "node_modules/@colyseus/ws-transport/build/WebSocketClient.mjs": "cd72aaba4259b7135dacbe53219ee6333c9bb05cd8ed82fa3bea41024b790562",
+    "node_modules/@colyseus/ws-transport/build/WebSocketTransport.mjs": "2c9593106d8e228c89ea2ea351d2081d169c9c37b80c0748eaaf4194c197d88b",
+    "node_modules/@colyseus/sdk/src/Room.ts": "eec5f78457999ae38721969d16ed7750a8aef0f2c6754c1a31834bdf1d4be244",
+    "node_modules/@colyseus/sdk/build/Room.mjs": "b93ef3784f693f317885c2d9d165b376af92b5a4c43f56c65a7fbe412d56686c",
+    "node_modules/@colyseus/schema/build/index.mjs": "ae424be55692c3dbcbaebe6c6f7b0dfecd15e1292477fa75d412fb92b9abf22b",
+    "node_modules/msgpackr/node-index.js": "e6217b2b310e751aff02243feb2d318828121fa4d393ac45691aed8d55bc2b49",
+    "node_modules/msgpackr/pack.js": "96b5ceddedce160da75efae5bb785394064f68d2e8a73b01fb41e5a9b0ffced6",
+    "node_modules/msgpackr/unpack.js": "ecfcd8dd4b95ef8c129202ee107a2a181d8399ffabd608ac060e45424a390e0a",
+    "node_modules/ws/lib/sender.js": "d0791d30c3defd44dcabbddb879a901c757993fea2c00a7ffea01d53b23b4b77"
+  },
+  "packages": {
+    "@colyseus/core": "0.18.11",
+    "@colyseus/sdk": "0.18.2",
+    "@colyseus/ws-transport": "0.18.2",
+    "@colyseus/schema": "5.0.27",
+    "msgpackr": "2.1.0",
+    "ws": "8.21.0"
+  },
+  "node": "v26.5.0",
+  "revision": "8e9fb2636fe8503f0b2e83eadeb1b6d78c4a13bb",
+  "startedAt": "2026-09-07T23:37:29.487Z",
+  "host": {
+    "arch": "arm64",
+    "load": [
+      3.818359375,
+      3.7939453125,
+      4.34228515625
+    ],
+    "freeBytes": 315080704
+  },
+  "scope": "Encoder and small real-simulation fixture audit, not actual network traffic; zero listeners/sockets, no CPU benchmark or capacity result. Root cost/model and production protocol untouched.",
+  "controls": {
+    "maximumWallMs": 180000,
+    "heapMiB": 1024,
+    "sampledRssBytes": 3221225472,
+    "maximumReportBytes": 67108864
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "verdict": "Rejected. No runtime candidate for integration; evidence-only delivery on restored physics baseline.",
+  "candidateCount": 1,
+  "baselineCommit": "f2fb8fd7f828b706ccdabbaffcbb72a0565b58a1",
+  "parentEvidenceCommit": "047bbf4a09e35b9a196b0a4a9de0684cbf8f85f2",
+  "experimentalCommit": "1a48e2aff79006c9710d7710f57aeb5a96fc9028",
+  "experimentalBranch": "codex/phase2-nonlinear-projection",
+  "experimentalVersion": "phase2-nonlinear-projection-1",
+  "runtime": "v26.5.0",
+  "baselineEngineSha256": "97afe573eb1b7753094ee2ecd338ccd411bf64f8a0e312a39b7e0fb40e7836a3",
+  "candidateEngineSha256": "6f38be45ee9d41c2751fdd5d0262a0a13f0227dd00cf6b3737570535efee5575",
+  "baselineTuningSha256": "4a099d43f366b6af30950cc5d2ebcaf3e9f286cc24c154dc84b89f29e5fe0c18",
+  "candidateTuningSha256": "484c4356ec804e88b4436e4c842686764aa72b1912bbf958254c494b6f5d7ba8",
+  "tuningOnlyVersionChanged": true,
+  "patchMatchesExperimentalCommit": true,
+  "patchAppliesToRestoredBaseline": true,
+  "deliveryRuntimeMatchesBaseline": true,
+  "cases": [
+    "row73",
+    "row237",
+    "recovery2",
+    "recovery6"
+  ],
+  "wallProfilesN": [
+    900,
+    450
+  ],
+  "validation": {
+    "matchingObservationSnapshots": 12482,
+    "sameInputsAndHorizons": true,
+    "original450CasesExact": true,
+    "focusedTestsPassed": 33,
+    "focusedTestsFailed": 2,
+    "focusedFailures": "Six-player catch at 30/60 Hz: segment excess 0.023330588935695895 m exceeds existing 0.02 m ceiling.",
+    "focusedDurationSeconds": 51.83,
+    "typecheck": "passed",
+    "focusedLint": "passed",
+    "maximumBodyPenetrationM": 0,
+    "maximumNodePenetrationM": 0,
+    "maximumInteriorPenetrationM": 0,
+    "maximumNativeBodyOverlapM": 0,
+    "candidateIncreasingConstraintCallsAbove1eMinus9M": 0,
+    "maximumBudgetReconstructionErrorJ": 2.2737367544323206e-13,
+    "maximumMotorWorkReconstructionErrorJ": 3.630873379734112e-12
+  },
+  "rejectionReasons": [
+    "New row73 segment-bound failure: 0.0188078442 -> 0.0941900755 m at both wall profiles.",
+    "Six-player 900 N recovery energy regression: 1503.672964 -> 5020.417964 J; segment error increases.",
+    "Two-player 450 N recovery segment regression: 0.0214764510 -> 0.0874112561 m.",
+    "Existing six-player catch tests fail at both authority rates."
+  ],
+  "fixtures": {
+    "tests/fixtures/phase2-motor-energy-cases.json": "2145bec540f69472e0cf265e727b862d91fa7f63622e64b8fbaa256d67a1da6d",
+    "tests/fixtures/phase2-recovery-counterexamples.json": "1ce597f3b229ee6b4aa453bd362d89844e9f0847a41e651b46ea594f21da28d4"
+  },
+  "artifacts": {
+    "reports/phase2-nonlinear-candidate.patch": {
+      "sha256": "a72cc9889a3489278410141823131b60908b825aa492cf7c9b93ff4715de136e",
+      "bytes": 3610
+    },
+    "reports/phase2-nonlinear-comparison.json": {
+      "sha256": "eeb6b7996e4d84f94c79c44e083dcd8d7b83a7ca0023da03993bea9eddd00a67",
+      "bytes": 1308365
+    },
+    "reports/phase2-nonlinear-rejection.md": {
+      "sha256": "69c3e949efe139d4409711c22676d26dff9e7376bfb07936207af3745aaeb11b",
+      "bytes": 9552
+    },
+    "scripts/phase2-nonlinear-probe.ts": {
+      "sha256": "43cf4fccf99aa36ed653b003b115483ec48910b2e18426701869c5bb9a7ecbd3",
+      "bytes": 12389
+    },
+    "reports/phase2-nonlinear-probe.log": {
+      "sha256": "2516dac15b6c2c39a93a46e6f2ffe19d63366a737667d2a253c3bb3eabc1de38",
+      "bytes": 5064
+    },
+    "reports/phase2-nonlinear-focused.log": {
+      "sha256": "f557be659abbedc9e1a483c0ebfdfae1c45e39121556f6424e56b937b2492253",
+      "bytes": 1512
+    },
+    "reports/phase2-nonlinear-typecheck.log": {
+      "sha256": "332ca5cdd1cce4a89252107f9619db6e237f3a287629bcfe353c6ab7352f9d2f",
+      "bytes": 65
+    },
+    "reports/phase2-nonlinear-lint.log": {
+      "sha256": "deca15464af769689e4e982f5523d7556d4cefdf112edb63bb54716c4ee6d03f",
+      "bytes": 131
+    }
+  }
+}

@@ -178,6 +178,10 @@ export const TUNING = {
     maximumReportBytes: 16 * 1024 * 1024, // Bound aggregate/raw-trajectory report output.
     maximumSavedTapes: 20, maximumTapeOutputBytes: 32 * 1024 * 1024, // Bound representative failure/counterexample artifacts; report omitted/truncated evidence.
   },
+  clientLatency: {
+    teamSizes: [2, 6], authorityHz: [30, 60], addedRttMs: [100, 250], sampleSeconds: 10,
+    jitterMs: 0, // Fixed ordered-stream delay matrix; measured RTT and loss remain separate observations.
+  },
   localLoad: {
     smokeRooms: 10, smokeSeconds: 30, // Default finite loopback diagnostic; no production qualification.
     largeRooms: 300, largeSeconds: 30, // Explicit profile only, after six-body integration and coordination.

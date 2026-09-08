@@ -1,0 +1,2 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'oxlint' scripts/phase2-motor-energy-probe.ts scripts/physics-budget-diagnostics.ts tests/phase2-motor-energy.test.ts

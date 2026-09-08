@@ -1,0 +1,30 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'vitest' run --config vitest.config.ts tests/phase2-mechanics.test.ts tests/phase2-rope-contact.test.ts
+
+ RUN  v5.0.0 /Users/anayagarwalla/.codex/worktrees/a377/testastra
+
+ ❯ tests/phase2-mechanics.test.ts (33 tests | 2 failed) 51663ms
+   ❯ 6-body shared harness mechanics (5)
+     × catches with bounded contacts and rope errors at 30 Hz 2349ms
+     × catches with bounded contacts and rope errors at 60 Hz 2366ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/phase2-mechanics.test.ts > 6-body shared harness mechanics > catches with bounded contacts and rope errors at 30 Hz
+ FAIL  tests/phase2-mechanics.test.ts > 6-body shared harness mechanics > catches with bounded contacts and rope errors at 60 Hz
+AssertionError: expected 0.023330588935695895 to be less than 0.02
+ ❯ tests/phase2-mechanics.test.ts:98:45
+     96|     expect(v.diagnostics.maximumBodyOverlapM).toBeLessThan(TUNING.phys…
+     97|     expect(v.counters.maximumSpanErrorM).toBeLessThan(TUNING.physicsDi…
+     98|     expect(v.counters.maximumSegmentErrorM).toBeLessThan(TUNING.physic…
+       |                                             ^
+     99|     for (let id = 1; id < v.rope.spans.length; id++) expect(v.rope.poi…
+    100|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  2 failed | 33 passed (35)
+   Start at  16:40:20
+   Duration  51.83s (tests 100%)

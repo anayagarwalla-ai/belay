@@ -1,0 +1,6 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'tsx' scripts/phase2-motor-energy-probe.ts
+{"row":73,"wall":450,"ticks":1800,"exactSnapshots":1800,"wallActuations":0,"maximumHorizontalForceN":0,"maximumRemovalJ":2808519.5024178205,"maximumResidualJ":3561.911258506526,"budgetReconstructionErrorJ":5.684341886080802e-14}
+{"row":237,"wall":450,"ticks":297,"exactSnapshots":297,"wallActuations":363,"maximumHorizontalForceN":46461.5706182492,"maximumRemovalJ":1355.6542534873106,"maximumResidualJ":0.0002535572348278947,"budgetReconstructionErrorJ":2.2737367544323206e-13}
+{"row":73,"wall":900,"ticks":1800,"exactSnapshots":1800,"wallActuations":0,"maximumHorizontalForceN":0,"maximumRemovalJ":2808519.5024178205,"maximumResidualJ":3561.911258506526,"budgetReconstructionErrorJ":5.684341886080802e-14}
+{"row":237,"wall":900,"ticks":1800,"exactSnapshots":1800,"wallActuations":8211,"maximumHorizontalForceN":23381.32878054826,"maximumRemovalJ":1355.6542534873106,"maximumResidualJ":0.00005823005494676181,"budgetReconstructionErrorJ":2.2737367544323206e-13}

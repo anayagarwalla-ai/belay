@@ -26,8 +26,8 @@ export default function GateClient() {
 
   useEffect(() => {
     const connection = new BelayConnection(); connectionRef.current = connection;
-    window.BELAY = connection.debugApi();
-    const unregisterInspection = registerInspectionTool(window.BELAY);
+    const inspection = connection.debugApi(); window.BELAY = inspection;
+    const unregisterInspection = registerInspectionTool(inspection);
     connection.onChange = () => {
       setStatus(connection.status); setLocalId(connection.localId); setOperator(connection.operator); setHasSession(connection.sessionNumber > 0);
       if (!connection.latest) setSnapshot(undefined);
@@ -58,6 +58,7 @@ export default function GateClient() {
     return () => {
       clearInterval(hud); window.removeEventListener('keydown', down); window.removeEventListener('keyup', up); window.removeEventListener('blur', clear);
       document.removeEventListener('visibilitychange', visibility); document.removeEventListener('focusin', focus);
+      if (window.BELAY === inspection) delete window.BELAY;
       unregisterInspection(); connection.dispose(); viewport?.dispose(); connectionRef.current = null; canvasRef.current = null;
     };
   }, []);
@@ -87,7 +88,7 @@ export default function GateClient() {
     </header>
     <div className="viewport" ref={host}>{viewError ? <p className="view-error" role="alert">{viewError}</p> : null}
       <div className="scene-caption">{scene === 'flat' ? 'Flat regression · no objective' : scene ? `${scene === 'rescue' ? 'Rescue fixture' : 'Seeded crossing'} · blocking bank faces shown as outlines` : 'Gray-box test · join to load the current scene'}</div>
-      {snapshot ? <div className="run-status"><span aria-live="polite">{snapshot.paused ? 'PAUSED · ' : ''}{snapshot.run?.status === 'complete' ? 'Finish boundary reached' : snapshot.run?.status === 'failed' ? 'Run ended · terminal boundary' : active ? `Incident ${active.id} · ${active.playerIds.map(id => `P${id + 1}`).join(', ')} · ${active.cascades} cascades` : scene === 'flat' ? 'No run objective' : 'Cross together · keep the rope team supported'}</span>
+      {snapshot ? <div className="run-status"><span aria-live="polite">{snapshot.paused ? 'PAUSED · ' : ''}{snapshot.run?.status === 'complete' ? 'Finish boundary reached' : snapshot.run?.status === 'failed' ? 'Run ended · terminal boundary' : active ? `Incident ${active.id} · ${active.playerIds.map(id => `P${id + 1}`).join(', ')} · ${active.cascades} additional falls` : scene === 'flat' ? 'No run objective' : 'Cross together · keep the rope team supported'}</span>
         <small>{(snapshot.run?.elapsedSeconds ?? snapshot.counters.elapsedSeconds).toFixed(1)} s · {own ? `P${own.id + 1} ${own.rescueState ?? 'safe'} / ${own.support ?? 'ground'}` : 'Awaiting a seat'}</small>
       </div> : null}
     </div>
@@ -96,10 +97,10 @@ export default function GateClient() {
         {!connected ? <Button className="gate-button primary" onClick={join} disabled={status === 'Connecting' || Boolean(viewError)}>Join test rope</Button>
           : <Button className="gate-button" onClick={() => void connectionRef.current?.leave()}>Leave rope</Button>}</div>
     </section>
+    {notice ? <p className="notice" role="alert">{notice}</p> : null}
     {operator && connected && snapshot ? <OperatorControls key={`${snapshot.epoch}:${snapshot.playerCount ?? snapshot.players.length}`} snapshot={snapshot} busy={busy}
       onLoad={options => run(() => connectionRef.current!.command('loadScene', options))}
       onCommand={(command, value) => run(() => connectionRef.current!.command(command, value))} /> : null}
     {snapshot ? <IncidentEvidence snapshot={snapshot} /> : null}
-    {notice ? <p className="notice" role="alert">{notice}</p> : null}
   </main>;
 }

@@ -1,0 +1,2 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'oxlint' shared/expedition-simulation.ts scripts/phase2-nonlinear-probe.ts tuning.ts

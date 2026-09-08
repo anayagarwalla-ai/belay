@@ -1,0 +1,11 @@
+{
+  "path": "reports/phase2-client-source.bundle",
+  "sha256": "0b76dbb890b272aac65802fe3a60c0389087386af96f967d65b92319d84cf7f0",
+  "bytes": 73390,
+  "sourceRef": "refs/heads/codex/evidence-client-source",
+  "snapshotCommit": "fc69c16fa70d27b078fbe6d4a45d2bcf7c764944",
+  "snapshotTree": "03e191dfa21e7d8411e86752d96d114b294de572",
+  "measuredFiles": 33,
+  "scope": "Exact files in the client latency source manifest, verified in a fresh bare repository. This partial source snapshot is not a complete runnable application or a new measurement.",
+  "originalEvidenceToolsCommit": "a35651d1815ce9de86a566df48e3763206e70306"
+}

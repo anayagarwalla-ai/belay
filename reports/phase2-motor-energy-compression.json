@@ -1,0 +1,12 @@
+{
+  "purpose": "Lossless packaging; original artifact hashes remain in phase2-motor-energy-original-manifest.json.",
+  "artifacts": [
+    {
+      "path": "phase2-motor-energy.json.gz",
+      "compressedBytes": 919725,
+      "compressedSha256": "bb58fbbb3c7e02b539498e8bad94fab237361e8db27aa4b1248f5142e6a840be",
+      "decompressedBytes": 5587511,
+      "decompressedSha256": "5712a04cac1f2dbc5a895567901d9648acc438cfb526b4adfeebc5cc4a694bbc"
+    }
+  ]
+}

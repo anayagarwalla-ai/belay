@@ -77,6 +77,8 @@ export class BelayConnection {
         if (!current()) return;
         const now = performance.now();
         const firstState = !this.latest;
+        // After event-loop suspension, the socket callback can run before the overdue input interval.
+        const recovering = this.stalled || this.lastSnapshotAt !== null && now - this.lastSnapshotAt > TUNING.network.staleSnapshotMs;
         if (firstState) clearTimeout(this.joinDeadline);
         if (this.latest && !sameTopology(snapshot, this.latest)) {
           this.history = []; this.resetMeasurements();
@@ -85,7 +87,8 @@ export class BelayConnection {
         }
         if (this.receivedSnapshots && this.lastSnapshotAt !== null) this.intervals.add(now - this.lastSnapshotAt);
         this.lastSnapshotAt = now; this.receivedSnapshots++;
-        if (this.stalled || firstState) {
+        if (recovering || firstState) {
+          this.history = [];
           this.input = { ...REST }; this.onInputReset(); this.stalled = false; this.status = 'Connected'; this.onChange();
         }
         this.latest = snapshot; this.history.push({ at: now, state: snapshot });
@@ -138,11 +141,11 @@ export class BelayConnection {
       }
       return;
     }
-    if (!this.latest) return; // A successful handshake is not yet authoritative game state.
+    if (!this.latest?.players.some(player => player.id === this.localId && player.connected)) return;
     this.room.send('input', { ...this.input, seq: this.seq++ });
   }
   get acceptsMovement() {
-    return Boolean(this.room?.connection.isOpen && this.latest && !this.stalled && this.lastSnapshotAt !== null
+    return Boolean(this.room?.connection.isOpen && this.latest?.players.some(player => player.id === this.localId && player.connected) && !this.stalled && this.lastSnapshotAt !== null
       && performance.now() - this.lastSnapshotAt <= TUNING.network.staleSnapshotMs);
   }
   releaseInput() { this.input = { ...REST }; this.sendInput(); }
@@ -248,4 +251,4 @@ export class BelayConnection {
   }
 }
 export type BelayDebugApi = ReturnType<BelayConnection['debugApi']>;
-declare global { interface Window { BELAY: BelayDebugApi } }
+declare global { interface Window { BELAY?: BelayDebugApi } }
