@@ -9,7 +9,7 @@
 | Physics and contact diagnostics | Candidate and saved-data analysis integrated; independent review complete. Idle; no owned processes or automation. |
 | Client reliability | All current fixes and one-build Tailwind validation integrated. Idle; no owned processes or automation. |
 | Simulation evidence | Existing four-worker matrix running on frozen source. Final outcomes, reconciliation and owned exits pending. |
-| Load and hosting costs / independent review | Earlier reports and reviews integrated. Finishing the already-assigned independent final-matrix validator and final-data check. |
+| Load and hosting costs / independent review | Validator and prior reviews integrated; 26 synthetic checks passed. Idle; no owned process or automation. The real final-data check is reserved for consolidation after the controller exits. |
 | Bridge diagnostics / independent review | Observer integrated and reviewed; fixed-feature review complete. Idle; no owned processes or automation. |
 
 ## What is playable
@@ -28,7 +28,7 @@ Phase 3 has not started. There is no clip upload endpoint, public game deploymen
 
 ## Evidence and remaining consolidation
 
-Use [the report index](reports/README.md) and [the integration checkpoint](reports/phase2-verification.md) for source-pinned results and limitations. The last complete integrated suite recorded 211 passing tests and six explicit expected failures; subsequent changes have separate targeted checks. Final consolidated checks are pending the remaining handoffs. Expected failures are retained defects, not a physics pass.
+Use [the report index](reports/README.md) and [the integration checkpoint](reports/phase2-verification.md) for source-pinned results and limitations. The last complete integrated suite recorded 211 passing tests and six explicit expected failures; subsequent changes have separate targeted checks. The final validator also passed 26 synthetic integration checks after its cap references were centralized. Final consolidated checks and the real-data validation remain pending the running matrix. Expected failures are retained defects, not a physics pass.
 
 The full matrix uses source `d175701190964a926e968c25f250b2988edf223f` and the fixed 1,000-case schedule. Its live directory and identities are recorded in [WORKSTREAMS.md](WORKSTREAMS.md). The first independently checked prefix is not a completed distribution. Preserve every terminal failure, full-horizon censor, raw timing sample and teardown qualification in the final report.
 

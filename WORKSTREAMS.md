@@ -7,7 +7,7 @@ The user froze the queue on 2026-09-08 at approximately 00:26 UTC. Finish only t
 | BELAY physics and contact diagnostics | `01a07dca-c2f1-7a90-b5b2-857030e6aca1` | Complete and idle; rejected candidate plus saved-data analysis integrated |
 | BELAY client reliability | `01a07dca-c2f1-7a90-b5b2-859c68a13db8` | Complete and idle; scoped scanner and one-build validation integrated |
 | BELAY simulation evidence | `01a07dca-c2f1-7a90-b5b2-855fb9ed02b9` | The reviewed native four-worker runner is executing the fixed 1,000 trajectories; retain final reconciliation and teardown evidence |
-| BELAY load and hosting costs | `01a07df3-f9b1-7490-a101-68c8b49f5d8b` | Finish the already-assigned independent final-matrix validator and current final reconciliation |
+| BELAY load and hosting costs | `01a07df3-f9b1-7490-a101-68c8b49f5d8b` | Validator preparation complete and idle; root will run the assigned final-data check after the controller exits |
 | BELAY bridge diagnostics | `01a07e01-945f-7b10-ae41-ef0e579e11d3` | Complete and idle; observer and independent candidate review accounted for |
 
 The coordinator handles integration, integrity checks, real-build verification and the authorized GitHub pushes. A consolidation-only heartbeat checks this batch every 15 minutes within its existing 16-check bound; it pauses after the final handoff. It may not create new assignments. Its identifier and teardown are in RUNBOOK.md.

@@ -18,7 +18,7 @@ Start with [the integrated checkpoint](phase2-verification.md). Passing software
 | What load terms preceded bridge failure? | [Opt-in observer contract](../docs/design/phase2-bridge-load-observer.md), [two off/on checks](phase2-bridge-load-observer-check.json) |
 | Did a coupled fixed-feature projector fix the lip? | **No.** [Rejected candidate](phase2-fixed-feature-feasibility.md), [saved-data analysis](phase2-fixed-feature-stall-analysis.md) |
 | Are wall motor effort and measured contact reaction equivalent? | **No.** [Unapplied actuator prototype](phase2-wall-actuator-prototype.md), [Rapier observation limits](phase2-rapier-contact-adapter-contract.md) |
-| Is the full matrix complete? | [Runner validation](phase2-parallel-validation.md), [independent prefix audit](phase2-independent-prefix-audit.md); final 1,000-run reconciliation still pending |
+| Is the full matrix complete? | [Runner validation](phase2-parallel-validation.md), [independent prefix audit](phase2-independent-prefix-audit.md), [prepared final validator](phase2-independent-final-validator.md); real final-data reconciliation still pending |
 | What would hosting cost? | [Preparatory proposal](../docs/design/phase6-hosting-clip-cost-proposal.md); no resources provisioned |
 
 Use `npm run verify:evidence` to check registered artifacts, lossless compressed bytes and the historical source bundle. Compression receipts preserve original hashes. This command checks integrity, not whether the measurements meet a target.

@@ -1,0 +1,39 @@
+# Independent final-matrix validator
+
+**Prepared and validated with synthetic artifacts only. The real matrix has not been read or sorted by this validator.** The standalone [validator](../scripts/phase2-independent-final-validate.mjs) imports Node builtins and pure `tuning.ts` only. It does not import physics, the primary harness, collector, schedule generator, or statistical analysis implementation. Schema inspection used frozen source commit `d175701190964a926e968c25f250b2988edf223f` and the evidence task's existing schema handoff.
+
+After the existing controller and all four workers have exited, the assigned final reconciler can run, on the original host and original evidence directory:
+
+```sh
+node --max-old-space-size=256 scripts/phase2-independent-final-validate.mjs FINAL_DIRECTORY
+```
+
+Run from the checkout containing the validator, substituting the final directory argument. Standard output is the independent JSON receipt. Exit 0 with `validationStatus: "VALIDATED_FINAL_MATRIX"` and `complete: true` means the implemented checks passed. Exit 1 with `REFUSED` and `complete: false` means they did not. The validator never writes to the evidence directory, sends a terminating signal, adopts a worker, or runs a trajectory. Do not direct shell output into an existing evidence artifact. A memory/runtime termination without a success receipt is not a pass.
+
+The production CLI is pinned to the source/schedule/runtime identities already preserved in the [independent prefix receipt](phase2-independent-prefix-audit.md):
+
+| Identity | SHA-256 |
+| --- | --- |
+| Frozen source file list | `3253adc6e3bd7823ef4d9c7b110ffd6903a68f7a63dc1f14603a210ac6050fcb` |
+| Full fixed schedule | `598d0502785b45555c81f8cd54cebabc2fa9802b928d33a5715d7be39b2d2fba` |
+| Published runtime signature | `6a090feeb9b10a0da6515d99844c284468b271f2cc47ed5ecd7daf2310d19a24` |
+
+It independently rebuilds the 1,000 specifications from pure tuning and family insertion order. The maximum reservation is 9,900,000 samples / 79,200,000 raw bytes; legitimate early terminals and focused recoveries reduce actual sample counts. That ceiling is not a required observed count. The test-only function argument can supply a small synthetic plan, but its output is always `SYNTHETIC_VALIDATED`, `complete: false`; the CLI offers no override of its production pins.
+
+The checks cover:
+
+- Final controller status and result must both be complete, with controller phase `finished`, no failure, no collection problems, and no missing ordinals. The initial manifest's permanent `INCOMPLETE` field is deliberately not the final gate. Any root/worker watchdog sentinel or unfinished temporary artifact prevents success.
+- All four worker final-source and phase-`exit` receipts must exist. Four distinct owned-close receipts must bind index/PID to the startup source, report code 0 and null signal, agree between controller status/result, and belong to the original job directory. The vacuous `allOwnedExitsObserved` flag alone is insufficient. Signal-0 probes require the recorded controller and worker PIDs to be absent, before opening timing streams and again before success. A still-existing or reused PID causes conservative refusal. Permission errors also refuse. Cross-host or relocated-archive certification is outside this contract.
+- Initial/final source lists, runtime signatures, native entrypoint identities, reported tuning/family definitions, fixed assignment hashes, and final raw artifact receipts must agree. Actual frozen source files are rehashed and must remain read-only. Result JSON and readable Markdown receive independent hashes; Markdown content is not semantically regenerated. Source/metadata/timing files are checked for replacement or mutation during the audit. Symlink artifacts and escaping paths are rejected; normal aliases of the original job directory are resolved.
+- Each contiguous shard must have every expected ordinal exactly once in order. JSONL must end on a newline and have exact shard length. Every raw journal row must equal its corresponding final report row. Attempts/ticks, authority duration, outcome labels, state/input hash syntax, physical-evidence status, and full-horizon censor bounds are checked. Physical terminal failures remain failures; censors remain censors. Errors or incomplete physical evidence prevent full-matrix success.
+- Every raw Float64LE stream must have exactly `sum(stepAttempts) × 8` bytes, zero unattributed tail, exact exit/report hashes, and matching observed/persisted counts. Every sample must be finite and nonnegative. Per-trajectory count/min/p50/p95/p99/max/mean is independently recomputed. Global quantiles use all raw samples together, with nearest rank `ceil(n × p) − 1`; the mean sums in chronological shard/record order. Worker percentiles are never averaged. Global and per-stratum trajectory/outcome/tick/attempt counts are independently reconciled.
+
+Reads use the existing 1 MiB metadata, 32 MiB final-report, 16 MiB total journal/source, and 4,096-sample chunk caps from the frozen tuning. The integrated validator reads the central parallel caps directly from tuning.ts; fallback duplicates needed only in the earlier review checkout were removed during consolidation. Production accepts only the expected cap values. CLI use requires the existing 256 MiB old-space limit. Raw storage is one combined `Float64Array`, one reusable maximum-trajectory scratch array, and one 32 KiB I/O buffer. The combined array is sorted in place after chronological sums are complete. At the full reservation, live typed timing storage is at most **79,376,768 bytes**, below the existing 256 MiB timing cap. JSON/object overhead is separate and bounded by file caps and the process heap limit. No full-window JS-number array is created.
+
+Validation: **26 checks passed** using [small synthetic fixtures](../tests/phase2-independent-final-validate.test.mjs), with 10 synthetic trajectories, 25 measured-value placeholders, and four synthetic close receipts in the valid case. Its known pooled p50/p95/p99 are 51/92/93. Corrupt cases include duplicate/missing ordinals with refreshed journal hashes, byte/full-sample tails, wrong pooled/per-trajectory quantiles, missing exit/final-source receipts, unclean/vacuous closes, wrong job directory, a live current-process PID, live/incomplete status, watchdog sentinel, short censor, physical error, nonfinite/negative sample, stale source/runtime/shard identities, incorrect summary counts, and wrong raw hash. A pure configuration check also confirms the production schedule digest and reservation, without accessing any run directory. Final observed test duration was about 0.56 seconds. Targeted lint and whitespace checks passed; no build, simulation, full benchmark, or live-stream scan was performed. Temporary fixtures were removed.
+
+Limits: this is artifact reconciliation, not cryptographic attestation of execution. Runtime assets are compared through their initial/final published signatures; installed runtime binaries are not rehashed. Recorded state/input hashes are not verified against absent preimages or replay. Resource history, non-count gameplay KPIs and their strata, survival curves, and Markdown semantics are not recomputed. A full-matrix evidence pass does not imply that physical targets, performance targets, human gates, or production capacity passed. Real final-artifact validation remains pending for the already-assigned reconciler.
+
+No owned processes or automations remain from this preparation. The queue is frozen; after handoff this task is idle.
+
+Consolidation check: after replacing the review-only fallback caps with direct central tuning references, all 26 synthetic/pure-plan checks passed again in the primary checkout (about 0.70 seconds). No live timing files were opened or sorted.
