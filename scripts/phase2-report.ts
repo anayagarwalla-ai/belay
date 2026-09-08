@@ -1,21 +1,73 @@
 import { createHash } from 'node:crypto';
+import { createReadStream } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { mkdir, open, readFile, readdir, rename, writeFile } from 'node:fs/promises';
-import { dirname } from 'node:path';
+import { mkdir, open, readFile, readdir, realpath, rename, writeFile } from 'node:fs/promises';
+import { dirname, join, relative } from 'node:path';
+import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 import os from 'node:os';
 import { TUNING, FAMILIES } from '../tuning';
 import { summarizeTrajectories, type Quantiles } from './phase2-analysis';
 import type { EvidenceRecord } from './phase2-harness';
 
+export async function hashFile(path: string) {
+  const hash = createHash('sha256');
+  for await (const chunk of createReadStream(path)) hash.update(chunk);
+  return hash.digest('hex');
+}
+
+/** Hash every installed file in the actual resolved package dependency closure,
+ * including native optional packages. Do not substitute lockfile declarations
+ * for the mutable JavaScript/transpiler executable that will actually run. */
+export async function packageRuntimeAssets(packageFile: string, role: string) {
+  const assets: { role: string; path: string; sha256: string }[] = [], visited = new Set<string>();
+  const visit = async (manifestPath: string, prefix: string) => {
+    const resolved = await realpath(manifestPath); if (visited.has(resolved)) return; visited.add(resolved);
+    const folder = dirname(resolved), manifest = JSON.parse(await readFile(resolved, 'utf8')) as {
+      dependencies?: Record<string, string>; optionalDependencies?: Record<string, string> };
+    const walk = async (directory: string) => {
+      for (const entry of (await readdir(directory, { withFileTypes: true })).sort((a, b) => a.name.localeCompare(b.name))) {
+        if (entry.name === 'node_modules') continue;
+        const filename = join(directory, entry.name);
+        if (entry.isDirectory()) await walk(filename);
+        else {
+          assets.push({ role: `${prefix}/${relative(folder, filename)}`, path: filename, sha256: await hashFile(filename) });
+          if (Buffer.byteLength(JSON.stringify(assets)) > TUNING.phase2Evidence.parallel.maximumMetadataBytes) throw new Error('Runtime dependency manifest exceeds root metadata bound.');
+        }
+      }
+    };
+    await walk(folder);
+    const require = createRequire(resolved);
+    const dependencies = { ...manifest.dependencies, ...manifest.optionalDependencies };
+    for (const name of Object.keys(dependencies).sort()) {
+      let dependency: string;
+      try { dependency = require.resolve(`${name}/package.json`); }
+      catch (error) { if (Object.hasOwn(manifest.optionalDependencies ?? {}, name) && (error as NodeJS.ErrnoException).code === 'MODULE_NOT_FOUND') continue; throw error; }
+      await visit(dependency, `${prefix}/dependency:${name}`);
+    }
+  };
+  await visit(packageFile, role);
+  return assets.sort((a, b) => a.role.localeCompare(b.role));
+}
+
 export async function provenance() {
-  const paths = ['tuning.ts', 'package-lock.json', ...(await readdir('shared')).filter(name => name.endsWith('.ts')).map(name => `shared/${name}`),
-    ...(await readdir('scripts')).filter(name => name.startsWith('phase2-') && name.endsWith('.ts')).map(name => `scripts/${name}`)].sort();
+  const paths = ['tuning.ts', 'package.json', 'tsconfig.json', 'package-lock.json', ...(await readdir('shared')).filter(name => name.endsWith('.ts')).map(name => `shared/${name}`),
+    ...(await readdir('scripts')).filter(name => name.startsWith('phase2-') && (name.endsWith('.ts') || name.endsWith('.mjs'))).map(name => `scripts/${name}`)].sort();
   const files = await Promise.all(paths.map(async path => ({ path, sha256: createHash('sha256').update(await readFile(path)).digest('hex') })));
   const entrypoint = process.argv[1] ?? null;
+  const assets = await Promise.all([
+    { role: 'node', path: process.execPath },
+    { role: 'tsx-loader', path: fileURLToPath(import.meta.resolve('tsx')) },
+    { role: 'rapier-js-and-inlined-wasm', path: fileURLToPath(import.meta.resolve('@dimforge/rapier3d-compat')) },
+  ].map(async asset => ({ ...asset, sha256: await hashFile(asset.path) })));
+  assets.push(...await packageRuntimeAssets(fileURLToPath(import.meta.resolve('tsx/package.json')), 'tsx-runtime'));
+  if (process.env.ESBUILD_BINARY_PATH) assets.push({ role: 'esbuild-binary-override', path: process.env.ESBUILD_BINARY_PATH,
+    sha256: await hashFile(process.env.ESBUILD_BINARY_PATH) });
   return { gitHead: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), files,
     sourceManifestSha256: createHash('sha256').update(JSON.stringify(files)).digest('hex'),
     runtime: { entrypoint, entrypointSha256: entrypoint ? createHash('sha256').update(await readFile(entrypoint)).digest('hex') : null,
-      execArgv: [...process.execArgv] },
+      execArgv: [...process.execArgv], assets,
+      nodeOptionsSha256: createHash('sha256').update(process.env.NODE_OPTIONS ?? '').digest('hex') },
     tuning: TUNING, familyDefinitions: FAMILIES,
     machine: { platform: os.platform(), release: os.release(), arch: os.arch(), cpu: os.cpus()[0]?.model ?? 'unknown',
       availableCpus: os.availableParallelism(), totalMemoryBytes: os.totalmem(), node: process.version } };
@@ -56,6 +108,9 @@ export type BotReport = Awaited<ReturnType<typeof provenance>> & {
   summary: ReturnType<typeof summarizeTrajectories>;
   strata: { scene: string; playerCount: number; policy: string; metrics: ReturnType<typeof summarizeTrajectories> }[];
   records: EvidenceRecord[];
+  executionModel?: string;
+  timingReconciliation?: string;
+  evidenceStatus?: 'COMPLETE' | 'INCOMPLETE';
 };
 const number = (value: number | null) => value === null ? 'unknown' : String(value);
 const fraction = (value: number | null) => value === null ? 'unknown' : `${(value * 100).toFixed(2)}%`;
@@ -80,7 +135,9 @@ export function renderBotReport(report: BotReport, rawPath: string) {
       ] : []),
     ];
   }));
+  const worst = (values: number[]) => values.length ? Math.max(...values) : null;
   const lines = ['# Phase 2 local bot evidence', '', report.scope, '',
+    ...(report.evidenceStatus ? [`Evidence status: **${report.evidenceStatus}**.`, ''] : []),
     `Generated ${report.generatedAt}. Mode: **${report.mode}**. Source manifest: \`${report.sourceManifestSha256}\`.`, '',
     `Raw trajectory records and full root configuration: [${rawPath}](${rawPath}).`, '',
     '**Human fun and the human Phase 2 rescue stop: NOT EVALUATED. Production room capacity/reconnect: NOT TESTED.**', '',
@@ -104,10 +161,12 @@ export function renderBotReport(report: BotReport, rawPath: string) {
     `Verified whole-episode recoveries with supported helpers' inputs held at static brace: **${s.staticBraceRecoveryCounterexamples}**. Verified whole-episode recoveries with the last harness input frozen to rest: **${s.frozenTailRecoveryCounterexamples}**. In the two-player focused fixture the tail is the casualty, so frozen-tail success there means an inactive casualty was recovered, not an inactive helper. The actual held IDs and intervention ticks are in every record. Crossing interventions start after an observed incident; earlier dynamic catch input is not relabelled as static from onset.`, '',
     'These are model counterexamples, not proof of human fun or causal blame. Simulation roleActive/roleIdle/staticHold counters and the harness input-idle, unchanged-input and motionless fractions are explicitly proxies. A held key can be useful and moving can be irrelevant. The human arbitrary-fall/static-role stop still requires a human check; any counterexample must be disclosed before advancing.', '',
     '## Measurement scope and reproducibility', '',
-    `Worst observed span excess ${number(Math.max(...report.records.map(record => record.maximumSpanErrorM)))} m; segment excess ${number(Math.max(...report.records.map(record => record.maximumSegmentErrorM)))} m; terrain penetration ${number(Math.max(...report.records.map(record => record.diagnostics.maximumTerrainPenetrationM)))} m; body overlap ${number(Math.max(...report.records.map(record => record.diagnostics.maximumBodyOverlapM)))} m. The raw records retain each scene/seed/policy and the energy/work diagnostics. These maxima are measurements, not an assertion that the mechanical bounds passed.`, '',
-    `${report.timingMethod} Full-window count=${report.isolatedStepMs.count}; p50=${number(report.isolatedStepMs.p50)} ms, p95=${number(report.isolatedStepMs.p95)} ms, p99=${number(report.isolatedStepMs.p99)} ms, max=${number(report.isolatedStepMs.max)} ms. Raw counts reconcile to ${s.stepAttempts} step attempts and ${s.executedTicks} completed authority ticks. No recent-sample ring or mean of quantiles is used.`, '',
-    'Worlds run sequentially in one local process. processMemoryBefore/After includes runtime, the full timing buffer and report ownership; it is not per-room memory attribution. There is no transport, scheduler deadline, production worker topology or reconnect workload in this result.', '',
+    `Worst observed span excess ${number(worst(report.records.map(record => record.maximumSpanErrorM)))} m; segment excess ${number(worst(report.records.map(record => record.maximumSegmentErrorM)))} m; terrain penetration ${number(worst(report.records.map(record => record.diagnostics.maximumTerrainPenetrationM)))} m; body overlap ${number(worst(report.records.map(record => record.diagnostics.maximumBodyOverlapM)))} m. The raw records retain each scene/seed/policy and the energy/work diagnostics. These maxima are measurements, not an assertion that the mechanical bounds passed.`, '',
+    `${report.timingMethod} Sample count=${report.isolatedStepMs.count}; p50=${number(report.isolatedStepMs.p50)} ms, p95=${number(report.isolatedStepMs.p95)} ms, p99=${number(report.isolatedStepMs.p99)} ms, max=${number(report.isolatedStepMs.max)} ms. ${report.timingReconciliation ?? `Raw counts reconcile to ${s.stepAttempts} step attempts and ${s.executedTicks} completed authority ticks.`} No recent-sample ring or mean of quantiles is used.`, '',
+    report.executionModel ?? 'Worlds run sequentially in one local process. processMemoryBefore/After includes runtime, the full timing buffer and report ownership; it is not per-room memory attribution. There is no transport, scheduler deadline, production worker topology or reconnect workload in this result.', '',
     'The matrix is frozen before execution. It pairs the same seed/family across policies and cycles every team size. Bad-bot idle/brace chances and mistake probability were not adjusted to hit recovery targets. Inputs use visible public terrain/state and do not read hidden bridge capacity. Every timeout stays censored; errors and missing incident/event evidence remain visible.', '',
-    'Run from the repository root with `npx tsx scripts/phase2-bench.ts --smoke` or `npx tsx scripts/phase2-bench.ts`. Run `npx tsx scripts/phase2-replay.ts` and `npx tsx scripts/phase2-stress.ts` for their separate bounded results. Historical Phase 1 reports are unchanged.', ''];
+    report.schema === 'phase2-parallel-result-1'
+      ? 'Run from the repository root with `node scripts/phase2-parallel-entry.mjs --plan` to inspect the plan, or `node scripts/phase2-parallel-entry.mjs --run` to start a new four-worker invocation. Replay and stress remain separate bounded workloads. Historical reports are unchanged.'
+      : 'Run from the repository root with `npx tsx scripts/phase2-bench.ts --smoke` or `npx tsx scripts/phase2-bench.ts`. Run `npx tsx scripts/phase2-replay.ts` and `npx tsx scripts/phase2-stress.ts` for their separate bounded results. Historical Phase 1 reports are unchanged.', ''];
   return lines.join('\n');
 }

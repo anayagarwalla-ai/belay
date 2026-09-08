@@ -66,7 +66,9 @@ export class Phase2Policy {
     policyDescription: 'Scripted public-state/geometry policy; no hidden bridge capacity or human agency inference.',
   };
 
-  constructor(readonly spec: TrajectorySpec) {
+  declare readonly spec: TrajectorySpec;
+  constructor(spec: TrajectorySpec) {
+    this.spec = spec;
     this.random = seededRandom(spec.seed);
     this.cached = Array.from({ length: spec.playerCount }, () => ({ ...REST }));
   }

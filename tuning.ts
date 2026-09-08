@@ -177,6 +177,21 @@ export const TUNING = {
     maximumTimingBytes: 256 * 1024 * 1024, // Reserve exact full-window Float64 timing storage plus sorting copy, or refuse the run.
     maximumReportBytes: 16 * 1024 * 1024, // Bound aggregate/raw-trajectory report output.
     maximumSavedTapes: 20, maximumTapeOutputBytes: 32 * 1024 * 1024, // Bound representative failure/counterexample artifacts; report omitted/truncated evidence.
+    parallel: {
+      workers: 4, // Four independent local simulation processes; fixed contiguous ordinal shards, never extra trials.
+      maximumWallMs: 24 * 60 * 60 * 1000, // Finite ceiling for the unchanged 1,000 long-horizon trajectories; timeout leaves explicit incomplete evidence.
+      maximumWorkerRssBytes: 512 * 1024 * 1024, // Per-process ceiling supplements localLoad's 256 MiB old-space and 3 GiB total-RSS policies.
+      minimumInitialAvailableBytes: (3 * 1024 + 512) * 1024 * 1024, // Offline-only: cover the 3 GiB RSS ceiling plus 512 MiB initial headroom; raw free is separately recorded.
+      minimumOngoingAvailableBytes: 1024 * 1024 * 1024, // Stop on less than 1 GiB heuristic available memory during the job; retain socket-load's existing raw-free guard unchanged.
+      availableMemoryRuntime: { node: '26.5.0', uv: '1.52.1', platform: 'darwin' }, // Only the inspected availableMemory implementation is supported; unknown runtimes fail closed.
+      watchdogHeapMiB: 16, // Independent small watchdog thread can stop a blocked simulation or orphan after parent death.
+      timingChunkSamples: 4096, // Lossless Float64LE disk IO in 32 KiB chunks, outside the measured step.
+      maximumMetadataBytes: 1024 * 1024, // Bound each manifest, checkpoint, teardown receipt and readable summary.
+      maximumFinalReportBytes: 32 * 1024 * 1024, // Reserve both the report and an atomic replacement within the existing 256 MiB job-output envelope.
+      maximumResourceBytes: 16 * 1024 * 1024, // Bound retained resource observations; guard sampling still uses localLoad.sampleMs.
+      resourceRetainMs: 60 * 1000, // Retain minute observations plus sampled peaks across an hours-long job, without an unbounded telemetry array.
+      maximumOutputBytes: 256 * 1024 * 1024, // Per-job disk envelope for source snapshot, raw timings/records, resource log and final report.
+    },
   },
   clientLatency: {
     teamSizes: [2, 6], authorityHz: [30, 60], addedRttMs: [100, 250], sampleSeconds: 10,

@@ -3,13 +3,16 @@ export type Quantiles = {
   count: number; min: number | null; p50: number | null; p95: number | null;
   p99: number | null; max: number | null; mean: number | null;
 };
+export type TimingSink = { add(value: number): void };
 
 export class FullWindowSamples {
+  declare readonly capacity: number;
   private readonly values: Float64Array;
   count = 0;
   private total = 0;
 
-  constructor(readonly capacity: number, maximumBytes: number) {
+  constructor(capacity: number, maximumBytes: number) {
+    this.capacity = capacity;
     if (!Number.isSafeInteger(capacity) || capacity < 1) throw new Error('Sample capacity must be a positive integer.');
     // The original buffer and a complete sorting copy coexist. Fail before allocation.
     if (!Number.isSafeInteger(maximumBytes) || capacity * Float64Array.BYTES_PER_ELEMENT * 2 > maximumBytes) {
@@ -23,6 +26,13 @@ export class FullWindowSamples {
     if (this.count === this.capacity) throw new Error('Full-window sample capacity exceeded; evidence must not silently wrap.');
     this.values[this.count++] = value;
     this.total += value;
+  }
+
+  copyRange(start: number, end = this.count): Float64Array {
+    if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start < 0 || end < start || end > this.count) {
+      throw new Error('Invalid raw timing range.');
+    }
+    return this.values.slice(start, end);
   }
 
   summary(): Quantiles {
