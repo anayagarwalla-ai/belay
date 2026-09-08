@@ -1,0 +1,10 @@
+{
+  "status": "VERIFIED_PACKAGED_BYTES",
+  "destination": null,
+  "files": 77,
+  "directories": 7,
+  "originalBytes": 48261366,
+  "storedBytes": 21631984,
+  "manifestSha256": "38789330374ee631bdc93aa1d639823194b6fa239e3ab90bed77d7248539e1a6",
+  "scope": "Archive byte and POSIX-mode integrity only; no physics, gameplay, runtime or original-host validation."
+}

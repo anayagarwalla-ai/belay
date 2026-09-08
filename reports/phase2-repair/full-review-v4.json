@@ -1,0 +1,3740 @@
+{
+  "schema": "phase2-repair-descriptive-review-1",
+  "resultSha256": "1088eff917f7a1435b46ce974688d05c84d36f6d42fe439caba998440080a2d2",
+  "sourceManifestSha256": "ca02475baf9778679f764b3dc93e5d9027d93ef47c24fed0c7d2de5cc026a2a9",
+  "scheduleSha256": "598d0502785b45555c81f8cd54cebabc2fa9802b928d33a5715d7be39b2d2fba",
+  "scenes": {
+    "crossing": {
+      "n": 500,
+      "outcomes": {
+        "censored": 124,
+        "complete": 166,
+        "failed": 210
+      },
+      "completedSeconds": {
+        "n": 166,
+        "min": 376.26666666666665,
+        "p50": 384.3,
+        "p95": 418.23333333333335,
+        "max": 421.8
+      },
+      "terminalSeconds": {
+        "n": 376,
+        "min": 6.2,
+        "p50": 104.43333333333334,
+        "p95": 406.23333333333335,
+        "max": 572.5333333333333
+      },
+      "incidentCount": {
+        "n": 500,
+        "min": 0,
+        "p50": 1,
+        "p95": 4,
+        "max": 4
+      },
+      "firstFallSeconds": {
+        "n": 492,
+        "min": 3.8833333333333333,
+        "p50": 4.083333333333333,
+        "p95": 29.85,
+        "max": 566.1833333333333
+      },
+      "noObservedFall": 8,
+      "episodes": {
+        "active": 115,
+        "failed": 210,
+        "recovered": 665
+      },
+      "recoveredOverAllStarted": 0.6717171717171717,
+      "successfulRescueSeconds": {
+        "n": 665,
+        "min": 7.633333333333334,
+        "p50": 13.9,
+        "p95": 23.266666666666666,
+        "max": 25.966666666666665
+      },
+      "idleFractionProxy": {
+        "n": 4137,
+        "min": 0.002747252747252758,
+        "p50": 0.07673469387755019,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 1621,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    "rescue": {
+      "n": 500,
+      "outcomes": {
+        "censored": 108,
+        "failed": 258,
+        "fixture-recovered": 134
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 258,
+        "min": 2.6333333333333333,
+        "p50": 3.533333333333333,
+        "p95": 6.833333333333333,
+        "max": 21.833333333333332
+      },
+      "incidentCount": {
+        "n": 500,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 500,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 108,
+        "failed": 258,
+        "recovered": 134
+      },
+      "recoveredOverAllStarted": 0.268,
+      "successfulRescueSeconds": {
+        "n": 134,
+        "min": 8.766666666666667,
+        "p50": 12.533333333333333,
+        "p95": 18.933333333333334,
+        "max": 20.666666666666668
+      },
+      "idleFractionProxy": {
+        "n": 2000,
+        "min": 0,
+        "p50": 0.33009708737864124,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 1215,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 40
+    }
+  },
+  "byPolicy": [
+    {
+      "scene": "crossing",
+      "policy": "recovery",
+      "n": 100,
+      "outcomes": {
+        "complete": 93,
+        "failed": 7
+      },
+      "completedSeconds": {
+        "n": 93,
+        "min": 376.26666666666665,
+        "p50": 383.4,
+        "p95": 418.1666666666667,
+        "max": 419.1666666666667
+      },
+      "terminalSeconds": {
+        "n": 100,
+        "min": 6.766666666666667,
+        "p50": 383.23333333333335,
+        "p95": 417.2,
+        "max": 419.1666666666667
+      },
+      "incidentCount": {
+        "n": 100,
+        "min": 1,
+        "p50": 4,
+        "p95": 4,
+        "max": 4
+      },
+      "firstFallSeconds": {
+        "n": 100,
+        "min": 3.8833333333333333,
+        "p50": 4.05,
+        "p95": 4.783333333333333,
+        "max": 4.783333333333333
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 7,
+        "recovered": 372
+      },
+      "recoveredOverAllStarted": 0.9815303430079155,
+      "successfulRescueSeconds": {
+        "n": 372,
+        "min": 11.266666666666667,
+        "p50": 13.9,
+        "p95": 22.433333333333334,
+        "max": 24.633333333333333
+      },
+      "idleFractionProxy": {
+        "n": 1558,
+        "min": 0.002747252747252758,
+        "p50": 0.02699055330634239,
+        "p95": 0.1135442011354405,
+        "max": 0.2742561448900374
+      },
+      "playerEpisodesOver20PercentIdle": 16,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "walk",
+      "n": 100,
+      "outcomes": {
+        "censored": 21,
+        "failed": 79
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 79,
+        "min": 6.233333333333333,
+        "p50": 8.4,
+        "p95": 11.4,
+        "max": 11.4
+      },
+      "incidentCount": {
+        "n": 100,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 100,
+        "min": 3.8833333333333333,
+        "p50": 4.05,
+        "p95": 4.783333333333333,
+        "max": 4.783333333333333
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 21,
+        "failed": 79
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 400,
+        "min": 0.0034722222222222307,
+        "p50": 0.26199261992619977,
+        "p95": 0.9984319435499673,
+        "max": 0.9990199647187294
+      },
+      "playerEpisodesOver20PercentIdle": 264,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "bad",
+      "n": 100,
+      "outcomes": {
+        "censored": 10,
+        "failed": 90
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 90,
+        "min": 10.7,
+        "p50": 50.63333333333333,
+        "p95": 293.2,
+        "max": 572.5333333333333
+      },
+      "incidentCount": {
+        "n": 100,
+        "min": 0,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 92,
+        "min": 8.2,
+        "p50": 21.933333333333334,
+        "p95": 55.56666666666667,
+        "max": 566.1833333333333
+      },
+      "noObservedFall": 8,
+      "episodes": {
+        "active": 1,
+        "failed": 90,
+        "recovered": 1
+      },
+      "recoveredOverAllStarted": 0.010869565217391304,
+      "successfulRescueSeconds": {
+        "n": 1,
+        "min": 7.633333333333334,
+        "p50": 7.633333333333334,
+        "p95": 7.633333333333334,
+        "max": 7.633333333333334
+      },
+      "idleFractionProxy": {
+        "n": 362,
+        "min": 0.12073490813648331,
+        "p50": 0.5158864448204545,
+        "p95": 0.9404438405797081,
+        "max": 0.9929861529199256
+      },
+      "playerEpisodesOver20PercentIdle": 354,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "static-brace",
+      "n": 100,
+      "outcomes": {
+        "censored": 93,
+        "failed": 7
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 7,
+        "min": 6.766666666666667,
+        "p50": 6.766666666666667,
+        "p95": 6.766666666666667,
+        "max": 6.766666666666667
+      },
+      "incidentCount": {
+        "n": 100,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 100,
+        "min": 3.8833333333333333,
+        "p50": 4.05,
+        "p95": 4.783333333333333,
+        "max": 4.783333333333333
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 93,
+        "failed": 7
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 400,
+        "min": 0.25490196078431404,
+        "p50": 0.9987408360848392,
+        "p95": 0.9999720412670898,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 400,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "frozen-tail",
+      "n": 100,
+      "outcomes": {
+        "complete": 73,
+        "failed": 27
+      },
+      "completedSeconds": {
+        "n": 73,
+        "min": 376.8666666666667,
+        "p50": 384.96666666666664,
+        "p95": 419.46666666666664,
+        "max": 421.8
+      },
+      "terminalSeconds": {
+        "n": 100,
+        "min": 6.2,
+        "p50": 381.3666666666667,
+        "p95": 418.06666666666666,
+        "max": 421.8
+      },
+      "incidentCount": {
+        "n": 100,
+        "min": 1,
+        "p50": 4,
+        "p95": 4,
+        "max": 4
+      },
+      "firstFallSeconds": {
+        "n": 100,
+        "min": 3.8833333333333333,
+        "p50": 4.05,
+        "p95": 4.783333333333333,
+        "max": 4.783333333333333
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 27,
+        "recovered": 292
+      },
+      "recoveredOverAllStarted": 0.9153605015673981,
+      "successfulRescueSeconds": {
+        "n": 292,
+        "min": 11.366666666666667,
+        "p50": 13.833333333333334,
+        "p95": 23.6,
+        "max": 25.966666666666665
+      },
+      "idleFractionProxy": {
+        "n": 1417,
+        "min": 0.003154574132492101,
+        "p50": 0.05770750988142253,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 587,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "recovery",
+      "n": 100,
+      "outcomes": {
+        "failed": 6,
+        "fixture-recovered": 94
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 6,
+        "min": 3.466666666666667,
+        "p50": 3.466666666666667,
+        "p95": 3.466666666666667,
+        "max": 3.466666666666667
+      },
+      "incidentCount": {
+        "n": 100,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 100,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 6,
+        "recovered": 94
+      },
+      "recoveredOverAllStarted": 0.94,
+      "successfulRescueSeconds": {
+        "n": 94,
+        "min": 8.766666666666667,
+        "p50": 12.566666666666666,
+        "p95": 20.666666666666668,
+        "max": 20.666666666666668
+      },
+      "idleFractionProxy": {
+        "n": 400,
+        "min": 0.0009940357852882508,
+        "p50": 0.05772811918063314,
+        "p95": 0.17478991596638668,
+        "max": 0.43589743589743607
+      },
+      "playerEpisodesOver20PercentIdle": 12,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "walk",
+      "n": 100,
+      "outcomes": {
+        "failed": 100
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 100,
+        "min": 2.6333333333333333,
+        "p50": 3.066666666666667,
+        "p95": 3.8666666666666667,
+        "max": 3.8666666666666667
+      },
+      "incidentCount": {
+        "n": 100,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 100,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 100
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 400,
+        "min": 0.046979865771812145,
+        "p50": 0.3869346733668345,
+        "p95": 0.844221105527638,
+        "max": 0.8823529411764703
+      },
+      "playerEpisodesOver20PercentIdle": 345,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "bad",
+      "n": 100,
+      "outcomes": {
+        "failed": 100
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 100,
+        "min": 2.6333333333333333,
+        "p50": 3.8,
+        "p95": 8.133333333333333,
+        "max": 21.833333333333332
+      },
+      "incidentCount": {
+        "n": 100,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 100,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 100
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 400,
+        "min": 0.008368200836820104,
+        "p50": 0.3500000000000004,
+        "p95": 0.8082191780821913,
+        "max": 0.9506172839506172
+      },
+      "playerEpisodesOver20PercentIdle": 312,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "static-brace",
+      "n": 100,
+      "outcomes": {
+        "censored": 94,
+        "failed": 6
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 6,
+        "min": 3.433333333333333,
+        "p50": 3.433333333333333,
+        "p95": 3.433333333333333,
+        "max": 3.433333333333333
+      },
+      "incidentCount": {
+        "n": 100,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 100,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 94,
+        "failed": 6
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 400,
+        "min": 0.21134020618556737,
+        "p50": 0.9935897435897434,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 400,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "frozen-tail",
+      "n": 100,
+      "outcomes": {
+        "censored": 14,
+        "failed": 46,
+        "fixture-recovered": 40
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 46,
+        "min": 2.933333333333333,
+        "p50": 4.7,
+        "p95": 6.833333333333333,
+        "max": 6.833333333333333
+      },
+      "incidentCount": {
+        "n": 100,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 100,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 14,
+        "failed": 46,
+        "recovered": 40
+      },
+      "recoveredOverAllStarted": 0.4,
+      "successfulRescueSeconds": {
+        "n": 40,
+        "min": 9.666666666666666,
+        "p50": 12.466666666666667,
+        "p95": 18.933333333333334,
+        "max": 18.933333333333334
+      },
+      "idleFractionProxy": {
+        "n": 400,
+        "min": 0,
+        "p50": 0.08247422680412361,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 146,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 40
+    }
+  ],
+  "strata": [
+    {
+      "scene": "crossing",
+      "policy": "recovery",
+      "playerCount": 2,
+      "n": 20,
+      "outcomes": {
+        "complete": 13,
+        "failed": 7
+      },
+      "completedSeconds": {
+        "n": 13,
+        "min": 390.73333333333335,
+        "p50": 392.3,
+        "p95": 419.1666666666667,
+        "max": 419.1666666666667
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 6.766666666666667,
+        "p50": 391.6666666666667,
+        "p95": 418.8666666666667,
+        "max": 419.1666666666667
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 4,
+        "p95": 4,
+        "max": 4
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 3.95,
+        "p95": 4.216666666666667,
+        "max": 4.216666666666667
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 7,
+        "recovered": 52
+      },
+      "recoveredOverAllStarted": 0.8813559322033898,
+      "successfulRescueSeconds": {
+        "n": 52,
+        "min": 16,
+        "p50": 17.466666666666665,
+        "p95": 24.433333333333334,
+        "max": 24.633333333333333
+      },
+      "idleFractionProxy": {
+        "n": 118,
+        "min": 0.002747252747252758,
+        "p50": 0.05052430886558536,
+        "p95": 0.2614379084967323,
+        "max": 0.2614379084967323
+      },
+      "playerEpisodesOver20PercentIdle": 14,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "recovery",
+      "playerCount": 3,
+      "n": 20,
+      "outcomes": {
+        "complete": 20
+      },
+      "completedSeconds": {
+        "n": 20,
+        "min": 378.2,
+        "p50": 386.3666666666667,
+        "p95": 401.03333333333336,
+        "max": 401.76666666666665
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 378.2,
+        "p50": 386.3666666666667,
+        "p95": 401.03333333333336,
+        "max": 401.76666666666665
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 4,
+        "p50": 4,
+        "p95": 4,
+        "max": 4
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.016666666666667,
+        "p95": 4.366666666666666,
+        "max": 4.366666666666666
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 80
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 80,
+        "min": 12.5,
+        "p50": 14.966666666666667,
+        "p95": 19.6,
+        "max": 20.4
+      },
+      "idleFractionProxy": {
+        "n": 240,
+        "min": 0.0037174721189590526,
+        "p50": 0.020858895705521102,
+        "p95": 0.05576208178438569,
+        "max": 0.08897959183673364
+      },
+      "playerEpisodesOver20PercentIdle": 0,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "recovery",
+      "playerCount": 4,
+      "n": 20,
+      "outcomes": {
+        "complete": 20
+      },
+      "completedSeconds": {
+        "n": 20,
+        "min": 376.8,
+        "p50": 383.03333333333336,
+        "p95": 399,
+        "max": 400.4
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 376.8,
+        "p50": 383.03333333333336,
+        "p95": 399,
+        "max": 400.4
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 4,
+        "p50": 4,
+        "p95": 4,
+        "max": 4
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.05,
+        "p95": 4.633333333333334,
+        "max": 4.633333333333334
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 80
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 80,
+        "min": 11.8,
+        "p50": 13.7,
+        "p95": 18.366666666666667,
+        "max": 20.366666666666667
+      },
+      "idleFractionProxy": {
+        "n": 320,
+        "min": 0.004708097928436837,
+        "p50": 0.023661270236612297,
+        "p95": 0.10585305105852913,
+        "max": 0.2742561448900374
+      },
+      "playerEpisodesOver20PercentIdle": 2,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "recovery",
+      "playerCount": 5,
+      "n": 20,
+      "outcomes": {
+        "complete": 20
+      },
+      "completedSeconds": {
+        "n": 20,
+        "min": 377.3666666666667,
+        "p50": 381.3333333333333,
+        "p95": 403.1333333333333,
+        "max": 405
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 377.3666666666667,
+        "p50": 381.3333333333333,
+        "p95": 403.1333333333333,
+        "max": 405
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 4,
+        "p50": 4,
+        "p95": 4,
+        "max": 4
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.066666666666666,
+        "p95": 4.666666666666667,
+        "max": 4.666666666666667
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 80
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 80,
+        "min": 11.666666666666666,
+        "p50": 13,
+        "p95": 20.533333333333335,
+        "max": 21.066666666666666
+      },
+      "idleFractionProxy": {
+        "n": 400,
+        "min": 0.006188118811881075,
+        "p50": 0.025706940874035578,
+        "p95": 0.10673234811165701,
+        "max": 0.13997477931903998
+      },
+      "playerEpisodesOver20PercentIdle": 0,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "recovery",
+      "playerCount": 6,
+      "n": 20,
+      "outcomes": {
+        "complete": 20
+      },
+      "completedSeconds": {
+        "n": 20,
+        "min": 376.26666666666665,
+        "p50": 383.1333333333333,
+        "p95": 405.5,
+        "max": 405.5
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 376.26666666666665,
+        "p50": 383.1333333333333,
+        "p95": 405.5,
+        "max": 405.5
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 4,
+        "p50": 4,
+        "p95": 4,
+        "max": 4
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.083333333333333,
+        "p95": 4.783333333333333,
+        "max": 4.783333333333333
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 80
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 80,
+        "min": 11.266666666666667,
+        "p50": 12.733333333333333,
+        "p95": 21.8,
+        "max": 21.933333333333334
+      },
+      "idleFractionProxy": {
+        "n": 480,
+        "min": 0.006273525721455346,
+        "p50": 0.036988110964332355,
+        "p95": 0.12195121951219394,
+        "max": 0.14534288638689605
+      },
+      "playerEpisodesOver20PercentIdle": 0,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "walk",
+      "playerCount": 2,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 6.233333333333333,
+        "p50": 6.3,
+        "p95": 6.466666666666667,
+        "max": 6.466666666666667
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 3.95,
+        "p95": 4.216666666666667,
+        "max": 4.216666666666667
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 40,
+        "min": 0.08264462809917363,
+        "p50": 0.39716312056737624,
+        "p95": 0.5454545454545453,
+        "max": 0.5454545454545453
+      },
+      "playerEpisodesOver20PercentIdle": 26,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "walk",
+      "playerCount": 3,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 7.633333333333334,
+        "p50": 8.7,
+        "p95": 9.1,
+        "max": 9.1
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.016666666666667,
+        "p95": 4.366666666666666,
+        "max": 4.366666666666666
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 60,
+        "min": 0.11794871794871813,
+        "p50": 0.24358974358974408,
+        "p95": 0.5224358974358974,
+        "max": 0.5224358974358974
+      },
+      "playerEpisodesOver20PercentIdle": 39,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "walk",
+      "playerCount": 4,
+      "n": 20,
+      "outcomes": {
+        "censored": 7,
+        "failed": 13
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 13,
+        "min": 8.333333333333334,
+        "p50": 8.333333333333334,
+        "p95": 8.4,
+        "max": 8.4
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.05,
+        "p95": 4.633333333333334,
+        "max": 4.633333333333334
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 7,
+        "failed": 13
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 80,
+        "min": 0.06614785992217913,
+        "p50": 0.25830258302583076,
+        "p95": 0.9973965623425332,
+        "max": 0.9973965623425332
+      },
+      "playerEpisodesOver20PercentIdle": 60,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "walk",
+      "playerCount": 5,
+      "n": 20,
+      "outcomes": {
+        "censored": 7,
+        "failed": 13
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 13,
+        "min": 8.866666666666667,
+        "p50": 8.866666666666667,
+        "p95": 8.966666666666667,
+        "max": 8.966666666666667
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.066666666666666,
+        "p95": 4.666666666666667,
+        "max": 4.666666666666667
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 7,
+        "failed": 13
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 100,
+        "min": 0.0034722222222222307,
+        "p50": 0.3815789473684213,
+        "p95": 0.9988521836506156,
+        "max": 0.9988521836506156
+      },
+      "playerEpisodesOver20PercentIdle": 72,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "walk",
+      "playerCount": 6,
+      "n": 20,
+      "outcomes": {
+        "censored": 7,
+        "failed": 13
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 13,
+        "min": 9.666666666666666,
+        "p50": 9.666666666666666,
+        "p95": 11.4,
+        "max": 11.4
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.083333333333333,
+        "p95": 4.783333333333333,
+        "max": 4.783333333333333
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 7,
+        "failed": 13
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 120,
+        "min": 0.02985074626865679,
+        "p50": 0.23283582089552285,
+        "p95": 0.9990199647187294,
+        "max": 0.9990199647187294
+      },
+      "playerEpisodesOver20PercentIdle": 67,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "bad",
+      "playerCount": 2,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 10.7,
+        "p50": 19.3,
+        "p95": 423.53333333333336,
+        "max": 572.5333333333333
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 8.2,
+        "p50": 16.55,
+        "p95": 415.68333333333334,
+        "max": 566.1833333333333
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 40,
+        "min": 0.12073490813648331,
+        "p50": 0.46728971962616833,
+        "p95": 0.7162790697674413,
+        "max": 0.7302325581395342
+      },
+      "playerEpisodesOver20PercentIdle": 38,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "bad",
+      "playerCount": 3,
+      "n": 20,
+      "outcomes": {
+        "censored": 1,
+        "failed": 19
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 19,
+        "min": 15.4,
+        "p50": 62.03333333333333,
+        "p95": 143.8,
+        "max": 143.8
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 0,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 19,
+        "min": 8.6,
+        "p50": 20,
+        "p95": 41.06666666666667,
+        "max": 41.06666666666667
+      },
+      "noObservedFall": 1,
+      "episodes": {
+        "failed": 19
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 57,
+        "min": 0.17672413793103486,
+        "p50": 0.47339410642357516,
+        "p95": 0.9365384615384592,
+        "max": 0.9709061791004926
+      },
+      "playerEpisodesOver20PercentIdle": 56,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "bad",
+      "playerCount": 4,
+      "n": 20,
+      "outcomes": {
+        "censored": 2,
+        "failed": 18
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 18,
+        "min": 19.3,
+        "p50": 50.63333333333333,
+        "p95": 293.2,
+        "max": 293.2
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 0,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 18,
+        "min": 10.433333333333334,
+        "p50": 23.266666666666666,
+        "p95": 44.75,
+        "max": 44.75
+      },
+      "noObservedFall": 2,
+      "episodes": {
+        "failed": 18
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 72,
+        "min": 0.12680577849117142,
+        "p50": 0.5062475076432273,
+        "p95": 0.9491830065359457,
+        "max": 0.9683397683397671
+      },
+      "playerEpisodesOver20PercentIdle": 70,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "bad",
+      "playerCount": 5,
+      "n": 20,
+      "outcomes": {
+        "censored": 4,
+        "failed": 16
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 16,
+        "min": 28.033333333333335,
+        "p50": 81.33333333333333,
+        "p95": 507.8333333333333,
+        "max": 507.8333333333333
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 0,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 17,
+        "min": 14.966666666666667,
+        "p50": 23.166666666666668,
+        "p95": 55.56666666666667,
+        "max": 55.56666666666667
+      },
+      "noObservedFall": 3,
+      "episodes": {
+        "failed": 16,
+        "recovered": 1
+      },
+      "recoveredOverAllStarted": 0.058823529411764705,
+      "successfulRescueSeconds": {
+        "n": 1,
+        "min": 7.633333333333334,
+        "p50": 7.633333333333334,
+        "p95": 7.633333333333334,
+        "max": 7.633333333333334
+      },
+      "idleFractionProxy": {
+        "n": 85,
+        "min": 0.14224137931034525,
+        "p50": 0.49777022722446385,
+        "p95": 0.9404438405797081,
+        "max": 0.9907846684187153
+      },
+      "playerEpisodesOver20PercentIdle": 83,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "bad",
+      "playerCount": 6,
+      "n": 20,
+      "outcomes": {
+        "censored": 3,
+        "failed": 17
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 17,
+        "min": 32.9,
+        "p50": 102.13333333333334,
+        "p95": 421.8,
+        "max": 421.8
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 0,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 18,
+        "min": 11.95,
+        "p50": 21.85,
+        "p95": 59.38333333333333,
+        "max": 59.38333333333333
+      },
+      "noObservedFall": 2,
+      "episodes": {
+        "active": 1,
+        "failed": 17
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 108,
+        "min": 0.16666666666666613,
+        "p50": 0.5712219812002852,
+        "p95": 0.9590025018158439,
+        "max": 0.9929861529199256
+      },
+      "playerEpisodesOver20PercentIdle": 107,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "static-brace",
+      "playerCount": 2,
+      "n": 20,
+      "outcomes": {
+        "censored": 13,
+        "failed": 7
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 7,
+        "min": 6.766666666666667,
+        "p50": 6.766666666666667,
+        "p95": 6.766666666666667,
+        "max": 6.766666666666667
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 3.95,
+        "p95": 4.216666666666667,
+        "max": 4.216666666666667
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 13,
+        "failed": 7
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 40,
+        "min": 0.25490196078431404,
+        "p50": 0.9973436232978208,
+        "p95": 0.9982384028185549,
+        "max": 0.9982384028185549
+      },
+      "playerEpisodesOver20PercentIdle": 40,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "static-brace",
+      "playerCount": 3,
+      "n": 20,
+      "outcomes": {
+        "censored": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.016666666666667,
+        "p95": 4.366666666666666,
+        "max": 4.366666666666666
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 60,
+        "min": 0.9965862667188975,
+        "p50": 0.9986579808203088,
+        "p95": 0.9995247015405261,
+        "max": 0.9995247015405261
+      },
+      "playerEpisodesOver20PercentIdle": 60,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "static-brace",
+      "playerCount": 4,
+      "n": 20,
+      "outcomes": {
+        "censored": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.05,
+        "p95": 4.633333333333334,
+        "max": 4.633333333333334
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 80,
+        "min": 0.9965847376966563,
+        "p50": 0.998685939553219,
+        "p95": 0.9999720412670898,
+        "max": 0.9999720412670898
+      },
+      "playerEpisodesOver20PercentIdle": 80,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "static-brace",
+      "playerCount": 5,
+      "n": 20,
+      "outcomes": {
+        "censored": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.066666666666666,
+        "p95": 4.666666666666667,
+        "max": 4.666666666666667
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 100,
+        "min": 0.9967245240761465,
+        "p50": 0.9987414699630827,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 100,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "static-brace",
+      "playerCount": 6,
+      "n": 20,
+      "outcomes": {
+        "censored": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.083333333333333,
+        "p95": 4.783333333333333,
+        "max": 4.783333333333333
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 120,
+        "min": 0.9966398790356441,
+        "p50": 0.9989359616946206,
+        "p95": 0.9999720412670898,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 120,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "frozen-tail",
+      "playerCount": 2,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 6.2,
+        "p50": 6.533333333333333,
+        "p95": 6.566666666666666,
+        "max": 6.566666666666666
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 3.95,
+        "p95": 4.216666666666667,
+        "max": 4.216666666666667
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 40,
+        "min": 0.48148148148148157,
+        "p50": 0.5253164556962024,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 40,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "frozen-tail",
+      "playerCount": 3,
+      "n": 20,
+      "outcomes": {
+        "complete": 13,
+        "failed": 7
+      },
+      "completedSeconds": {
+        "n": 13,
+        "min": 397.3666666666667,
+        "p50": 398.8,
+        "p95": 421.8,
+        "max": 421.8
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 7.966666666666667,
+        "p50": 398.26666666666665,
+        "p95": 421.8,
+        "max": 421.8
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 4,
+        "p95": 4,
+        "max": 4
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.016666666666667,
+        "p95": 4.366666666666666,
+        "max": 4.366666666666666
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 7,
+        "recovered": 52
+      },
+      "recoveredOverAllStarted": 0.8813559322033898,
+      "successfulRescueSeconds": {
+        "n": 52,
+        "min": 17.966666666666665,
+        "p50": 18.433333333333334,
+        "p95": 25.8,
+        "max": 25.966666666666665
+      },
+      "idleFractionProxy": {
+        "n": 177,
+        "min": 0.0038486209108403095,
+        "p50": 0.05484460694698271,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 66,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "frozen-tail",
+      "playerCount": 4,
+      "n": 20,
+      "outcomes": {
+        "complete": 20
+      },
+      "completedSeconds": {
+        "n": 20,
+        "min": 378.6666666666667,
+        "p50": 385.1,
+        "p95": 407.23333333333335,
+        "max": 407.23333333333335
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 378.6666666666667,
+        "p50": 385.1,
+        "p95": 407.23333333333335,
+        "max": 407.23333333333335
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 4,
+        "p50": 4,
+        "p95": 4,
+        "max": 4
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.05,
+        "p95": 4.633333333333334,
+        "max": 4.633333333333334
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 80
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 80,
+        "min": 12.333333333333334,
+        "p50": 14.2,
+        "p95": 20.5,
+        "max": 23.266666666666666
+      },
+      "idleFractionProxy": {
+        "n": 320,
+        "min": 0.003154574132492101,
+        "p50": 0.09450830140485195,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 160,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "frozen-tail",
+      "playerCount": 5,
+      "n": 20,
+      "outcomes": {
+        "complete": 20
+      },
+      "completedSeconds": {
+        "n": 20,
+        "min": 376.8666666666667,
+        "p50": 381.43333333333334,
+        "p95": 404.26666666666665,
+        "max": 405.6333333333333
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 376.8666666666667,
+        "p50": 381.43333333333334,
+        "p95": 404.26666666666665,
+        "max": 405.6333333333333
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 4,
+        "p50": 4,
+        "p95": 4,
+        "max": 4
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.066666666666666,
+        "p95": 4.666666666666667,
+        "max": 4.666666666666667
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 80
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 80,
+        "min": 11.9,
+        "p50": 13.166666666666666,
+        "p95": 20.966666666666665,
+        "max": 22.266666666666666
+      },
+      "idleFractionProxy": {
+        "n": 400,
+        "min": 0.004773269689737447,
+        "p50": 0.040050062578222134,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 160,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "crossing",
+      "policy": "frozen-tail",
+      "playerCount": 6,
+      "n": 20,
+      "outcomes": {
+        "complete": 20
+      },
+      "completedSeconds": {
+        "n": 20,
+        "min": 377.9,
+        "p50": 382.3,
+        "p95": 403.8666666666667,
+        "max": 404.06666666666666
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 377.9,
+        "p50": 382.3,
+        "p95": 403.8666666666667,
+        "max": 404.06666666666666
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 4,
+        "p50": 4,
+        "p95": 4,
+        "max": 4
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 3.8833333333333333,
+        "p50": 4.083333333333333,
+        "p95": 4.783333333333333,
+        "max": 4.783333333333333
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 80
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 80,
+        "min": 11.366666666666667,
+        "p50": 12.766666666666667,
+        "p95": 20.3,
+        "max": 22.633333333333333
+      },
+      "idleFractionProxy": {
+        "n": 480,
+        "min": 0.0053547523427040665,
+        "p50": 0.03669724770642147,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 161,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "recovery",
+      "playerCount": 2,
+      "n": 20,
+      "outcomes": {
+        "failed": 6,
+        "fixture-recovered": 14
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 6,
+        "min": 3.466666666666667,
+        "p50": 3.466666666666667,
+        "p95": 3.466666666666667,
+        "max": 3.466666666666667
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 6,
+        "recovered": 14
+      },
+      "recoveredOverAllStarted": 0.7,
+      "successfulRescueSeconds": {
+        "n": 14,
+        "min": 16.2,
+        "p50": 16.2,
+        "p95": 18.766666666666666,
+        "max": 18.766666666666666
+      },
+      "idleFractionProxy": {
+        "n": 40,
+        "min": 0.004432624113475126,
+        "p50": 0.07180851063829675,
+        "p95": 0.43589743589743607,
+        "max": 0.43589743589743607
+      },
+      "playerEpisodesOver20PercentIdle": 12,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "recovery",
+      "playerCount": 3,
+      "n": 20,
+      "outcomes": {
+        "fixture-recovered": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 20
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 20,
+        "min": 10.933333333333334,
+        "p50": 13.833333333333334,
+        "p95": 20.666666666666668,
+        "max": 20.666666666666668
+      },
+      "idleFractionProxy": {
+        "n": 60,
+        "min": 0.005640612409347269,
+        "p50": 0.0733279613215142,
+        "p95": 0.14893617021276528,
+        "max": 0.14893617021276528
+      },
+      "playerEpisodesOver20PercentIdle": 0,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "recovery",
+      "playerCount": 4,
+      "n": 20,
+      "outcomes": {
+        "fixture-recovered": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 20
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 20,
+        "min": 9.9,
+        "p50": 12.566666666666666,
+        "p95": 18.933333333333334,
+        "max": 18.933333333333334
+      },
+      "idleFractionProxy": {
+        "n": 80,
+        "min": 0.002636203866432309,
+        "p50": 0.04201680672268886,
+        "p95": 0.17478991596638668,
+        "max": 0.17478991596638668
+      },
+      "playerEpisodesOver20PercentIdle": 0,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "recovery",
+      "playerCount": 5,
+      "n": 20,
+      "outcomes": {
+        "fixture-recovered": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 20
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 20,
+        "min": 8.933333333333334,
+        "p50": 11.266666666666667,
+        "p95": 16.9,
+        "max": 16.9
+      },
+      "idleFractionProxy": {
+        "n": 100,
+        "min": 0.0039370078740156725,
+        "p50": 0.054572271386430164,
+        "p95": 0.08938547486033543,
+        "max": 0.08938547486033543
+      },
+      "playerEpisodesOver20PercentIdle": 0,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "recovery",
+      "playerCount": 6,
+      "n": 20,
+      "outcomes": {
+        "fixture-recovered": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 20
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 20,
+        "min": 8.766666666666667,
+        "p50": 11.2,
+        "p95": 16.733333333333334,
+        "max": 16.733333333333334
+      },
+      "idleFractionProxy": {
+        "n": 120,
+        "min": 0.0009940357852882508,
+        "p50": 0.06092124814264435,
+        "p95": 0.1783681214421256,
+        "max": 0.1783681214421256
+      },
+      "playerEpisodesOver20PercentIdle": 0,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "walk",
+      "playerCount": 2,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 2.6333333333333333,
+        "p50": 2.7,
+        "p95": 2.7,
+        "max": 2.7
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 40,
+        "min": 0.046979865771812145,
+        "p50": 0.0821917808219179,
+        "p95": 0.3082191780821921,
+        "max": 0.3082191780821921
+      },
+      "playerEpisodesOver20PercentIdle": 13,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "walk",
+      "playerCount": 3,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 2.8333333333333335,
+        "p50": 2.933333333333333,
+        "p95": 2.966666666666667,
+        "max": 2.966666666666667
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 60,
+        "min": 0.1265060240963857,
+        "p50": 0.5443037974683542,
+        "p95": 0.7439024390243899,
+        "max": 0.7439024390243899
+      },
+      "playerEpisodesOver20PercentIdle": 53,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "walk",
+      "playerCount": 4,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 3.033333333333333,
+        "p50": 3.066666666666667,
+        "p95": 3.1,
+        "max": 3.1
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 80,
+        "min": 0.2138728323699425,
+        "p50": 0.617647058823529,
+        "p95": 0.8823529411764703,
+        "max": 0.8823529411764703
+      },
+      "playerEpisodesOver20PercentIdle": 80,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "walk",
+      "playerCount": 5,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 3.533333333333333,
+        "p50": 3.533333333333333,
+        "p95": 3.566666666666667,
+        "max": 3.566666666666667
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 100,
+        "min": 0.1980198019801984,
+        "p50": 0.504950495049505,
+        "p95": 0.8549999999999998,
+        "max": 0.8549999999999998
+      },
+      "playerEpisodesOver20PercentIdle": 93,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "walk",
+      "playerCount": 6,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 3.6333333333333333,
+        "p50": 3.6333333333333333,
+        "p95": 3.8666666666666667,
+        "max": 3.8666666666666667
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 120,
+        "min": 0.06818181818181832,
+        "p50": 0.36893203883495185,
+        "p95": 0.6796116504854364,
+        "max": 0.8543689320388347
+      },
+      "playerEpisodesOver20PercentIdle": 106,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "bad",
+      "playerCount": 2,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 2.6333333333333333,
+        "p50": 2.7666666666666666,
+        "p95": 3.3,
+        "max": 3.3
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 40,
+        "min": 0.04026845637583898,
+        "p50": 0.23489932885906062,
+        "p95": 0.5389610389610389,
+        "max": 0.7152317880794699
+      },
+      "playerEpisodesOver20PercentIdle": 21,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "bad",
+      "playerCount": 3,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 2.8,
+        "p50": 3.2,
+        "p95": 8.166666666666666,
+        "max": 13.266666666666667
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 60,
+        "min": 0.103286384976526,
+        "p50": 0.4989517819706499,
+        "p95": 0.8969696969696969,
+        "max": 0.9506172839506172
+      },
+      "playerEpisodesOver20PercentIdle": 56,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "bad",
+      "playerCount": 4,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 3.1333333333333333,
+        "p50": 3.6,
+        "p95": 5.4,
+        "max": 8.266666666666667
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 80,
+        "min": 0.008368200836820104,
+        "p50": 0.41361256544502645,
+        "p95": 0.8327974276527326,
+        "max": 0.9491525423728813
+      },
+      "playerEpisodesOver20PercentIdle": 67,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "bad",
+      "playerCount": 5,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 3.533333333333333,
+        "p50": 3.966666666666667,
+        "p95": 6.366666666666666,
+        "max": 6.566666666666666
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 100,
+        "min": 0.06392694063926953,
+        "p50": 0.3301886792452835,
+        "p95": 0.8139534883720927,
+        "max": 0.9069767441860463
+      },
+      "playerEpisodesOver20PercentIdle": 78,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "bad",
+      "playerCount": 6,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 3.7,
+        "p50": 4.6,
+        "p95": 9.533333333333333,
+        "max": 21.833333333333332
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 120,
+        "min": 0.01007556675062975,
+        "p50": 0.31707317073170777,
+        "p95": 0.7625570776255702,
+        "max": 0.8812644564379349
+      },
+      "playerEpisodesOver20PercentIdle": 90,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "static-brace",
+      "playerCount": 2,
+      "n": 20,
+      "outcomes": {
+        "censored": 14,
+        "failed": 6
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 6,
+        "min": 3.433333333333333,
+        "p50": 3.433333333333333,
+        "p95": 3.433333333333333,
+        "max": 3.433333333333333
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 14,
+        "failed": 6
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 40,
+        "min": 0.21134020618556737,
+        "p50": 0.9258639910813803,
+        "p95": 0.9930323299888515,
+        "max": 0.9930323299888515
+      },
+      "playerEpisodesOver20PercentIdle": 40,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "static-brace",
+      "playerCount": 3,
+      "n": 20,
+      "outcomes": {
+        "censored": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 60,
+        "min": 0.976588628762541,
+        "p50": 0.9930323299888515,
+        "p95": 0.9949832775919731,
+        "max": 0.9949832775919731
+      },
+      "playerEpisodesOver20PercentIdle": 60,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "static-brace",
+      "playerCount": 4,
+      "n": 20,
+      "outcomes": {
+        "censored": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 80,
+        "min": 0.976588628762541,
+        "p50": 0.9935897435897434,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 80,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "static-brace",
+      "playerCount": 5,
+      "n": 20,
+      "outcomes": {
+        "censored": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 100,
+        "min": 0.976588628762541,
+        "p50": 0.9949832775919731,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 100,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "static-brace",
+      "playerCount": 6,
+      "n": 20,
+      "outcomes": {
+        "censored": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 120,
+        "min": 0.976588628762541,
+        "p50": 0.9949832775919731,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 120,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "frozen-tail",
+      "playerCount": 2,
+      "n": 20,
+      "outcomes": {
+        "censored": 14,
+        "failed": 6
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 6,
+        "min": 2.933333333333333,
+        "p50": 2.933333333333333,
+        "p95": 2.933333333333333,
+        "max": 2.933333333333333
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "active": 14,
+        "failed": 6
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 40,
+        "min": 0.288343558282209,
+        "p50": 0.45150501672241006,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 40,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "frozen-tail",
+      "playerCount": 3,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 4.4,
+        "p50": 4.433333333333334,
+        "p95": 4.7,
+        "max": 4.7
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 60,
+        "min": 0,
+        "p50": 0.3596837944664035,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 33,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "frozen-tail",
+      "playerCount": 4,
+      "n": 20,
+      "outcomes": {
+        "failed": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 20,
+        "min": 5.133333333333334,
+        "p50": 5.366666666666666,
+        "p95": 6.833333333333333,
+        "max": 6.833333333333333
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "failed": 20
+      },
+      "recoveredOverAllStarted": 0,
+      "successfulRescueSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "idleFractionProxy": {
+        "n": 80,
+        "min": 0,
+        "p50": 0.0967741935483873,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 33,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 0
+    },
+    {
+      "scene": "rescue",
+      "policy": "frozen-tail",
+      "playerCount": 5,
+      "n": 20,
+      "outcomes": {
+        "fixture-recovered": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 20
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 20,
+        "min": 9.9,
+        "p50": 12.533333333333333,
+        "p95": 18.933333333333334,
+        "max": 18.933333333333334
+      },
+      "idleFractionProxy": {
+        "n": 100,
+        "min": 0.002636203866432309,
+        "p50": 0.055360281195078374,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 20,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 20
+    },
+    {
+      "scene": "rescue",
+      "policy": "frozen-tail",
+      "playerCount": 6,
+      "n": 20,
+      "outcomes": {
+        "fixture-recovered": 20
+      },
+      "completedSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "terminalSeconds": {
+        "n": 0,
+        "min": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "incidentCount": {
+        "n": 20,
+        "min": 1,
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "firstFallSeconds": {
+        "n": 20,
+        "min": 0.2,
+        "p50": 0.2,
+        "p95": 0.2,
+        "max": 0.2
+      },
+      "noObservedFall": 0,
+      "episodes": {
+        "recovered": 20
+      },
+      "recoveredOverAllStarted": 1,
+      "successfulRescueSeconds": {
+        "n": 20,
+        "min": 9.666666666666666,
+        "p50": 12.466666666666667,
+        "p95": 18.8,
+        "max": 18.8
+      },
+      "idleFractionProxy": {
+        "n": 120,
+        "min": 0.0026572187776793318,
+        "p50": 0.06799999999999921,
+        "p95": 1,
+        "max": 1
+      },
+      "playerEpisodesOver20PercentIdle": 20,
+      "staticBraceCounterexamples": 0,
+      "frozenTailCounterexamples": 20
+    }
+  ],
+  "maxima": {
+    "segmentM": {
+      "value": 0.01563850482180812,
+      "ordinal": 723
+    },
+    "spanM": {
+      "value": 0.004488418051675325,
+      "ordinal": 114
+    },
+    "bodyTerrainM": {
+      "value": 0,
+      "ordinal": 0
+    },
+    "bodyOverlapM": {
+      "value": 0,
+      "ordinal": 0
+    },
+    "potentialExcessJ": {
+      "value": 0,
+      "ordinal": 0
+    },
+    "unexplainedEnergyGainJ": {
+      "value": 177.45402469031245,
+      "ordinal": 774
+    },
+    "explicitKineticCorrectionJ": {
+      "value": 1296.33734130431,
+      "ordinal": 774
+    },
+    "speedMps": {
+      "value": 25.07429161722923,
+      "ordinal": 574
+    }
+  },
+  "limits": "Descriptive fixed bot matrix. Policy mixing is not a model of human teams. Censored trajectories stay separate; successful-only durations are not all-start durations. No human, launch or 300-room verdict."
+}

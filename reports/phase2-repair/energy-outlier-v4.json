@@ -1,0 +1,77 @@
+{
+  "ordinal": 774,
+  "sourceManifestSha256": "ca02475baf9778679f764b3dc93e5d9027d93ef47c24fed0c7d2de5cc026a2a9",
+  "frames": 2137,
+  "substeps": 4274,
+  "finalStateSha256": "1605ba3e0fb0ff0f5c01e3208da5e11ae8c14cb5cc9b1735763b764f58c05f4e",
+  "finalStateMatchesFullMatrix": true,
+  "energyAllowanceJ": 0.01,
+  "worst": {
+    "netGainJ": 0.011010281745257089,
+    "substep": 4207,
+    "beforeJ": -26528.978280038762,
+    "afterJ": -26528.967269757017,
+    "motorJ": 0
+  },
+  "aboveAllowance": [
+    {
+      "substep": 1485,
+      "netGainJ": 0.010067931430626231
+    },
+    {
+      "substep": 1912,
+      "netGainJ": 0.010021024695333836
+    },
+    {
+      "substep": 1965,
+      "netGainJ": 0.010011700459131134
+    },
+    {
+      "substep": 2659,
+      "netGainJ": 0.010108609821713799
+    },
+    {
+      "substep": 3661,
+      "netGainJ": 0.010060194858624527
+    },
+    {
+      "substep": 4204,
+      "netGainJ": 0.01084061157234828
+    },
+    {
+      "substep": 4205,
+      "netGainJ": 0.010112714258866617
+    },
+    {
+      "substep": 4207,
+      "netGainJ": 0.011010281745257089
+    },
+    {
+      "substep": 4208,
+      "netGainJ": 0.01090819339515292
+    }
+  ],
+  "diagnostics": {
+    "solverIterations": 12,
+    "contactProjections": 21965,
+    "maximumTerrainPenetrationM": 0,
+    "maximumBodyOverlapM": 0,
+    "kineticEnergyJ": 64096.65762843609,
+    "potentialEnergyJ": -96590.3328063119,
+    "motorWorkJ": 3009.0356006625775,
+    "gravityWorkJ": 104214.09427848698,
+    "ropeContactWorkJ": -28951.493685752994,
+    "maximumUnexplainedEnergyGainJ": 177.45402469031245,
+    "incidentsStarted": 1,
+    "incidentsRecovered": 0,
+    "incidentsFailed": 1,
+    "energyProjectionCount": 19,
+    "maximumEnergyProjectionJ": 1296.33734130431,
+    "maximumPotentialExcessJ": 0,
+    "cascades": 5,
+    "firstFallSeconds": 18.433333333333334,
+    "eventsTruncated": false,
+    "incidentsTruncated": false
+  },
+  "scope": "Read-only audit at every internal step. Energy is recomputed from actual Rapier translations/velocities and massive rope-particle positions/history after the correction. Pre/post differ only by measured motor work; allowance is the unchanged per-step tuning. Does not establish exact contact mechanics or absence of numerical dissipation."
+}

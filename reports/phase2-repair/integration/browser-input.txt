@@ -1,0 +1,98 @@
+[
+  {
+    "player": {
+      "ackSeq": 1222,
+      "activeIncidentId": null,
+      "brace": false,
+      "connected": true,
+      "id": 0,
+      "label": "Climber 1",
+      "position": {
+        "x": 0,
+        "y": 0.4540010094642639,
+        "z": -0.00006441943696700037
+      },
+      "rescueState": "safe",
+      "support": "ground",
+      "velocity": {
+        "x": 0,
+        "y": 0,
+        "z": -6.5052130349130266e-18
+      }
+    },
+    "tick": 589,
+    "version": "phase2-repair-4"
+  },
+  {
+    "player": {
+      "ackSeq": 1260,
+      "activeIncidentId": null,
+      "brace": false,
+      "connected": true,
+      "id": 0,
+      "label": "Climber 1",
+      "position": {
+        "x": -0.2603667974472046,
+        "y": 0.4540010094642639,
+        "z": -0.2604312002658844
+      },
+      "rescueState": "safe",
+      "support": "ground",
+      "velocity": {
+        "x": -0.884834885597229,
+        "y": 0,
+        "z": -0.884834885597229
+      }
+    },
+    "tick": 607,
+    "version": "phase2-repair-4"
+  },
+  {
+    "player": {
+      "ackSeq": 1297,
+      "activeIncidentId": null,
+      "brace": true,
+      "connected": true,
+      "id": 0,
+      "label": "Climber 1",
+      "position": {
+        "x": -0.39646390080451965,
+        "y": 0.4540010094642639,
+        "z": -0.396531879901886
+      },
+      "rescueState": "safe",
+      "support": "ground",
+      "velocity": {
+        "x": -0.14631521701812744,
+        "y": 0,
+        "z": -0.14632035791873932
+      }
+    },
+    "tick": 625,
+    "version": "phase2-repair-4"
+  },
+  {
+    "player": {
+      "ackSeq": 1316,
+      "activeIncidentId": null,
+      "brace": false,
+      "connected": true,
+      "id": 0,
+      "label": "Climber 1",
+      "position": {
+        "x": -0.40749895572662354,
+        "y": 0.4540010094642639,
+        "z": -0.4075663089752197
+      },
+      "rescueState": "safe",
+      "support": "ground",
+      "velocity": {
+        "x": -0.000026396801331429746,
+        "y": 0,
+        "z": -8.375403695026762e-7
+      }
+    },
+    "tick": 634,
+    "version": "phase2-repair-4"
+  }
+]

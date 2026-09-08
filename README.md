@@ -1,6 +1,6 @@
 # BELAY
 
-Phase 2 grey-box prototype: two to six climbers, a constrained rope, seeded snow bridges, falling, catching and physical rescue. **The rescue gate is not passed:** the physics and rescue repairs are under verification; a frozen helper can still be carried through some larger-team rescues. The user authorized continuing past Gate 1; human fun and remote feel remain unmeasured.
+Phase 2 grey-box prototype: two to six climbers, a constrained rope, seeded snow bridges, falling, catching and physical rescue. **The rescue gate is not passed:** the repaired matrix is complete, with remaining balance and participation limits in the repair report; a frozen helper can still be carried through some larger-team rescues. The user authorized continuing past Gate 1; human fun and remote feel remain unmeasured.
 
 Use Node >=22.13.0 and run these commands from the same checkout.
 
@@ -9,7 +9,7 @@ npm ci
 npm run dev
 ```
 
-Wait for **BELAY local preview ready**, then open <http://127.0.0.1:8787> and join the test rope. WASD/arrows move relative to the camera; Space braces. A fresh dev session starts a four-climber crossing with seed 1701, balanced family and 30 Hz authority. In **Operator scene controls**, choose the scene, team, family, seed and authority, then click **Reset and load scene**; selections alone do not apply. Reset preserves occupied seats and pause state, so reduce the team only after higher-numbered seats leave and click **Resume** if paused.
+Wait for **BELAY local preview ready**, then open <http://127.0.0.1:8787> and join the test rope. WASD/arrows move relative to the camera; Space braces. In crossing/rescue, hold Space and a direction to take slow hauling steps. A fresh dev session starts a four-climber crossing with seed 1701, balanced family and 30 Hz authority. In **Operator scene controls**, choose the scene, team, family, seed and authority, then click **Reset and load scene**; selections alone do not apply. Reset preserves occupied seats and pause state, so reduce the team only after higher-numbered seats leave and click **Resume** if paused.
 
 For synthetic partners, join in the browser first, then run:
 
@@ -50,4 +50,4 @@ npm run test:local-load    # Guarded local socket workload; not production quali
 
 `bench:phase2` is the sequential matrix runner. The guarded native four-worker alternative has a separate invocation and pinned runtime; see `RUNBOOK.md` before starting an offline job.
 
-The completed 1,000-trajectory matrix confirms the current target misses. Its 500 crossings produced 188 completions (median 21.13 seconds), 179 failures and 133 full-horizon censors. The 500 focused rescues are separate fixtures, not glacier runs. There are 100 whole-episode recoveries with helpers holding static brace, and the worst recorded rope-segment excess is 32.11 cm against the existing 2 cm limit. See [the final verification table](reports/phase2-verification.md) for denominators and limitations. Art, audio, clips, matchmaking, voice, daily and deployment remain in later phases; Phase 3 is paused at the rescue stop. No paid resources are provisioned.
+The preserved pre-repair 1,000-trajectory matrix exposed 21-second crossings, static-helper recoveries and excessive rope stretch. The current repair changes the contact solver, energy accounting, hauling/climbing and the fixed crossing fixture; use [the current repair report](reports/phase2-repair/README.md) for its separate verification and remaining limits. The historical measurements remain [unchanged](reports/phase2-verification.md). Art, audio, clips, matchmaking, voice, daily and deployment remain in later phases; Phase 3 is paused at the rescue stop. No paid resources are provisioned.

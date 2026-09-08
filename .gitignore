@@ -40,3 +40,6 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 *.tsbuildinfo
+
+# Complete raw repair campaign is stored losslessly in reports/phase2-repair/evidence-package/.
+/reports/phase2-parallel-2026-09-08T17-00-11.762Z-26d223b4-42bc-47c9-b7c3-c2588819c95f/

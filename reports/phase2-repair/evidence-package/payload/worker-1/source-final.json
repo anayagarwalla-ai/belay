@@ -1,0 +1,988 @@
+{
+  "gitHead": "fdc6ae86b2c76f2255bcbbc2e1df5ab3dffa46c1",
+  "files": [
+    {
+      "path": "package-lock.json",
+      "sha256": "91d6a3f4a4fc558039673a2414202e77765802b7615117061a261cebd0f68bf3"
+    },
+    {
+      "path": "package.json",
+      "sha256": "22901aef0f551ac14b67171a1ebe86ad1c1a2fd928b73d73f5bb51a587c5a11a"
+    },
+    {
+      "path": "scripts/phase2-analysis.ts",
+      "sha256": "88c285b90893d67ab78caa13b0a9e80a389616543aeabafaf6d429ab20da24f8"
+    },
+    {
+      "path": "scripts/phase2-bench.ts",
+      "sha256": "7c1d53e664394f1e2e0fbc5439194f31827efbc02587b9538146e6e454a517f4"
+    },
+    {
+      "path": "scripts/phase2-bridge-load-check-entry.mjs",
+      "sha256": "a82338d25e041f671660425642dcadcabe26d9c36c06131ae9dc5337ccc02e47"
+    },
+    {
+      "path": "scripts/phase2-bridge-load-check.ts",
+      "sha256": "fd5b3ffb97d0b08df9aba18439f8e27c815366dcf7ddad14aeb60559794c4c3d"
+    },
+    {
+      "path": "scripts/phase2-cost.ts",
+      "sha256": "2150415741907f79256477c3f5ca44e3de6244299317d90d848df6df482b4b64"
+    },
+    {
+      "path": "scripts/phase2-fixed-feature-probe.ts",
+      "sha256": "0b3769d1df4b787eb1056bac8daee174d3ed35f57e1c76351c10b9c860f3feb4"
+    },
+    {
+      "path": "scripts/phase2-harness.ts",
+      "sha256": "b7a44ff4c0d254db9d2603247a213e5804bf51f4d27ec89698eff6733c4114f0"
+    },
+    {
+      "path": "scripts/phase2-independent-final-validate.mjs",
+      "sha256": "840c46562b77fd330b35603134f4b769b28bcb97cd99424cde5f9c660a0abc32"
+    },
+    {
+      "path": "scripts/phase2-motor-energy-probe.ts",
+      "sha256": "5d5d2fc6d5a28eb8f88117592f3efa0784a1cd0931bf2d0f4ee576b678bf45d6"
+    },
+    {
+      "path": "scripts/phase2-native-hooks.mjs",
+      "sha256": "e7d9469c73e679ce850a18416538b7eefc7c955e0750f4698c8b79cc4853ff16"
+    },
+    {
+      "path": "scripts/phase2-nonlinear-probe.ts",
+      "sha256": "43cf4fccf99aa36ed653b003b115483ec48910b2e18426701869c5bb9a7ecbd3"
+    },
+    {
+      "path": "scripts/phase2-parallel-core.ts",
+      "sha256": "d796129f25e6db5c9e423c20c62d15dcefa1101d875065618781950bc6a7cad1"
+    },
+    {
+      "path": "scripts/phase2-parallel-entry.mjs",
+      "sha256": "fed6e7e9bb0a83d553a90a358384a2828ba98c62c2ce19cc9cdcc06fa9312e8f"
+    },
+    {
+      "path": "scripts/phase2-parallel-supervisor.ts",
+      "sha256": "24d20ef1d6c707fa29b81b0d5f6fe3fcf75e09a4c2445d9f0e4ae5dbd6517881"
+    },
+    {
+      "path": "scripts/phase2-parallel-watchdog.ts",
+      "sha256": "a144ab4bfb35339bdbd6b5d7596ae0695e072bb7458c73c8f66e16b199bd97df"
+    },
+    {
+      "path": "scripts/phase2-parallel-worker-entry.mjs",
+      "sha256": "66a3c91b267152bd7869a654fcad6fc05deab81e67a3215672b5e2c7eb48f8de"
+    },
+    {
+      "path": "scripts/phase2-parallel-worker.ts",
+      "sha256": "f45453a29b47f488ad65ae445042a85b092f809cf89e841e97f9e937712aae7b"
+    },
+    {
+      "path": "scripts/phase2-parallel.ts",
+      "sha256": "8d5500178eef78521ebebff017b5d013db08c69fddf0543f951cc8cb3e4b4568"
+    },
+    {
+      "path": "scripts/phase2-performance.ts",
+      "sha256": "8f705c7009549a44bb6084746cba283f8a28d6f87515a44e1ac54461fa6bb876"
+    },
+    {
+      "path": "scripts/phase2-policies.ts",
+      "sha256": "1bd5dd96fd33c0cff68ab3612bd469c2c1e64f49e3d103aaf0559a8aa4527cba"
+    },
+    {
+      "path": "scripts/phase2-repair-screen.ts",
+      "sha256": "9d44618f8a4e560e42e708bfa6aaa78e180b1282f87d48e5a7d5f623ee4c862b"
+    },
+    {
+      "path": "scripts/phase2-replay.ts",
+      "sha256": "a2973aec36ec30139e46bc60451385e1032bf07d71481e3d61868686c14e7706"
+    },
+    {
+      "path": "scripts/phase2-report.ts",
+      "sha256": "b0e453d5bb632d824508496b6bbd9d19abbc906ef5fdbd7c60f20726b08b95cc"
+    },
+    {
+      "path": "scripts/phase2-stress.ts",
+      "sha256": "1b0894f31780b95c93fe863684ddee745f89ca6959c7fbed77ac873565d0fb62"
+    },
+    {
+      "path": "scripts/phase2-topology-probe.ts",
+      "sha256": "d5f6746c7ce752e573170a5bbb3c32e31670981aa4a6b89042dd61d3fe472ec0"
+    },
+    {
+      "path": "scripts/phase2-warning-attribution-probe.ts",
+      "sha256": "bb6605a6097e00480592cedf3f753debdb312ffe352f52b51c1160495dd095f8"
+    },
+    {
+      "path": "shared/bridge-load-observer.ts",
+      "sha256": "56191d1d320fdfccc8c6ab22de0de4f6acb808f1a7a6689540ccee98ba1e0285"
+    },
+    {
+      "path": "shared/contact-geometry.ts",
+      "sha256": "bdf0980dd4e656729e2d8ca44de14687078903592c36243d212e8cad9d56eff3"
+    },
+    {
+      "path": "shared/expedition-movement.ts",
+      "sha256": "c4d50dad911be26f6ead273c500689319507d7f5fa6bbb2f5f72f5a4ce8a5ffe"
+    },
+    {
+      "path": "shared/expedition-simulation.ts",
+      "sha256": "a8f0a49d329c5a73f2ab030c8425f6bcfb8245d03ff9b590941db5a57fed9113"
+    },
+    {
+      "path": "shared/flat-simulation.ts",
+      "sha256": "07ebd2d5902fc9d6a5060c2840f5de5c24443573da9fa652d27a819a95dffc9d"
+    },
+    {
+      "path": "shared/movement.ts",
+      "sha256": "de8cfb54596c8741082e3ef40fc2550cfd7494c30761dc8c72889f48227ad45b"
+    },
+    {
+      "path": "shared/physical-diagnostics.ts",
+      "sha256": "0b55613cb72e95ec99081c17b9385fececc9c9425a553b3ba0d7e7583a701670"
+    },
+    {
+      "path": "shared/protocol.ts",
+      "sha256": "1a9dd92feb961fbc61bd27ef3f515d07d3d25f49c15daa6d8f0b7b66ef4f228c"
+    },
+    {
+      "path": "shared/rope-projection.ts",
+      "sha256": "c5eb039ee38bdd42d62f531017cc3bf2d9a98d3d73b8706959987086c6be2a00"
+    },
+    {
+      "path": "shared/rope-route.ts",
+      "sha256": "a3ba2d15481b1e712c94d654cf49578999715cea08ccc1c0fa21d7504712ebc8"
+    },
+    {
+      "path": "shared/simulation.ts",
+      "sha256": "2005f7898c55914a35f1bba90ed32bc8127405c0179d1a37e42eb63b13e521dc"
+    },
+    {
+      "path": "shared/stats.ts",
+      "sha256": "18555b71109353b5ad45db0596484d9f5b9b29f5e9260196f667984e5aa57d87"
+    },
+    {
+      "path": "shared/terrain.ts",
+      "sha256": "50003dfd38d6ddfde222b68b75c4f456b68297d68b45abad03c7575fcd38bd81"
+    },
+    {
+      "path": "shared/wall-motor.ts",
+      "sha256": "0b58769360f0eb6c2add578e2127696be338c0f7b3d99ff3841e6ad03c7fc5c7"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "fc47536e5acdc177d49e0301a5c2c4ba5fdf706ca52e955f6f9524a02cfb67af"
+    },
+    {
+      "path": "tuning.ts",
+      "sha256": "36922c6f318fa76e33c9df1616c9556e7757a57f2810c44d532cb7fc6c82cf0f"
+    }
+  ],
+  "sourceManifestSha256": "ca02475baf9778679f764b3dc93e5d9027d93ef47c24fed0c7d2de5cc026a2a9",
+  "runtime": {
+    "entrypoint": "/Users/anayagarwalla/Documents/ChatGPT/testastra/reports/phase2-parallel-2026-09-08T17-00-11.762Z-26d223b4-42bc-47c9-b7c3-c2588819c95f/source/scripts/phase2-parallel-worker-entry.mjs",
+    "entrypointSha256": "66a3c91b267152bd7869a654fcad6fc05deab81e67a3215672b5e2c7eb48f8de",
+    "execArgv": [
+      "--max-old-space-size=256"
+    ],
+    "assets": [
+      {
+        "role": "node",
+        "path": "/opt/homebrew/Cellar/node/26.5.0/bin/node",
+        "sha256": "70851490e028b3d699a8d6d4e1de909af2a989359ae807974c92af9c6580a8e8"
+      },
+      {
+        "role": "tsx-loader",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/loader.mjs",
+        "sha256": "7e3dba3b9b862a5fa1c741d54fc921ee8b17fc7a4d0087fa64e42a32142cf03d"
+      },
+      {
+        "role": "rapier-js-and-inlined-wasm",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/@dimforge/rapier3d-compat/dist/rapier.mjs",
+        "sha256": "09a000bee2ad827608780cf8821258cadc243aaeb8881ab3e769de73f945eee0"
+      },
+      {
+        "role": "tsx-runtime/dependency:esbuild/bin/esbuild",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/node_modules/esbuild/bin/esbuild",
+        "sha256": "183d6ead2dbc3af51aec767d5395f86fe54fbbc2d2aa8e54feb4e31d76a62f7e"
+      },
+      {
+        "role": "tsx-runtime/dependency:esbuild/dependency:@esbuild/darwin-arm64/bin/esbuild",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/node_modules/@esbuild/darwin-arm64/bin/esbuild",
+        "sha256": "10b6243df618d374bb2d5c9cfbe7052e1405f6aa4e53a6164f11a91b9f2e1384"
+      },
+      {
+        "role": "tsx-runtime/dependency:esbuild/dependency:@esbuild/darwin-arm64/package.json",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/node_modules/@esbuild/darwin-arm64/package.json",
+        "sha256": "4e652c9e4410daf03da852a664940153601fac397233cdcf276b4b1a312454b9"
+      },
+      {
+        "role": "tsx-runtime/dependency:esbuild/dependency:@esbuild/darwin-arm64/README.md",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/node_modules/@esbuild/darwin-arm64/README.md",
+        "sha256": "ee16cb15a2211accccb38f378786bfe48bc5dcfae5db554352424cd710470efa"
+      },
+      {
+        "role": "tsx-runtime/dependency:esbuild/install.js",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/node_modules/esbuild/install.js",
+        "sha256": "612294e278914443bdcf81cb17f54afec34dbdd2ebd999a6ee187912320cc315"
+      },
+      {
+        "role": "tsx-runtime/dependency:esbuild/lib/main.d.ts",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/node_modules/esbuild/lib/main.d.ts",
+        "sha256": "e078310f23f0ccfa28a6ac81b5fad81f27150e921f92ab6e648caab42e2d9a14"
+      },
+      {
+        "role": "tsx-runtime/dependency:esbuild/lib/main.js",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/node_modules/esbuild/lib/main.js",
+        "sha256": "61ec0ba144ff93f4bf0e96ad6fab6f430ede0aa13e27ace8063ed63ba416b3cd"
+      },
+      {
+        "role": "tsx-runtime/dependency:esbuild/LICENSE.md",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/node_modules/esbuild/LICENSE.md",
+        "sha256": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681"
+      },
+      {
+        "role": "tsx-runtime/dependency:esbuild/package.json",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/node_modules/esbuild/package.json",
+        "sha256": "9d0bc453f4e791553c4cc2298ba023b409241fd9801e494741666eb0f6051490"
+      },
+      {
+        "role": "tsx-runtime/dependency:esbuild/README.md",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/node_modules/esbuild/README.md",
+        "sha256": "6d481cd60ec3c679e5e395f547ab4221147f35642894f6b95a8df38fd25c87bd"
+      },
+      {
+        "role": "tsx-runtime/dependency:fsevents/fsevents.d.ts",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/fsevents/fsevents.d.ts",
+        "sha256": "5c246116b08ff4de6926ed0d5d065249857b256fb45ef3681b46a4bdc03412ec"
+      },
+      {
+        "role": "tsx-runtime/dependency:fsevents/fsevents.js",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/fsevents/fsevents.js",
+        "sha256": "1d75660f48786792f0e98d6dabfd301883c8f2a8f61aa690cbf58fb4386c0f1a"
+      },
+      {
+        "role": "tsx-runtime/dependency:fsevents/fsevents.node",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/fsevents/fsevents.node",
+        "sha256": "40f2f51199e4f5fc46fa6b985fb3461bb63e6cd86c62bfa9bcee45ed4438d5fb"
+      },
+      {
+        "role": "tsx-runtime/dependency:fsevents/LICENSE",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/fsevents/LICENSE",
+        "sha256": "2a8a5d6197bb97a018b8a190dd3ed853d750ca87c8e80c17aad41d6c6ff448e1"
+      },
+      {
+        "role": "tsx-runtime/dependency:fsevents/package.json",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/fsevents/package.json",
+        "sha256": "500839fcc76f6c5efcb454e6614b23c26775e75e1140619fff9ca64c291aec2b"
+      },
+      {
+        "role": "tsx-runtime/dependency:fsevents/README.md",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/fsevents/README.md",
+        "sha256": "0311b7e1a5a37192243d37889a838d2252b2201554e9db49b57a657f9fb517c7"
+      },
+      {
+        "role": "tsx-runtime/dist/cjs/api/index.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/cjs/api/index.cjs",
+        "sha256": "facf2cdb9edad82dd304c4b479a6229313de89edd9b78d37bac1abeb970e1bad"
+      },
+      {
+        "role": "tsx-runtime/dist/cjs/api/index.d.cts",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/cjs/api/index.d.cts",
+        "sha256": "8c2b1a98cc24f9efb1d8705b3c3c1929d3a4f42273466da97df62c7b253eaeee"
+      },
+      {
+        "role": "tsx-runtime/dist/cjs/api/index.d.mts",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/cjs/api/index.d.mts",
+        "sha256": "8c2b1a98cc24f9efb1d8705b3c3c1929d3a4f42273466da97df62c7b253eaeee"
+      },
+      {
+        "role": "tsx-runtime/dist/cjs/api/index.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/cjs/api/index.mjs",
+        "sha256": "3c151ee9ce3c6f687550e88ff3778f79d37ad06e9386b71ee26df29c722fcdde"
+      },
+      {
+        "role": "tsx-runtime/dist/cjs/index.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/cjs/index.cjs",
+        "sha256": "c6e3cb3fffc3937ed06199dd8a99e75f24be77ad98ef612cec7a2b45d60a43a6"
+      },
+      {
+        "role": "tsx-runtime/dist/cjs/index.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/cjs/index.mjs",
+        "sha256": "a923201f67537b7b4d6fad444a786d7f7c01fbfaf4238e0e5468d78b8f240736"
+      },
+      {
+        "role": "tsx-runtime/dist/cli.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/cli.cjs",
+        "sha256": "28e9ae39fe03ea7f18c84abb707228cde664231defebf3dbfdd62a9265451869"
+      },
+      {
+        "role": "tsx-runtime/dist/cli.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/cli.mjs",
+        "sha256": "8420e19483e82bf21d984fbb9aad752df9e83dfeec3237fef5e62f5546d45ec9"
+      },
+      {
+        "role": "tsx-runtime/dist/client-D_mPDF5S.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/client-D_mPDF5S.mjs",
+        "sha256": "3a59578e44917527095c006ecd29b6e61fe5bbf05d5bc809cc7cc6112beedbbd"
+      },
+      {
+        "role": "tsx-runtime/dist/client-D3mGB526.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/client-D3mGB526.cjs",
+        "sha256": "f39baa1746411223094df90350710061f9986e07396dd311e3a74ed3df1b63e7"
+      },
+      {
+        "role": "tsx-runtime/dist/esm/api/index.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/esm/api/index.cjs",
+        "sha256": "0c4927be49c1d36f1a9a98b2db713a182ff987d6f96f5b8044a0e5f788af74f8"
+      },
+      {
+        "role": "tsx-runtime/dist/esm/api/index.d.cts",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/esm/api/index.d.cts",
+        "sha256": "eb9096c517da313cbedce8818d9cadb82bbf02cd6f4a65db4cee42ac01f4272c"
+      },
+      {
+        "role": "tsx-runtime/dist/esm/api/index.d.mts",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/esm/api/index.d.mts",
+        "sha256": "eb9096c517da313cbedce8818d9cadb82bbf02cd6f4a65db4cee42ac01f4272c"
+      },
+      {
+        "role": "tsx-runtime/dist/esm/api/index.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/esm/api/index.mjs",
+        "sha256": "8fb32f8842dff630c0b54aba648a1a49de7bd8769ef4bea6f841fa954041504d"
+      },
+      {
+        "role": "tsx-runtime/dist/esm/index.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/esm/index.cjs",
+        "sha256": "3f44cb6e99d7d2f47284f96e3f13eaa13ec3d29244afd8702b71fd8124626a03"
+      },
+      {
+        "role": "tsx-runtime/dist/esm/index.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/esm/index.mjs",
+        "sha256": "206f38b4bddcbc686dab39ff37df516eedfb1b2d58afbc3c47ea5b9417d3ad54"
+      },
+      {
+        "role": "tsx-runtime/dist/get-pipe-path-_tAJyU_v.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/get-pipe-path-_tAJyU_v.mjs",
+        "sha256": "559be651995cc7188166ca09af99ea08b9b1453767e42fff203b53fa1a403217"
+      },
+      {
+        "role": "tsx-runtime/dist/get-pipe-path-D4YM6rQt.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/get-pipe-path-D4YM6rQt.cjs",
+        "sha256": "4676e923789ccd968968161547bcac8fb8337b76c0d033f6049332d0ac4025ec"
+      },
+      {
+        "role": "tsx-runtime/dist/index-BWFBUo6r.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/index-BWFBUo6r.cjs",
+        "sha256": "fe29b97b254312970fceb8995a519abc8751f26972c221281959a7d77858a464"
+      },
+      {
+        "role": "tsx-runtime/dist/index-D1vYaNWZ.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/index-D1vYaNWZ.cjs",
+        "sha256": "b3dc4f12a3c784523c76550ec1dccb4b863a87be6711fb83badc81cfba2f770a"
+      },
+      {
+        "role": "tsx-runtime/dist/index-DCefr8NP.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/index-DCefr8NP.mjs",
+        "sha256": "c676f2253dd301a2aa06828f2bcccb0593281483c6e9ae49587019bc3a4fcc65"
+      },
+      {
+        "role": "tsx-runtime/dist/index-gbaejti9.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/index-gbaejti9.mjs",
+        "sha256": "76febbe946957c96066d1d59293c4a26fc874c05876394cf4c178e4f4d0b6ba8"
+      },
+      {
+        "role": "tsx-runtime/dist/lexer-DgIbo0BU.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/lexer-DgIbo0BU.cjs",
+        "sha256": "9b92935847bf0f6daade96b21c8271139ed8b48ef3fa59647af0ef1d36770db0"
+      },
+      {
+        "role": "tsx-runtime/dist/lexer-DQCqS3nf.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/lexer-DQCqS3nf.mjs",
+        "sha256": "6b77bebaee2dd7741177e287a78ef4329d9ef91f6939d09cfcf0029b3859f883"
+      },
+      {
+        "role": "tsx-runtime/dist/loader.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/loader.cjs",
+        "sha256": "785b20ffe72cb616099b1676c67a7b10390b0e17116796298a8bc79fb593a1d8"
+      },
+      {
+        "role": "tsx-runtime/dist/loader.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/loader.mjs",
+        "sha256": "7e3dba3b9b862a5fa1c741d54fc921ee8b17fc7a4d0087fa64e42a32142cf03d"
+      },
+      {
+        "role": "tsx-runtime/dist/node-features-CEjg7cMX.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/node-features-CEjg7cMX.cjs",
+        "sha256": "e1b31184448de5619a364fe82f3b4074e86339f17284d3a30d15604778a4f964"
+      },
+      {
+        "role": "tsx-runtime/dist/node-features-JeyyvQz6.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/node-features-JeyyvQz6.mjs",
+        "sha256": "0e5095ca40c5bbd90e6afb67f4d6a8db19a7040cd95af52134f1cd2750f0ff53"
+      },
+      {
+        "role": "tsx-runtime/dist/package-B1lIY_Tn.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/package-B1lIY_Tn.cjs",
+        "sha256": "9f0121495d9aa0bea540b1453c4fb5b06ed3cc2bc0074d9dd6bac1a9233121e9"
+      },
+      {
+        "role": "tsx-runtime/dist/package-BL7Whz21.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/package-BL7Whz21.mjs",
+        "sha256": "657b7983b9f06599e7979775d83e7619bef6a99fb6017237a6ce080896423aeb"
+      },
+      {
+        "role": "tsx-runtime/dist/patch-repl.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/patch-repl.cjs",
+        "sha256": "33f5f6755270054783f4c568d0d48d4a79fecde965ec6f91ca27f0f949ba6da6"
+      },
+      {
+        "role": "tsx-runtime/dist/patch-repl.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/patch-repl.mjs",
+        "sha256": "3850acac507aa554620693d272bed6b7ac1e1b8ab5af406581c632522ad8c872"
+      },
+      {
+        "role": "tsx-runtime/dist/preflight.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/preflight.cjs",
+        "sha256": "20adebaefdd1f81383dabfc73db95630dbc11cb80144c092b1f2be4f64e99e81"
+      },
+      {
+        "role": "tsx-runtime/dist/preflight.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/preflight.mjs",
+        "sha256": "49938bb067c3cfd68b84f88c3c02058047ddd16a67451fb608ca59a44a07a8ff"
+      },
+      {
+        "role": "tsx-runtime/dist/register-DHgpdRjs.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/register-DHgpdRjs.mjs",
+        "sha256": "2804e85a40ffefac6d3309c9766560b009c2e3ad8d4121d0ecba87208327cf4e"
+      },
+      {
+        "role": "tsx-runtime/dist/register-DjPW2kSr.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/register-DjPW2kSr.cjs",
+        "sha256": "3d2e301be89b4f5a9126a88d2cfa3d356492103e5c17bf88eb07207d9d53eedf"
+      },
+      {
+        "role": "tsx-runtime/dist/register-OY9cqBEN.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/register-OY9cqBEN.cjs",
+        "sha256": "d557e70e6d8f47a4684a77f2b6a622fefee796996249c3c52741d775e66b999f"
+      },
+      {
+        "role": "tsx-runtime/dist/register-SoqaU4rg.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/register-SoqaU4rg.mjs",
+        "sha256": "0f60dd80984b81122890914bb49615faacc8fd64d25ee3f90e6b66aa30a62081"
+      },
+      {
+        "role": "tsx-runtime/dist/repl.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/repl.cjs",
+        "sha256": "1d140121829bab28da59ee78e313a87f60352ed5f471551ebdc63e17e0442261"
+      },
+      {
+        "role": "tsx-runtime/dist/repl.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/repl.mjs",
+        "sha256": "34454662297862879bb92e10712dc14e0d5fe20fc2101a1a6d9347d41acc9f31"
+      },
+      {
+        "role": "tsx-runtime/dist/require-Blr_8TcJ.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/require-Blr_8TcJ.cjs",
+        "sha256": "75aeca2d1696ce80b94343dc6b015e00c042f1d07d164255c0aee87c57a55a29"
+      },
+      {
+        "role": "tsx-runtime/dist/require-Cuv-0BLU.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/require-Cuv-0BLU.mjs",
+        "sha256": "9ca2dcabc881c547ce5c4c015e9794853be036db159bfa7875de7a0d604f0a78"
+      },
+      {
+        "role": "tsx-runtime/dist/suppress-warnings.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/suppress-warnings.cjs",
+        "sha256": "028063d20bd49083f03a0b1ed4f7a3d55fac1f64f5aca0e58e1ec61601f20ee7"
+      },
+      {
+        "role": "tsx-runtime/dist/suppress-warnings.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/suppress-warnings.mjs",
+        "sha256": "4c7d8eb24f7c16282453bc18d649c310028a63d3850e6590338932cdd896017f"
+      },
+      {
+        "role": "tsx-runtime/dist/temporary-directory-B83uKxJF.cjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/temporary-directory-B83uKxJF.cjs",
+        "sha256": "da189099aba4a7aff1e0ca337cd71410a0f96abc66298403db041cb812cbd24c"
+      },
+      {
+        "role": "tsx-runtime/dist/temporary-directory-BDDVQOvU.mjs",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/temporary-directory-BDDVQOvU.mjs",
+        "sha256": "918e7718e0579ae7d800c3dc9fc6c27626102198463bbb4051e40b2dbcf932b5"
+      },
+      {
+        "role": "tsx-runtime/dist/types-Cxp8y2TL.d.ts",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/dist/types-Cxp8y2TL.d.ts",
+        "sha256": "f462b6fc33bc3f82d1551ac0678834dfff89192ce1e848eb0bb8ca5bfe8bc76f"
+      },
+      {
+        "role": "tsx-runtime/LICENSE",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/LICENSE",
+        "sha256": "8dded67841a9261a622c739fb61c81785e93765de852828ceeb9403d20a74581"
+      },
+      {
+        "role": "tsx-runtime/package.json",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/package.json",
+        "sha256": "3ace2493a0acd26fc72a8433a38113ee04d5a1976910a3f40815f9e779d5c426"
+      },
+      {
+        "role": "tsx-runtime/README.md",
+        "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/node_modules/tsx/README.md",
+        "sha256": "44e63909767a6f7b21d4103df9417e3ab88bae17a3bc77b93fdcfb94176e3211"
+      }
+    ],
+    "nodeOptionsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "tuning": {
+    "version": "phase2-repair-4",
+    "phase": 2,
+    "seed": 1701,
+    "players": 2,
+    "hardCap": 6,
+    "tickHz": 30,
+    "physicsHz": 60,
+    "solverIterations": 8,
+    "maximumSolverIterations": 32,
+    "maximumCatchupTicks": 4,
+    "gravity": 9.81,
+    "body": {
+      "mass": 80,
+      "width": 0.55,
+      "height": 0.9,
+      "depth": 0.55,
+      "walkSpeed": 3.1,
+      "acceleration": 10,
+      "coastDeceleration": 1.4,
+      "braceFriction": 1.6,
+      "braceMassMultiplier": 6,
+      "groundFriction": 0.08,
+      "contactPredictionM": 0.12,
+      "harnessHeight": 0.42,
+      "maximumInputAgeMs": 250
+    },
+    "rope": {
+      "length": 3.6,
+      "segments": 12,
+      "particleMass": 0.2,
+      "drag": 2.5,
+      "floorHeight": 0.04,
+      "radius": 0.035,
+      "tensionReferenceN": 700,
+      "tensionSmoothingSeconds": 0.1,
+      "tautFraction": 0.97,
+      "initialSpacing": 2.5,
+      "initialSag": 0.35,
+      "initialBend": 0.6,
+      "solverToleranceM": 0.01
+    },
+    "terrain": {
+      "halfExtent": 500,
+      "gridUnit": 1,
+      "landmarkCount": 24,
+      "landmarkRange": 36,
+      "markSize": 0.18
+    },
+    "camera": {
+      "bridgeCueSagM": 0.06,
+      "catchRadiusMultiplier": 1.75,
+      "terrainEdgeWidthM": 0.04,
+      "wallCueReachM": 0.8,
+      "maximumCueEvidence": 256,
+      "localWeight": 0.35,
+      "elevationDegrees": 55,
+      "azimuthDegrees": 45,
+      "baseVerticalSpan": 11,
+      "maximumVerticalSpan": 24,
+      "margin": 4,
+      "smoothingSeconds": 0.22,
+      "distance": 60,
+      "maximumPixelRatio": 2,
+      "edgeInsetPx": 36,
+      "labelOffsetPx": 26,
+      "braceVisualHeight": 0.58
+    },
+    "network": {
+      "inputHz": 60,
+      "interpolationMs": 70,
+      "snapshotHistory": 32,
+      "reconciliationSeconds": 0.07,
+      "hardCorrectionDistance": 1.5,
+      "maximumPredictionMs": 100,
+      "pingIntervalMs": 500,
+      "staleSnapshotMs": 1000,
+      "probeTimeoutMs": 2000,
+      "maximumMessagesPerSecond": 120,
+      "maximumFrameBytes": 4096,
+      "telemetrySamples": 2048,
+      "debugTimeoutMs": 5000,
+      "joinTimeoutMs": 10000,
+      "maximumPendingDebugCommands": 8,
+      "maximumDebugCommandsPerSecond": 12,
+      "maximumSnapshotBufferedBytes": 65536,
+      "maximumDebugResponseBytes": 16777216,
+      "hudUpdateMs": 250,
+      "maximumStepTicks": 3600,
+      "rttBracketsMs": [
+        30,
+        60,
+        100,
+        150,
+        250
+      ],
+      "emulatedJitterMs": 10,
+      "maximumAddedRttMs": 500,
+      "maximumJitterMs": 50,
+      "maximumDelayedBytes": 1048576,
+      "maximumTapeSeconds": 1200
+    },
+    "server": {
+      "host": "127.0.0.1",
+      "port": 2567,
+      "webPort": 5173,
+      "gatewayPort": 8787,
+      "protectedPort": 8788,
+      "sessionLifetimeSeconds": 7200,
+      "tokenBytes": 32,
+      "maximumAuthBodyBytes": 1024,
+      "authAttemptsPerMinute": 15,
+      "roomIdleMinutes": 30,
+      "httpTimeoutMs": 15000
+    },
+    "bot": {
+      "actionSeconds": 1.2,
+      "braceChance": 0.22,
+      "idleChance": 0.12,
+      "benchmarkRuns": 1000,
+      "benchmarkSeconds": 20
+    },
+    "physicsDiagnostics": {
+      "scenarioSeconds": 60,
+      "longWalkSeconds": 1200,
+      "crossingRadiansPerSecond": 0.6,
+      "circlingRadiansPerSecond": 2,
+      "circlingPhaseRadians": 1,
+      "circleBracePeriodsTicks": [
+        100,
+        70
+      ],
+      "circleBraceTicks": 20,
+      "togglePeriodsTicks": [
+        2,
+        3
+      ],
+      "randomActionSeconds": 0.1,
+      "randomBraceChance": 0.25,
+      "maximumBodyOverlapM": 0.005,
+      "maximumFloorErrorM": 0.001,
+      "maximumSpanErrorM": 0.01,
+      "maximumSegmentErrorM": 0.02,
+      "maximumSpeedMultiplier": 4,
+      "minimumWalkSpeedFraction": 0.8
+    },
+    "phase2": {
+      "defaultScene": "crossing",
+      "defaultPlayers": 4,
+      "routeHalfWidth": 12,
+      "routeStartZ": -16,
+      "finishZ": 950,
+      "finishApronM": 30,
+      "crevasseStarts": [
+        8,
+        230,
+        480,
+        740
+      ],
+      "crevasseWidth": 2.8,
+      "crevasseDepth": 12,
+      "terminalY": -16,
+      "bridgeHalfWidth": 1.1,
+      "bridgeThickness": 0.25,
+      "bridgeLaneOffsets": [
+        0,
+        -2.2,
+        2.2
+      ],
+      "bridgeCapacityBodyWeights": [
+        0.62,
+        0.92
+      ],
+      "alternateBridgeCapacityBodyWeights": [
+        4,
+        6
+      ],
+      "bridgeOverloadSeconds": 0.32,
+      "bridgeRecoveryRate": 2,
+      "bridgeCueStartFraction": 0.65,
+      "bridgeWarningSeconds": 0.4,
+      "rescueLipZ": 0,
+      "rescueSafeOffset": 0.8,
+      "rescueFallerAdvance": 0.7,
+      "rescueSpacing": 1.6,
+      "groundContactTolerance": 0.045,
+      "wallContactTolerance": 0.05,
+      "collisionSkin": 0.004,
+      "bodyContactSkinM": 0.004,
+      "contactSeparationM": 0.000001,
+      "contactPredictionM": 0.002,
+      "collisionSweepPasses": 4,
+      "solverIterations": 12,
+      "maximumSolverIterations": 1024,
+      "solverToleranceM": 0.005,
+      "ropeContactBends": 4,
+      "ropeProjectionLineSearchSteps": 12,
+      "iceTractionMultiplier": 0.3,
+      "wallClimbSpeed": 0.65,
+      "wallDescendSpeed": 1,
+      "wallAcceleration": 2.5,
+      "wallPressSpeed": 0.45,
+      "wallNormalEffortN": 450,
+      "wallFriction": 1,
+      "haulSpeed": 0.22,
+      "walkingAcceleration": 3,
+      "ledgeReachAboveHeadM": 0.05,
+      "ledgePullEffortN": 1050,
+      "rescueSlackTargetM": 0.05,
+      "rescueCatchSeconds": 0.8,
+      "wallRopeSupportFraction": 0.08,
+      "fallDepth": 0.2,
+      "fallSpeed": 0.5,
+      "catchSpeed": 0.35,
+      "catchConfirmSeconds": 0.12,
+      "recoverySupportFraction": 0.75,
+      "recoveryConfirmSeconds": 0.3,
+      "catchHighlightSeconds": 0.5,
+      "energyToleranceJ": 0.01,
+      "mechanicsProbeSeconds": 10,
+      "mechanicsLoadSeed": 2000,
+      "inputChangeEpsilon": 0.08,
+      "usefulMotionMps": 0.04,
+      "maximumIncidents": 64,
+      "maximumEvents": 256
+    },
+    "historicalDiagnostics": {
+      "fixedFeatureSweeps": 256,
+      "wallClimbSpeed": 1.6,
+      "wallDescendSpeed": 1.8,
+      "wallAcceleration": 5,
+      "wallPressSpeed": 0.45,
+      "wallNormalEffortN": 900,
+      "wallFriction": 1.3
+    },
+    "phase2Evidence": {
+      "targets": {
+        "rescueSeconds": [
+          10,
+          20
+        ],
+        "firstAttemptRecoveryFraction": [
+          0.6,
+          0.75
+        ],
+        "eventualRecoveryFraction": [
+          0.88,
+          0.92
+        ],
+        "fourIncidentCompletionFraction": [
+          0.6,
+          0.72
+        ],
+        "incidentsPerRun": [
+          3,
+          6
+        ],
+        "firstFallBeforeSeconds": 45,
+        "runSeconds": [
+          300,
+          600
+        ],
+        "maximumIdleFraction": 0.2
+      },
+      "trajectoryRuns": 1000,
+      "smokeTrajectories": 10,
+      "repairScreen": {
+        "seeds": [
+          1701,
+          1702,
+          1703,
+          1706
+        ],
+        "seconds": 60,
+        "shards": 2,
+        "maximumWallMs": 3600000
+      },
+      "teamSizes": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "crossingSeconds": 600,
+      "rescueSeconds": 60,
+      "actionSeconds": 0.5,
+      "steeringSeconds": 1.5,
+      "followingSeconds": 1,
+      "badWrongWayChance": 0.2,
+      "recoveryBraceCycleSeconds": 2,
+      "recoveryBraceFraction": 0.5,
+      "movementEpsilonM": 0.01,
+      "inputChangeEpsilon": 0.05,
+      "lifecycleRuns": 25,
+      "lifecycleSeconds": 2,
+      "replaySeconds": 20,
+      "maximumTimingBytes": 268435456,
+      "maximumReportBytes": 16777216,
+      "maximumSavedTapes": 20,
+      "maximumTapeOutputBytes": 33554432,
+      "parallel": {
+        "workers": 4,
+        "maximumWallMs": 86400000,
+        "maximumWorkerRssBytes": 536870912,
+        "minimumInitialAvailableBytes": 3758096384,
+        "minimumOngoingAvailableBytes": 1073741824,
+        "availableMemoryRuntime": {
+          "node": "26.5.0",
+          "uv": "1.52.1",
+          "platform": "darwin"
+        },
+        "watchdogHeapMiB": 16,
+        "timingChunkSamples": 4096,
+        "maximumMetadataBytes": 1048576,
+        "maximumFinalReportBytes": 33554432,
+        "maximumResourceBytes": 16777216,
+        "resourceRetainMs": 60000,
+        "maximumOutputBytes": 268435456
+      }
+    },
+    "clientLatency": {
+      "teamSizes": [
+        2,
+        6
+      ],
+      "authorityHz": [
+        30,
+        60
+      ],
+      "addedRttMs": [
+        100,
+        250
+      ],
+      "sampleSeconds": 10,
+      "jitterMs": 0
+    },
+    "localLoad": {
+      "smokeRooms": 10,
+      "smokeSeconds": 30,
+      "largeRooms": 300,
+      "largeSeconds": 30,
+      "generatorProcesses": 4,
+      "maximumRooms": 300,
+      "maximumSeconds": 120,
+      "warmupMs": 2000,
+      "startLeadMs": 1000,
+      "sampleMs": 1000,
+      "startupTimeoutMs": 120000,
+      "maximumWallMs": 180000,
+      "shutdownGraceMs": 3000,
+      "maximumTotalRssBytes": 3221225472,
+      "minimumFreeMemoryBytes": 536870912,
+      "authorityHeapMiB": 1024,
+      "generatorHeapMiB": 256,
+      "maximumReportBytes": 67108864,
+      "maximumChildLogBytes": 16384,
+      "maximumInputBufferedBytes": 16384,
+      "maximumLatePeriods": 4,
+      "lifecycleCycles": 3,
+      "lifecycleRooms": 2,
+      "lifecycleHoldMs": 250,
+      "slowReaderStartFraction": 0.25,
+      "slowReaderDurationFraction": 0.25,
+      "churnStartFraction": 0.5,
+      "churnEveryRooms": 10,
+      "probePollMs": 25,
+      "eventLoopResolutionMs": 20
+    },
+    "clip": {
+      "seconds": 15,
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "videoBitsPerSecond": 800000,
+      "audioBitsPerSecond": 48000,
+      "maximumBytes": 2097152,
+      "retentionDays": 7,
+      "permanentSlots": 1,
+      "uploadsPerIdentityPerUtcDay": 3,
+      "globalBytes": 268435456,
+      "uploadsEnabled": false
+    },
+    "later": {
+      "idleBotSeconds": 20,
+      "reconnectSeconds": 60,
+      "attachWaitSeconds": 30,
+      "stableTensionFraction": 0.2,
+      "stableSeconds": 0.5,
+      "publicTeamSize": 4,
+      "minimumVoteTeam": 4,
+      "agreeingVotes": 3,
+      "dailyAttempts": 3
+    },
+    "gates": {
+      "tuningSessions": 6,
+      "sessionsPerFamily": 2,
+      "diagnosticSessions": 3,
+      "freePlayMinutes": 10
+    },
+    "tools": {
+      "operations": {
+        "startupTimeoutMs": 120000,
+        "tunnelStartupTimeoutMs": 90000,
+        "probeTimeoutMs": 3000,
+        "pollMs": 250,
+        "shutdownGraceMs": 3000,
+        "stopTimeoutMs": 15000,
+        "downloadTimeoutMs": 120000,
+        "maximumTunnelLogBytes": 16384,
+        "maximumDownloadBytes": 67108864
+      },
+      "cloudflaredVersion": "2026.8.3",
+      "cloudflaredSha256": {
+        "arm64": "40c9144d86df8937c5b43293a1f7d2d2107029aa74725023dd46b1b27154352f",
+        "x64": "61e1316266a00fd70ce40da011d612badc805367fb65293dd1925f938f704c99"
+      }
+    }
+  },
+  "familyDefinitions": {
+    "balanced": {
+      "label": "Intermediate / strong brace",
+      "ropeLength": 3.6,
+      "ropeDrag": 2.5,
+      "braceMassMultiplier": 6,
+      "braceFriction": 1.6
+    },
+    "short": {
+      "label": "Short / damped",
+      "ropeLength": 3,
+      "ropeDrag": 5,
+      "braceMassMultiplier": 4,
+      "braceFriction": 1.2
+    },
+    "loose": {
+      "label": "Long / momentum",
+      "ropeLength": 4.5,
+      "ropeDrag": 1.2,
+      "braceMassMultiplier": 4,
+      "braceFriction": 1.2
+    }
+  },
+  "machine": {
+    "platform": "darwin",
+    "release": "27.0.0",
+    "arch": "arm64",
+    "cpu": "Apple M4",
+    "availableCpus": 10,
+    "totalMemoryBytes": 17179869184,
+    "node": "v26.5.0"
+  }
+}

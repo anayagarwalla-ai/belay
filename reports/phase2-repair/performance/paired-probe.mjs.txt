@@ -1,0 +1,21 @@
+import '../../scripts/phase2-native-hooks.mjs';
+import {performance} from 'node:perf_hooks';import {writeFileSync} from 'node:fs';import assert from 'node:assert/strict';
+const original=await import('../../shared/simulation.ts'),candidate=await import('./perf-candidate-3/shared/simulation.ts');
+const {trajectorySchedule,Phase2Policy}=await import('../../scripts/phase2-policies.ts');
+await original.initializePhysics();await candidate.initializePhysics();
+const cases=trajectorySchedule(1000).filter(s=>[24,512].includes(s.ordinal)),results=[];
+const started=Date.now(); const {TUNING}=await import('../../tuning.ts');
+for(const spec of cases){const a=new original.BelaySimulation(spec),b=new candidate.BelaySimulation(spec),policy=new Phase2Policy(spec),timings=[[],[]];let frames=0;
+ try{for(let t=0;t<Math.min(spec.horizonSeconds,200)*spec.tickHz;t++){
+ if(Date.now()-started>15*60*1000)throw new Error('Paired probe deadline exceeded');
+ if(process.memoryUsage().rss>TUNING.phase2Evidence.parallel.maximumWorkerRssBytes || process.availableMemory()<TUNING.phase2Evidence.parallel.minimumOngoingAvailableBytes+TUNING.phase2Evidence.parallel.maximumWorkerRssBytes)throw new Error('Paired probe memory guard reached');
+ const input=policy.inputs(a.snapshot());
+ for(const k of t%2?[1,0]:[0,1]){const s=performance.now();(k?b:a).step(input);timings[k].push(performance.now()-s);}
+ const {serverTime:at,...left}=a.snapshot(),{serverTime:bt,...right}=b.snapshot();assert.deepEqual(right,left,`State changed at ordinal ${spec.ordinal} tick ${a.tick}`);frames++;
+ if(left.run.status==='failed'||left.run.status==='complete')break;
+ }
+ const quantiles=v=>{v.sort((x,y)=>x-y);return {p50:v[Math.ceil(v.length*.5)-1],p95:v[Math.ceil(v.length*.95)-1],p99:v[Math.ceil(v.length*.99)-1],max:v.at(-1),mean:v.reduce((a,b)=>a+b,0)/v.length}};
+ const r={ordinal:spec.ordinal,frames,allStepStatesExactlyEqual:true,originalMs:quantiles(timings[0]),candidateMs:quantiles(timings[1])};results.push(r);console.log(JSON.stringify(r));
+ }finally{a.dispose();b.dispose();}
+}
+writeFileSync('work/phase2-repair/paired-perf-3-result.json',JSON.stringify({scope:'Exploratory alternating paired local steps; 200-second cap. All snapshot fields except serverTime compared at every authoritative tick. Full frozen benchmark and preview co-running; not capacity evidence.',wallSeconds:(Date.now()-started)/1000,results},null,2)+'\n');

@@ -13,7 +13,7 @@ export function IncidentEvidence({ snapshot }: { snapshot: Snapshot }) {
   const spans = ropeSpans(snapshot);
   return <details className="bench evidence"><summary>Incident and role evidence · {incidents.length} recent {incidents.length === 1 ? 'episode' : 'episodes'}</summary>
     <div className="evidence-content">
-      <p>Server observations of active effort, slack take-up and the planted catch. Passive dragging and a static hold after the catch count as idle. These mechanical proxies cannot establish agency or pass the human rescue check.</p>
+      <p>Server observations of input, motion, slack take-up and the planted catch. Dragging without input and a static hold after the catch count as idle. Holding a direction while being pulled can still count as effort; this proxy cannot establish useful work or pass the human rescue check.</p>
       {incident ? <>
         <p><strong>Incident {incident.id} · {incident.status}</strong> · P{incident.playerIds.map(id => id + 1).join(', P')} · {incident.cascades} additional falls in this episode<br/>
           First fall tick {incident.fallTick} · {incident.recoveredTick === null ? 'Still open / unrecovered' : `Recovered tick ${incident.recoveredTick}`} · first-attempt proxy {incident.status === 'active' ? 'pending' : incident.firstAttemptSuccess ? 'yes' : 'no'}</p>

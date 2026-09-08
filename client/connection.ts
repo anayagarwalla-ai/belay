@@ -229,7 +229,7 @@ export class BelayConnection {
       phase: TUNING.phase, gateVerdict: 'NOT EVALUATED', tuning: TUNING, familyDefinitions: FAMILIES,
       connection, client, server, impairment, state, lastClosedSession, presentation, view,
       rescueVerdict: 'NOT EVALUATED',
-      roleEvidenceNote: 'Role active/idle/unchanged-hold seconds are mechanical/input proxies. Active effort, self-contributed slack take-up and a planted catch can accrue roleActiveSeconds; passive dragging and stationary brace after the catch count as idle. These observations cannot establish agency or pass the human rescue stop.',
+      roleEvidenceNote: 'Role active/idle/unchanged-hold seconds are mechanical/input proxies. Directional input with motion and load, self-contributed slack take-up, climbing, changed loaded input and a planted catch can accrue roleActiveSeconds. Sustained dragging without input and stationary brace after the catch count as idle. Holding a direction while being pulled can still count; this does not establish useful work, causal contribution or a passed human rescue stop.',
       captureChange: { sessionChanged: generation !== this.generation, sceneChanged: state?.epoch !== this.latest?.epoch,
         serverSceneMatches: serverState ? serverState.epoch === state?.epoch : null },
       connectionAtFinish: { connected: Boolean(this.room?.connection.isOpen), sessionNumber: this.sessionNumber, sceneEpoch: this.latest?.epoch ?? null } };

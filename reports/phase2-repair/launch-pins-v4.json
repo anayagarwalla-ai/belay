@@ -1,0 +1,18 @@
+{
+  "schema": "belay-repair-launch-pins-1",
+  "generatedAt": "2026-09-08T17:00:11.682Z",
+  "candidateCommit": "fdc6ae86b2c76f2255bcbbc2e1df5ab3dffa46c1",
+  "source": "ca02475baf9778679f764b3dc93e5d9027d93ef47c24fed0c7d2de5cc026a2a9",
+  "schedule": "598d0502785b45555c81f8cd54cebabc2fa9802b928d33a5715d7be39b2d2fba",
+  "runtime": "6a090feeb9b10a0da6515d99844c284468b271f2cc47ed5ecd7daf2310d19a24",
+  "version": "phase2-repair-4",
+  "planned": 1000,
+  "memory": {
+    "rawFreeBytes": 1022951424,
+    "availableBytes": 4043882496,
+    "node": "26.5.0",
+    "uv": "1.52.1",
+    "platform": "darwin"
+  },
+  "preflightRefusal": null
+}

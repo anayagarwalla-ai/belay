@@ -1,0 +1,22 @@
+{
+  "status": "COMPLETE",
+  "phase": "exit",
+  "completed": 250,
+  "assigned": 250,
+  "persistedSamples": 1177926,
+  "observedSamples": 1177926,
+  "recordBytes": 784431,
+  "artifacts": {
+    "timingsSha256": "078a0634c4e1bc6d13ea7d5b3d0a5a83903f7d9369c2cef82d22a205a9874c11",
+    "recordsSha256": "5d4609333f6ac2874d84820365381666fb0ce62ade4eab58710fdd0017966760"
+  },
+  "failure": null,
+  "memory": {
+    "rss": 155303936,
+    "heapTotal": 82083840,
+    "heapUsed": 12745848,
+    "external": 48401562,
+    "arrayBuffers": 37815143
+  },
+  "at": "2026-09-08T19:26:31.364Z"
+}

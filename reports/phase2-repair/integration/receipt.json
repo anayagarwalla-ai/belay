@@ -1,0 +1,252 @@
+{
+  "generatedAt": "2026-09-08T19:43:30.037537+00:00",
+  "baseCommit": "fdc6ae86b2c76f2255bcbbc2e1df5ab3dffa46c1",
+  "version": "phase2-repair-4",
+  "integratedMeasuredPathManifestSha256": "5a791973e6e70e1513c4fe9173fc23876db31fb77e694f9634381e4fd5644e28",
+  "sourceFiles": [
+    {
+      "path": "package-lock.json",
+      "sha256": "91d6a3f4a4fc558039673a2414202e77765802b7615117061a261cebd0f68bf3"
+    },
+    {
+      "path": "package.json",
+      "sha256": "22901aef0f551ac14b67171a1ebe86ad1c1a2fd928b73d73f5bb51a587c5a11a"
+    },
+    {
+      "path": "scripts/phase2-analysis.ts",
+      "sha256": "88c285b90893d67ab78caa13b0a9e80a389616543aeabafaf6d429ab20da24f8"
+    },
+    {
+      "path": "scripts/phase2-bench.ts",
+      "sha256": "7c1d53e664394f1e2e0fbc5439194f31827efbc02587b9538146e6e454a517f4"
+    },
+    {
+      "path": "scripts/phase2-bridge-load-check-entry.mjs",
+      "sha256": "a82338d25e041f671660425642dcadcabe26d9c36c06131ae9dc5337ccc02e47"
+    },
+    {
+      "path": "scripts/phase2-bridge-load-check.ts",
+      "sha256": "fd5b3ffb97d0b08df9aba18439f8e27c815366dcf7ddad14aeb60559794c4c3d"
+    },
+    {
+      "path": "scripts/phase2-cost.ts",
+      "sha256": "2150415741907f79256477c3f5ca44e3de6244299317d90d848df6df482b4b64"
+    },
+    {
+      "path": "scripts/phase2-fixed-feature-probe.ts",
+      "sha256": "0b3769d1df4b787eb1056bac8daee174d3ed35f57e1c76351c10b9c860f3feb4"
+    },
+    {
+      "path": "scripts/phase2-harness.ts",
+      "sha256": "b7a44ff4c0d254db9d2603247a213e5804bf51f4d27ec89698eff6733c4114f0"
+    },
+    {
+      "path": "scripts/phase2-independent-final-validate.mjs",
+      "sha256": "840c46562b77fd330b35603134f4b769b28bcb97cd99424cde5f9c660a0abc32"
+    },
+    {
+      "path": "scripts/phase2-motor-energy-probe.ts",
+      "sha256": "2cbc2af344a9cf61e1608baed865cdb036459ebf3e31a456cb165338803abef1"
+    },
+    {
+      "path": "scripts/phase2-native-hooks.mjs",
+      "sha256": "e7d9469c73e679ce850a18416538b7eefc7c955e0750f4698c8b79cc4853ff16"
+    },
+    {
+      "path": "scripts/phase2-nonlinear-probe.ts",
+      "sha256": "43cf4fccf99aa36ed653b003b115483ec48910b2e18426701869c5bb9a7ecbd3"
+    },
+    {
+      "path": "scripts/phase2-parallel-core.ts",
+      "sha256": "d796129f25e6db5c9e423c20c62d15dcefa1101d875065618781950bc6a7cad1"
+    },
+    {
+      "path": "scripts/phase2-parallel-entry.mjs",
+      "sha256": "fed6e7e9bb0a83d553a90a358384a2828ba98c62c2ce19cc9cdcc06fa9312e8f"
+    },
+    {
+      "path": "scripts/phase2-parallel-supervisor.ts",
+      "sha256": "24d20ef1d6c707fa29b81b0d5f6fe3fcf75e09a4c2445d9f0e4ae5dbd6517881"
+    },
+    {
+      "path": "scripts/phase2-parallel-watchdog.ts",
+      "sha256": "a144ab4bfb35339bdbd6b5d7596ae0695e072bb7458c73c8f66e16b199bd97df"
+    },
+    {
+      "path": "scripts/phase2-parallel-worker-entry.mjs",
+      "sha256": "66a3c91b267152bd7869a654fcad6fc05deab81e67a3215672b5e2c7eb48f8de"
+    },
+    {
+      "path": "scripts/phase2-parallel-worker.ts",
+      "sha256": "f45453a29b47f488ad65ae445042a85b092f809cf89e841e97f9e937712aae7b"
+    },
+    {
+      "path": "scripts/phase2-parallel.ts",
+      "sha256": "8d5500178eef78521ebebff017b5d013db08c69fddf0543f951cc8cb3e4b4568"
+    },
+    {
+      "path": "scripts/phase2-performance.ts",
+      "sha256": "8f705c7009549a44bb6084746cba283f8a28d6f87515a44e1ac54461fa6bb876"
+    },
+    {
+      "path": "scripts/phase2-policies.ts",
+      "sha256": "1bd5dd96fd33c0cff68ab3612bd469c2c1e64f49e3d103aaf0559a8aa4527cba"
+    },
+    {
+      "path": "scripts/phase2-repair-screen.ts",
+      "sha256": "9d44618f8a4e560e42e708bfa6aaa78e180b1282f87d48e5a7d5f623ee4c862b"
+    },
+    {
+      "path": "scripts/phase2-replay.ts",
+      "sha256": "a2973aec36ec30139e46bc60451385e1032bf07d71481e3d61868686c14e7706"
+    },
+    {
+      "path": "scripts/phase2-report.ts",
+      "sha256": "b0e453d5bb632d824508496b6bbd9d19abbc906ef5fdbd7c60f20726b08b95cc"
+    },
+    {
+      "path": "scripts/phase2-stress.ts",
+      "sha256": "1b0894f31780b95c93fe863684ddee745f89ca6959c7fbed77ac873565d0fb62"
+    },
+    {
+      "path": "scripts/phase2-topology-probe.ts",
+      "sha256": "d5f6746c7ce752e573170a5bbb3c32e31670981aa4a6b89042dd61d3fe472ec0"
+    },
+    {
+      "path": "scripts/phase2-warning-attribution-probe.ts",
+      "sha256": "bb6605a6097e00480592cedf3f753debdb312ffe352f52b51c1160495dd095f8"
+    },
+    {
+      "path": "shared/bridge-load-observer.ts",
+      "sha256": "56191d1d320fdfccc8c6ab22de0de4f6acb808f1a7a6689540ccee98ba1e0285"
+    },
+    {
+      "path": "shared/contact-geometry.ts",
+      "sha256": "7dbbd2d7c3a1c709a5653a5d18ae89c6f9f12d4883c089e4ae49b33580fa1aac"
+    },
+    {
+      "path": "shared/expedition-movement.ts",
+      "sha256": "c4d50dad911be26f6ead273c500689319507d7f5fa6bbb2f5f72f5a4ce8a5ffe"
+    },
+    {
+      "path": "shared/expedition-simulation.ts",
+      "sha256": "b9a24255a2d9c9a8b7965e58bcc796b56a98f068ba2a12ad7ea9eb5d206ce20e"
+    },
+    {
+      "path": "shared/flat-simulation.ts",
+      "sha256": "07ebd2d5902fc9d6a5060c2840f5de5c24443573da9fa652d27a819a95dffc9d"
+    },
+    {
+      "path": "shared/movement.ts",
+      "sha256": "de8cfb54596c8741082e3ef40fc2550cfd7494c30761dc8c72889f48227ad45b"
+    },
+    {
+      "path": "shared/physical-diagnostics.ts",
+      "sha256": "0b55613cb72e95ec99081c17b9385fececc9c9425a553b3ba0d7e7583a701670"
+    },
+    {
+      "path": "shared/protocol.ts",
+      "sha256": "1a9dd92feb961fbc61bd27ef3f515d07d3d25f49c15daa6d8f0b7b66ef4f228c"
+    },
+    {
+      "path": "shared/rope-projection.ts",
+      "sha256": "c5eb039ee38bdd42d62f531017cc3bf2d9a98d3d73b8706959987086c6be2a00"
+    },
+    {
+      "path": "shared/rope-route.ts",
+      "sha256": "a3ba2d15481b1e712c94d654cf49578999715cea08ccc1c0fa21d7504712ebc8"
+    },
+    {
+      "path": "shared/simulation.ts",
+      "sha256": "2005f7898c55914a35f1bba90ed32bc8127405c0179d1a37e42eb63b13e521dc"
+    },
+    {
+      "path": "shared/stats.ts",
+      "sha256": "18555b71109353b5ad45db0596484d9f5b9b29f5e9260196f667984e5aa57d87"
+    },
+    {
+      "path": "shared/terrain.ts",
+      "sha256": "50003dfd38d6ddfde222b68b75c4f456b68297d68b45abad03c7575fcd38bd81"
+    },
+    {
+      "path": "shared/wall-motor.ts",
+      "sha256": "0b58769360f0eb6c2add578e2127696be338c0f7b3d99ff3841e6ad03c7fc5c7"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "fc47536e5acdc177d49e0301a5c2c4ba5fdf706ca52e955f6f9524a02cfb67af"
+    },
+    {
+      "path": "tuning.ts",
+      "sha256": "36922c6f318fa76e33c9df1616c9556e7757a57f2810c44d532cb7fc6c82cf0f"
+    },
+    {
+      "path": "client/IncidentEvidence.tsx",
+      "sha256": "4d4a4b772a6b396131f6e57c5737602be0e68cbdc645ed52f94e60f025209b31"
+    },
+    {
+      "path": "client/connection.ts",
+      "sha256": "48019dd4566e87cf06c9e861cb75ed100711adbb23ec6014e6e2c9ed8906eac5"
+    },
+    {
+      "path": "client/README.md",
+      "sha256": "ca05e22055305f8c7163c2b793ba50ea13c271b4ce0ccd96ee64614606796151"
+    },
+    {
+      "path": "vitest.config.ts",
+      "sha256": "285252690d674e607e521efcb175db6b06e81850244e53c4b25103f058f475a2"
+    }
+  ],
+  "tests": {
+    "passed": 299,
+    "expectedFailure": 1,
+    "files": 32,
+    "skipped": 0,
+    "expectedFailureScope": "Unapplied historical fixed-feature projector. No live engine expected failure.",
+    "durationSeconds": 73.17
+  },
+  "typecheck": "PASS",
+  "lint": "PASS",
+  "build": "PASS; upstream warnings in log",
+  "historicalIntegrityChecks": 75,
+  "independentFullMatrix": "VALIDATED_FINAL_MATRIX; 1000 records, four worker exits, 4728413 raw samples, pre-cleanup source",
+  "performance": "Two simulation files match the saved paired candidate exactly. Observer adapted after a full-suite failure; all final tests pass. Matrix timings remain pre-cleanup.",
+  "browser": "Fresh authority/frontend start, joined loopback, held W then Space+W then released both. Tick/ack advanced, braced motor slowed movement, released input settled. No browser errors. Screenshot inspected; browser closed, loopback preview remains running.",
+  "energyLimit": "Post-commit outlier audit residual 0.0110103 J vs nominal 0.010 J; recorded precision overshoot, not exact energy conservation.",
+  "humanGate": "NOT EVALUATED / NOT PASSED",
+  "production300Rooms": "NOT TESTED",
+  "logs": [
+    {
+      "path": "tests-final.log",
+      "sha256": "2d7782f16451d2ab1383ae06ba70b1217b7428d8f6c1aa85258866b675d4ccfa"
+    },
+    {
+      "path": "tests-before-observer-fix.log",
+      "sha256": "02ffd89c3f6bddaad909f08f67d21501c986b17b953ad771f4e712ef65242e1f"
+    },
+    {
+      "path": "observer-tests-final.log",
+      "sha256": "37260658513bb537b047748c6b3f0435e294fb3599cbd474fca0e19853c64384"
+    },
+    {
+      "path": "observer-test-intermediate-failure.log",
+      "sha256": "31b38b38a2627497825c921d244684789b9f5853be952464f2d3627e7bf295de"
+    },
+    {
+      "path": "typecheck.log",
+      "sha256": "332ca5cdd1cce4a89252107f9619db6e237f3a287629bcfe353c6ab7352f9d2f"
+    },
+    {
+      "path": "lint.log",
+      "sha256": "e2c09f83d1437bf0d17e070708882490477b8693341e3ad7ebc626e50de46ed0"
+    },
+    {
+      "path": "build.log",
+      "sha256": "9dc16ebf5723560c79d982857d7f3acd05fd200e40f796e968f6adad37ee4c8d"
+    },
+    {
+      "path": "historical-integrity.log",
+      "sha256": "2b9f16d8dc0325c82ae4eac5f09b4c0b101b9d9a0c11af044e4281c8b024008d"
+    }
+  ]
+}

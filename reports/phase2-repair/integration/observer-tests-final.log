@@ -1,0 +1,11 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'vitest' run --config vitest.config.ts tests/phase2-motor-energy.test.ts
+
+ RUN  v5.0.0 /Users/anayagarwalla/Documents/ChatGPT/testastra
+
+
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  12:37:28
+   Duration  875ms (tests 88%, transform 9%, import 3%)
+

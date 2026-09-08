@@ -1,0 +1,1 @@
+The second experiment also skipped a redundant route check for straight material links under isotropic mobility. Rejected: the per-tick strict comparison found a tension-display difference at ordinal 24, tick 3688 (0.011323769001363787 versus 0.011323769001363782). That shortcut is absent from this candidate. Root gameplay code and the frozen campaign were unchanged.

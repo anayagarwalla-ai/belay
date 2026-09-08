@@ -1,0 +1,34 @@
+npm notice run belay@0.1.0 test
+npm notice run vitest run --config vitest.config.ts
+
+ RUN  v5.0.0 /Users/anayagarwalla/Documents/ChatGPT/testastra
+
+ ❯ tests/phase2-motor-energy.test.ts (9 tests | 6 skipped) 95ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/phase2-motor-energy.test.ts > recorded motor and energy defects on current mechanics
+TypeError: Cannot read properties of undefined (reading '1')
+ ❯ mobility scripts/phase2-motor-energy-probe.ts:174:34
+    172|             w.x /= FAMILIES[sim.family].braceMassMultiplier; w.z /= FA…
+    173|           }
+    174|           for (const normal of e.nodeNormals[id]) if (sign * dot(direc…
+       |                                  ^
+    175|             for (const axis of axes) if (normal[axis]) w[axis] = 0;
+    176|           return { mass, w };
+ ❯ ExpeditionSimulation.e.constrain scripts/phase2-motor-energy-probe.ts:178:19
+ ❯ ExpeditionSimulation.substep shared/expedition-simulation.ts:205:16
+ ❯ ExpeditionSimulation.e.substep scripts/phase2-motor-energy-probe.ts:213:5
+ ❯ ExpeditionSimulation.step shared/expedition-simulation.ts:135:78
+ ❯ BelaySimulation.step shared/simulation.ts:38:54
+ ❯ replay tests/phase2-motor-energy.test.ts:16:11
+ ❯ tests/phase2-motor-energy.test.ts:28:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 31 passed (32)
+      Tests  293 passed | 1 expected fail | 6 skipped (300)
+   Start at  12:34:13
+   Duration  76.18s (tests 99%, transform 1%, import 1%)
+

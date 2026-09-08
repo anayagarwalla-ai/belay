@@ -1,0 +1,163 @@
+{
+  "validationStatus": "VALIDATED_FINAL_MATRIX",
+  "complete": true,
+  "directory": "/Users/anayagarwalla/Documents/ChatGPT/testastra/reports/phase2-parallel-2026-09-08T17-00-11.762Z-26d223b4-42bc-47c9-b7c3-c2588819c95f",
+  "expected": {
+    "schema": "belay-repair-launch-pins-1",
+    "generatedAt": "2026-09-08T17:00:11.682Z",
+    "candidateCommit": "fdc6ae86b2c76f2255bcbbc2e1df5ab3dffa46c1",
+    "source": "ca02475baf9778679f764b3dc93e5d9027d93ef47c24fed0c7d2de5cc026a2a9",
+    "schedule": "598d0502785b45555c81f8cd54cebabc2fa9802b928d33a5715d7be39b2d2fba",
+    "runtime": "6a090feeb9b10a0da6515d99844c284468b271f2cc47ed5ecd7daf2310d19a24",
+    "version": "phase2-repair-4",
+    "planned": 1000,
+    "memory": {
+      "rawFreeBytes": 1022951424,
+      "availableBytes": 4043882496,
+      "node": "26.5.0",
+      "uv": "1.52.1",
+      "platform": "darwin"
+    },
+    "preflightRefusal": null
+  },
+  "planned": 1000,
+  "validatedRecords": 1000,
+  "validatedWorkerCloseReceipts": 4,
+  "summary": {
+    "trajectories": 1000,
+    "crossingTrajectories": 500,
+    "complete": 166,
+    "failed": 468,
+    "fixtureRecovered": 134,
+    "censored": 232,
+    "errors": 0,
+    "incompleteEvidence": 0,
+    "executedTicks": 4728413,
+    "stepAttempts": 4728413
+  },
+  "isolatedStepMs": {
+    "count": 4728413,
+    "min": 0.17458399944007397,
+    "p50": 5.719166999682784,
+    "p95": 15.477291999850422,
+    "p99": 21.640583000145853,
+    "max": 1237.0617499994114,
+    "mean": 7.079190019541855
+  },
+  "typedTimingAllocationBytes": 38004072,
+  "artifactReceipts": {
+    "status.json": {
+      "bytes": 687,
+      "sha256": "fdadba150d9bcfd9aa36480a8bbb54391beb11b2a69d6c65c0f403a9965a31ff"
+    },
+    "manifest.json": {
+      "bytes": 512980,
+      "sha256": "a210bb51c3090d9bf2a47cbc932af831e5c286a0cdd2064b9548e755f2186588"
+    },
+    "result.json": {
+      "bytes": 5467772,
+      "sha256": "1088eff917f7a1435b46ce974688d05c84d36f6d42fe439caba998440080a2d2"
+    },
+    "result.md": {
+      "bytes": 11305,
+      "sha256": "9974b5445f709e388b78a1f58af8f98543c5fbcb882a9ce1504ee8c98fcee07e"
+    },
+    "worker-0/job.json": {
+      "bytes": 628,
+      "sha256": "3822486cf57953ad6f9b201ecf908299c49fb53a363023806a456314b4442ee1"
+    },
+    "worker-0/source.json": {
+      "bytes": 37255,
+      "sha256": "70fc4f31f1be4a3ce451376625d5ae18dfa7898fc4890d49e1f6f896126987e5"
+    },
+    "worker-0/source-final.json": {
+      "bytes": 36970,
+      "sha256": "64ea44ec2c1d15d1dd2363f73d22ab652c4f80542e3c75ff72f179f672330979"
+    },
+    "worker-0/status.json": {
+      "bytes": 574,
+      "sha256": "1ae64bb64694a6daeef5248a86fc16c0d1d9665058701c44e8f6acd2347bd7e1"
+    },
+    "worker-1/job.json": {
+      "bytes": 628,
+      "sha256": "d4e5e789a87a8a1e8743380793b2a8e490ac8ce237c0e5bdeaf2855fc8e142f8"
+    },
+    "worker-1/source.json": {
+      "bytes": 37255,
+      "sha256": "2176e591986cf0bf346b7ad7edfc4c21fc42ad8586d6945eceb4dc76f370abd8"
+    },
+    "worker-1/source-final.json": {
+      "bytes": 36970,
+      "sha256": "64ea44ec2c1d15d1dd2363f73d22ab652c4f80542e3c75ff72f179f672330979"
+    },
+    "worker-1/status.json": {
+      "bytes": 574,
+      "sha256": "6fa78327706d63d62d5a60439bf8c8a1143f4cfc9f76732e2bf5e6b36d1db5bc"
+    },
+    "worker-2/job.json": {
+      "bytes": 628,
+      "sha256": "280f9275251c097026c250cb97a8f283236669c0e30ac9e8c37088fa7932ba7b"
+    },
+    "worker-2/source.json": {
+      "bytes": 37255,
+      "sha256": "80d9acb17549e20fc45f89312d8d60a7a29ab77d2ba7484880a9ef0a15ea2e32"
+    },
+    "worker-2/source-final.json": {
+      "bytes": 36970,
+      "sha256": "64ea44ec2c1d15d1dd2363f73d22ab652c4f80542e3c75ff72f179f672330979"
+    },
+    "worker-2/status.json": {
+      "bytes": 574,
+      "sha256": "4b62c7f65a43a2d14b0ed2c318b2c268b1141740be2936ebbc305c00ae64e841"
+    },
+    "worker-3/job.json": {
+      "bytes": 628,
+      "sha256": "26aaf35e8091b57b3f717aea3b23ec412c9e70cc2d9ddff20db181565a1a3a45"
+    },
+    "worker-3/source.json": {
+      "bytes": 37255,
+      "sha256": "180ea42a4a40f5ae207999a4e806c8e1c73b57f80d3f0a4ea72619c398579d71"
+    },
+    "worker-3/source-final.json": {
+      "bytes": 36970,
+      "sha256": "64ea44ec2c1d15d1dd2363f73d22ab652c4f80542e3c75ff72f179f672330979"
+    },
+    "worker-3/status.json": {
+      "bytes": 574,
+      "sha256": "a5577c8fa57ac80dc52516f46ad7bd8094d3904d64e2826d6163a2740f7a893c"
+    },
+    "worker-0/records.jsonl": {
+      "bytes": 784391,
+      "sha256": "8b02f18f68892d0fddc9a70a10a55897449724ec44a7cc8e09b6c2d0abb7ad02"
+    },
+    "worker-1/records.jsonl": {
+      "bytes": 786914,
+      "sha256": "e384a632e07c37ef725febe436515d30f61ae86bef5b4e88439e5bc4d99b8c76"
+    },
+    "worker-2/records.jsonl": {
+      "bytes": 784431,
+      "sha256": "5d4609333f6ac2874d84820365381666fb0ce62ade4eab58710fdd0017966760"
+    },
+    "worker-3/records.jsonl": {
+      "bytes": 784493,
+      "sha256": "d66938c39d89e8ad456895bcfc28b381cd482a439d06c4a3a9c6ed22dd8b48da"
+    },
+    "worker-0/timings.f64le": {
+      "bytes": 9722176,
+      "sha256": "cd91b819d0e4699ad41a44ae63308700277e3f628b09e361c72afb9823b45935"
+    },
+    "worker-1/timings.f64le": {
+      "bytes": 9393264,
+      "sha256": "44d2a1375e1193fc99e6878fd5efc07e011a69f98c248c15e339c89f345d8cf5"
+    },
+    "worker-2/timings.f64le": {
+      "bytes": 9423408,
+      "sha256": "078a0634c4e1bc6d13ea7d5b3d0a5a83903f7d9369c2cef82d22a205a9874c11"
+    },
+    "worker-3/timings.f64le": {
+      "bytes": 9288456,
+      "sha256": "080ba403b9766d3967a28960e76c8103ba28d93c643246f16d939d8f473f720e"
+    }
+  },
+  "limits": "Current-host artifact audit. Runtime assets are compared by recorded identity, not rehashed installed binaries. No physics replay, state-hash preimage verification, resource-history audit, non-count KPI/stratum statistics, human gate, or production/performance qualification."
+}

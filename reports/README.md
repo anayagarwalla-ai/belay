@@ -5,6 +5,7 @@ Start with [the current Phase 2 repair](phase2-repair/README.md). The [integrate
 | Question | Evidence |
 |---|---|
 | What can be played and what currently fails? | [Current repair status](phase2-repair/README.md); [historical integration checkpoint](phase2-verification.md) |
+| What did the repaired 1,000-run matrix show? | [Final repair findings](phase2-repair/FINAL.md), [independent receipt](phase2-repair/full-validation-v4.json), [all raw evidence](phase2-repair/evidence-package/README.md) |
 | How do the baseline bots behave? | [Completed 1,000-run findings](phase2-final-evidence.md); historical [baseline](phase2-baseline-findings.md), [ten-run smoke](phase2-smoke.md) and [incomplete prefix](phase2-paused-prefix.json) remain separate |
 | Do accepted inputs replay? | [50-case replay](phase2-replay.json), saved `phase2-tapes/` |
 | Can a player remain static during rescue? | [250-case rejected re-cut](rescue-recut-decision.md), [reproduction](rescue-recut-reproduce.md) |
@@ -20,7 +21,8 @@ Start with [the current Phase 2 repair](phase2-repair/README.md). The [integrate
 | Are wall motor effort and measured contact reaction equivalent? | **No.** [Unapplied actuator prototype](phase2-wall-actuator-prototype.md), [Rapier observation limits](phase2-rapier-contact-adapter-contract.md) |
 | Is the original full matrix complete? | **Yes, for the preserved pre-repair source.** [Independent final receipt](phase2-independent-final-validation.json), [validator scope](phase2-independent-final-validator.md), [complete findings](phase2-final-evidence.md) |
 | Can all final raw evidence be recovered? | [Lossless package and reconstruction](phase2-evidence-package/README.md), [root package-versus-original check](phase2-final-integration/package-original-comparison.json): 71 original files, 2,763,309 raw timing samples |
-| Did the final integrated code checks pass? | [Final checks and logs](phase2-final-integration/receipt.json): 263 passing tests, seven retained expected failures, typecheck and lint pass |
+| Did the repair code checks pass? | [Repair verification](phase2-repair/verification/receipt.json): 299 passing tests, one unused historical expected failure, typecheck/lint/build; later integration status is in the [repair report](phase2-repair/README.md) |
+| What did the pre-repair integration verify? | [Historical checks and logs](phase2-final-integration/receipt.json): 263 passing tests, seven then-retained expected failures, typecheck and lint pass |
 | What would hosting cost? | [Preparatory proposal](../docs/design/phase6-hosting-clip-cost-proposal.md); no resources provisioned |
 
 Use `npm run verify:evidence` to check registered artifacts, lossless compressed bytes and the historical source bundle. Compression receipts preserve original hashes. This command checks integrity, not whether the measurements meet a target.

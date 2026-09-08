@@ -1,0 +1,1 @@
+{"validationStatus":"REFUSED","complete":false,"reason":"worker job belongs to another artifact directory\n+ actual - expected\n\n+ '/Users/anayagarwalla/Documents/ChatGPT/testastra/reports/phase2-parallel-2026-09-08T17-00-11.762Z-26d223b4-42bc-47c9-b7c3-c2588819c95f/worker-0'\n- '/Users/anayagarwalla/Documents/ChatGPT/testastra/work/phase2-repair/restored-v4/worker-0'\n"}

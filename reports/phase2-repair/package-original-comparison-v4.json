@@ -1,0 +1,8 @@
+{
+  "status": "ALL_ORIGINAL_BYTES_AND_MODES_MATCH",
+  "files": 77,
+  "directories": 7,
+  "manifestSha256": "38789330374ee631bdc93aa1d639823194b6fa239e3ab90bed77d7248539e1a6",
+  "original": "reports/phase2-parallel-2026-09-08T17-00-11.762Z-26d223b4-42bc-47c9-b7c3-c2588819c95f",
+  "restored": "work/phase2-repair/restored-v4"
+}

@@ -1,6 +1,6 @@
 # BELAY current batch consolidation
 
-**Repair batch reopened on 2026-09-08 by the user's explicit request to fix the recorded failures.** Root owns the current changes and validation on `codex/phase2-repair`. Supporting tasks remain archived; scheduled follow-ups remain deleted. The consolidation below describes the preserved pre-repair baseline and its completed 1,000-run evidence, not the in-progress repair's results. No new human or production qualification is claimed.
+**Repair batch consolidated on 2026-09-08.** Root integrated the rope/contact, energy, hauling/climbing, client and diagnostic fixes. The repaired 1,000-case matrix finished with four clean worker exits and independent raw-data reconciliation; its [final findings](reports/phase2-repair/FINAL.md) and [lossless package](reports/phase2-repair/evidence-package/README.md) are separate from the historical baseline below. Geometric bounds pass, but balance, participation, exact post-commit energy precision, human fun and production capacity remain limited as stated in that report. The result-preserving performance cleanup was integrated afterward. Supporting tasks remain archived and scheduled follow-ups remain deleted; no benchmark process remains. The user-requested local preview is separate. No Phase 3 or public launch is authorized by these measurements.
 
 ## Preserved consolidation baseline
 

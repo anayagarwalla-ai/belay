@@ -10,7 +10,7 @@ import { pathToFileURL } from 'node:url';
 import RAPIER from '@dimforge/rapier3d-compat';
 import { initializePhysics, type BelaySimulation } from '../shared/simulation';
 import type { Move, Vec3, PhysicalDiagnostics, TerrainState } from '../shared/protocol';
-import type { Contact } from '../shared/contact-geometry';
+import { blockingNormalsAt, type Contact, type Solid } from '../shared/contact-geometry';
 import { impulseAccounting, kineticBudget } from './physics-budget-diagnostics';
 import casesFile from '../tests/fixtures/phase2-motor-energy-cases.json';
 import { FAMILIES } from '../tuning';
@@ -22,8 +22,8 @@ type Profile = typeof import('../tuning').TUNING;
 type Span = { id: number; nodes: number[] };
 type Engine = {
   nodes: Vec3[]; previous: Vec3[]; contacts: Contact[]; diagnostics: PhysicalDiagnostics;
-  nodeNormals: Vec3[][]; brace: boolean[];
-  terrain: { state: TerrainState }; spans: Span[]; substep: (inputs: Move[]) => void;
+  nodeNormals?: Vec3[][]; brace: boolean[];
+  terrain: { state: TerrainState; solids: Solid[] }; spans: Span[]; substep: (inputs: Move[]) => void;
   routeRope: () => void; updateSpans: (dt: number) => void;
   constrain: (span: Span, a: number, b: number, maximum: number, traction: number[], delta: Vec3[], dt: number) => void;
 };
@@ -171,9 +171,20 @@ export function observe(sim: BelaySimulation, p: Profile) {
           if (id < sim.playerCount && e.brace[id] && e.contacts[id].support === 'ground' && availableTraction > 0) {
             w.x /= FAMILIES[sim.family].braceMassMultiplier; w.z /= FAMILIES[sim.family].braceMassMultiplier;
           }
-          for (const normal of e.nodeNormals[id]) if (sign * dot(direction, normal) < 0)
+          // Historical engines expose a cache. The current engine removed that
+          // unused sweep; observe its pre-projection geometry directly instead.
+          // This remains a diagnostic straight-link linearization, not a claim
+          // to reconstruct the current routed nonlinear constraint multiplier.
+          const body = id < sim.playerCount, before = id === a ? beforeA : beforeB;
+          const skin = p.phase2.bodyContactSkinM ?? 0;
+          const half = body ? { x: p.body.width / 2 + skin, y: p.body.height / 2 + skin, z: p.body.depth / 2 + skin }
+            : { x: p.rope.radius, y: p.rope.radius, z: p.rope.radius };
+          const normals = e.nodeNormals?.[id] ?? blockingNormalsAt(body
+            ? { ...before, y: before.y + p.body.height / 2 - p.body.harnessHeight } : before,
+          half, e.terrain.solids, { x: sign * direction.x, y: sign * direction.y, z: sign * direction.z });
+          for (const normal of normals) if (sign * dot(direction, normal) < 0)
             for (const axis of axes) if (normal[axis]) w[axis] = 0;
-          return { mass, w };
+          return { mass, w, normals };
         };
         const A = mobility(a, 1, tractionA), B = mobility(b, -1, tractionB);
         const denominator = () => axes.reduce((sum, axis) => sum + direction[axis] ** 2 * (A.w[axis] + B.w[axis]), 0);
@@ -187,7 +198,7 @@ export function observe(sim: BelaySimulation, p: Profile) {
         step.largestConstraintMove = { node, body: node < sim.playerCount,
           distanceM: d, before, after: { ...e.nodes[node] }, span: span.id, constraintLengthM: maximum,
           constraint: { a, b, beforeA, beforeB, afterA: { ...e.nodes[a] }, afterB: { ...e.nodes[b] },
-            normalsA: e.nodeNormals[a].map(n => ({ ...n })), normalsB: e.nodeNormals[b].map(n => ({ ...n })),
+            normalsA: A.normals.map(n => ({ ...n })), normalsB: B.normals.map(n => ({ ...n })),
             mobilityA: A.w, mobilityB: B.w, direction, beforeDistanceM, afterDistanceM: distance(e.nodes[a], e.nodes[b]), denominatorPerKg, lambdaKgM } };
       }
     }

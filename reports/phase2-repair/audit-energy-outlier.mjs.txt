@@ -1,0 +1,24 @@
+import '../../scripts/phase2-native-hooks.mjs';
+import {readFileSync,writeFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const {BelaySimulation,initializePhysics}=await import('../../shared/simulation.ts');
+const {trajectorySchedule,Phase2Policy}=await import('../../scripts/phase2-policies.ts');
+const {stateHash}=await import('../../scripts/phase2-harness.ts');
+const {TUNING}=await import('../../tuning.ts');
+const source=JSON.parse(readFileSync('reports/phase2-parallel-2026-09-08T17-00-11.762Z-26d223b4-42bc-47c9-b7c3-c2588819c95f/result.json','utf8'));
+const record=source.records.find(r=>r.ordinal===774), spec=trajectorySchedule(1000).find(s=>s.ordinal===774);
+await initializePhysics();const sim=new BelaySimulation(spec),engine=sim.engine,policy=new Phase2Policy(spec),dt=1/TUNING.physicsHz;
+const energy=()=>{
+ let total=sim.bodies.reduce((n,b)=>{const p=b.translation(),v=b.linvel();return n+TUNING.body.mass/2*(v.x*v.x+v.y*v.y+v.z*v.z)+TUNING.body.mass*TUNING.gravity*p.y},0);
+ for(let i=sim.playerCount;i<engine.nodes.length;i++) {const a=engine.nodes[i],b=engine.previous[i];total+=TUNING.rope.particleMass*(Math.hypot(a.x-b.x,a.y-b.y,a.z-b.z)**2/(2*dt*dt)+TUNING.gravity*a.y);}
+ return total;
+};
+const step=engine.substep.bind(engine);let calls=0,worst={netGainJ:-Infinity,substep:0},raw=[];
+engine.substep=(inputs)=>{const before=energy(),motor=engine.diagnostics.motorWorkJ;step(inputs);const after=energy(),netGainJ=after-before-(engine.diagnostics.motorWorkJ-motor);calls++;
+ if(netGainJ>worst.netGainJ)worst={netGainJ,substep:calls,beforeJ:before,afterJ:after,motorJ:engine.diagnostics.motorWorkJ-motor};
+ if(netGainJ>TUNING.phase2.energyToleranceJ)raw.push({substep:calls,netGainJ});
+};
+try {for(let i=0;i<record.ticks;i++)sim.step(policy.inputs(sim.snapshot()));const hash=stateHash(sim.snapshot());assert.equal(hash,record.finalStateSha256);
+ const result={ordinal:774,sourceManifestSha256:source.sourceManifestSha256,frames:record.ticks,substeps:calls,finalStateSha256:hash,finalStateMatchesFullMatrix:true,energyAllowanceJ:TUNING.phase2.energyToleranceJ,worst,aboveAllowance:raw,diagnostics:sim.snapshot().diagnostics,scope:'Read-only audit at every internal step. Energy is recomputed from actual Rapier translations/velocities and massive rope-particle positions/history after the correction. Pre/post differ only by measured motor work; allowance is the unchanged per-step tuning. Does not establish exact contact mechanics or absence of numerical dissipation.'};
+ writeFileSync('reports/phase2-repair/energy-outlier-v4.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));
+} finally {sim.dispose();}
