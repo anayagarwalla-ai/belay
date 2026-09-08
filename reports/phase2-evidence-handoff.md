@@ -1,0 +1,29 @@
+# Phase 2 evidence consolidation handoff
+
+The user froze the queue. No new investigation, benchmark, build, solver variant or review will be started. The already-running fixed matrix and its already-assigned final reconciliation/findings handoff remain authorized.
+
+## Commits and validation
+
+- `57330243df63972bad327c0f480586db9fc5e118`: four-worker fixed schedule, raw timing journals, resource guards and orchestration tests.
+- `d175701190964a926e968c25f250b2988edf223f`: reviewed native entrypoints without compiler helper processes, complete installed-toolchain hashing, interrupt-safe finalization, and an independent hard stop that does not wait for sentinel filesystem IO. Apply both runner commits in order after the existing evidence foundation.
+- Shared physical source remains the corrected `f2fb8fd` / 900 N baseline. Four evidence-class constructor parameter properties were expanded into equivalent assignments; policies were not retuned.
+- Typecheck and lint pass. The initial six-file Phase 2 run passed 73 tests. After the review corrections, five focused files passed 46 tests in 33.67 seconds; the final stalled-sentinel regression separately passed in 4.43 seconds (one selected test, 25 skipped). An interrupted test attempt is explicitly excluded. Independent focused source review found no remaining actionable issue.
+- Native versus tool-hosted complete states/tapes match at 2–6 players in both scenes. The first 24 actual worker records also match the old sequential baseline in every field except elapsed execution timings. An independent 16-row / 62,492-sample prefix audit passed schedule, frozen-source and exact raw timing reconciliation checks.
+
+## Final job and packaged artifacts
+
+The fixed matrix finished at **2026-09-08T04:25:36.133Z**, COMPLETE/finished. It contains **1,000/1,000 validated records**, **2,763,309 raw timing samples**, no missing ordinals, no unattributed timing tails and four code-0 owned worker close receipts. Outcomes are 188 crossing completions, 280 focused recoveries, 379 physical terminal failures and 153 full-horizon censors; zero errors and zero incomplete-evidence rows. See [final evidence findings](phase2-final-evidence.md) for scene/player/policy denominators and limitations.
+
+The coordinator ran the prepared independent validator after process exit with 256 MiB old-space, returning exit 0, VALIDATED_FINAL_MATRIX and complete=true. The exact [receipt](phase2-evidence-package/provenance/independent-final-validation.json) is copied from the primary checkout. This evidence task did not rerun the validator. Its [scope document](phase2-evidence-package/provenance/independent-validator-scope.md) comes from commit `8f6ab2f1d4c243a800e896188706ce11baf44489`; the prepared script hash was `e0ad3d3acd638b148692d6ab834960e5be01e6299a61dd7366f5e615c4181f73`.
+
+The [lossless package](phase2-evidence-package/README.md) preserves all 71 original files from the final invocation and both zero-worker preflight refusals: 34,795,282 original bytes in 13,595,969 stored payload bytes. Per-file gzip and SHA-256 mapping preserve all raw samples/outcomes, resource lines, statuses, source files and logs. The manifest records original file/directory modes; reconstruction verified all 71 files and 10 directory modes, including 29 read-only source files. Every original file hash and mode was rechecked unchanged afterward. The original finalized directories remain local and unmodified, outside the narrow Git staging list. The archive provides their complete committed representation.
+
+The generic [prepared plan](phase2-parallel-plan.json) is historical preparation; each packaged unique invocation manifest is authoritative. The [method](phase2-method.md) clarifies elapsed step-time measurement, and the [launch log](phase2-parallel-launches.md) accounts for both refusals, prior validation overlap, user-requested local development/browser activity from approximately 03:25 UTC, and the reported brief lid closure before 03:46 UTC. Original generated Markdown is retained verbatim even where the method/final findings must qualify its timing wording.
+
+## Unresolved limits and final disposition
+
+Physical targets are not passed. Final maxima include 0.3932201581 m span excess, 0.3210927744 m segment excess, approximately 1.4536e19 J energy projection and 560.2604879 J separately reported unexplained gain. Focused fixtures retain 100 static-brace and 80 frozen-tail whole-episode recovery counterexamples; two-player frozen casualties remain 20/20 censored at 60 seconds. Simulation role activity can be high despite completely unchanged rest input. Human rescue/fun gates, controlled four-incident completion and production capacity remain unevaluated.
+
+Independent validation is original-host artifact reconciliation: schedule/counts, frozen source and mode checks, clean close receipts and absent recorded PIDs, journal/report equality, raw hashes/finite values and exact timing summaries. It compares published runtime signatures without rehashing installed binaries and does not replay physics, verify absent state/input preimages, audit resource history, independently recompute non-count gameplay statistics/survival curves/Markdown semantics, or qualify human/physics/performance outcomes.
+
+The evidence task owns no remaining simulations, tests, browser or development server. Historical exec session 16618 is no longer available; final process absence was checked by the coordinator's validator. No historical PID was adopted or signalled. At the user's request the coordinator deleted the BELAY scheduled definitions; the evidence heartbeat definition was verified absent. No schedule was recreated. A non-secret pre-handoff monitoring snapshot is retained as provenance, not an automation definition. After this final narrow artifact/report commit and handoff, this task is idle. Root owns final consolidation, validation and push.

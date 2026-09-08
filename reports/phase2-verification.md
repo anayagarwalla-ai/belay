@@ -6,33 +6,50 @@ This is a playable local grey-box diagnostic build, **not a passed rescue gate o
 
 | Check | Observed result | Limit |
 |---|---|---|
-| Complete integration suite | 211 passed; 6 explicit expected failures; 24 files | Two preserve the unchanged 2 cm rope-segment ceiling; four preserve projection, energy and actuator defects. All six remain unresolved |
-| Typecheck / lint / production build | Passed | Build retains upstream Vite/plugin warnings and a large-client-chunk warning; no three-second arrival or 60 fps qualification |
+| Final integration suite | 263 passed; 7 explicit expected failures; 28 files | Two preserve the unchanged 2 cm rope-segment ceiling; four preserve projection, energy and actuator defects; one preserves the known-feasible fixed-feature lip failure. All seven remain unresolved |
+| Final typecheck / lint | Passed | Latest combined source; no gameplay or performance acceptance implied |
+| Production build | Latest client handoff build passed; no additional build during final consolidation | Build retains upstream Vite/plugin warnings and a large-client-chunk warning; no three-second arrival or 60 fps qualification |
 | Local network / access regression | 13 passed | Real sockets on the two-climber flat scene; separate tests cover six-climber admission, scene resets and per-seat events |
 | Actual six-connection browser capture | Six bodies, five spans, 60 rope segments; zero body/HTML overlaps; consistent scene/session during capture | One browser with scripted brace plus five labeled SDK bots; no humans |
 | Actual-state client traces | 12 traces across 2/4/6-body rescue, crossing and ice; zero observed interpolated terrain penetration / stale warning backfills | Ten-second traces, not arbitrary-state completeness |
 | Same-build replay | 50/50 exact comparisons | Preserves defects as well as valid behavior; not cross-platform determinism |
 | World lifecycle / tape bound | 25 create/step/free cases; real 36,000-frame saturation | Not production room-memory attribution |
-| 1,000-trajectory matrix | Incomplete historical prefix preserved; reviewed four-worker runner now executing the unchanged fixed 1,000-case matrix | No full-run percentiles or acceptance claim from a prefix |
+| 1,000-trajectory matrix | COMPLETE; 1,000/1,000 records and 2,763,309 raw step samples; four clean worker exits; independent final validator passed | 500 crossing trajectories and 500 focused rescue fixtures. Gameplay failures and all 153 censors remain; this is not a human or production pass |
 | 300-room server qualification | Not performed | Local guarded probes cannot establish production capacity, costs or reconnect success |
 
-The complete suite above passed on integrated source `e6e38fa` after the client timestamp and disposal fixes (2026-09-07): 44.35 seconds for tests; typecheck, lint and build also passed. `npm run verify:evidence` passes 75 stored/decompressed and source-bundle integrity checks; it cannot pass physical or human criteria. [Local network evidence](phase2-network.json) includes real RTT samples and server timing, explicitly scoped to its small regression fixture. [Browser capture](phase2-live-browser-baseline.json) includes source hashes, client/server state, actual first-received/drawn observations and the declared synthetic controls. The narrow and desktop screenshots are local ignored review artifacts.
+The final suite passed against code commit `ba186efc9a738ba16a382f7ac3bcb8d30b180048` on 2026-09-08: 40.57 seconds for tests, 2.06 seconds for typecheck and 0.74 seconds for lint. The [execution receipt and logs](phase2-final-integration/receipt.json) preserve the exact commands. These checks supersede the earlier 211-pass/six-expected-failure checkpoint. Documentation and evidence packaging do not change gameplay source. Historical source-pinned network, browser and build results remain scoped to their original observations.
+
+[Local network evidence](phase2-network.json) includes real RTT samples and server timing, explicitly scoped to its small regression fixture. [Browser capture](phase2-live-browser-baseline.json) includes source hashes, client/server state, actual first-received/drawn observations and the declared synthetic controls. The narrow and desktop screenshots are local ignored review artifacts.
 
 ## Required gameplay table — current baseline
 
-These ten smoke trajectories are diagnostic strata, **not the required 1,000-run distribution**. [Raw smoke and method](phase2-smoke.md), [baseline findings](phase2-baseline-findings.md), [replays and static controls](phase2-replay.json), and [incomplete prefix](phase2-paused-prefix.json) retain denominators and censoring.
+The final fixed matrix contains **1,000 trajectories: 500 crossings and 500 focused rescues**, spread across two to six players and five fixed bot policies. The [independent final receipt](phase2-independent-final-validation.json) reconciles every raw journal row and timing sample. [Final findings](phase2-final-evidence.md) retain all policy/team strata, physical extremes and observation limits; the [lossless package](phase2-evidence-package/README.md) preserves every original file. Root independently verified its 78 checksums and all 71 original file bytes/modes. Crossing outcomes are 188 completed, 179 failed and 133 censored at 600 seconds. Focused rescues are 280 recovered, 200 failed and 20 censored at 60 seconds. These fixtures do not represent a human player population; keep their scenes, policies and denominators separate.
 
 | Metric | Brief target | Observation |
 |---|---|---|
-| Run duration | Median 5–10 min | Five crossing completions: median 20.33 s, range 18.7–21.93 s |
-| Incidents per run | 3–6 | Zero in all five recovery-policy crossing runs |
-| Rescue success by team size | 60–75% | Focused fixture: 1/1 recovered at each size 2–6; inadequate sample and too easy |
-| First incident | Under 45 s | None in the five crossings; focused fixture begins at a supplied hole and cannot qualify route pacing |
-| Rescue idle time per player | At most 20% | Motion/load proxy median idle 78.12%, p95 100%, n=20; passive dragging can be credited as active |
-| Successful rescue duration | 10–20 s in approved plan | Focused episode median 1.87 s, n=5 |
-| Server p95 / memory per room at 300 rooms | Tick deadline and attributed memory | Not tested |
+| Run duration | Median 5–10 min | Completed crossings median 21.13 s, n=188; time to either terminal outcome has descriptive censor-aware median 21.83 s across 500 starts, including 133 censors. Independent censoring is unproven |
+| Incidents per run | 3–6 | Across 500 crossings: median 1, p95 9, range 0–126. Recovery policy alone: median 2 across 100 starts |
+| Rescue success by team size | 60–75% | Recovery-policy focused fixtures eventually recover 20/20 at every size 2–6; first-attempt values are 100%, 100%, 100%, 70%, 100%. Crossing strata below differ sharply |
+| First incident | Under 45 s | 356/500 crossings have a fall, all before 45 s (observed-only median 9.72 s); 144 have none. Recovery policy: 64/100 before 45 s, 36 with no observed fall |
+| Rescue idle time per player | At most 20% | Recovery-policy crossing proxy: median 44.48%, p95 83.12%, n=5,302 player-episodes. Focused proxy: median 75.22%, p95 100%, n=400. These proxies can credit passive dragging as activity |
+| Successful rescue duration | 10–20 s in approved plan | Recovery-policy focused median 1.87 s, n=100; crossing median 4.53 s, n=1,114 recovered episodes. Unresolved rescues are not treated as successful durations |
+| Server p95 / memory per room at 300 rooms | Tick deadline and attributed memory | Not tested. Separately, local isolated-step p95 is 62.05 ms; sampled peak aggregate owned-process RSS is 1.21 GiB. Neither is a 300-room server or per-room measure |
 
-The separate fixed-policy replay found static-brace helper recovery at every team size 2–6, plus frozen-tail recovery in sizes 3–6. These are concrete failures of the participation premise, not evidence that bots found fun. The two supplied recovery tapes exceed the existing 2 cm segment bound (2.67 cm and 4.48 cm); finite positions and zero body penetration do not erase those rope failures or large energy corrections.
+Recovery-policy crossing episode recovery by team size is shown below. Each size has 20 crossing trajectories; repeated episodes within a trajectory are not independent trials. The numerator is observed recoveries over all started episodes, including unresolved episodes in the denominator.
+
+| Players | First attempt / started | Eventual / started | Unresolved episodes |
+|---|---:|---:|---:|
+| 2 | 14/34 (41.18%) | 31/34 (91.18%) | 2 |
+| 3 | 32/84 (38.10%) | 77/84 (91.67%) | 5 |
+| 4 | 469/569 (82.43%) | 556/569 (97.72%) | 13 |
+| 5 | 98/150 (65.33%) | 137/150 (91.33%) | 13 |
+| 6 | 240/326 (73.62%) | 313/326 (96.01%) | 13 |
+
+The full matrix retains **100 whole-episode recoveries with helpers holding static brace and 80 with the tail frozen at rest**. Those counterexamples fail the participation requirement. Worst observed segment excess is 0.3211 m against the existing 0.02 m bound, span excess is 0.3932 m, terrain penetration is 0 m, and body overlap is 0.05 m. Zero terrain penetration does not erase the rope and energy defects. Human arbitrary-fall and fun verdicts remain unevaluated.
+
+The original job ran 00:01:34–04:25:36 UTC on September 8. Brief client/build/check overlaps were recorded earlier. The user requested the local game around 03:25 UTC and reported a brief laptop lid closure before 03:46 UTC; both remaining workers were observed advancing after that closure. These shared-host and sleep qualifications remain attached to its timings. No repeat benchmark was launched.
+
+The historical [ten-run smoke](phase2-smoke.md), [baseline findings](phase2-baseline-findings.md), [replays and static controls](phase2-replay.json), and [incomplete prefix](phase2-paused-prefix.json) remain unchanged. The separate fixed-policy replay already found static-brace helper recovery at every team size 2–6, plus frozen-tail recovery in sizes 3–6. Two supplied recovery tapes exceed the existing 2 cm segment bound (2.67 cm and 4.48 cm).
 
 ## Engineering decisions
 

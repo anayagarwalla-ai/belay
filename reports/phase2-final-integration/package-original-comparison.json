@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "filesByteEqualToOriginal": 71,
+  "directoryModesEqualToOriginal": 10,
+  "packageChecksums": 78,
+  "manifestSha256": "ed3e0a4a7142f4d57710accd9c57ca0a6a0e34dc0a373ddeaf1b76ad067d321e",
+  "rootAndPackagedFinalValidationReceiptsEqual": true,
+  "integrationCorrection": "Explicitly tracked the one manifest-listed Finder metadata payload omitted by Git ignore rules, preserving its exact original bytes and all original package hashes.",
+  "scope": "Independent Python package-versus-original byte/mode comparison and complete package checksum check; no simulations or timing remeasurement."
+}

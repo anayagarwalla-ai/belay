@@ -25,7 +25,8 @@ Save evidence before resetting. Stop bot terminals with Ctrl+C; stop local dev w
 - `PLAN.md` — approved phases, hard stops and the two recorded open items.
 - `PLAYTEST.md` — scene recipes, human questions and debug API.
 - `RUNBOOK.md` — local ports, access control, costs and teardown.
-- `WORKSTREAMS.md` — five active tasks, assignments and coordination boundaries.
+- `CONSOLIDATION.md` — consolidated batch, verification and remaining human decisions.
+- `WORKSTREAMS.md` — frozen work queue, task handoffs and coordination boundaries.
 - `tuning.ts` — gameplay, network and policy constants with rationale.
 - `reports/phase2-baseline-findings.md` — measured target misses and static-role counterexamples.
 - `reports/local-load-profile-findings.md` — six-body CPU/allocation evidence; no capacity qualification.
@@ -48,4 +49,4 @@ npm run test:local-load    # Guarded local socket workload; not production quali
 
 `bench:phase2` is the sequential matrix runner. The guarded native four-worker alternative has a separate invocation and pinned runtime; see `RUNBOOK.md` before starting an offline job.
 
-The crossing fixture currently takes seconds rather than five to ten minutes, and recovery-policy smoke runs produced no crossing falls. Focused rescues recover too quickly, some static roles succeed, and some recorded rope segments exceed the existing error bound. The reports retain these failures. Art, audio, clips, matchmaking, voice, daily and deployment remain in later phases; Phase 3 is paused at the rescue stop. No paid resources are provisioned.
+The completed 1,000-trajectory matrix confirms the current target misses. Its 500 crossings produced 188 completions (median 21.13 seconds), 179 failures and 133 full-horizon censors. The 500 focused rescues are separate fixtures, not glacier runs. There are 100 whole-episode recoveries with helpers holding static brace, and the worst recorded rope-segment excess is 32.11 cm against the existing 2 cm limit. See [the final verification table](reports/phase2-verification.md) for denominators and limitations. Art, audio, clips, matchmaking, voice, daily and deployment remain in later phases; Phase 3 is paused at the rescue stop. No paid resources are provisioned.

@@ -1,0 +1,150 @@
+{
+  "validationStatus": "VALIDATED_FINAL_MATRIX",
+  "complete": true,
+  "directory": "/Users/anayagarwalla/.codex/worktrees/850a/testastra/reports/phase2-parallel-2026-09-08T00-01-34.279Z-688bcbe4-7d3f-4aba-b66f-de8f8cc5703d",
+  "expected": {
+    "source": "3253adc6e3bd7823ef4d9c7b110ffd6903a68f7a63dc1f14603a210ac6050fcb",
+    "schedule": "598d0502785b45555c81f8cd54cebabc2fa9802b928d33a5715d7be39b2d2fba",
+    "runtime": "6a090feeb9b10a0da6515d99844c284468b271f2cc47ed5ecd7daf2310d19a24"
+  },
+  "planned": 1000,
+  "validatedRecords": 1000,
+  "validatedWorkerCloseReceipts": 4,
+  "summary": {
+    "trajectories": 1000,
+    "crossingTrajectories": 500,
+    "complete": 188,
+    "failed": 379,
+    "fixtureRecovered": 280,
+    "censored": 153,
+    "errors": 0,
+    "incompleteEvidence": 0,
+    "executedTicks": 2763309,
+    "stepAttempts": 2763309
+  },
+  "isolatedStepMs": {
+    "count": 2763309,
+    "min": 0.2064999993890524,
+    "p50": 5.8300829995423555,
+    "p95": 62.046249999664724,
+    "p99": 89.46275000087917,
+    "max": 815.2514170000213,
+    "mean": 16.30568707419676
+  },
+  "typedTimingAllocationBytes": 22283240,
+  "artifactReceipts": {
+    "status.json": {
+      "bytes": 687,
+      "sha256": "366fb67d5622d58acf87b8c82358a9e371a131e211463234405ee067884fac67"
+    },
+    "manifest.json": {
+      "bytes": 509535,
+      "sha256": "4e02b8d4f7c24f00530d1f432c958f7df254f0b26f6517d92e922ad4c98a3839"
+    },
+    "result.json": {
+      "bytes": 6209778,
+      "sha256": "6c2b2edeeb86149bcafa168f902c7184d8ef731925791a15030e94668d11ae66"
+    },
+    "result.md": {
+      "bytes": 11433,
+      "sha256": "9c3ee9d48c329dab0fa5f2c332cecba3856db836aaf592d2a2179741515d8c01"
+    },
+    "worker-0/job.json": {
+      "bytes": 632,
+      "sha256": "741a45bc891579963d8d9bb63c877a8689a1c0bc8df529b258181b7b7011dc70"
+    },
+    "worker-0/source.json": {
+      "bytes": 34048,
+      "sha256": "cd08791e740ff31c935d746e80dbbd4ec6344475803d0cce78dba74b72b373ed"
+    },
+    "worker-0/source-final.json": {
+      "bytes": 33763,
+      "sha256": "376e5eef90ef37c814fce742de68260d4939d71059bf63f56c5559c4a8173785"
+    },
+    "worker-0/status.json": {
+      "bytes": 572,
+      "sha256": "2275cf2c8f7cfbfdb33979a6e94e571983d3d25ff34b652c91b937c3224d0e6e"
+    },
+    "worker-1/job.json": {
+      "bytes": 632,
+      "sha256": "92556c6df398aa8e5eab950acfd7cd500bd89aa2332deb705d04bf56126cf95c"
+    },
+    "worker-1/source.json": {
+      "bytes": 34048,
+      "sha256": "92dbf932e20222ac941913868657ad77fe090b4c12895e3f9ba92e2bd37d78e3"
+    },
+    "worker-1/source-final.json": {
+      "bytes": 33763,
+      "sha256": "376e5eef90ef37c814fce742de68260d4939d71059bf63f56c5559c4a8173785"
+    },
+    "worker-1/status.json": {
+      "bytes": 573,
+      "sha256": "2780f4465cba1353fc4d8817ef00ed896105762b8769e7e248854a735686e9ff"
+    },
+    "worker-2/job.json": {
+      "bytes": 632,
+      "sha256": "8bb9470d6f46b3ff1d568bc4b32e02b6d61e0a56dbcd6d4af70656738a25044e"
+    },
+    "worker-2/source.json": {
+      "bytes": 34048,
+      "sha256": "aaec18842ce7cdd0d31e3a738e6645328afbf79ac2d65bb0102d5b0513929e5f"
+    },
+    "worker-2/source-final.json": {
+      "bytes": 33763,
+      "sha256": "376e5eef90ef37c814fce742de68260d4939d71059bf63f56c5559c4a8173785"
+    },
+    "worker-2/status.json": {
+      "bytes": 574,
+      "sha256": "394082824e5074d1a2271c67b88e7de6991429ec113f61b5074157df06ab8549"
+    },
+    "worker-3/job.json": {
+      "bytes": 632,
+      "sha256": "24d1234e295db239fbfff6606935d40e9a5d8dff88b8c16a9372e75b62a41931"
+    },
+    "worker-3/source.json": {
+      "bytes": 34048,
+      "sha256": "add593352c3585b5608ba06ca22c1a1ad698dd1435c3dc76c259a6f1430874ca"
+    },
+    "worker-3/source-final.json": {
+      "bytes": 33763,
+      "sha256": "376e5eef90ef37c814fce742de68260d4939d71059bf63f56c5559c4a8173785"
+    },
+    "worker-3/status.json": {
+      "bytes": 572,
+      "sha256": "b9c3027087471ee3e8201935828f6e5bd80953b576cc85b1cabc090fbc3cf193"
+    },
+    "worker-0/records.jsonl": {
+      "bytes": 686967,
+      "sha256": "060200cd8cb4658d7d62ed1aba3eced8066d4604d0c14c669d7d2dac9451e669"
+    },
+    "worker-1/records.jsonl": {
+      "bytes": 1015791,
+      "sha256": "67f44718c3fa7122f890b9f1e96df3d4c368409aad013a6707b8fc29c2d9ef7a"
+    },
+    "worker-2/records.jsonl": {
+      "bytes": 853653,
+      "sha256": "eaba95f16273d0980da7c15d372b9a67bb34d0cc7f50d52c121b5896843f7cb8"
+    },
+    "worker-3/records.jsonl": {
+      "bytes": 958618,
+      "sha256": "b2c1eee75b6426aeea9aebeddd2a90050e60642b7063fd83cfc83138bcc2e926"
+    },
+    "worker-0/timings.f64le": {
+      "bytes": 2087680,
+      "sha256": "24eacfc940adf19d77f743b50c2fe4fd22abd659f467d6b4a74c406cf451954a"
+    },
+    "worker-1/timings.f64le": {
+      "bytes": 5589992,
+      "sha256": "3ffd7095d7c198b2b008275c1408746e1105910374e43cfde7506cd07b37512f"
+    },
+    "worker-2/timings.f64le": {
+      "bytes": 8021760,
+      "sha256": "15d2ec8e7c260b7ad4b6a37ab15cd9b7a2a34cc89af683f0994a197092cfc574"
+    },
+    "worker-3/timings.f64le": {
+      "bytes": 6407040,
+      "sha256": "a730a76b533c8202c1c658c7d4c2f000542ba6423da1b6bcde244f723bb59fef"
+    }
+  },
+  "limits": "Current-host artifact audit. Runtime assets are compared by recorded identity, not rehashed installed binaries. No physics replay, state-hash preimage verification, resource-history audit, non-count KPI/stratum statistics, human gate, or production/performance qualification."
+}

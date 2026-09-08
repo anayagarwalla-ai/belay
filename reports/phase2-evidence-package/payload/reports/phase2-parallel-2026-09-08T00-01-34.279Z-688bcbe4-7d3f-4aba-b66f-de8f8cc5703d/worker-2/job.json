@@ -1,0 +1,11 @@
+{
+  "schema": "phase2-parallel-job-1",
+  "index": 2,
+  "parentPid": 27974,
+  "deadline": 1788912094349,
+  "outputDirectory": "/Users/anayagarwalla/.codex/worktrees/850a/testastra/reports/phase2-parallel-2026-09-08T00-01-34.279Z-688bcbe4-7d3f-4aba-b66f-de8f8cc5703d/worker-2",
+  "expectedSource": "3253adc6e3bd7823ef4d9c7b110ffd6903a68f7a63dc1f14603a210ac6050fcb",
+  "expectedRuntime": "6a090feeb9b10a0da6515d99844c284468b271f2cc47ed5ecd7daf2310d19a24",
+  "scheduleSha256": "598d0502785b45555c81f8cd54cebabc2fa9802b928d33a5715d7be39b2d2fba",
+  "assignmentSha256": "2a9f07941471e6ea309fe6108628b46b5fc017d5eaa8d60f1814581d85a076c3"
+}

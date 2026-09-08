@@ -1,0 +1,8 @@
+{
+  "validatedAtUtc": "2026-09-08T05:00:48.777408+00:00",
+  "command": "node --max-old-space-size=256 scripts/phase2-independent-final-validate.mjs ORIGINAL_RUN_DIRECTORY",
+  "exitCode": 0,
+  "scope": "Independent finalized original-directory artifact reconciliation. No simulations or runtime changes.",
+  "validationReceipt": "reports/phase2-independent-final-validation.json",
+  "sourceCommit": "ba186efc9a738ba16a382f7ac3bcb8d30b180048"
+}

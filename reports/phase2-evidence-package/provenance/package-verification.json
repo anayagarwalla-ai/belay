@@ -1,0 +1,20 @@
+{
+  "status": "RECONSTRUCTED_BYTES_AND_MODES",
+  "at": "2026-09-08T05:08:23.270Z",
+  "files": 71,
+  "directories": 10,
+  "readonlySourceFiles": 29,
+  "originalBytes": 34795282,
+  "storedBytes": 13595969,
+  "rawTimingSamples": 2763309,
+  "rawTimingBytes": 22106472,
+  "manifestSha256": "ed3e0a4a7142f4d57710accd9c57ca0a6a0e34dc0a373ddeaf1b76ad067d321e",
+  "reconstructedDirectory": "/Users/anayagarwalla/.codex/worktrees/850a/testastra/work/phase2-reconstructed-final-github",
+  "originalFilesRecheckedUnchanged": true,
+  "originalDirectoryModesRechecked": true,
+  "coordinatorReceiptArtifactHashesMatched": 28,
+  "outcomeCountCellsReconciled": 50,
+  "evidenceHeartbeatDefinitionAbsent": true,
+  "scope": "Lossless archive byte/mode checks and existing final-report count reconciliation only. The coordinator executed the independent final matrix validator; this packaging did not rerun it or physics.",
+  "allFrozenSourceFilesCompressed": true
+}

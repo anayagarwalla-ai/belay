@@ -1,0 +1,53 @@
+# Fixed baseline parallel invocation log
+
+Runner: `5733024`, retained 900 N baseline. The fixed schedule hash is `598d0502785b45555c81f8cd54cebabc2fa9802b928d33a5715d7be39b2d2fba`. Independent invocations are never pooled into a complete 1,000 result.
+
+| Attempt (UTC) | Available / raw-free bytes | Status | Validated records / workers started |
+|---|---|---|---|
+| 2026-09-07 23:39:10 | 3,322,904,576 / 85,524,480 | INCOMPLETE: initial available-memory floor | 0 / 0 |
+| 2026-09-07 23:41:52 | 3,685,285,888 / 172,081,152 | INCOMPLETE: initial available-memory floor | 0 / 0 |
+| 2026-09-08 00:01:34 | 3,795,271,680 / 85,311,488 | COMPLETE at 04:25:36 UTC | 1,000 / 4 |
+
+Both attempts correctly refused before creating a source snapshot or any worker directory. The first attempt's original [manifest](phase2-parallel-2026-09-07T23-39-10.686Z-8255cbc7-cc24-41aa-8450-9f2f2a39e61b/manifest.json), [status receipt](phase2-parallel-2026-09-07T23-39-10.686Z-8255cbc7-cc24-41aa-8450-9f2f2a39e61b/status.json), [raw report](phase2-parallel-2026-09-07T23-39-10.686Z-8255cbc7-cc24-41aa-8450-9f2f2a39e61b/result.json) and [readable report](phase2-parallel-2026-09-07T23-39-10.686Z-8255cbc7-cc24-41aa-8450-9f2f2a39e61b/result.md) remain in its unique local invocation directory. The [second refusal](phase2-parallel-2026-09-07T23-41-52.448Z-ccb8cc4a-f29e-4e6b-aab0-210e26464561/result.md) has the same four original artifacts in its own directory.
+
+No watchdog or evidence worker survived either refusal. The second attempt followed the physics task's explicit release of all owned simulation/test processes; its result therefore does not depend on that workload still running. The initial offline floor remains 3.5 GiB; the ongoing floor remains 1 GiB. The socket-load raw-free guard and all previously reported aborts are unchanged. The test suite's short fixtures and prior sequential prefix do not count toward this invocation. The later third invocation completed the full 1,000; neither refusal is included in its result.
+
+The third attempt uses the reviewed native runner at `d175701190964a926e968c25f250b2988edf223f`. Its [original finalized invocation directory](phase2-parallel-2026-09-08T00-01-34.279Z-688bcbe4-7d3f-4aba-b66f-de8f8cc5703d/status.json) is separate from both refusals. Source manifest: `3253adc6e3bd7823ef4d9c7b110ffd6903a68f7a63dc1f14603a210ac6050fcb`; runtime signature: `6a090feeb9b10a0da6515d99844c284468b271f2cc47ed5ecd7daf2310d19a24`. All four initial worker identities match. Worker PIDs at launch were 27985–27988, controller PID 27974; these historical identities are not authorization to adopt or signal a later process.
+
+At the first minute resource observation, owned controller/worker RSS summed to 772,866,048 bytes, available memory was 3,248,324,608 bytes, and raw free was 97,157,120 bytes. The four-worker schedule had emitted 30 complete JSONL rows when inspected shortly afterward: 15 crossing completions, 5 focused recoveries, 9 terminal failures and one full-horizon censor. This is a moving, unfinalized prefix, not a full-matrix result.
+
+The first 24 new worker-0 records were compared against the preserved sequential `work/phase2-baseline-paused-progress.jsonl`. Every field matches exactly except `stepExecutionMs`, which deliberately measures a different invocation. This includes complete state/input hashes, all policy/episode/body fields and the known five-player bad crossing failure at tick 601 (ordinal 23, seed 1701), with four cascades, 0.10966183376004118 m maximum segment excess and 652,497.0707080144 J maximum energy projection. Thus the native orchestration preserves that baseline counterexample; it does not fix or suppress it.
+
+At 00:04:29 UTC, the independent local-load reviewer checked a bounded selection of 16 complete rows: ordinals 0–7, 250–251, 500–502 and 750–752. Their 62,492 raw samples occupy exactly 499,936 bytes. Every selected row's raw count/min/p50/p95/p99/max/mean matches its recorded timing summary. Ordinals 500, 502 and 752 retain exactly 18,000 ticks / 600 seconds and are correctly labelled censored. The reviewer independently reconstructed all 1,000 planned specs and shard hashes, verified all 29 frozen source-file hashes and read-only modes, and checked startup source/runtime identities and native entrypoint hashes. Installed runtime binaries and live process RSS were not independently rehashed/measured in that review. Later-record and active timing tails were excluded, not labelled corrupt. This establishes the selected prefix's integrity only; it does not establish full completion or any mechanics, human or production target.
+
+Shared-host overlap: the separate observer task reported two sequential ten-simulated-second off/on equivalence fixtures from 2026-09-08T00:17:53.241Z through 00:17:55.359Z. It used one native process, reported peak sampled RSS 259,670,016 bytes, exact 301/601 snapshot comparisons and 300/600 tape-frame comparisons, and disposed its four worlds and watchdog. The fixed matrix continued unchanged. These are that task's reported equivalence results, not matrix measurements or isolated timing evidence.
+
+The separate client received permission for one bounded production build after an available-memory reading of 3,908,304,896 bytes at 00:19:48.993Z, reconfirmed with 3,871,244,288 bytes at 00:22:06.956Z. It announced the window at 00:23:00Z and reported the exact build-process interval as **2026-09-08T00:23:13.314Z–00:23:18.555Z**, exiting successfully. The client reported source `3dd42f542d0652f25498e48ca2603f0c6336452a` unchanged across 102 hashed build-source files, one Rayon thread, a 1,536 MiB Node heap cap, a 180-second deadline and a 1.5 GiB available-memory abort floor. Its lowest one-second available-memory sample was 3,520,086,016 bytes; the separate post-cleanup reading was 3,426,631,680 bytes. The owned build group was released, and no browser or dev server was started. Subsequent asset comparison is offline. This reported build interval is retained as host contention; the matrix was not paused, resampled, retuned or given changed source.
+
+Root subsequently reported its single integration typecheck at **2026-09-08T00:25:47.597956Z–00:25:51.835452Z** and lint at **00:25:51.835705Z–00:25:53.040771Z**, both exit 0. No browser, build or physics workload accompanied those checks. These reported intervals are additional host contention, with no change to the matrix.
+
+The existing `BELAY full matrix evidence` heartbeat was updated in place, with its prompt preserved exactly. No second monitor was created.
+
+| Monitor property | Saved policy |
+|---|---|
+| ID | `belay-full-matrix-evidence` |
+| Cadence and finite cap | Every five minutes, at most 288 checks: a 24-hour recurrence budget covering the job's existing 24-hour run envelope. |
+| Notification policy | Quiet except for a material harness/resource event, a newly completed shard, or final reconciliation. |
+| Cost | At most 288 additional agent check invocations, ordinarily limited to local status/journal reads. Actual token or dollar cost is not exposed by the saved automation metadata and has not been measured. No additional simulation is launched. |
+| Early teardown | Pause the same heartbeat after final reconciliation/reporting of either a complete or incomplete outcome. The finite recurrence cap also prevents indefinite polling. |
+| Native-process ownership | The monitor does not signal historical PIDs. The running controller and independent watchdogs retain native-worker cleanup and their unchanged resource/deadline limits. Ending the monitor does not replace those guards. |
+| Notification state | `work/phase2-monitor-state.json`, separate from frozen/imported source. |
+
+The saved ID, 288-check cap, five-minute cadence, unchanged prompt and original creation timestamp were read back and verified after the update. The native workers continue independently of the follow-up checks.
+
+On the user's subsequent queue freeze, the same monitor's prompt was amended to **consolidation only**, preserving its existing recurrence cap and creation timestamp. It may finish only this already-running matrix, its already-assigned final validator handoff, and the current evidence/findings commit. It must not start another investigation, test, solver variant, benchmark, build, review or assignment. After the final complete or incomplete handoff, it pauses and the task becomes idle. Root owns final consolidation, validation and push.
+
+## Final completion and disposition
+
+The original third invocation finished at **2026-09-08T04:25:36.133Z**, COMPLETE/finished: 1,000 records, no missing ordinals, 2,763,309 timing samples and zero unattributed tail. Workers 0–3 published their final exit receipts at 00:52:05.523Z, 03:12:45.978Z, 04:17:39.160Z and 04:25:35.617Z respectively; the controller recorded four code-0 close events. Earlier moving-prefix observations above remain historical observations, not separate datasets.
+
+Additional user-requested host overlap began approximately **03:25 UTC** with local development/browser activity. The user reported briefly closing the laptop lid before **03:46 UTC**; counters were observed advancing afterward. Exact lid/sleep duration and power state were not measured. No samples were discarded, adjusted or recut to remove these intervals. These disclosures accompany earlier checks and preclude treating the elapsed step timings as isolated CPU or capacity measurements.
+
+The coordinator executed the existing independent final validator after all owned processes exited, using 256 MiB old-space on the original directory. It returned exit 0, VALIDATED_FINAL_MATRIX and complete=true. Its receipt is preserved in the [lossless package](phase2-evidence-package/README.md), together with all three invocation directories. See [final evidence findings](phase2-final-evidence.md) for the denominators, physical violations and static/unchanged-input counterexamples.
+
+The user's subsequent deletion request superseded the earlier pause-on-completion policy. The coordinator reported deleting BELAY scheduled definitions, including its consolidation follow-up; the evidence heartbeat definition is absent on disk. No schedule was recreated. The historical cap/cost table above describes the former monitor, not an active schedule. Actual accumulated token/dollar cost was not measured. The original exec session is no longer available; the independent validator verified recorded process identities absent. This evidence task has no remaining owned workloads and becomes idle after the final commit handoff. Root owns consolidation and push.

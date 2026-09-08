@@ -1,0 +1,40 @@
+{
+  "validatedRecords": 1000,
+  "planned": 1000,
+  "missingOrdinals": [],
+  "samples": 2763309,
+  "teardown": [
+    {
+      "index": 0,
+      "pid": 27985,
+      "code": 0,
+      "signal": null,
+      "omittedLogBytes": 0
+    },
+    {
+      "index": 1,
+      "pid": 27986,
+      "code": 0,
+      "signal": null,
+      "omittedLogBytes": 0
+    },
+    {
+      "index": 2,
+      "pid": 27987,
+      "code": 0,
+      "signal": null,
+      "omittedLogBytes": 0
+    },
+    {
+      "index": 3,
+      "pid": 27988,
+      "code": 0,
+      "signal": null,
+      "omittedLogBytes": 0
+    }
+  ],
+  "status": "COMPLETE",
+  "phase": "finished",
+  "failure": null,
+  "at": "2026-09-08T04:25:36.133Z"
+}

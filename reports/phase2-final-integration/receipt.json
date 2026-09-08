@@ -1,0 +1,58 @@
+{
+  "sourceCommit": "ba186efc9a738ba16a382f7ac3bcb8d30b180048",
+  "scope": "Final current-batch integration checks. No new benchmark, build or human/capacity qualification. User local preview remains running.",
+  "checks": [
+    {
+      "name": "typecheck",
+      "command": "npm run typecheck",
+      "startedAt": "2026-09-08T05:00:14.871444+00:00",
+      "endedAt": "2026-09-08T05:00:16.933139+00:00",
+      "wallSeconds": 2.061570792022394,
+      "exitCode": 0,
+      "log": "reports/phase2-final-integration/typecheck.log",
+      "logBytes": 65,
+      "logSha256": "332ca5cdd1cce4a89252107f9619db6e237f3a287629bcfe353c6ab7352f9d2f"
+    },
+    {
+      "name": "lint",
+      "command": "npm run lint",
+      "startedAt": "2026-09-08T05:00:16.933723+00:00",
+      "endedAt": "2026-09-08T05:00:17.674163+00:00",
+      "wallSeconds": 0.7404706249944866,
+      "exitCode": 0,
+      "log": "reports/phase2-final-integration/lint.log",
+      "logBytes": 188,
+      "logSha256": "e2c09f83d1437bf0d17e070708882490477b8693341e3ad7ebc626e50de46ed0"
+    },
+    {
+      "name": "tests",
+      "command": "npm test",
+      "startedAt": "2026-09-08T05:00:17.674498+00:00",
+      "endedAt": "2026-09-08T05:00:58.240905+00:00",
+      "wallSeconds": 40.56648325000424,
+      "exitCode": 0,
+      "log": "reports/phase2-final-integration/tests.log",
+      "logBytes": 305,
+      "logSha256": "38c3f4bfa8c374b5625fb8780187bbdce70cd6d6a14f40ad129a20dda10793ae"
+    }
+  ],
+  "tests": {
+    "filesPassed": 28,
+    "passed": 263,
+    "expectedFailures": 7,
+    "total": 270,
+    "expectedFailuresAreUnresolvedDefects": true
+  },
+  "registeredHistoricalEvidence": {
+    "command": "npm run verify:evidence",
+    "exitCode": 0,
+    "checked": 75,
+    "result": "PASS",
+    "recordedAtUtc": "2026-09-08T05:06:03.675300+00:00",
+    "scope": "Registered historical artifacts and source bundles. The new final matrix package is checked separately against its reconstruction manifest."
+  },
+  "whitespaceCheck": {
+    "result": "PASS",
+    "scope": "Changed text except exact raw command logs. The preserved tests.log contains an emitted trailing blank line; raw logs are retained unchanged and hashed."
+  }
+}

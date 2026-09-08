@@ -5,7 +5,7 @@ Start with [the integrated checkpoint](phase2-verification.md). Passing software
 | Question | Evidence |
 |---|---|
 | What can be played and what currently fails? | [Integration checkpoint](phase2-verification.md) |
-| How do the baseline bots behave? | [Baseline findings](phase2-baseline-findings.md), [ten-run smoke](phase2-smoke.md), [incomplete 1,000-run prefix](phase2-paused-prefix.json) |
+| How do the baseline bots behave? | [Completed 1,000-run findings](phase2-final-evidence.md); historical [baseline](phase2-baseline-findings.md), [ten-run smoke](phase2-smoke.md) and [incomplete prefix](phase2-paused-prefix.json) remain separate |
 | Do accepted inputs replay? | [50-case replay](phase2-replay.json), saved `phase2-tapes/` |
 | Can a player remain static during rescue? | [250-case rejected re-cut](rescue-recut-decision.md), [reproduction](rescue-recut-reproduce.md) |
 | Why can the rope exceed its length bound? | [Rejected contact candidates](phase2-topology-failure-analysis.md) |
@@ -18,7 +18,9 @@ Start with [the integrated checkpoint](phase2-verification.md). Passing software
 | What load terms preceded bridge failure? | [Opt-in observer contract](../docs/design/phase2-bridge-load-observer.md), [two off/on checks](phase2-bridge-load-observer-check.json) |
 | Did a coupled fixed-feature projector fix the lip? | **No.** [Rejected candidate](phase2-fixed-feature-feasibility.md), [saved-data analysis](phase2-fixed-feature-stall-analysis.md) |
 | Are wall motor effort and measured contact reaction equivalent? | **No.** [Unapplied actuator prototype](phase2-wall-actuator-prototype.md), [Rapier observation limits](phase2-rapier-contact-adapter-contract.md) |
-| Is the full matrix complete? | [Runner validation](phase2-parallel-validation.md), [independent prefix audit](phase2-independent-prefix-audit.md), [prepared final validator](phase2-independent-final-validator.md); real final-data reconciliation still pending |
+| Is the full matrix complete? | **Yes.** [Independent final receipt](phase2-independent-final-validation.json), [validator scope](phase2-independent-final-validator.md), [complete findings](phase2-final-evidence.md) |
+| Can all final raw evidence be recovered? | [Lossless package and reconstruction](phase2-evidence-package/README.md), [root package-versus-original check](phase2-final-integration/package-original-comparison.json): 71 original files, 2,763,309 raw timing samples |
+| Did the final integrated code checks pass? | [Final checks and logs](phase2-final-integration/receipt.json): 263 passing tests, seven retained expected failures, typecheck and lint pass |
 | What would hosting cost? | [Preparatory proposal](../docs/design/phase6-hosting-clip-cost-proposal.md); no resources provisioned |
 
 Use `npm run verify:evidence` to check registered artifacts, lossless compressed bytes and the historical source bundle. Compression receipts preserve original hashes. This command checks integrity, not whether the measurements meet a target.

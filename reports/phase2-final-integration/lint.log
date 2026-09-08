@@ -1,0 +1,2 @@
+npm notice run belay@0.1.0 lint
+npm notice run oxlint app client server shared scripts tests tuning.ts components/ui/button.tsx lib/utils.ts vite.config.ts vitest.config.ts next.config.ts

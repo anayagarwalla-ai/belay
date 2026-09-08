@@ -1,0 +1,36 @@
+{
+  "directory": "/Users/anayagarwalla/.codex/worktrees/850a/testastra/reports/phase2-parallel-2026-09-08T00-01-34.279Z-688bcbe4-7d3f-4aba-b66f-de8f8cc5703d",
+  "reportedCompletedShards": [
+    "worker-0",
+    "worker-1"
+  ],
+  "reportedOperationalFailures": [],
+  "finalReported": false,
+  "automationId": "belay-full-matrix-evidence",
+  "maximumChecks": 288,
+  "intervalMinutes": 5,
+  "earlyTeardown": "Pause after final complete or incomplete reconciliation and reporting",
+  "scope": "Consolidation only: existing matrix and already-assigned final reconciliation/handoff",
+  "lastCheckedAt": "2026-09-08T05:07:13.744Z",
+  "lastPhase": "finished",
+  "lastStatus": "COMPLETE",
+  "independentValidator": {
+    "status": "VALIDATED_FINAL_MATRIX",
+    "commit": "8f6ab2f1d4c243a800e896188706ce11baf44489",
+    "workingDirectory": "/Users/anayagarwalla/.codex/worktrees/38d1/testastra",
+    "script": "/Users/anayagarwalla/.codex/worktrees/38d1/testastra/scripts/phase2-independent-final-validate.mjs",
+    "scopeDocument": "/Users/anayagarwalla/.codex/worktrees/38d1/testastra/reports/phase2-independent-final-validator.md",
+    "scriptSha256": "e0ad3d3acd638b148692d6ab834960e5be01e6299a61dd7366f5e615c4181f73",
+    "oldSpaceMiB": 256,
+    "executionGate": "Existing controller and all four workers have exited; original host and artifact path only",
+    "receiptRule": "Save stdout to a new independent JSON receipt; never overwrite an existing artifact",
+    "passRule": "Exit 0 AND validationStatus VALIDATED_FINAL_MATRIX AND complete true",
+    "refusalRule": "Preserve incomplete/refused evidence; hand off without restarting",
+    "executedBy": "coordinator",
+    "exitCode": 0,
+    "complete": true,
+    "receipt": "reports/phase2-evidence-package/provenance/independent-final-validation.json"
+  },
+  "lastNotificationAt": "2026-09-08T03:15:49.947Z",
+  "automationDisposition": "Deleted by coordinator at user request; evidence heartbeat definition absent on disk; no schedule recreated"
+}

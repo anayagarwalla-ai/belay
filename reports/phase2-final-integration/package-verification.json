@@ -1,0 +1,12 @@
+{
+  "status": "VERIFIED_PACKAGED_BYTES",
+  "destination": null,
+  "files": 71,
+  "directories": 10,
+  "originalBytes": 34795282,
+  "storedBytes": 13595969,
+  "rawTimingSamples": 2763309,
+  "rawTimingBytes": 22106472,
+  "manifestSha256": "ed3e0a4a7142f4d57710accd9c57ca0a6a0e34dc0a373ddeaf1b76ad067d321e",
+  "scope": "Archive byte and POSIX-mode integrity only; no physics, gameplay, runtime or original-host validation."
+}
