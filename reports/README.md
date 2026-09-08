@@ -13,6 +13,12 @@ Start with [the integrated checkpoint](phase2-verification.md). Passing software
 | What reached a real browser/server? | [Six-connection browser baseline](phase2-live-browser-baseline.json), [access/protocol checks](phase2-network.json) |
 | Where does local CPU/allocation time go? | [Profiling](local-load-profile-findings.md), [rejected allocation change](phase2-performance.md), [mixed build-runtime experiment](local-load-runtime-findings.md) |
 | Did 300 rooms pass? | **No.** [Local harness results](local-load-verification.md) retain limited fixtures and guard aborts |
+| What is in the frozen batch? | [Consolidation status](../CONSOLIDATION.md) |
+| What did the client build reduction preserve? | [Source scanner audit](phase2-tailwind-source-audit.md), [one-build comparison and limits](phase2-tailwind-build-validation/README.md) |
+| What load terms preceded bridge failure? | [Opt-in observer contract](../docs/design/phase2-bridge-load-observer.md), [two off/on checks](phase2-bridge-load-observer-check.json) |
+| Did a coupled fixed-feature projector fix the lip? | **No.** [Rejected candidate](phase2-fixed-feature-feasibility.md), [saved-data analysis](phase2-fixed-feature-stall-analysis.md) |
+| Are wall motor effort and measured contact reaction equivalent? | **No.** [Unapplied actuator prototype](phase2-wall-actuator-prototype.md), [Rapier observation limits](phase2-rapier-contact-adapter-contract.md) |
+| Is the full matrix complete? | [Runner validation](phase2-parallel-validation.md), [independent prefix audit](phase2-independent-prefix-audit.md); final 1,000-run reconciliation still pending |
 | What would hosting cost? | [Preparatory proposal](../docs/design/phase6-hosting-clip-cost-proposal.md); no resources provisioned |
 
 Use `npm run verify:evidence` to check registered artifacts, lossless compressed bytes and the historical source bundle. Compression receipts preserve original hashes. This command checks integrity, not whether the measurements meet a target.

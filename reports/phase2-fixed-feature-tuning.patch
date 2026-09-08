@@ -1,0 +1,20 @@
+diff --git a/tuning.ts b/tuning.ts
+--- a/tuning.ts
++++ b/tuning.ts
+@@ -2,7 +2,7 @@
+  * Changes are recorded by the reports' full configuration and simulation version.
+  * Nothing here is a human Gate 1 verdict. */
+ export const TUNING = {
+-  version: 'phase2-1',
++  version: 'phase2-fixed-feature-feasibility-1',
+   phase: 2,
+   seed: 1701, // Reproducible default flat test surface; no hazards are generated.
+   players: 2, // Gate 1 is exactly two bodies. Later phases must still respect hardCap.
+@@ -143,6 +143,7 @@
+     groundContactTolerance: 0.045, wallContactTolerance: 0.05, collisionSkin: 0.004,
+     contactPredictionM: 0.002, // Wide predictive contacts snag coplanar bank/bridge seams; swept body projection handles the residual here.
+     collisionSweepPasses: 4, // Sweep PBD corrections too; Rapier CCD only covers the Rapier step.
++    // Pure fixed-feature prototype reuses these sweep limits and the existing physicsDiagnostics geometric ceilings.
+     solverIterations: 12, maximumSolverIterations: 256, solverToleranceM: 0.005, // Extra bounded passes handle the large rope/body mass ratio at a lip contact.
+     iceTractionMultiplier: 0.3, // A known low-traction patch, not a hidden difficulty adjustment.
+     wallClimbSpeed: 1.6, wallDescendSpeed: 1.8, wallAcceleration: 5,

@@ -1,0 +1,1149 @@
+{
+  "generatedAt": "2026-09-08T00:11:53.793Z",
+  "sourceParent": "01f11c76fb543b7236d459a0f69b09795823c4d4",
+  "existingCss": {
+    "path": "/Users/anayagarwalla/Documents/ChatGPT/testastra/dist/client/_next/static/css/index.B-AjPmNL.css",
+    "rawBytes": 170055,
+    "sha256": "1c2aa855b57b47c578eef568646e312b93e8a4e14fcb4dfc491ed6e7ca42d0d3",
+    "emittedClassNames": 1354
+  },
+  "automaticScanner": {
+    "sourceRoot": "/Users/anayagarwalla/Documents/ChatGPT/testastra",
+    "totalFiles": 355,
+    "groups": {
+      "components": 60,
+      "docs": 13,
+      "reports": 134,
+      "scripts": 54,
+      "shared": 9,
+      "tests": 44,
+      "vite.config.ts": 1,
+      "server": 7,
+      "app": 3,
+      "tsconfig.json": 1,
+      "hooks": 1,
+      "client": 13,
+      "README.md": 1,
+      "PLAN.md": 1,
+      "WORKSTREAMS.md": 1,
+      "components.json": 1,
+      ".oxfmtrc.json": 1,
+      "vitest.config.ts": 1,
+      "package.json": 1,
+      "PLAYTEST.md": 1,
+      "public": 1,
+      "RUNBOOK.md": 1,
+      "tuning.ts": 1,
+      ".oxlintrc.json": 1,
+      "next.config.ts": 1,
+      ".openai": 1,
+      "lib": 1
+    },
+    "fixtureFiles": 18,
+    "reportFiles": 134,
+    "unusedComponentFiles": 59
+  },
+  "sampledSources": [
+    {
+      "file": "tests/client-presentation.test.ts",
+      "candidates": 274,
+      "existingSelectorsOutsideSelectedSources": [
+        "collapse"
+      ]
+    },
+    {
+      "file": "tests/fixtures/client-preview.tsx",
+      "candidates": 96,
+      "existingSelectorsOutsideSelectedSources": []
+    },
+    {
+      "file": "reports/phase2-client-latency.json",
+      "candidates": 741,
+      "existingSelectorsOutsideSelectedSources": [
+        "collapse",
+        "relative"
+      ]
+    }
+  ],
+  "unusedScaffold": {
+    "uniqueExistingSelectorsOutsideSelectedSources": 1231,
+    "files": [
+      {
+        "file": "components/ui/accordion.tsx",
+        "candidates": 62,
+        "existingSelectorsOutsideSelectedSources": 29,
+        "examples": [
+          "**:data-[slot=accordion-trigger-icon]:ml-auto",
+          "**:data-[slot=accordion-trigger-icon]:size-4",
+          "[&_a]:hover:text-foreground",
+          "[&_a]:underline",
+          "[&_a]:underline-offset-3",
+          "[&_p:not(:last-child)]:mb-4",
+          "aria-disabled:opacity-50",
+          "aria-disabled:pointer-events-none"
+        ]
+      },
+      {
+        "file": "components/ui/alert-dialog.tsx",
+        "candidates": 105,
+        "existingSelectorsOutsideSelectedSources": 53,
+        "examples": [
+          "*:[a]:hover:text-foreground",
+          "*:[a]:underline",
+          "*:[a]:underline-offset-3",
+          "*:[svg:not([class*='size-'])]:size-6",
+          "-mb-4",
+          "-mx-4",
+          "-translate-x-1/2",
+          "-translate-y-1/2"
+        ]
+      },
+      {
+        "file": "components/ui/alert.tsx",
+        "candidates": 61,
+        "existingSelectorsOutsideSelectedSources": 24,
+        "examples": [
+          "*:[svg:not([class*='size-'])]:size-4",
+          "*:[svg]:row-span-2",
+          "*:[svg]:text-current",
+          "*:[svg]:translate-y-0.5",
+          "[&_a]:hover:text-foreground",
+          "[&_a]:underline",
+          "[&_a]:underline-offset-3",
+          "[&_p:not(:last-child)]:mb-4"
+        ]
+      },
+      {
+        "file": "components/ui/aspect-ratio.tsx",
+        "candidates": 18,
+        "existingSelectorsOutsideSelectedSources": 2,
+        "examples": [
+          "aspect-(--ratio)",
+          "relative"
+        ]
+      },
+      {
+        "file": "components/ui/attachment.tsx",
+        "candidates": 149,
+        "existingSelectorsOutsideSelectedSources": 72,
+        "examples": [
+          "*:[img]:aspect-square",
+          "*:[img]:object-cover",
+          "*:[img]:w-full",
+          "*:data-[slot=attachment]:flex-none",
+          "*:data-[slot=attachment]:snap-start",
+          "absolute",
+          "aspect-square",
+          "bg-muted"
+        ]
+      },
+      {
+        "file": "components/ui/avatar.tsx",
+        "candidates": 76,
+        "existingSelectorsOutsideSelectedSources": 40,
+        "examples": [
+          "*:data-[slot=avatar]:ring-2",
+          "*:data-[slot=avatar]:ring-background",
+          "-space-x-2",
+          "[&>svg]:size-4",
+          "absolute",
+          "after:absolute",
+          "after:border",
+          "after:border-border"
+        ]
+      },
+      {
+        "file": "components/ui/badge.tsx",
+        "candidates": 78,
+        "existingSelectorsOutsideSelectedSources": 11,
+        "examples": [
+          "[&>svg]:pointer-events-none",
+          "[&>svg]:size-3!",
+          "[a]:hover:bg-muted",
+          "[a]:hover:bg-primary/80",
+          "focus-visible:ring-[3px]",
+          "h-5",
+          "overflow-hidden",
+          "py-0.5"
+        ]
+      },
+      {
+        "file": "components/ui/breadcrumb.tsx",
+        "candidates": 57,
+        "existingSelectorsOutsideSelectedSources": 10,
+        "examples": [
+          "[&>svg]:size-3.5",
+          "[&>svg]:size-4",
+          "flex",
+          "flex-wrap",
+          "font-normal",
+          "size-5",
+          "sr-only",
+          "text-foreground"
+        ]
+      },
+      {
+        "file": "components/ui/bubble.tsx",
+        "candidates": 124,
+        "existingSelectorsOutsideSelectedSources": 60,
+        "examples": [
+          "*:data-[slot=bubble-content]:bg-[oklch(from_var(--primary)_0.93_calc(c*0.4)_h)]",
+          "*:data-[slot=bubble-content]:bg-background",
+          "*:data-[slot=bubble-content]:bg-muted",
+          "*:data-[slot=bubble-content]:bg-primary",
+          "*:data-[slot=bubble-content]:bg-transparent",
+          "*:data-[slot=bubble-content]:border-border",
+          "*:data-[slot=bubble-content]:p-0",
+          "*:data-[slot=bubble-content]:rounded-none"
+        ]
+      },
+      {
+        "file": "components/ui/button-group.tsx",
+        "candidates": 65,
+        "existingSelectorsOutsideSelectedSources": 27,
+        "examples": [
+          "*:data-slot:rounded-b-none",
+          "*:data-slot:rounded-r-none",
+          "*:focus-visible:relative",
+          "*:focus-visible:z-10",
+          "[&>[data-slot=select-trigger]:not([class*='w-'])]:w-fit",
+          "[&>[data-slot]:not(:has(~[data-slot]))]:rounded-b-lg!",
+          "[&>[data-slot]:not(:has(~[data-slot]))]:rounded-r-lg!",
+          "[&>[data-slot]~[data-slot]]:border-l-0"
+        ]
+      },
+      {
+        "file": "components/ui/calendar.tsx",
+        "candidates": 177,
+        "existingSelectorsOutsideSelectedSources": 82,
+        "examples": [
+          "[&:first-child[data-selected=true]_button]:rounded-l-(--cell-radius)",
+          "[&:last-child[data-selected=true]_button]:rounded-r-(--cell-radius)",
+          "[&:nth-child(2)[data-selected=true]_button]:rounded-l-(--cell-radius)",
+          "[&>span]:opacity-70",
+          "[&>span]:text-xs",
+          "[&>svg]:size-3.5",
+          "[--cell-radius:var(--radius-md)]",
+          "[--cell-size:--spacing(7)]"
+        ]
+      },
+      {
+        "file": "components/ui/card.tsx",
+        "candidates": 71,
+        "existingSelectorsOutsideSelectedSources": 36,
+        "examples": [
+          "*:[img:first-child]:rounded-t-xl",
+          "*:[img:last-child]:rounded-b-xl",
+          "@container/card-header",
+          "[--card-spacing:--spacing(4)]",
+          "[.border-b]:pb-(--card-spacing)",
+          "auto-rows-min",
+          "bg-muted/50",
+          "border-t"
+        ]
+      },
+      {
+        "file": "components/ui/carousel.tsx",
+        "candidates": 96,
+        "existingSelectorsOutsideSelectedSources": 24,
+        "examples": [
+          "-bottom-12",
+          "-left-12",
+          "-ml-4",
+          "-mt-4",
+          "-right-12",
+          "-top-12",
+          "-translate-x-1/2",
+          "absolute"
+        ]
+      },
+      {
+        "file": "components/ui/chart.tsx",
+        "candidates": 155,
+        "existingSelectorsOutsideSelectedSources": 49,
+        "examples": [
+          "[&>svg]:h-2.5",
+          "[&>svg]:h-3",
+          "[&>svg]:w-2.5",
+          "[&>svg]:w-3",
+          "[&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50",
+          "[&_.recharts-curve.recharts-tooltip-cursor]:stroke-border",
+          "[&_.recharts-dot[stroke='#fff']]:stroke-transparent",
+          "[&_.recharts-layer]:outline-hidden"
+        ]
+      },
+      {
+        "file": "components/ui/checkbox.tsx",
+        "candidates": 55,
+        "existingSelectorsOutsideSelectedSources": 24,
+        "examples": [
+          "[&>svg]:size-3.5",
+          "after:-inset-x-3",
+          "after:-inset-y-2",
+          "after:absolute",
+          "aria-invalid:aria-checked:border-primary",
+          "border-input",
+          "dark:data-checked:bg-primary",
+          "data-checked:bg-primary"
+        ]
+      },
+      {
+        "file": "components/ui/collapsible.tsx",
+        "candidates": 13,
+        "existingSelectorsOutsideSelectedSources": 0,
+        "examples": []
+      },
+      {
+        "file": "components/ui/combobox.tsx",
+        "candidates": 179,
+        "existingSelectorsOutsideSelectedSources": 79,
+        "examples": [
+          "*:data-[slot=input-group]:bg-input/30",
+          "*:data-[slot=input-group]:border-input/30",
+          "*:data-[slot=input-group]:h-8",
+          "*:data-[slot=input-group]:m-1",
+          "*:data-[slot=input-group]:mb-0",
+          "*:data-[slot=input-group]:shadow-none",
+          "-ml-1",
+          "-mx-1"
+        ]
+      },
+      {
+        "file": "components/ui/command.tsx",
+        "candidates": 102,
+        "existingSelectorsOutsideSelectedSources": 55,
+        "examples": [
+          "**:[[cmdk-group-heading]]:font-medium",
+          "**:[[cmdk-group-heading]]:px-2",
+          "**:[[cmdk-group-heading]]:py-1.5",
+          "**:[[cmdk-group-heading]]:text-xs",
+          "*:data-[slot=input-group-addon]:pl-2!",
+          "-mx-1",
+          "bg-border",
+          "bg-input/30"
+        ]
+      },
+      {
+        "file": "components/ui/context-menu.tsx",
+        "candidates": 119,
+        "existingSelectorsOutsideSelectedSources": 34,
+        "examples": [
+          "-mx-1",
+          "absolute",
+          "bg-border",
+          "cursor-default",
+          "data-disabled:opacity-50",
+          "data-disabled:pointer-events-none",
+          "data-inset:pl-7",
+          "duration-100"
+        ]
+      },
+      {
+        "file": "components/ui/dialog.tsx",
+        "candidates": 85,
+        "existingSelectorsOutsideSelectedSources": 38,
+        "examples": [
+          "*:[a]:hover:text-foreground",
+          "*:[a]:underline",
+          "*:[a]:underline-offset-3",
+          "-mb-4",
+          "-mx-4",
+          "-translate-x-1/2",
+          "-translate-y-1/2",
+          "absolute"
+        ]
+      },
+      {
+        "file": "components/ui/direction.tsx",
+        "candidates": 4,
+        "existingSelectorsOutsideSelectedSources": 0,
+        "examples": []
+      },
+      {
+        "file": "components/ui/drawer.tsx",
+        "candidates": 236,
+        "existingSelectorsOutsideSelectedSources": 140,
+        "examples": [
+          "[--bleed:3rem]",
+          "[--drawer-content-height:var(--drawer-height,auto)]",
+          "[--peek:1rem]",
+          "[--stack-height:var(--drawer-frontmost-height,var(--drawer-height,0px))]",
+          "[--stack-peek-offset:max(0px,calc((var(--nested-drawers)-var(--stack-progress))*var(--peek)))]",
+          "[--stack-progress:clamp(0,var(--drawer-swipe-progress),1)]",
+          "[--stack-scale-base:max(0,calc(1-(var(--nested-drawers)*var(--stack-step))))]",
+          "[--stack-scale:clamp(0,calc(var(--stack-scale-base)+(var(--stack-step)*var(--stack-progress))),1)]"
+        ]
+      },
+      {
+        "file": "components/ui/dropdown-menu.tsx",
+        "candidates": 128,
+        "existingSelectorsOutsideSelectedSources": 38,
+        "examples": [
+          "-mx-1",
+          "absolute",
+          "bg-border",
+          "cursor-default",
+          "data-closed:overflow-hidden",
+          "data-disabled:opacity-50",
+          "data-disabled:pointer-events-none",
+          "data-inset:pl-7"
+        ]
+      },
+      {
+        "file": "components/ui/empty.tsx",
+        "candidates": 62,
+        "existingSelectorsOutsideSelectedSources": 23,
+        "examples": [
+          "[&>a:hover]:text-primary",
+          "[&>a]:underline",
+          "[&>a]:underline-offset-4",
+          "bg-muted",
+          "bg-transparent",
+          "border-dashed",
+          "flex",
+          "flex-1"
+        ]
+      },
+      {
+        "file": "components/ui/field.tsx",
+        "candidates": 134,
+        "existingSelectorsOutsideSelectedSources": 68,
+        "examples": [
+          "*:data-[slot=field-group]:gap-4",
+          "*:data-[slot=field-label]:flex-auto",
+          "*:data-[slot=field]:p-2.5",
+          "*:w-full",
+          "-my-2",
+          "@container/field-group",
+          "@md/field-group:*:data-[slot=field-label]:flex-auto",
+          "@md/field-group:*:w-auto"
+        ]
+      },
+      {
+        "file": "components/ui/hover-card.tsx",
+        "candidates": 49,
+        "existingSelectorsOutsideSelectedSources": 10,
+        "examples": [
+          "duration-100",
+          "isolate",
+          "origin-(--transform-origin)",
+          "outline-hidden",
+          "p-2.5",
+          "ring-1",
+          "ring-foreground/10",
+          "shadow-md"
+        ]
+      },
+      {
+        "file": "components/ui/input-group.tsx",
+        "candidates": 136,
+        "existingSelectorsOutsideSelectedSources": 65,
+        "examples": [
+          "[&>kbd]:rounded-[calc(var(--radius)-5px)]",
+          "[&>svg:not([class*='size-'])]:size-3.5",
+          "[&>svg:not([class*='size-'])]:size-4",
+          "[.border-b]:pb-2",
+          "[.border-t]:pt-2",
+          "aria-invalid:ring-0",
+          "bg-transparent",
+          "border-0"
+        ]
+      },
+      {
+        "file": "components/ui/input-otp.tsx",
+        "candidates": 68,
+        "existingSelectorsOutsideSelectedSources": 22,
+        "examples": [
+          "absolute",
+          "bg-foreground",
+          "border-input",
+          "border-r",
+          "border-y",
+          "data-[active=true]:border-ring",
+          "data-[active=true]:ring-3",
+          "data-[active=true]:ring-ring/50"
+        ]
+      },
+      {
+        "file": "components/ui/input.tsx",
+        "candidates": 48,
+        "existingSelectorsOutsideSelectedSources": 18,
+        "examples": [
+          "bg-transparent",
+          "border-input",
+          "dark:disabled:bg-input/80",
+          "disabled:bg-input/50",
+          "disabled:cursor-not-allowed",
+          "file:bg-transparent",
+          "file:border-0",
+          "file:font-medium"
+        ]
+      },
+      {
+        "file": "components/ui/item.tsx",
+        "candidates": 115,
+        "existingSelectorsOutsideSelectedSources": 47,
+        "examples": [
+          "[&+[data-slot=item-content]]:flex-none",
+          "[&>a:hover]:text-primary",
+          "[&>a]:underline",
+          "[&>a]:underline-offset-4",
+          "[&_img]:object-cover",
+          "[&_img]:size-full",
+          "[a]:hover:bg-muted",
+          "[a]:transition-colors"
+        ]
+      },
+      {
+        "file": "components/ui/kbd.tsx",
+        "candidates": 32,
+        "existingSelectorsOutsideSelectedSources": 11,
+        "examples": [
+          "bg-muted",
+          "dark:in-data-[slot=tooltip-content]:bg-background/10",
+          "font-sans",
+          "h-5",
+          "in-data-[slot=tooltip-content]:bg-background/20",
+          "in-data-[slot=tooltip-content]:text-background",
+          "min-w-5",
+          "pointer-events-none"
+        ]
+      },
+      {
+        "file": "components/ui/label.tsx",
+        "candidates": 25,
+        "existingSelectorsOutsideSelectedSources": 7,
+        "examples": [
+          "flex",
+          "gap-2",
+          "group-data-[disabled=true]:opacity-50",
+          "group-data-[disabled=true]:pointer-events-none",
+          "leading-none",
+          "peer-disabled:cursor-not-allowed",
+          "peer-disabled:opacity-50"
+        ]
+      },
+      {
+        "file": "components/ui/marker.tsx",
+        "candidates": 68,
+        "existingSelectorsOutsideSelectedSources": 30,
+        "examples": [
+          "*:[a]:hover:text-foreground",
+          "*:[a]:underline",
+          "*:[a]:underline-offset-3",
+          "[a]:hover:text-foreground",
+          "[a]:underline",
+          "[a]:underline-offset-3",
+          "after:bg-border",
+          "after:flex-1"
+        ]
+      },
+      {
+        "file": "components/ui/menubar.tsx",
+        "candidates": 118,
+        "existingSelectorsOutsideSelectedSources": 34,
+        "examples": [
+          "-mx-1",
+          "absolute",
+          "bg-border",
+          "cursor-default",
+          "data-disabled:opacity-50",
+          "data-disabled:pointer-events-none",
+          "data-inset:pl-7",
+          "duration-100"
+        ]
+      },
+      {
+        "file": "components/ui/message-scroller.tsx",
+        "candidates": 80,
+        "existingSelectorsOutsideSelectedSources": 38,
+        "examples": [
+          "-translate-x-1/2",
+          "[contain-intrinsic-size:auto_10rem]",
+          "[content-visibility:auto]",
+          "absolute",
+          "contain-content",
+          "data-[active=false]:duration-400",
+          "data-[active=false]:ease-[cubic-bezier(0.7,0,0.84,0)]",
+          "data-[active=false]:opacity-0"
+        ]
+      },
+      {
+        "file": "components/ui/message.tsx",
+        "candidates": 51,
+        "existingSelectorsOutsideSelectedSources": 22,
+        "examples": [
+          "bg-muted",
+          "data-[align=end]:flex-row-reverse",
+          "flex",
+          "flex-col",
+          "gap-2",
+          "gap-2.5",
+          "group-data-[align=end]/message:*:data-slot:self-end",
+          "group-data-[align=end]/message:justify-end"
+        ]
+      },
+      {
+        "file": "components/ui/native-select.tsx",
+        "candidates": 74,
+        "existingSelectorsOutsideSelectedSources": 26,
+        "examples": [
+          "-translate-y-1/2",
+          "absolute",
+          "appearance-none",
+          "bg-[Canvas]",
+          "bg-transparent",
+          "border-input",
+          "data-[size=sm]:h-7",
+          "data-[size=sm]:py-0.5"
+        ]
+      },
+      {
+        "file": "components/ui/navigation-menu.tsx",
+        "candidates": 157,
+        "existingSelectorsOutsideSelectedSources": 78,
+        "examples": [
+          "**:data-[slot=navigation-menu-link]:focus:outline-none",
+          "**:data-[slot=navigation-menu-link]:focus:ring-0",
+          "bg-border",
+          "data-[side=bottom]:before:left-0",
+          "data-[side=bottom]:before:right-0",
+          "data-[side=bottom]:before:top-[-10px]",
+          "data-active:bg-muted/50",
+          "data-active:focus:bg-muted"
+        ]
+      },
+      {
+        "file": "components/ui/pagination.tsx",
+        "candidates": 61,
+        "existingSelectorsOutsideSelectedSources": 8,
+        "examples": [
+          "flex",
+          "gap-0.5",
+          "mx-auto",
+          "pl-1.5!",
+          "pr-1.5!",
+          "sm:block",
+          "sr-only",
+          "w-full"
+        ]
+      },
+      {
+        "file": "components/ui/popover.tsx",
+        "candidates": 59,
+        "existingSelectorsOutsideSelectedSources": 14,
+        "examples": [
+          "duration-100",
+          "flex",
+          "flex-col",
+          "gap-0.5",
+          "gap-2.5",
+          "isolate",
+          "origin-(--transform-origin)",
+          "outline-hidden"
+        ]
+      },
+      {
+        "file": "components/ui/progress.tsx",
+        "candidates": 36,
+        "existingSelectorsOutsideSelectedSources": 12,
+        "examples": [
+          "bg-muted",
+          "flex",
+          "flex-wrap",
+          "gap-3",
+          "h-1",
+          "h-full",
+          "ml-auto",
+          "overflow-x-hidden"
+        ]
+      },
+      {
+        "file": "components/ui/radio-group.tsx",
+        "candidates": 60,
+        "existingSelectorsOutsideSelectedSources": 28,
+        "examples": [
+          "-translate-x-1/2",
+          "-translate-y-1/2",
+          "absolute",
+          "after:-inset-x-3",
+          "after:-inset-y-2",
+          "after:absolute",
+          "aria-invalid:aria-checked:border-primary",
+          "aspect-square"
+        ]
+      },
+      {
+        "file": "components/ui/resizable.tsx",
+        "candidates": 47,
+        "existingSelectorsOutsideSelectedSources": 26,
+        "examples": [
+          "[&[aria-orientation=horizontal]>div]:rotate-90",
+          "after:-translate-x-1/2",
+          "after:absolute",
+          "after:inset-y-0",
+          "after:left-1/2",
+          "after:w-1",
+          "aria-[orientation=horizontal]:after:-translate-y-1/2",
+          "aria-[orientation=horizontal]:after:h-1"
+        ]
+      },
+      {
+        "file": "components/ui/scroll-area.tsx",
+        "candidates": 44,
+        "existingSelectorsOutsideSelectedSources": 21,
+        "examples": [
+          "bg-border",
+          "data-horizontal:border-t",
+          "data-horizontal:border-t-transparent",
+          "data-horizontal:flex-col",
+          "data-horizontal:h-2.5",
+          "data-vertical:border-l",
+          "data-vertical:border-l-transparent",
+          "data-vertical:h-full"
+        ]
+      },
+      {
+        "file": "components/ui/select.tsx",
+        "candidates": 145,
+        "existingSelectorsOutsideSelectedSources": 60,
+        "examples": [
+          "*:[span]:last:flex",
+          "*:[span]:last:gap-2",
+          "*:[span]:last:items-center",
+          "*:data-[slot=select-value]:flex",
+          "*:data-[slot=select-value]:gap-1.5",
+          "*:data-[slot=select-value]:items-center",
+          "*:data-[slot=select-value]:line-clamp-1",
+          "-mx-1"
+        ]
+      },
+      {
+        "file": "components/ui/separator.tsx",
+        "candidates": 21,
+        "existingSelectorsOutsideSelectedSources": 5,
+        "examples": [
+          "bg-border",
+          "data-horizontal:h-px",
+          "data-horizontal:w-full",
+          "data-vertical:self-stretch",
+          "data-vertical:w-px"
+        ]
+      },
+      {
+        "file": "components/ui/sheet.tsx",
+        "candidates": 98,
+        "existingSelectorsOutsideSelectedSources": 53,
+        "examples": [
+          "absolute",
+          "bg-black/10",
+          "data-[side=bottom]:border-t",
+          "data-[side=bottom]:bottom-0",
+          "data-[side=bottom]:data-ending-style:translate-y-[2.5rem]",
+          "data-[side=bottom]:data-starting-style:translate-y-[2.5rem]",
+          "data-[side=bottom]:h-auto",
+          "data-[side=bottom]:inset-x-0"
+        ]
+      },
+      {
+        "file": "components/ui/sidebar.tsx",
+        "candidates": 376,
+        "existingSelectorsOutsideSelectedSources": 130,
+        "examples": [
+          "-translate-x-px",
+          "[&>button]:hidden",
+          "[&>span:last-child]:truncate",
+          "[&>svg]:shrink-0",
+          "[&>svg]:size-4",
+          "[&_svg]:size-4",
+          "[[data-side=left][data-collapsible=offcanvas]_&]:-right-2",
+          "[[data-side=left][data-state=collapsed]_&]:cursor-e-resize"
+        ]
+      },
+      {
+        "file": "components/ui/skeleton.tsx",
+        "candidates": 14,
+        "existingSelectorsOutsideSelectedSources": 3,
+        "examples": [
+          "animate-pulse",
+          "bg-muted",
+          "rounded-md"
+        ]
+      },
+      {
+        "file": "components/ui/slider.tsx",
+        "candidates": 60,
+        "existingSelectorsOutsideSelectedSources": 29,
+        "examples": [
+          "active:ring-3",
+          "after:-inset-2",
+          "after:absolute",
+          "bg-muted",
+          "bg-white",
+          "block",
+          "border-ring",
+          "data-disabled:opacity-50"
+        ]
+      },
+      {
+        "file": "components/ui/spinner.tsx",
+        "candidates": 17,
+        "existingSelectorsOutsideSelectedSources": 2,
+        "examples": [
+          "animate-spin",
+          "size-4"
+        ]
+      },
+      {
+        "file": "components/ui/switch.tsx",
+        "candidates": 64,
+        "existingSelectorsOutsideSelectedSources": 30,
+        "examples": [
+          "after:-inset-x-3",
+          "after:-inset-y-2",
+          "after:absolute",
+          "block",
+          "dark:data-checked:bg-primary-foreground",
+          "dark:data-unchecked:bg-foreground",
+          "dark:data-unchecked:bg-input/80",
+          "data-[size=default]:h-[18.4px]"
+        ]
+      },
+      {
+        "file": "components/ui/table.tsx",
+        "candidates": 55,
+        "existingSelectorsOutsideSelectedSources": 25,
+        "examples": [
+          "[&:has([role=checkbox])]:pr-0",
+          "[&>tr]:last:border-b-0",
+          "[&_tr:last-child]:border-0",
+          "[&_tr]:border-b",
+          "align-middle",
+          "bg-muted/50",
+          "border-b",
+          "border-t"
+        ]
+      },
+      {
+        "file": "components/ui/tabs.tsx",
+        "candidates": 104,
+        "existingSelectorsOutsideSelectedSources": 52,
+        "examples": [
+          "after:absolute",
+          "after:bg-foreground",
+          "after:opacity-0",
+          "after:transition-opacity",
+          "aria-disabled:opacity-50",
+          "aria-disabled:pointer-events-none",
+          "bg-muted",
+          "bg-transparent"
+        ]
+      },
+      {
+        "file": "components/ui/textarea.tsx",
+        "candidates": 40,
+        "existingSelectorsOutsideSelectedSources": 13,
+        "examples": [
+          "bg-transparent",
+          "border-input",
+          "dark:disabled:bg-input/80",
+          "disabled:bg-input/50",
+          "disabled:cursor-not-allowed",
+          "field-sizing-content",
+          "flex",
+          "md:text-sm"
+        ]
+      },
+      {
+        "file": "components/ui/toast.tsx",
+        "candidates": 147,
+        "existingSelectorsOutsideSelectedSources": 66,
+        "examples": [
+          "[&[data-ending-style]:not([data-limited]):not([data-swipe-direction])]:[transform:translateY(150%)]",
+          "[--gap:0.75rem]",
+          "[--height:var(--toast-frontmost-height,var(--toast-height))]",
+          "[--offset-y:calc(var(--toast-offset-y)*-1+calc(var(--toast-index)*var(--gap)*-1)+var(--toast-swipe-movement-y))]",
+          "[--peek:0.75rem]",
+          "[--scale:calc(max(0,1-(var(--toast-index)*0.1)))]",
+          "[--shrink:calc(1-var(--scale))]",
+          "[transform:translateX(var(--toast-swipe-movement-x))_translateY(calc(var(--toast-swipe-movement-y)-(var(--toast-index)*var(--peek))-(var(--shrink)*var(--height))))_scale(var(--scale))]"
+        ]
+      },
+      {
+        "file": "components/ui/toggle-group.tsx",
+        "candidates": 62,
+        "existingSelectorsOutsideSelectedSources": 22,
+        "examples": [
+          "data-[size=sm]:rounded-[min(var(--radius-md),10px)]",
+          "data-vertical:flex-col",
+          "data-vertical:items-stretch",
+          "flex",
+          "flex-row",
+          "focus-visible:z-10",
+          "focus:z-10",
+          "gap-[--spacing(var(--gap))]"
+        ]
+      },
+      {
+        "file": "components/ui/toggle.tsx",
+        "candidates": 69,
+        "existingSelectorsOutsideSelectedSources": 8,
+        "examples": [
+          "aria-pressed:bg-muted",
+          "bg-transparent",
+          "border-input",
+          "data-[state=on]:bg-muted",
+          "focus-visible:ring-[3px]",
+          "min-w-7",
+          "min-w-8",
+          "min-w-9"
+        ]
+      },
+      {
+        "file": "components/ui/tooltip.tsx",
+        "candidates": 77,
+        "existingSelectorsOutsideSelectedSources": 34,
+        "examples": [
+          "**:data-[slot=kbd]:isolate",
+          "**:data-[slot=kbd]:relative",
+          "**:data-[slot=kbd]:rounded-sm",
+          "**:data-[slot=kbd]:z-50",
+          "bg-foreground",
+          "data-[side=bottom]:top-1",
+          "data-[side=inline-end]:-left-1",
+          "data-[side=inline-end]:-translate-y-1/2"
+        ]
+      }
+    ]
+  },
+  "coverage": {
+    "sourceRoot": "/Users/anayagarwalla/.codex/worktrees/313e/testastra",
+    "patterns": [
+      "./**/*.{ts,tsx}",
+      "../client/**/*.{ts,tsx}",
+      "../components/ui/button.tsx",
+      "../lib/**/*.{ts,tsx}"
+    ],
+    "selectedFiles": [
+      "app/layout.tsx",
+      "app/page.tsx",
+      "client/GateClient.tsx",
+      "client/IncidentEvidence.tsx",
+      "client/OperatorControls.tsx",
+      "client/connection.ts",
+      "client/controls.ts",
+      "client/evidence.ts",
+      "client/inspection-tool.ts",
+      "client/overlay-layout.ts",
+      "client/prediction.ts",
+      "client/presentation.ts",
+      "client/terrain-view.ts",
+      "client/viewport.ts",
+      "components/ui/button.tsx",
+      "lib/utils.ts"
+    ],
+    "selectedCandidates": 993,
+    "runtimeGraph": [
+      {
+        "path": "app/layout.tsx",
+        "imports": [
+          "./globals.css"
+        ]
+      },
+      {
+        "path": "app/page.tsx",
+        "imports": [
+          "../client/GateClient"
+        ]
+      },
+      {
+        "path": "client/connection.ts",
+        "imports": [
+          "@colyseus/sdk",
+          "../tuning",
+          "../shared/protocol",
+          "../shared/stats",
+          "./evidence",
+          "./presentation"
+        ]
+      },
+      {
+        "path": "client/controls.ts",
+        "imports": [
+          "../tuning",
+          "./terrain-view",
+          "../shared/contact-geometry"
+        ]
+      },
+      {
+        "path": "client/evidence.ts",
+        "imports": [
+          "../tuning"
+        ]
+      },
+      {
+        "path": "client/GateClient.tsx",
+        "imports": [
+          "react",
+          "../components/ui/button",
+          "./connection",
+          "./viewport",
+          "../tuning",
+          "./inspection-tool",
+          "./controls",
+          "./OperatorControls",
+          "./IncidentEvidence"
+        ]
+      },
+      {
+        "path": "client/IncidentEvidence.tsx",
+        "imports": [
+          "./presentation"
+        ]
+      },
+      {
+        "path": "client/inspection-tool.ts",
+        "imports": []
+      },
+      {
+        "path": "client/OperatorControls.tsx",
+        "imports": [
+          "react",
+          "../components/ui/button",
+          "../tuning"
+        ]
+      },
+      {
+        "path": "client/overlay-layout.ts",
+        "imports": []
+      },
+      {
+        "path": "client/prediction.ts",
+        "imports": [
+          "../tuning",
+          "../shared/movement",
+          "./presentation",
+          "./terrain-view"
+        ]
+      },
+      {
+        "path": "client/presentation.ts",
+        "imports": [
+          "../tuning",
+          "./terrain-view",
+          "./terrain-view"
+        ]
+      },
+      {
+        "path": "client/terrain-view.ts",
+        "imports": [
+          "../tuning",
+          "../shared/contact-geometry"
+        ]
+      },
+      {
+        "path": "client/viewport.ts",
+        "imports": [
+          "three",
+          "../tuning",
+          "../shared/terrain",
+          "./presentation",
+          "./prediction",
+          "./terrain-view",
+          "./overlay-layout"
+        ]
+      },
+      {
+        "path": "components/ui/button.tsx",
+        "imports": [
+          "@base-ui/react/button",
+          "class-variance-authority",
+          "@/lib/utils"
+        ]
+      },
+      {
+        "path": "lib/utils.ts",
+        "imports": [
+          "clsx",
+          "tailwind-merge"
+        ]
+      },
+      {
+        "path": "shared/contact-geometry.ts",
+        "imports": [
+          "../tuning"
+        ]
+      },
+      {
+        "path": "shared/movement.ts",
+        "imports": [
+          "../tuning"
+        ]
+      },
+      {
+        "path": "shared/protocol.ts",
+        "imports": [
+          "../tuning"
+        ]
+      },
+      {
+        "path": "shared/stats.ts",
+        "imports": [
+          "../tuning"
+        ]
+      },
+      {
+        "path": "shared/terrain.ts",
+        "imports": [
+          "../tuning"
+        ]
+      },
+      {
+        "path": "tuning.ts",
+        "imports": []
+      }
+    ],
+    "classProducers": [
+      {
+        "path": "client/GateClient.tsx",
+        "sha256": "4288e60d5555c3a14c46cc0528bedf030d9868f7a03a442f643e5a1bb83cf037",
+        "candidates": 175,
+        "missing": []
+      },
+      {
+        "path": "client/IncidentEvidence.tsx",
+        "sha256": "b76082ef91f6bdff435bcbd0c30badc7c134b3bcf34685d3aa358a091f8134f6",
+        "candidates": 109,
+        "missing": []
+      },
+      {
+        "path": "client/OperatorControls.tsx",
+        "sha256": "2ada3533aa9e54b11214fe359277d030d01783aa3f801819a0537d0852d7df89",
+        "candidates": 83,
+        "missing": []
+      },
+      {
+        "path": "client/viewport.ts",
+        "sha256": "9a465a31e5c673965ed15f7f6485f438f9b08341a6787c7de2edc6bf0b6f33c7",
+        "candidates": 267,
+        "missing": []
+      },
+      {
+        "path": "components/ui/button.tsx",
+        "sha256": "081d2a1cb4f3aec636a6894d9eff4e90d476d5db85b82d0399c1f4d18517112e",
+        "candidates": 116,
+        "missing": []
+      },
+      {
+        "path": "lib/utils.ts",
+        "sha256": "9304a861c8673bee09e0f12de31773abbde503b02e59dfd74763ddec2e37cf05",
+        "candidates": 10,
+        "missing": []
+      }
+    ],
+    "scope": "Native candidate extraction covers every current runtime class producer reachable from page/layout, including full Button variants and imperative viewport labels. CSS imports, custom rules and appearance were not compiled or visually verified. This is not whole-program proof for future dynamic class construction."
+  },
+  "authoredRulesUnchanged": true,
+  "authoredRulesSha256": "79f526e93a45a2d5240b353ddb8dfeb3b06541c4732a05749162ad2824426a86",
+  "scope": "Native source enumeration/candidate extraction and parsing of existing CSS only. Candidate overlap proves avoidable rules for the current route; it does not attribute historical bytes to a unique file. No CSS compilation/build, browser, dev server or visual comparison. Byte improvement is unmeasured until a later build."
+}

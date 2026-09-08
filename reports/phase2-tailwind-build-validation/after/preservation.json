@@ -1,0 +1,59 @@
+{
+  "preservedAt": "2026-09-08T00:25:55.899Z",
+  "sourceCommit": "3dd42f542d0652f25498e48ca2603f0c6336452a",
+  "buildId": "6af961a1-d96b-4e82-9900-df6e321762c9",
+  "buildLogSha256": "3a1a60c3cbbd32f3e34ff280913052449777b34ed9aef243fa6da8834eae1fca",
+  "buildWrapperSha256": "8b144883323245e24dc632e2a2ca0c412ccc2da0d4103bd0795a1d0c2ea5b2b9",
+  "versions": {
+    "tailwindcss": "4.2.1",
+    "@tailwindcss/postcss": "4.2.1",
+    "@tailwindcss/oxide": "4.2.1",
+    "postcss": "8.5.28",
+    "postcss-selector-parser": "7.1.6",
+    "vinext": "1.0.0-beta.9",
+    "vite": "8.2.2",
+    "react": "19.2.8",
+    "three": "0.185.1"
+  },
+  "processGroup33372AbsentAfterRelease": true,
+  "receipts": [
+    {
+      "source": "dist/client/.vite/manifest.json",
+      "preserved": "reports/phase2-tailwind-build-validation/after/client--.vite--manifest.json",
+      "bytes": 1715,
+      "sha256": "d2cdb34d6535afab9e4607cd1eff6d7c6c32f783689ffe0ef878bb6c7292466b"
+    },
+    {
+      "source": "dist/client/vinext-client-entry-manifest.json",
+      "preserved": "reports/phase2-tailwind-build-validation/after/client--vinext-client-entry-manifest.json",
+      "bytes": 65,
+      "sha256": "ab7a16e08a01671c1627ede2ab10cf5084e7f2f6907581d7c10ac83f948b4756"
+    },
+    {
+      "source": "dist/server/__vite_rsc_assets_manifest.js",
+      "preserved": "reports/phase2-tailwind-build-validation/after/server--__vite_rsc_assets_manifest.js",
+      "bytes": 2908,
+      "sha256": "13136d5df9be21f6be0bc7f9839af0cbf1bdb84d0091b2aafd18713abb100f8e"
+    },
+    {
+      "source": "dist/server/vinext-client-assets.js",
+      "preserved": "reports/phase2-tailwind-build-validation/after/server--vinext-client-assets.js",
+      "bytes": 905,
+      "sha256": "bbb6585af46aed7194068780b58e53a62df7b12df733bd2b07f2ad079a4aceec"
+    },
+    {
+      "source": "dist/server/BUILD_ID",
+      "preserved": "reports/phase2-tailwind-build-validation/after/server--BUILD_ID",
+      "bytes": 36,
+      "sha256": "e45557521277e869301b3c708a116586dc7e7c6d4204620427dcc00659ab59c1"
+    },
+    {
+      "source": "dist/client/_next/static/css/index.DTH9dJZE.css",
+      "preserved": "reports/phase2-tailwind-build-validation/after/index.DTH9dJZE.css.gz",
+      "bytes": 20560,
+      "sha256": "1b681aaac66ec6871eac2bba81ecaade1dd1c3036165c53d38c8e7272d701e85",
+      "preservedGzipBytes": 4725,
+      "preservedGzipSha256": "6546cfaede1a1ad0168ce57a377fbfe2b162c77f40533559bfff11a0bd922808"
+    }
+  ]
+}

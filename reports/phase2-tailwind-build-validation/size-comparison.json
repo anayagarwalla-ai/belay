@@ -1,0 +1,69 @@
+{
+  "beforeProducer": null,
+  "afterProducer": "3dd42f542d0652f25498e48ca2603f0c6336452a",
+  "beforeBuildId": "d777468d-5770-4186-aa47-d0dc371212f2",
+  "afterBuildId": "6af961a1-d96b-4e82-9900-df6e321762c9",
+  "comparison": {
+    "css": {
+      "rawBytes": {
+        "before": 169812,
+        "after": 20560,
+        "delta": -149252,
+        "reductionPercent": 87.89249287447295
+      },
+      "gzip6Bytes": {
+        "before": 25860,
+        "after": 4733,
+        "delta": -21127,
+        "reductionPercent": 81.69760247486467
+      },
+      "brotli5Bytes": {
+        "before": 23558,
+        "after": 4452,
+        "delta": -19106,
+        "reductionPercent": 81.10196111724255
+      }
+    },
+    "js": {
+      "rawBytes": {
+        "before": 1185649,
+        "after": 1186700,
+        "delta": 1051,
+        "reductionPercent": -0.08864343494574545
+      },
+      "gzip6Bytes": {
+        "before": 335333,
+        "after": 335815,
+        "delta": 482,
+        "reductionPercent": -0.14373771743312336
+      },
+      "brotli5Bytes": {
+        "before": 315648,
+        "after": 316092,
+        "delta": 444,
+        "reductionPercent": -0.1406630170316392
+      }
+    },
+    "route": {
+      "rawBytes": {
+        "before": 1355461,
+        "after": 1207260,
+        "delta": -148201,
+        "reductionPercent": 10.933623320774256
+      },
+      "gzip6Bytes": {
+        "before": 361193,
+        "after": 340548,
+        "delta": -20645,
+        "reductionPercent": 5.715780759870759
+      },
+      "brotli5Bytes": {
+        "before": 339206,
+        "after": 320544,
+        "delta": -18662,
+        "reductionPercent": 5.501671550621157
+      }
+    }
+  },
+  "attribution": "Observed historical-to-current differences, not a same-source A/B. The old producing commit is unknown. Do not attribute JavaScript changes or exclusive historical CSS bytes to scanner scope."
+}

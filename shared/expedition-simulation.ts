@@ -5,6 +5,7 @@ import { REST, normalizeMove, type Scene, type SceneOptions, type Vec3, type Mov
 import { motorVelocity } from './movement';
 import { physicalTerrain } from './terrain';
 import { emptyPhysicalDiagnostics } from './physical-diagnostics';
+import type { BridgeLoadObserver } from './bridge-load-observer';
 import { dot, vectorDistance as distance, projectMotion, supportAt, penetration, sweepBox, contactNormalsAt, type Contact } from './contact-geometry';
 
 const zero = (): Vec3 => ({ x: 0, y: 0, z: 0 });
@@ -54,11 +55,13 @@ export class ExpeditionSimulation {
   private runStatus: 'testing' | 'active' | 'complete' | 'failed';
   private runEndedAt?: number;
   private substepNumber = 0;
+  private readonly bridgeLoadObserver?: BridgeLoadObserver;
   tick = 0;
   tension = 0;
   tensionN = 0;
 
-  constructor(options: SceneOptions) {
+  constructor(options: SceneOptions, bridgeLoadObserver?: BridgeLoadObserver) {
+    this.bridgeLoadObserver = bridgeLoadObserver;
     this.scene = options.scene ?? 'flat'; this.playerCount = options.playerCount ?? TUNING.players;
     this.seed = options.seed ?? TUNING.seed; this.family = options.family ?? 'balanced'; this.tickHz = options.tickHz ?? TUNING.tickHz;
     this.length = FAMILIES[this.family].ropeLength * (this.playerCount - 1);
@@ -383,6 +386,8 @@ export class ExpeditionSimulation {
     }
   }
   private updateBridges(velocities: Vec3[], ropeDelta: Vec3[], dt: number) {
+    const observer = this.bridgeLoadObserver;
+    observer?.beginSubstep();
     const loads = new Map<number, number>();
     for (let id = 0; id < this.playerCount; id++) {
       if (this.contacts[id].support !== 'ground') continue;
@@ -392,7 +397,13 @@ export class ExpeditionSimulation {
       const area = supports.reduce((sum, s) => sum + s.area, 0);
       const load = TUNING.body.mass * (TUNING.gravity + Math.max(0, -velocities[id].y) / dt
         + Math.max(0, -ropeDelta[id].y - this.normalLoadDelta[id].y) / (dt * dt));
-      for (const s of supports) if (s.solid.bridgeId !== undefined) loads.set(s.solid.bridgeId, (loads.get(s.solid.bridgeId) ?? 0) + load * s.area / area);
+      for (const s of supports) if (s.solid.bridgeId !== undefined) {
+        loads.set(s.solid.bridgeId, (loads.get(s.solid.bridgeId) ?? 0) + load * s.area / area);
+        observer?.observeContribution({ bridgeId: s.solid.bridgeId, playerId: id, supportSolidId: s.solid.id,
+          overlapAreaM2: s.area, totalSupportAreaM2: area, massKg: TUNING.body.mass, gravityMps2: TUNING.gravity,
+          dtSeconds: dt, arrivalVelocityY: velocities[id].y, ropeDeltaY: ropeDelta[id].y,
+          normalLoadDeltaY: this.normalLoadDelta[id].y, bodyLoadN: load, accumulatedBridgeLoadN: loads.get(s.solid.bridgeId)! });
+      }
     }
     for (const bridge of this.terrain.state.bridges) {
       if (bridge.collapsed) continue;
@@ -401,10 +412,27 @@ export class ExpeditionSimulation {
       this.overload.set(bridge.id, overload);
       const wasVisible = bridge.cue > 0;
       bridge.cue = clamp((ratio - TUNING.phase2.bridgeCueStartFraction) / (1 - TUNING.phase2.bridgeCueStartFraction), 0, 1);
-      if (!wasVisible && bridge.cue > 0) this.event('cue', [], [bridge.id]);
+      if (!wasVisible && bridge.cue > 0) {
+        this.event('cue', [], [bridge.id]);
+        observer?.observeDecision({ kind: 'cue', tick: this.tick,
+          substep: this.substepNumber % (TUNING.physicsHz / this.tickHz), physicsStep: this.substepNumber,
+          tickHz: this.tickHz, physicsHz: TUNING.physicsHz, phase: 'post-integration-before-warning-update',
+          bridgeId: bridge.id, cueEventId: this.events.at(-1)!.id, loadN: loads.get(bridge.id) ?? 0,
+          capacityN: this.terrain.capacities.get(bridge.id)!, ratio, cue: bridge.cue, overloadSeconds: overload,
+          warnedSeconds: this.warned.get(bridge.id) ?? 0, queuedCollapse: this.queuedCollapses.has(bridge.id) });
+      }
       this.warned.set(bridge.id, bridge.cue > 0 ? (this.warned.get(bridge.id) ?? 0) + dt : 0);
-      if (overload >= TUNING.phase2.bridgeOverloadSeconds && this.warned.get(bridge.id)! >= TUNING.phase2.bridgeWarningSeconds) this.queuedCollapses.add(bridge.id);
+      if (overload >= TUNING.phase2.bridgeOverloadSeconds && this.warned.get(bridge.id)! >= TUNING.phase2.bridgeWarningSeconds) {
+        this.queuedCollapses.add(bridge.id);
+        observer?.observeDecision({ kind: 'collapse-queued', tick: this.tick,
+          substep: this.substepNumber % (TUNING.physicsHz / this.tickHz), physicsStep: this.substepNumber,
+          tickHz: this.tickHz, physicsHz: TUNING.physicsHz, phase: 'post-integration-after-warning-update',
+          bridgeId: bridge.id, cueEventId: null, loadN: loads.get(bridge.id) ?? 0,
+          capacityN: this.terrain.capacities.get(bridge.id)!, ratio, cue: bridge.cue, overloadSeconds: overload,
+          warnedSeconds: this.warned.get(bridge.id)!, queuedCollapse: this.queuedCollapses.has(bridge.id) });
+      }
     }
+    observer?.endSubstep();
   }
   private updateIncidents(inputs: Move[], before: Vec3[], ropeDelta: Vec3[], dt: number) {
     for (let id = 0; id < this.playerCount; id++) {

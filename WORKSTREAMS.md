@@ -1,20 +1,20 @@
-# BELAY parallel work queue
+# BELAY current batch consolidation
 
-The user requested continued useful work across the existing project tasks. Reuse these tasks, give each a concrete independent assignment, review its handoff and integrate validated changes in the primary checkout. Do not keep tasks busy by duplicating checks or inventing features.
+The user froze the queue on 2026-09-08 at approximately 00:26 UTC. Finish only the current assignments and their existing reviews, then consolidate, validate and push the batch. Do not assign new work. The existing 1,000-trajectory job may finish and receive its already-assigned final reconciliation. Completed tasks remain idle.
 
 | Task | Task ID | Current assignment |
 |---|---|---|
-| BELAY physics and contact diagnostics | `01a07dca-c2f1-7a90-b5b2-857030e6aca1` | Wall-actuator prototype reviewed and unapplied; prototype coupled particle/contact feasibility in small pure fixtures |
-| BELAY client reliability | `01a07dca-c2f1-7a90-b5b2-859c68a13db8` | Viewport lifecycle checked and late download fixed; identify avoidable initial CSS scanning/import work |
+| BELAY physics and contact diagnostics | `01a07dca-c2f1-7a90-b5b2-857030e6aca1` | Complete and idle; rejected candidate plus saved-data analysis integrated |
+| BELAY client reliability | `01a07dca-c2f1-7a90-b5b2-859c68a13db8` | Complete and idle; scoped scanner and one-build validation integrated |
 | BELAY simulation evidence | `01a07dca-c2f1-7a90-b5b2-855fb9ed02b9` | The reviewed native four-worker runner is executing the fixed 1,000 trajectories; retain final reconciliation and teardown evidence |
-| BELAY load and hosting costs | `01a07df3-f9b1-7490-a101-68c8b49f5d8b` | Wall-actuator review complete; map installed Rapier contact impulse APIs and solver ownership limits |
-| BELAY bridge diagnostics | `01a07e01-945f-7b10-ae41-ef0e579e11d3` | Playtest corrections integrated; implement an isolated opt-in bridge-load observer with exact mechanics preserved |
+| BELAY load and hosting costs | `01a07df3-f9b1-7490-a101-68c8b49f5d8b` | Finish the already-assigned independent final-matrix validator and current final reconciliation |
+| BELAY bridge diagnostics | `01a07e01-945f-7b10-ae41-ef0e579e11d3` | Complete and idle; observer and independent candidate review accounted for |
 
-The coordinator handles integration, integrity checks, real-build verification and the authorized GitHub pushes. A thread heartbeat checks this queue every 15 minutes for at most 16 runs, ending earlier when the current bounded queue is exhausted or a meaningful next step requires the user's playtest/design decision. Its identifier and teardown are in RUNBOOK.md.
+The coordinator handles integration, integrity checks, real-build verification and the authorized GitHub pushes. A consolidation-only heartbeat checks this batch every 15 minutes within its existing 16-check bound; it pauses after the final handoff. It may not create new assignments. Its identifier and teardown are in RUNBOOK.md.
 
 The simulation job must freeze imported files before starting. Its fixed ordinals, seeds, policies and 600/60-second horizons cannot be changed to improve results. Raw timing samples, partial records, process/heap limits and cleanup receipts must survive failures. The new offline job uses a version-identified available-memory heuristic plus conservative floors and hard RSS limits; this is distinct from the unchanged conservative raw-free guard used by earlier socket-load experiments. Neither is a production capacity pass.
 
-Once a task finishes, first inspect its concrete results and any unresolved failure. Prefer a bounded follow-up that resolves that failure or advances the current queue. Keep expensive CPU work coordinated; design, source research, artifact auditing and input analysis can continue while simulation runs. Do not rerun equivalent suites without a change or unresolved concern. Stop assigning work when nothing useful remains within authorization.
+Once a task finishes, collect its commit/artifacts, validation limits and owned-process/automation status. Review and integrate this batch, resolving only integration defects. Do not broaden testing or reopen completed investigations. After the final checkpoint is pushed, pause both follow-ups and leave tasks idle. If a current assignment requires a human decision, preserve its state and report the specific limitation.
 
 Current gameplay remains the 900 N diagnostic baseline. The allocation optimization, compiled-runtime default switch, 450 N rescue tuning and both contact-topology candidates and the nonlinear projection candidate were not accepted. Their raw results and unapplied patches remain available. Gate 1's implementation stop was bypassed by the user; Phase 2 participation and mechanical failures remain explicit, and Phase 3 has not started. No paid resources, hosted clips, public deployment, voice or outside recruitment are authorized by this queue. Do not consume a usage-reset credit.
 

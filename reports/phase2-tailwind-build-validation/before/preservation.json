@@ -1,0 +1,44 @@
+{
+  "preservedAt": "2026-09-08T00:17:58.580Z",
+  "head": "3dd42f542d0652f25498e48ca2603f0c6336452a",
+  "buildSourceCommit": null,
+  "scope": "Existing worktree output from23:22:36Z; producing commit unknown. CSS/asset manifests preserved before the authorized build. Current source is separate.",
+  "receipts": [
+    {
+      "source": "dist/client/.vite/manifest.json",
+      "preserved": "reports/phase2-tailwind-build-validation/before/client--.vite--manifest.json",
+      "bytes": 1715,
+      "sha256": "89d7bc97a61b883f6ee37fef1a6da78932b8431558046c42b00595d96e07163a"
+    },
+    {
+      "source": "dist/client/vinext-client-entry-manifest.json",
+      "preserved": "reports/phase2-tailwind-build-validation/before/client--vinext-client-entry-manifest.json",
+      "bytes": 65,
+      "sha256": "e89386a710f73ddd5843fbb3939320bde2436c9580edecb6bd48e5e89aa429b7"
+    },
+    {
+      "source": "dist/server/__vite_rsc_assets_manifest.js",
+      "preserved": "reports/phase2-tailwind-build-validation/before/server--__vite_rsc_assets_manifest.js",
+      "bytes": 2908,
+      "sha256": "f454e13d698898944b7f04599ff6fb7b3afed3ce6526646bde3ede5810de014d"
+    },
+    {
+      "source": "dist/server/vinext-client-assets.js",
+      "preserved": "reports/phase2-tailwind-build-validation/before/server--vinext-client-assets.js",
+      "bytes": 905,
+      "sha256": "dfa1f5ac47df67bbb39c5c4842e11a0661ecaabb8ff710d33d53f24a0853ab4f"
+    },
+    {
+      "source": "dist/server/BUILD_ID",
+      "preserved": "reports/phase2-tailwind-build-validation/before/server--BUILD_ID",
+      "bytes": 36,
+      "sha256": "cb1b3e4406807171334bd250ee39a9883bb9d20ed445e713ad90a752d3258e17"
+    },
+    {
+      "source": "dist/client/_next/static/css/index.DehHp_8M.css",
+      "preserved": "reports/phase2-tailwind-build-validation/before/index.DehHp_8M.css.gz",
+      "bytes": 169812,
+      "sha256": "4c2770f72ac6a0089ff8b1a7c8460be946fddb4722ab0f7dbe500f6c0e6bc002"
+    }
+  ]
+}

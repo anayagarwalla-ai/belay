@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-09-08T00:26:28.604Z",
+  "comparatorSha256": "a1365d10986989064c678475fd49188a3efbc2973d25835d18e9cb306e4b7e5e",
+  "productionCssUnchangedSha256": "1b681aaac66ec6871eac2bba81ecaade1dd1c3036165c53d38c8e7272d701e85",
+  "results": [
+    {
+      "name": "baseline-self",
+      "operation": "Compare preserved CSS to itself",
+      "inputSha256": "ab5fb51fc574f8206dfc8cf9f0b3a6e0c593034a717082f3be62fcbb846695ff",
+      "exitCode": 0,
+      "missingClasses": [],
+      "missingRules": 0,
+      "acceptedInitializations": []
+    },
+    {
+      "name": "missing-gate-button",
+      "operation": "Remove the entire active .gate-button rule from an offline copy of new CSS",
+      "inputSha256": "10684e18b21aeaabcef0f3dc91f7a0143b9c919f5265cc9e23355aa67f883d9c",
+      "exitCode": 1,
+      "missingClasses": [],
+      "missingRules": 7,
+      "acceptedInitializations": [
+        "--tw-leading",
+        "--tw-ease",
+        "--tw-duration"
+      ]
+    },
+    {
+      "name": "missing-focus-ring",
+      "operation": "Remove the active focus-visible:ring-3 rule from an offline copy of new CSS",
+      "inputSha256": "acc418c25bed6f39de1d774b87da2585c30004a7d361f84010ec6c508d40f79f",
+      "exitCode": 1,
+      "missingClasses": [
+        "focus-visible:ring-3"
+      ],
+      "missingRules": 2,
+      "acceptedInitializations": [
+        "--tw-leading",
+        "--tw-ease",
+        "--tw-duration"
+      ]
+    },
+    {
+      "name": "duration-setter",
+      "operation": "Add a duration setter to the new CSS; the missing registration/initializers must no longer be accepted",
+      "inputSha256": "b3e42ac148a372f6baee4c84996afa5a29fdcae5a1d169e077003891e22c7883",
+      "exitCode": 1,
+      "missingClasses": [],
+      "missingRules": 6,
+      "acceptedInitializations": [
+        "--tw-leading",
+        "--tw-ease"
+      ]
+    }
+  ]
+}

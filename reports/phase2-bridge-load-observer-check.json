@@ -1,0 +1,179 @@
+{
+  "startedAt": "2026-09-08T00:17:53.241Z",
+  "finishedAt": "2026-09-08T00:17:55.359Z",
+  "peakRssBytes": 259670016,
+  "scope": "Two sequential ten-second observer off/on fixtures. Snapshot serverTime normalized only; complete states and tapes otherwise compared exactly. Shared-host overlap, no isolated performance claim.",
+  "results": [
+    {
+      "fixture": "weak-bridge",
+      "options": {
+        "scene": "crossing",
+        "playerCount": 2,
+        "family": "balanced",
+        "seed": 2000,
+        "tickHz": 30
+      },
+      "simulatedSeconds": 10,
+      "exactStateComparisons": 301,
+      "exactTapeFrames": 300,
+      "report": {
+        "scope": "Numerical estimates from the existing bridge-load equation. Contributors are load terms, not culprits; causal blame is unknown. No visibility, support-loss or catch-force attribution is measured.",
+        "maximumRecords": 256,
+        "totalRecords": 2,
+        "truncated": false,
+        "records": [
+          {
+            "kind": "cue",
+            "tick": 82,
+            "substep": 0,
+            "physicsStep": 164,
+            "tickHz": 30,
+            "physicsHz": 60,
+            "phase": "post-integration-before-warning-update",
+            "bridgeId": 0,
+            "cueEventId": 0,
+            "loadN": 479.7892582056788,
+            "capacityN": 711.1426390896087,
+            "ratio": 0.6746737318688919,
+            "cue": 0.07049637676826252,
+            "overloadSeconds": 0,
+            "warnedSeconds": 0,
+            "queuedCollapse": false,
+            "id": 0,
+            "contributors": [
+              {
+                "bridgeId": 0,
+                "playerId": 0,
+                "supportSolidId": 5,
+                "overlapAreaM2": 0.18317811012268087,
+                "totalSupportAreaM2": 0.30250000000000044,
+                "massKg": 80,
+                "gravityMps2": 9.81,
+                "dtSeconds": 0.016666666666666666,
+                "arrivalVelocityY": 0,
+                "ropeDeltaY": 0,
+                "normalLoadDeltaY": -0.00002612192319751496,
+                "bodyLoadN": 792.3231138808843,
+                "accumulatedBridgeLoadN": 479.7892582056788,
+                "overlapFraction": 0.6055474714799359,
+                "weightN": 784.8000000000001,
+                "arrivalTermMps2": 0,
+                "downwardCorrectionTermMps2": 0.09403892351105385,
+                "arrivalN": 0,
+                "downwardCorrectionN": 7.523113880884308,
+                "bridgeShareLoadN": 479.7892582056788
+              }
+            ]
+          },
+          {
+            "kind": "collapse-queued",
+            "tick": 94,
+            "substep": 0,
+            "physicsStep": 188,
+            "tickHz": 30,
+            "physicsHz": 60,
+            "phase": "post-integration-after-warning-update",
+            "bridgeId": 0,
+            "cueEventId": null,
+            "loadN": 792.2443139194997,
+            "capacityN": 711.1426390896087,
+            "ratio": 1.1140441739419757,
+            "cue": 1,
+            "overloadSeconds": 0.35,
+            "warnedSeconds": 0.41666666666666663,
+            "queuedCollapse": true,
+            "id": 1,
+            "contributors": [
+              {
+                "bridgeId": 0,
+                "playerId": 0,
+                "supportSolidId": 5,
+                "overlapAreaM2": 0.30250000000000044,
+                "totalSupportAreaM2": 0.30250000000000044,
+                "massKg": 80,
+                "gravityMps2": 9.81,
+                "dtSeconds": 0.016666666666666666,
+                "arrivalVelocityY": 0,
+                "ropeDeltaY": 0,
+                "normalLoadDeltaY": -0.000025848312220485164,
+                "bodyLoadN": 792.2443139194997,
+                "accumulatedBridgeLoadN": 792.2443139194997,
+                "overlapFraction": 1,
+                "weightN": 784.8000000000001,
+                "arrivalTermMps2": 0,
+                "downwardCorrectionTermMps2": 0.0930539239937466,
+                "arrivalN": 0,
+                "downwardCorrectionN": 7.444313919499727,
+                "bridgeShareLoadN": 792.2443139194997
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fixture": "sustained-cue",
+      "options": {
+        "scene": "crossing",
+        "playerCount": 2,
+        "family": "balanced",
+        "seed": 1701,
+        "tickHz": 60
+      },
+      "simulatedSeconds": 10,
+      "exactStateComparisons": 601,
+      "exactTapeFrames": 600,
+      "report": {
+        "scope": "Numerical estimates from the existing bridge-load equation. Contributors are load terms, not culprits; causal blame is unknown. No visibility, support-loss or catch-force attribution is measured.",
+        "maximumRecords": 256,
+        "totalRecords": 1,
+        "truncated": false,
+        "records": [
+          {
+            "kind": "cue",
+            "tick": 168,
+            "substep": 0,
+            "physicsStep": 168,
+            "tickHz": 60,
+            "physicsHz": 60,
+            "phase": "post-integration-before-warning-update",
+            "bridgeId": 0,
+            "cueEventId": 0,
+            "loadN": 777.2995921686769,
+            "capacityN": 1092.7649833256007,
+            "ratio": 0.7113145132113666,
+            "cue": 0.17518432346104745,
+            "overloadSeconds": 0,
+            "warnedSeconds": 0,
+            "queuedCollapse": false,
+            "id": 0,
+            "contributors": [
+              {
+                "bridgeId": 0,
+                "playerId": 0,
+                "supportSolidId": 5,
+                "overlapAreaM2": 0.2967279624938967,
+                "totalSupportAreaM2": 0.30250000000000044,
+                "massKg": 80,
+                "gravityMps2": 9.81,
+                "dtSeconds": 0.016666666666666666,
+                "arrivalVelocityY": 0,
+                "ropeDeltaY": 0,
+                "normalLoadDeltaY": -0.000026457801977897548,
+                "bodyLoadN": 792.4198469696346,
+                "accumulatedBridgeLoadN": 777.2995921686769,
+                "overlapFraction": 0.9809188842773431,
+                "weightN": 784.8000000000001,
+                "arrivalTermMps2": 0,
+                "downwardCorrectionTermMps2": 0.09524808712043117,
+                "arrivalN": 0,
+                "downwardCorrectionN": 7.619846969634494,
+                "bridgeShareLoadN": 777.2995921686769
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
