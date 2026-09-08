@@ -1,6 +1,6 @@
-# Gate 1 playtest operations
+# BELAY playtest operations
 
-This is local preparation for an invited, two-person Phase 1 session. Gate 1 has **not passed**. Tooling checks and synthetic clients are not human sessions. No paid resources, public deployment, art/audio, recruitment or later gameplay are authorized here.
+This covers local and invited Phase 2 diagnostics and the retained two-person Gate 1 protocol. The user bypassed Gate 1's implementation stop; its human verdict remains unmeasured. The Phase 2 rescue stop still blocks Phase 3. Tooling checks and synthetic clients are not human sessions. No paid resources, public deployment, art/audio or recruitment are authorized here.
 
 ## Prepare and check
 
@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Wait for **BELAY local preview ready** before opening the loopback preview at `http://127.0.0.1:8787`. The ready message means the authoritative room exists, the gateway can obtain an operator room token, and the frontend returned the Phase 1 join UI. First compilation can take time. Port conflicts, child exits or startup timeouts close this run’s children and gateway; the command never silently chooses another port or stops a different checkout.
+Wait for **BELAY local preview ready** before opening the loopback preview at `http://127.0.0.1:8787`. The ready message means the authoritative room exists, the gateway can obtain an operator room token, and the frontend returned the current join UI. A fresh session starts the four-climber crossing; follow `PLAYTEST.md` to load flat/two for Gate 1 or prepare a paused rescue fixture. First compilation can take time. Port conflicts, child exits or startup timeouts close this run’s children and gateway; the command never silently chooses another port or stops a different checkout.
 
 In a second terminal:
 

@@ -2,12 +2,14 @@
 
 Phase 2 grey-box prototype: two to six climbers, a constrained rope, seeded snow bridges, falling, catching and physical rescue. **The rescue gate is not passed:** static helpers can still be carried through a successful rescue. The user authorized continuing past Gate 1; human fun and remote feel remain unmeasured.
 
+Use Node >=22.13.0 and run these commands from the same checkout.
+
 ```sh
 npm ci
 npm run dev
 ```
 
-Wait for **BELAY local preview ready**, then open <http://127.0.0.1:8787> and join the test rope. WASD/arrows move relative to the camera; Space braces. The default scene is a four-climber crossing. Operator scene controls select flat ground, crossing or focused rescue; two to six climbers; rope family; seed; and 30/60 Hz authority. Reset preserves occupied seats, so reduce the team only after higher-numbered seats leave.
+Wait for **BELAY local preview ready**, then open <http://127.0.0.1:8787> and join the test rope. WASD/arrows move relative to the camera; Space braces. A fresh dev session starts a four-climber crossing with seed 1701, balanced family and 30 Hz authority. In **Operator scene controls**, choose the scene, team, family, seed and authority, then click **Reset and load scene**; selections alone do not apply. Reset preserves occupied seats and pause state, so reduce the team only after higher-numbered seats leave and click **Resume** if paused.
 
 For synthetic partners, join in the browser first, then run:
 
@@ -16,7 +18,9 @@ npm run bot:team -- --mode bad --seconds 120
 # Or use --mode recovery for scripted rescue partners.
 ```
 
-Every synthetic seat says BOT. Ctrl+C releases their seats; they also leave at the requested deadline. The team helper rests in the flat scene; `npm run bot -- --mode bad --seconds 60` remains available for a single flat-ground bot. Bots are setup tools and counterexamples, never human playtest evidence. A real partner can join a second browser or use the protected invitation procedure in `PLAYTEST.md`.
+Every synthetic seat says BOT. Ctrl+C releases their seats; they also leave at the requested deadline. The team helper uses the current room's settings and rests in the flat scene; `npm run bot -- --mode bad --seconds 60` remains available for a single flat-ground bot. For a focused rescue, follow the paused setup in `PLAYTEST.md` so the fall does not start before partners are ready. Bots are setup tools and counterexamples, never human playtest evidence. A real partner can join a second browser or use the protected invitation procedure in `PLAYTEST.md`.
+
+Save evidence before resetting. Stop bot terminals with Ctrl+C; stop local dev with Ctrl+C in its terminal or `npm run dev -- --stop` from this checkout. Invited-session teardown is in `RUNBOOK.md`.
 
 - `PLAN.md` — approved phases, hard stops and the two recorded open items.
 - `PLAYTEST.md` — scene recipes, human questions and debug API.
@@ -41,5 +45,7 @@ npm run test:phase2-stress
 npm run bench:phase2       # Full 1,000-trajectory matrix; can take hours on this prototype.
 npm run test:local-load    # Guarded local socket workload; not production qualification.
 ```
+
+`bench:phase2` is the sequential matrix runner. The guarded native four-worker alternative has a separate invocation and pinned runtime; see `RUNBOOK.md` before starting an offline job.
 
 The crossing fixture currently takes seconds rather than five to ten minutes, and recovery-policy smoke runs produced no crossing falls. Focused rescues recover too quickly, some static roles succeed, and some recorded rope segments exceed the existing error bound. The reports retain these failures. Art, audio, clips, matchmaking, voice, daily and deployment remain in later phases; Phase 3 is paused at the rescue stop. No paid resources are provisioned.

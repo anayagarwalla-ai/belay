@@ -1,4 +1,5 @@
 import { afterEach, expect, it, vi } from 'vitest';
+import { getEventListeners } from 'node:events';
 import GateClient from '../client/GateClient';
 
 const effects = vi.hoisted(() => [] as (() => void | (() => void))[]);
@@ -21,9 +22,13 @@ const mount = () => { GateClient(); return effects.at(-1)!() as () => void; };
 
 it('removes the disposed client debug API and its timers when the mounted view is cleaned up', () => {
   environment(); const cleanup = mount();
+  const listeners = () => [getEventListeners(window, 'keydown'), getEventListeners(window, 'keyup'), getEventListeners(window, 'blur'),
+    getEventListeners(document, 'visibilitychange'), getEventListeners(document, 'focusin')].map(list => list.length);
   expect(window.BELAY).toBeDefined(); expect(vi.getTimerCount()).toBe(1);
+  expect(listeners()).toEqual([1, 1, 1, 1, 1]);
   cleanup();
   expect(Object.hasOwn(window, 'BELAY')).toBe(false);
+  expect(listeners()).toEqual([0, 0, 0, 0, 0]);
   expect(vi.getTimerCount()).toBe(0);
 });
 

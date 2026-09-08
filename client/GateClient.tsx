@@ -65,15 +65,18 @@ export default function GateClient() {
 
   const join = async () => { setNotice(''); await connectionRef.current?.join(); canvasRef.current?.focus(); };
   const run = async (action: () => Promise<unknown>) => {
-    if (busy) return;
+    const connection = connectionRef.current;
+    if (busy || !connection) return;
+    const current = () => connectionRef.current === connection;
     setBusy(true);
-    try { await action(); setNotice(''); canvasRef.current?.focus(); }
-    catch (error) { setNotice(error instanceof Error ? error.message : 'Test action failed.'); }
-    finally { setBusy(false); }
+    try { await action(); if (current()) { setNotice(''); canvasRef.current?.focus(); } }
+    catch (error) { if (current()) setNotice(error instanceof Error ? error.message : 'Test action failed.'); }
+    finally { if (current()) setBusy(false); }
   };
   const exportReport = () => run(async () => {
     const connection = connectionRef.current!;
     const report = await connection.captureReport();
+    if (connectionRef.current !== connection) return;
     const url = URL.createObjectURL(new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' }));
     const a = document.createElement('a'); a.href = url; a.download = `belay-phase2-${Date.now()}.json`; a.click(); URL.revokeObjectURL(url);
   });
