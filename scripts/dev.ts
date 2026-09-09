@@ -43,7 +43,7 @@ export async function runDev(options: DevOptions = {}) {
       if (!await checkHttp(`${base}/game/belay/config`, body => {
         try { const config = JSON.parse(body); return Boolean(config.roomId) && config.operator === true && typeof config.token === 'string'; } catch { return false; }
       }, {}, session.abort.signal)) return false;
-      return checkHttp(base, body => body.includes('BELAY') && body.includes('Join test rope'), {}, session.abort.signal);
+      return checkHttp(base, body => body.includes('BELAY') && body.includes('data-belay-entry'), {}, session.abort.signal);
     }, options.startupTimeoutMs ?? LIMITS.startupTimeoutMs, session.abort.signal,
     'Local startup timed out waiting for the room, authenticated gateway and frontend. Check the child output above; no ready session was published.');
     await session.ready();

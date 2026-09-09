@@ -1,0 +1,10 @@
+{
+  "status": "INCOMPLETE",
+  "phase": "fixed-matrix",
+  "failure": null,
+  "planned": 1000,
+  "observedRecordReceipts": 133,
+  "sourceManifestSha256": "73afdeb4749e2025544ffad5c75fb8a8cf18a004fedc0c9215895f9162babe34",
+  "scheduleSha256": "20853a8622f5b10b076c2dca4bfe6b6c3544c7c87de873076e826846f66a0e75",
+  "at": "2026-09-09T04:24:44.429Z"
+}

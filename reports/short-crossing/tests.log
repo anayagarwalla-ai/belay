@@ -1,0 +1,43 @@
+npm notice run belay@0.1.0 test
+npm notice run vitest run --config vitest.config.ts
+
+ RUN  v5.0.0 /Users/anayagarwalla/Documents/ChatGPT/testastra
+
+ ❯ tests/client-frame-clock.test.ts (2 tests | 2 failed) 21ms
+   × uses callback time for received snapshot age and post-render time for cues when the frame timestamp predates receipt 8ms
+   × releases scene/team resources while reusing shared geometry, then closes RAF, observer and DOM ownership 11ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/client-frame-clock.test.ts > uses callback time for received snapshot age and post-render time for cues when the frame timestamp predates receipt
+ReferenceError: window is not defined
+ ❯ Module.createViewport client/viewport.ts:23:25
+     21| export function createViewport(host: HTMLElement, connection: BelayCon…
+     22|   const palette = TUNING.camera.palette;
+     23|   const reducedMotion = window.matchMedia('(prefers-reduced-motion: re…
+       |                         ^
+     24|   const scene = new THREE.Scene(); scene.background = new THREE.Color(…
+     25|   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, TUNING.rop…
+ ❯ tests/client-frame-clock.test.ts:40:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/client-frame-clock.test.ts > releases scene/team resources while reusing shared geometry, then closes RAF, observer and DOM ownership
+ReferenceError: window is not defined
+ ❯ Module.createViewport client/viewport.ts:23:25
+     21| export function createViewport(host: HTMLElement, connection: BelayCon…
+     22|   const palette = TUNING.camera.palette;
+     23|   const reducedMotion = window.matchMedia('(prefers-reduced-motion: re…
+       |                         ^
+     24|   const scene = new THREE.Scene(); scene.background = new THREE.Color(…
+     25|   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, TUNING.rop…
+ ❯ tests/client-frame-clock.test.ts:70:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 33 passed (34)
+      Tests  2 failed | 318 passed | 1 expected fail (321)
+   Start at  21:11:53
+   Duration  155.24s (tests 99%, transform 1%, import 1%)
+

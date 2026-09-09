@@ -34,7 +34,7 @@ try {
   const config = await (await boundedFetch('/game/belay/config', { headers: { cookie: operatorCookie } })).json() as ClientConfig;
   assert(config.operator);
   const html = await (await boundedFetch('/', { headers: { cookie: testerCookie } })).text();
-  assert(html.includes('BELAY') && html.includes('Join test rope'));
+  assert(html.includes('BELAY') && html.includes('data-belay-entry'));
   checks.push('Authenticated page contains the actual Phase 1 UI.');
   const client = new Client(base.replace('https', 'wss') + '/game', { headers: { cookie: operatorCookie } });
   room = await client.create('belay', { token: config.token });

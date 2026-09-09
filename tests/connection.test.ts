@@ -46,6 +46,42 @@ async function joined(c = make()) {
 }
 
 describe('connection lifetime', () => {
+  it('joins an existing team without resetting its world or adding bots', async () => {
+    const { c, room } = await joined();
+    await c.startCrossing();
+    expect(room.sent.some(message => message.type === 'debug')).toBe(false);
+    expect(transport.join).toHaveBeenCalledTimes(1);
+  });
+  it('starts an empty operator crossing in one action, filling the rope before resuming', async () => {
+    const { c, room: human } = await joined();
+    const state = phase2State(4, 'crossing'); state.players.forEach(p => { p.connected = p.id === 0; }); human.emit('snapshot', state);
+    const peers: FakeRoom[] = [], phases: string[] = [];
+    const broadcast = () => { human.emit('snapshot', structuredClone(state)); peers.forEach(peer => peer.emit('snapshot', structuredClone(state))); };
+    const humanSend = human.send.bind(human);
+    human.send = (type, value) => {
+      humanSend(type, value);
+      if (type !== 'debug') return;
+      const request = value as { command: string; requestId: string };
+      phases.push(request.command);
+      if (request.command === 'loadScene') state.epoch++;
+      else state.paused = request.command === 'pause';
+      if (request.command === 'resume') expect(state.players.filter(p => p.connected)).toHaveLength(4);
+      broadcast(); human.emit('debugResult', { requestId: request.requestId, result: structuredClone(state) });
+    };
+    transport.join.mockImplementation(async () => {
+      const peer = new FakeRoom(), id = peers.length + 1; peers.push(peer);
+      const send = peer.send.bind(peer);
+      peer.send = (type, value) => {
+        send(type, value);
+        if (type === 'identify') { state.players[id].connected = true; state.players[id].label = `BOT ${id + 1}`; peer.emit('identity', { id }); broadcast(); }
+      };
+      return peer;
+    });
+    await c.startCrossing(); expect(phases).toEqual(['pause', 'loadScene', 'resume']); expect(c.practice.status.count).toBe(3);
+    await c.restartCrossing(); expect(phases).toEqual(['pause', 'loadScene', 'resume', 'pause', 'loadScene', 'resume']);
+    expect(peers).toHaveLength(3); // Retry reuses the connected team rather than adding duplicate bots.
+    await c.leave(); expect(peers.every(peer => peer.leave.mock.calls.length === 1)).toBe(true);
+  });
   it('closes browser-owned practice seats and all their timers when the human socket drops', async () => {
     const { c, room: human } = await joined();
     const initial = phase2State(2, 'crossing'); initial.players[1].connected = false; human.emit('snapshot', initial);

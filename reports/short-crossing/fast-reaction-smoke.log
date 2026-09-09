@@ -1,0 +1,12 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'tsx' work/short-smoke.ts
+{"players":2,"scene":"crossing","ending":"complete","seconds":42.266666666666666,"incidents":3,"stretch":0.004993702120568988}
+{"players":3,"scene":"crossing","ending":"censored","seconds":180,"incidents":1,"stretch":0.004997727513247341}
+{"players":4,"scene":"crossing","ending":"failed","seconds":10.166666666666666,"incidents":1,"stretch":0.004998149165277299}
+{"players":5,"scene":"crossing","ending":"failed","seconds":22.366666666666667,"incidents":2,"stretch":0.010863129439730002}
+{"players":6,"scene":"crossing","ending":"complete","seconds":59.03333333333333,"incidents":3,"stretch":0.004997727513247341}
+{"players":2,"scene":"rescue","ending":"fixture-recovered","seconds":18.766666666666666,"incidents":1,"stretch":0.004945859183201451}
+{"players":3,"scene":"rescue","ending":"fixture-recovered","seconds":13.866666666666667,"incidents":1,"stretch":0.004982654983718249}
+{"players":4,"scene":"rescue","ending":"fixture-recovered","seconds":12.366666666666667,"incidents":1,"stretch":0.004998015655333976}
+{"players":5,"scene":"rescue","ending":"fixture-recovered","seconds":10.766666666666667,"incidents":1,"stretch":0.004896886076741658}
+{"players":6,"scene":"rescue","ending":"fixture-recovered","seconds":10.766666666666667,"incidents":1,"stretch":0.004997239520476426}

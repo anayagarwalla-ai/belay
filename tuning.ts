@@ -2,7 +2,7 @@
  * Changes are recorded by the reports' full configuration and simulation version.
  * Nothing here is a human Gate 1 verdict. */
 export const TUNING = {
-  version: 'phase2-repair-4',
+  version: 'phase2-short-crossing-1',
   phase: 2,
   seed: 1701, // Reproducible default flat test surface; no hazards are generated.
   players: 2, // Gate 1 is exactly two bodies. Later phases must still respect hardCap.
@@ -49,6 +49,14 @@ export const TUNING = {
     markSize: 0.18,
   },
   camera: {
+    palette: { snow: '#F4F7F9', ink: '#2A2F35', depth: '#1B4A7A', glow: '#7FD4E8', rope: '#E8541F',
+      parkas: ['#E8541F', '#F2B441', '#2F6B3A', '#4A5A6B', '#8C3B4A', '#795548'] }, // Umber remains a review candidate for the sixth climber.
+    recoveryMessageSeconds: 2.5, warningReachM: 6, // Brief context-sensitive messages; no points or synthetic success rewards.
+    torsoWidthM: 0.46, torsoHeightM: 0.52, torsoDepthM: 0.44, hoodCenterY: 0.25, bootCenterY: -0.36,
+    contourSpacingM: 3, contourSamples: 48, contourWaveM: 0.45, contourWavelengthM: 12, contourColor: '#CCD2D5', // Sparse map contours give movement scale without a technical grid.
+    gaitSpeedThreshold: 0.15, gaitCyclesPerMeter: 1.4, gaitSwingRadians: 0.35, // Visual stride follows actual displacement speed, never supplies movement.
+    hoodRadiusM: 0.2, bootWidthM: 0.2, bootHeightM: 0.18, packDepthM: 0.22,
+    hutWidthM: 3, hutHeightM: 2, hutDepthM: 2.5, hutRoofHeightM: 1.4, hutOffsetM: 4,
     bridgeCueSagM: 0.06, // Small gray surface displacement makes a server cue readable without depicting a collapse early.
     catchRadiusMultiplier: 1.75, // A caught span gets a thicker black stroke; no color, flash, slow motion or force change.
     terrainEdgeWidthM: 0.04, // Flush gray seams separate bridge/ice patches from ordinary ground.
@@ -94,6 +102,11 @@ export const TUNING = {
     maximumDelayedBytes: 1024 * 1024, // Bound queued transport data; fail instead of growing memory.
     maximumTapeSeconds: 1200, // Preserve the first 20 minutes after reset; mark truncation rather than grow forever.
   },
+  sound: {
+    masterGain: 0.18, noiseSeconds: 2, ropeGain: 0.09, ropeBaseHz: 100, ropeRangeHz: 850,
+    catchStartHz: 85, catchEndHz: 32, catchSeconds: 0.24, recoveryHz: 330, recoverySeconds: 0.35,
+    envelopeAttackSeconds: 0.012, minimumGain: 0.0001, // Small, synthesized rope/catch cues; no downloaded audio or microphone access.
+  },
   server: {
     host: '127.0.0.1', // All origins remain loopback-only; only the protected gateway is tunneled.
     port: 2567,
@@ -132,9 +145,9 @@ export const TUNING = {
   },
   phase2: {
     defaultScene: 'crossing' as const, defaultPlayers: 4, // Application default; simulation's legacy default stays flat/two.
-    routeHalfWidth: 12, routeStartZ: -16, finishZ: 950, // About five minutes of travel before rescues; fixed grey-box route, not daily generation.
+    routeHalfWidth: 12, routeStartZ: -16, finishZ: 100, // User-approved short playtest: travel plus three rescues, aiming for 60–90 seconds.
     finishApronM: 30, // All six climbers must fit safely beyond the finish, including the longest family spans.
-    crevasseStarts: [8, 230, 480, 740], crevasseWidth: 2.8, crevasseDepth: 12,
+    crevasseStarts: [8, 36, 68], crevasseWidth: 2.8, crevasseDepth: 12, // A few seconds to the first mistake; short regrouping stretches afterward.
     terminalY: -16, // Explicit out-of-world boundary; hanging duration never ends a run.
     bridgeHalfWidth: 1.1, bridgeThickness: 0.25,
     bridgeLaneOffsets: [0, -2.2, 2.2], // Adjacent snow bridges leave a physical way around a collapsed crossing.
@@ -153,7 +166,8 @@ export const TUNING = {
     iceTractionMultiplier: 0.3, // A known low-traction patch, not a hidden difficulty adjustment.
     wallClimbSpeed: 0.65, wallDescendSpeed: 1, wallAcceleration: 2.5, // Slow footwork leaves time for teammates to haul.
     wallPressSpeed: 0.45, wallNormalEffortN: 450, wallFriction: 1, // Wall effort stays below body weight: ascent requires rope support and hauling.
-    haulSpeed: 0.22, walkingAcceleration: 3, // Crouched steps provide strong slow traction; ordinary walking has less push.
+    walkingSpeed: 4.2, walkingAcceleration: 9, // Reach travel speed in under half a second; the old 3 m/s² ramp made ordinary movement sluggish.
+    haulSpeed: 0.22, // Keep controlled loaded footwork while ordinary travel becomes quicker.
     ledgeReachAboveHeadM: 0.05, ledgePullEffortN: 1050, // A hand can pull over the lip only once the head reaches its edge; no remote rescue impulse.
     rescueSlackTargetM: 0.05, // Take up the final slack before slowing to a planted haul; stopping at 15 cm left outer helpers unloaded.
     rescueCatchSeconds: 0.8, // Bot reaction/catch window before taking physical hauling steps.
@@ -176,15 +190,15 @@ export const TUNING = {
     targets: {
       rescueSeconds: [10, 20], firstAttemptRecoveryFraction: [0.6, 0.75], eventualRecoveryFraction: [0.88, 0.92],
       fourIncidentCompletionFraction: [0.6, 0.72], incidentsPerRun: [3, 6], firstFallBeforeSeconds: 45,
-      runSeconds: [300, 600], maximumIdleFraction: 0.2,
-    }, // Existing PLAN.md targets, quoted centrally; bots cannot pass the human rescue stop.
+      runSeconds: [60, 90], maximumIdleFraction: 0.2,
+    }, // Short-playtest duration authorized by the user; remaining rescue targets are hypotheses, not human verdicts.
     trajectoryRuns: 1000, // Fixed evidence budget across every scene/team/policy; never adapt chance to hit targets.
     smokeTrajectories: 10, // Covers both scenes at all five team sizes with the recovery policy before the full run.
     repairScreen: { seeds: [1701, 1702, 1703, 1706], seconds: 60, shards: 2, maximumWallMs: 60 * 60 * 1000 }, // Early-contact regression screen: all three families plus the failing loose-rope seed. Short windows never substitute for the full matrix.
     teamSizes: [2, 3, 4, 5, 6], // Every approved Phase 2 rope size, reported separately.
-    crossingSeconds: 600, // Observe up to the run target's ten-minute upper end; unfinished trajectories are censored.
+    crossingSeconds: 180, // Two times this cut's 90-second upper target; unfinished cases remain explicitly censored.
     rescueSeconds: 60, // Focused recovery gets three times the normal 20-second upper target before censoring.
-    actionSeconds: 0.5, // Bounded state-reactive bot decision cadence; no per-tick omniscient steering.
+    actionSeconds: 0.5, // Keep the measured decision cadence; a 0.25 s experiment increased cascades in the default rope.
     steeringSeconds: 1.5, // Proportional lateral velocity settles into a bridge lane without half-second full-speed oscillation.
     followingSeconds: 1, // Maintain the initial rope-order spacing after a rescue; bunched bots otherwise all enter the next hole together.
     badWrongWayChance: 0.2, // Fixed diagnostic mistake chance; existing bot brace/idle chances are reused unchanged.

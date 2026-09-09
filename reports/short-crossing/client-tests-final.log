@@ -1,0 +1,11 @@
+npm notice run belay@0.1.0 npx
+npm notice run 'vitest' run tests/client-frame-clock.test.ts tests/client-presentation.test.ts tests/mission.test.ts tests/connection.test.ts tests/sound.test.ts
+
+ RUN  v5.0.0 /Users/anayagarwalla/Documents/ChatGPT/testastra
+
+
+ Test Files  5 passed (5)
+      Tests  61 passed (61)
+   Start at  21:23:03
+   Duration  693ms (transform 60%, import 21%, tests 18%, worker 2%)
+

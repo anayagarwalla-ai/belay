@@ -69,7 +69,7 @@ describe('conservative local contact prediction', () => {
     } else {
       expect(point.x).toBeGreaterThan(state.players[0].position.x);
       expect(point.x - state.players[0].position.x).toBeLessThanOrEqual(TUNING.phase2.haulSpeed * 0.05 + 1e-9);
-      expect(controlHint(state.players[0], state)).toContain('holding Space to haul');
+      expect(controlHint(state.players[0], state)).toContain('Release Space to walk');
     }
   });
   it('checks a whole swept path instead of jumping a narrow unsupported hole', () => {

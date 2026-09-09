@@ -32,7 +32,7 @@
   };
   try {
     assert(window.BELAY_AUDIT.acceptsMovement(), 'Join the loopback room first.');
-    await freshHold(); document.querySelector('.operator').open = true;
+    await freshHold(); document.querySelector('.test-tools').open = true; document.querySelector('.operator').open = true;
     const field = document.querySelector('.scene-form select'); field.focus();
     assert(!key('KeyW', 'keydown', false, field), 'Form input was intercepted as movement.');
     await checkRelease('canvas to operator form');
@@ -74,7 +74,7 @@
     results.push({ name: 'input interval ownership', rateHz: rate, expectedHz: expected });
     await control({ partners: 5 });
     await wait(() => window.BELAY.getState().players.filter(player => player.connected).length === 6, 'Five audit partners did not join.');
-    document.querySelector('.operator').open = true;
+    document.querySelector('.test-tools').open = true; document.querySelector('.operator').open = true;
     assert(window.__consoleErrors.length === 0, 'Browser error during input audit.');
     return { results, next: 'Use the actual Team control to request 2 climbers; all six seats are occupied.', errors: window.__consoleErrors };
   } finally {

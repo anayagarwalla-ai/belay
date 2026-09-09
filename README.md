@@ -1,6 +1,6 @@
 # BELAY
 
-Phase 2 grey-box prototype: two to six climbers, a constrained rope, seeded snow bridges, falling, catching and physical rescue. **The rescue gate is not passed:** the repaired matrix is complete, with remaining balance and participation limits in the repair report; a frozen helper can still be carried through some larger-team rescues. The user authorized continuing past Gate 1; human fun and remote feel remain unmeasured.
+Short-crossing playtest: two to six climbers, a constrained rope, seeded snow bridges, falling, catching and physical rescue. The user rejected the previous cut as unclear, slow and drab and approved a 60–90-second experiment. **The rescue gate is not passed:** the repaired matrix is complete, with remaining balance and participation limits in the repair report; a frozen helper can still be carried through some larger-team rescues. The user authorized continuing past Gate 1; human fun and remote feel remain unmeasured.
 
 Use Node >=22.13.0 and run these commands from the same checkout.
 
@@ -9,9 +9,13 @@ npm ci
 npm run dev
 ```
 
-Wait for **BELAY local preview ready**, then open <http://127.0.0.1:8787> and join the test rope. WASD/arrows move relative to the camera; Space braces. In crossing/rescue, hold Space and a direction to take slow hauling steps. A fresh dev session starts a four-climber crossing with seed 1701, balanced family and 30 Hz authority. In **Operator scene controls**, choose the scene, team, family, seed and authority, then click **Reset and load scene**; selections alone do not apply. Reset preserves occupied seats and pause state, so reduce the team only after higher-numbered seats leave and click **Resume** if paused.
+Wait for **BELAY local preview ready**, then open <http://127.0.0.1:8787> and click **START CROSSING**. An otherwise empty operator rope resets into the short crossing and adds three labeled BOT partners before starting. Joining an existing team leaves its run intact. **Get every climber across three crevasses and to the hut.** The route is 100 metres from the lead climber's start, with gaps at 8, 36 and 68 metres. The HUD measures distance from the last climber, so its initial distance is longer.
 
-To try it alone, join the browser rope and use **Try it with bots → Fill empty seats with bots**. Choose **Cooperative** for rescue practice or **Clumsy** for counterproductive movement. The operator's browser owns these labeled seats; **Stop practice bots**, leaving, hiding the tab, a stale/disconnected connection, or the ten-minute deadline closes them. Existing human seats stay occupied by their owners. Stop bots before reducing the team size. For a focused rescue, pause and load the rescue scene before adding bots, then resume. These are practice partners, not Solo Daily or human playtest evidence.
+WASD/arrows move relative to the camera. **S + A together goes toward the hut**, diagonally down-left. **Release Space to walk at full speed.** Hold Space to catch a falling teammate, then hold a direction away from the hole to haul. A hanging player moves into the wall to climb while the team hauls. The HUD changes instructions with the actual rescue state. The terminal result has a **GO AGAIN** button. Sound starts on a click; the top-right toggle mutes it.
+
+**Test tools** contains measurements, bot behavior and operator scene controls. A fresh local session uses four climbers, seed 1701, balanced family and 30 Hz authority. To test another scene, select scene/team/family/seed/rate and click **Reset and load scene**. Selections alone do not apply; resets preserve occupied seats and pause state. Stop bots before reducing the team size, and click **Resume** if paused.
+
+For clumsy partners, stop the cooperative bots, choose **Clumsy**, then **Fill empty seats with bots**. Leaving, hiding the tab, a stale/disconnected connection, or the ten-minute deadline closes browser-owned bot seats. A hidden-tab return requires **Fill empty seats with bots** again. These partners are diagnostic bots, not Solo Daily or evidence that strangers cooperate. The short route is not yet balanced across team sizes; the seed-1701 three-climber bot check stalled. See [short-crossing evidence](reports/short-crossing/README.md).
 
 The terminal helper is also available after joining in the browser:
 
@@ -52,4 +56,4 @@ npm run test:local-load    # Guarded local socket workload; not production quali
 
 `bench:phase2` is the sequential matrix runner. The guarded native four-worker alternative has a separate invocation and pinned runtime; see `RUNBOOK.md` before starting an offline job.
 
-The preserved pre-repair 1,000-trajectory matrix exposed 21-second crossings, static-helper recoveries and excessive rope stretch. The current repair changes the contact solver, energy accounting, hauling/climbing and the fixed crossing fixture; use [the current repair report](reports/phase2-repair/README.md) for its separate verification and remaining limits. The historical measurements remain [unchanged](reports/phase2-verification.md). Art, audio, clips, matchmaking, voice, daily and deployment remain in later phases; Phase 3 is paused at the rescue stop. No paid resources are provisioned.
+The preserved pre-repair 1,000-trajectory matrix exposed 21-second crossings, static-helper recoveries and excessive rope stretch. The current repair changes the contact solver, energy accounting, hauling/climbing and the fixed crossing fixture; use [the current repair report](reports/phase2-repair/README.md) for its separate verification and remaining limits. The historical measurements remain [unchanged](reports/phase2-verification.md). The user-authorized re-cut adds the locked palette, simple parka silhouettes, goal guidance and synthesized rope/catch audio. Full art approval, clips, matchmaking, voice, daily and deployment remain later work; the rescue stop still applies. No paid resources are provisioned.

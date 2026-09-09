@@ -7,7 +7,7 @@
     while (!check()) { if (performance.now() > deadline) throw new Error('Resize UI did not settle.'); await new Promise(resolve => setTimeout(resolve, 20)); }
   };
   assert(window.BELAY.getState().players.filter(player => player.connected).length === 6, 'Start with all six audit seats occupied.');
-  document.querySelector('.operator').open = true;
+  document.querySelector('.test-tools').open = true; document.querySelector('.operator').open = true;
   const team = [...document.querySelectorAll('.scene-form select')].find(select => select.closest('label').textContent.startsWith('Team'));
   team.focus(); team.value = '2'; team.dispatchEvent(new Event('change', { bubbles: true }));
   await new Promise(requestAnimationFrame);

@@ -1,0 +1,112 @@
+[
+  {
+    "scene": "crossing",
+    "players": 2,
+    "ending": "complete",
+    "seconds": 42.96666666666667,
+    "incidents": 3,
+    "recovered": 3,
+    "firstFall": 2.85,
+    "worstRoleIdle": 92.82,
+    "stepP95": 1.849375000000009
+  },
+  {
+    "scene": "crossing",
+    "players": 3,
+    "ending": "censored",
+    "seconds": 180,
+    "incidents": 1,
+    "recovered": 0,
+    "firstFall": 2.9166666666666665,
+    "worstRoleIdle": 85.74,
+    "stepP95": 4.962416000000303
+  },
+  {
+    "scene": "crossing",
+    "players": 4,
+    "ending": "complete",
+    "seconds": 72.33333333333333,
+    "incidents": 3,
+    "recovered": 3,
+    "firstFall": 2.9166666666666665,
+    "worstRoleIdle": 96.84,
+    "stepP95": 6.64520800000173
+  },
+  {
+    "scene": "crossing",
+    "players": 5,
+    "ending": "complete",
+    "seconds": 51.733333333333334,
+    "incidents": 4,
+    "recovered": 4,
+    "firstFall": 2.933333333333333,
+    "worstRoleIdle": 100.0,
+    "stepP95": 8.703374999997322
+  },
+  {
+    "scene": "crossing",
+    "players": 6,
+    "ending": "complete",
+    "seconds": 67.1,
+    "incidents": 4,
+    "recovered": 4,
+    "firstFall": 2.95,
+    "worstRoleIdle": 98.1,
+    "stepP95": 10.615708000004815
+  },
+  {
+    "scene": "rescue",
+    "players": 2,
+    "ending": "fixture-recovered",
+    "seconds": 18.733333333333334,
+    "incidents": 1,
+    "recovered": 1,
+    "firstFall": 0.2,
+    "worstRoleIdle": 5.85,
+    "stepP95": 3.7130420000030426
+  },
+  {
+    "scene": "rescue",
+    "players": 3,
+    "ending": "fixture-recovered",
+    "seconds": 13.8,
+    "incidents": 1,
+    "recovered": 1,
+    "firstFall": 0.2,
+    "worstRoleIdle": 8.82,
+    "stepP95": 6.933291000001191
+  },
+  {
+    "scene": "rescue",
+    "players": 4,
+    "ending": "fixture-recovered",
+    "seconds": 12.133333333333333,
+    "incidents": 1,
+    "recovered": 1,
+    "firstFall": 0.2,
+    "worstRoleIdle": 13.83,
+    "stepP95": 8.131083000000217
+  },
+  {
+    "scene": "rescue",
+    "players": 5,
+    "ending": "fixture-recovered",
+    "seconds": 10.3,
+    "incidents": 1,
+    "recovered": 1,
+    "firstFall": 0.2,
+    "worstRoleIdle": 7.92,
+    "stepP95": 9.638749999998254
+  },
+  {
+    "scene": "rescue",
+    "players": 6,
+    "ending": "fixture-recovered",
+    "seconds": 10.133333333333333,
+    "incidents": 1,
+    "recovered": 1,
+    "firstFall": 0.2,
+    "worstRoleIdle": 10.76,
+    "stepP95": 10.97833399999945
+  }
+]

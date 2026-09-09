@@ -4,6 +4,8 @@ Current authorization (2026-09-07): the user instructed us to continue as if Gat
 
 Repair authorization (2026-09-08): the user requested “Now fix everything you found that doesn’t work.” Root has reopened Phase 2 mechanical fixes and verification. The previous consolidation freeze applies to the archived task queue, not this repair. No scheduled task is recreated. The human rescue stop, paid-resource gate, and recorded open items remain in force.
 
+Short-crossing re-cut (2026-09-08): the user found the purpose unclear, presentation drab and movement boring/slow, then explicitly chose “Short, intense crossing first.” This is a failed engagement playtest. The next cut targets 60–90 seconds across three nearby hazards and ends at a visible hut. Quicker ordinary movement, clear move/brace guidance, a one-click local practice start, the locked snow/rope/parka palette and restrained synthesized rope/catch feedback support this re-cut. The full game's 5–10-minute target is deferred for this experiment. This is not a rescue-gate pass or authorization for hosted clips, public deployment, paid resources or the rest of Phase 3. Umber and the eventual type choice still need review. The Phase 2 re-cut budget remains open.
+
 ## Outcome and core
 
 Success means four strangers laugh in their first three minutes, somebody clips it, and an outsider understands the clip and follows the link. A technically impressive game that nobody plays fails.

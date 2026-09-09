@@ -155,11 +155,42 @@ export class BelayConnection {
       && performance.now() - this.lastSnapshotAt <= TUNING.network.staleSnapshotMs);
   }
   releaseInput() { this.input = { ...REST }; this.sendInput(); }
-  startPracticeBots(mode: PracticeMode = 'recovery') {
+  async startPracticeBots(mode: PracticeMode = 'recovery') {
     if (!this.operator || !this.joinPracticeRoom) return Promise.reject(new Error('Practice bots require a connected test operator.'));
-    return this.practice.start(mode, this.joinPracticeRoom);
+    await this.practice.start(mode, this.joinPracticeRoom);
+    if (this.practice.status.state !== 'running') throw new Error(this.practice.status.message);
   }
   stopPracticeBots() { this.practice.stop(); }
+  private async readyWhen(predicate: () => boolean) {
+    const generation = this.generation, deadline = performance.now() + TUNING.network.joinTimeoutMs;
+    while (true) {
+      if (this.disposed || generation !== this.generation || !this.room?.connection.isOpen) throw new Error('The rope connection closed.');
+      if (predicate()) return;
+      if (performance.now() >= deadline) throw new Error('The rope is taking too long to get ready. Try again.');
+      await new Promise(resolve => setTimeout(resolve, 1000 / TUNING.network.inputHz));
+    }
+  }
+  async startCrossing() {
+    await this.join();
+    await this.readyWhen(() => this.acceptsMovement);
+    // Joining an existing human team must not reset its run. Only an otherwise
+    // empty operator rope gets the one-click practice setup.
+    if (!this.operator || this.latest!.players.filter(player => player.connected).length !== 1) return;
+    await this.restartCrossing(TUNING.phase2.defaultPlayers);
+  }
+  async restartCrossing(playerCount?: number) {
+    const room = this.room;
+    await this.command('pause');
+    try {
+      const next = await this.command('loadScene', { scene: 'crossing', ...(playerCount ? { playerCount } : {}) }) as Snapshot;
+      await this.readyWhen(() => this.latest?.epoch === next.epoch && this.acceptsMovement);
+      if (this.practice.status.state === 'idle' && this.latest!.players.some(player => !player.connected)) {
+        await this.startPracticeBots();
+      }
+    } finally {
+      if (this.room === room && room?.connection.isOpen) await this.command('resume');
+    }
+  }
   async leave() {
     this.releaseInput();
     this.detach('Ready');

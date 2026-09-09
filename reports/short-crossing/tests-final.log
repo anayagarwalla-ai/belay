@@ -1,0 +1,38 @@
+npm notice run belay@0.1.0 test
+npm notice run vitest run --config vitest.config.ts
+
+ RUN  v5.0.0 /Users/anayagarwalla/Documents/ChatGPT/testastra
+
+ ❯ tests/local-load-diagnostic.test.ts (6 tests | 1 failed) 24754ms
+   ❯ bounded real-socket local load diagnostic (6)
+     × uses integrated Phase 2 scenes with every actual body/seat count from two through six 11727ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/local-load-diagnostic.test.ts > bounded real-socket local load diagnostic > uses integrated Phase 2 scenes with every actual body/seat count from two through six
+AssertionError: expected [ 'room "pXQ85erFp" is locked' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "room \"pXQ85erFp\" is locked",
++ ]
+
+ ❯ tests/local-load-diagnostic.test.ts:105:70
+    103|     const output = await directory(), plan = manifest('test-fixture', …
+    104|     const { result } = await runLocalLoad(plan, output);
+    105|     expect(result.failure).toBeNull(); expect(result.audit.problems).t…
+       |                                                                      ^
+    106|     expect(result.before?.rooms.map(room => room.playerCount).sort()).…
+    107|     expect(new Set(result.before?.rooms.map(room => room.scene))).toEq…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 34 passed (35)
+      Tests  1 failed | 321 passed | 1 expected fail (323)
+   Start at  21:17:37
+   Duration  156.80s (tests 98%, transform 1%, import 1%)
+

@@ -77,7 +77,7 @@ export async function runPlaytest(options: PlaytestOptions = {}) {
       if (!await checkHttp(`${base}/game/belay/config`, body => {
         try { const config = JSON.parse(body); return Boolean(config.roomId) && config.operator === false; } catch { return false; }
       }, { cookie }, session.abort.signal)) return false;
-      return checkHttp(base, body => body.includes('Join test rope'), { cookie }, session.abort.signal);
+      return checkHttp(base, body => body.includes('data-belay-entry'), { cookie }, session.abort.signal);
     }, options.startupTimeoutMs ?? LIMITS.tunnelStartupTimeoutMs, session.abort.signal,
     'Tunnel startup timed out before registration, access protection and upstream readiness were confirmed. Check internet access and retry; no invitation was published.');
     session.abort.signal.throwIfAborted();

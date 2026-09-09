@@ -32,7 +32,7 @@ export function nearestWall(position: Vec3, terrain: Snapshot['terrain']) {
 }
 
 export function controlHint(player?: PlayerState, snapshot?: Snapshot) {
-  if (!player) return 'Join the rope to move. An invited partner uses the same test session.';
+  if (!player) return 'Get everyone to the hut. If someone falls, brace and pull them back up.';
   if (player.rescueState === 'lost') return 'This body is beyond the scene boundary. The operator can reset the scene after saving evidence.';
   if (player.support === 'air') return 'In the air: movement gives no thrust, and Space cannot anchor you. Partners can change the rope angle to bring you to a wall.';
   if (player.support === 'wall') {
@@ -48,6 +48,8 @@ export function controlHint(player?: PlayerState, snapshot?: Snapshot) {
   if (player.support === 'ground' && player.activeIncidentId != null && player.rescueState !== 'safe') return 'Keep stepping back from the lip until your feet are safely on the bank.';
   if (onIce(player.position, snapshot?.terrain)) return 'On ice: traction is lower, so bracing can still slide. Move toward firmer ground to change the support position.';
   return snapshot && (snapshot.scene && snapshot.scene !== 'flat' || snapshot.players.length > TUNING.players)
-    ? 'On ground: hold Space to plant your feet. Move while holding Space to haul; step back from the lip together.'
+    ? snapshot.incidents?.some(incident => incident.status === 'active')
+      ? 'Hold Space to catch the pull. Keep it held and move away from the hole to haul.'
+      : player.brace ? 'You are bracing. Release Space to walk at full speed.' : 'Move toward the hut. Hold Space when the rope yanks; release it to keep walking.'
     : 'Pull against each other, then walk together. Hold Space to brace; release it to move.';
 }

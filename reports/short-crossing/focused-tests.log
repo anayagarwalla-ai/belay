@@ -1,0 +1,36 @@
+npm notice run belay@0.1.0 test
+npm notice run vitest run --config vitest.config.ts tests/connection.test.ts tests/client-action-lifetime.test.ts tests/client-inspection-lifetime.test.ts tests/client-presentation.test.ts tests/phase2-mechanics.test.ts
+
+ RUN  v5.0.0 /Users/anayagarwalla/Documents/ChatGPT/testastra
+
+ ❯ tests/phase2-mechanics.test.ts (36 tests | 1 failed) 22925ms
+   ❯ Phase 2 contract and support (11)
+     × hauls a real first-bridge fall fully over the lip without a stale wall contact at 30 Hz 1516ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/phase2-mechanics.test.ts > Phase 2 contract and support > hauls a real first-bridge fall fully over the lip without a stale wall contact at 30 Hz
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/phase2-mechanics.test.ts:57:23
+     55|     }
+     56|     const state = s.snapshot();
+     57|     expect(recovered).toBe(true);
+       |                       ^
+     58|     expect(state.events.some(e => e.kind === 'collapse')).toBe(true);
+     59|     // Faster travel can catch a follower from the far bank. Every act…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 93 passed (94)
+   Start at  20:53:34
+   Duration  23.29s (tests 95%, transform 3%, import 2%)
+

@@ -1,5 +1,7 @@
 # BELAY batch consolidation
 
+**Current short-crossing re-cut:** the user rejected the previous experience and approved a short, intense crossing. The 100-metre route, quicker ordinary walking, one-click practice setup, goal/rescue guidance and limited palette/audio work are now in the local preview. [The new evidence ledger](reports/short-crossing/README.md) supersedes the prior batch's pacing claims. Its full 1,000-trajectory campaign is still running; the no-process statement below describes the completed earlier repair batch only. Supporting tasks stay archived, and no schedule, public service or paid resource was created.
+
 **Repair batch consolidated on 2026-09-08.** Root integrated the rope/contact, energy, hauling/climbing, client and diagnostic fixes. The repaired 1,000-case matrix finished with four clean worker exits and independent raw-data reconciliation; its [final findings](reports/phase2-repair/FINAL.md) and [lossless package](reports/phase2-repair/evidence-package/README.md) are separate from the historical baseline below. Geometric bounds pass, but balance, participation, exact post-commit energy precision, human fun and production capacity remain limited as stated in that report. The result-preserving performance cleanup was integrated afterward. Supporting tasks remain archived and scheduled follow-ups remain deleted; no benchmark process remains. The user-requested local preview is separate. No Phase 3 or public launch is authorized by these measurements.
 
 ## Preserved consolidation baseline

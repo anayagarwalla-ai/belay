@@ -43,7 +43,7 @@ export async function preflight(root = projectRoot, localOnly = false): Promise<
     }
     if (!await checkHttp(`${base}/game/belay/config`, body => {
       try { const config = JSON.parse(body); return Boolean(config.roomId) && config.operator === true && typeof config.token === 'string'; } catch { return false; }
-    }) || !await checkHttp(base, body => body.includes('BELAY') && body.includes('Join test rope'))) {
+    }) || !await checkHttp(base, body => body.includes('BELAY') && body.includes('data-belay-entry'))) {
       throw new Error('The owned gateway’s room configuration or frontend is not ready. Check the dev terminal before inviting anyone.');
     }
     return `Owned session ready at ${base}; room, operator access and frontend respond.`;

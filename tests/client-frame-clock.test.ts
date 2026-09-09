@@ -1,4 +1,4 @@
-import { afterEach, expect, it, vi } from 'vitest';
+import { beforeEach, afterEach, expect, it, vi } from 'vitest';
 import * as THREE from 'three';
 import type { BelayConnection } from '../client/connection';
 import { ClientEvidence } from '../client/evidence';
@@ -20,6 +20,8 @@ vi.mock('three', async importOriginal => ({
     dispose() { rendering.disposals++; }
   },
 }));
+
+beforeEach(() => vi.stubGlobal('window', { matchMedia: () => ({ matches: false }) }));
 
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); rendering.complete = () => {}; rendering.calls = 0; rendering.scene = undefined; rendering.disposals = 0; });
 

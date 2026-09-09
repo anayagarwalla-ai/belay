@@ -57,19 +57,22 @@ export function towardWall(snapshot: SimulationSnapshot, position: Vec3): Move {
 
 function travel(snapshot: SimulationSnapshot, id: number): Move {
   const player = snapshot.players[id];
-  const bridge = snapshot.terrain.bridges.filter(candidate => !candidate.collapsed && candidate.maxZ >= player.position.z)
+  // Stay in one crossing lane until the whole rope clears it. A faster leader
+  // steering toward the next bridge can otherwise pin the tail on this one's edge.
+  const tailZ = Math.min(...snapshot.players.map(person => person.position.z));
+  const bridge = snapshot.terrain.bridges.filter(candidate => !candidate.collapsed && candidate.maxZ >= tailZ)
     .sort((a, b) => a.minZ - b.minZ || a.id - b.id)[0];
   const targetX = bridge ? (bridge.minX + bridge.maxX) / 2 : 0;
-  const x = Math.max(-1, Math.min(1, (targetX - player.position.x) / (TUNING.phase2Evidence.steeringSeconds * TUNING.body.walkSpeed)));
+  const x = Math.max(-1, Math.min(1, (targetX - player.position.x) / (TUNING.phase2Evidence.steeringSeconds * TUNING.phase2.walkingSpeed)));
   if (bridge && player.position.z < bridge.maxZ
     && (player.position.x < bridge.minX + TUNING.body.width / 2 || player.position.x > bridge.maxX - TUNING.body.width / 2)
     && player.position.z >= bridge.minZ - TUNING.body.depth * 2) {
     return signMove(x, player.position.z > bridge.minZ - TUNING.body.depth ? -1 : 0);
   }
   const ahead = snapshot.players[id - 1];
-  const speed = ahead ? Math.max(0, Math.min(TUNING.body.walkSpeed, ahead.velocity.z
-    + (ahead.position.z - player.position.z - TUNING.rope.initialSpacing) / TUNING.phase2Evidence.followingSeconds)) : TUNING.body.walkSpeed;
-  return signMove(x, Math.min(speed / TUNING.body.walkSpeed, Math.sqrt(Math.max(0, 1 - x * x))));
+  const speed = ahead ? Math.max(0, Math.min(TUNING.phase2.walkingSpeed, ahead.velocity.z
+    + (ahead.position.z - player.position.z - TUNING.rope.initialSpacing) / TUNING.phase2Evidence.followingSeconds)) : TUNING.phase2.walkingSpeed;
+  return signMove(x, Math.min(speed / TUNING.phase2.walkingSpeed, Math.sqrt(Math.max(0, 1 - x * x))));
 }
 
 export class Phase2Policy {

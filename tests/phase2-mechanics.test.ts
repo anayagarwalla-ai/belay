@@ -56,7 +56,12 @@ describe('Phase 2 contract and support', () => {
     const state = s.snapshot();
     expect(recovered).toBe(true);
     expect(state.events.some(e => e.kind === 'collapse')).toBe(true);
-    expect(state.players[0].position.z).toBeLessThan(state.terrain.crevasses[0].minZ);
+    // Faster travel can catch a follower from the far bank. Every actual
+    // casualty must have cleared the wall, whichever bank the team used.
+    for (const id of state.incidents[0].playerIds) {
+      expect(state.players[id].rescueState).toBe('safe');
+      expect(state.players[id].support).toBe('ground');
+    }
     expect(state.players[0].support).toBe('ground');
     for (const body of s.bodies) {
       expect(body.mass()).toBe(TUNING.body.mass);

@@ -22,7 +22,7 @@ if (mode === 'tree') {
   process.exit(42);
 } else {
   const server = http.createServer((req, res) => {
-    if (mode === 'web') res.end('BELAY Join test rope');
+    if (mode === 'web') res.end('<main data-belay-entry="crossing">BELAY START CROSSING</main>');
     else if (req.url === '/health') res.end(JSON.stringify({ ok: true, phase: Number(phase) }));
     else if (req.headers['x-belay-gateway'] === process.env.BELAY_SESSION_SECRET) {
       res.end(JSON.stringify({ roomId: 'fixture-room', operator: true, token: 'fixture-token' }));

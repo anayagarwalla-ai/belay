@@ -1,0 +1,11 @@
+npm notice run belay@0.1.0 test
+npm notice run vitest run --config vitest.config.ts tests/phase2-mechanics.test.ts tests/phase2-policies.test.ts tests/expedition-actuators.test.ts
+
+ RUN  v5.0.0 /Users/anayagarwalla/Documents/ChatGPT/testastra
+
+
+ Test Files  3 passed (3)
+      Tests  46 passed (46)
+   Start at  20:55:45
+   Duration  21.05s (tests 99%, transform 1%)
+
