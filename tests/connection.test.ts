@@ -46,6 +46,24 @@ async function joined(c = make()) {
 }
 
 describe('connection lifetime', () => {
+  it('closes browser-owned practice seats and all their timers when the human socket drops', async () => {
+    const { c, room: human } = await joined();
+    const initial = phase2State(2, 'crossing'); initial.players[1].connected = false; human.emit('snapshot', initial);
+    const bot = new FakeRoom(); transport.join.mockResolvedValueOnce(bot);
+    const send = bot.send.bind(bot);
+    bot.send = (type, value) => {
+      send(type, value);
+      if (type === 'identify') {
+        const full = phase2State(2, 'crossing'); full.players[1].label = 'BOT 2';
+        bot.emit('identity', { id: 1 }); bot.emit('snapshot', full); human.emit('snapshot', full);
+      }
+    };
+    await c.startPracticeBots(); expect(c.practice.status.count).toBe(1);
+    expect(transport.join).toHaveBeenLastCalledWith(config.roomId, { token: config.token, bot: true });
+    human.drop(); expect(bot.leave).toHaveBeenCalledWith(false); expect(c.practice.status.state).toBe('idle');
+    expect(vi.getTimerCount()).toBe(0);
+    expect((await c.captureReport()).lastClosedSession?.network.participants.observedBotSeatIds).toEqual([1]);
+  });
   it('accepts the sixth harness identity and releases held controls when scene/team topology resets', async () => {
     const { c, room } = await joined();
     room.emit('snapshot', phase2State(6)); room.emit('identity', { id: 5 });
@@ -161,6 +179,20 @@ describe('connection lifetime', () => {
   });
 });
 describe('measurement and command bounds', () => {
+  it('retains observed bot participants after they leave and in a closed-session report', async () => {
+    const { c, room } = await joined();
+    const withBot = snapshot(); withBot.players[1].label = 'BOT 2'; room.emit('snapshot', withBot);
+    room.emit('snapshot', snapshot());
+    expect(c.networkCounters().participants.observedBotSeatIds).toEqual([1]);
+    room.drop();
+    expect((await c.captureReport()).lastClosedSession?.network.participants.observedBotSeatIds).toEqual([1]);
+    expect(c.networkCounters().participants.observedBotSeatIds).toEqual([]);
+  });
+  it('does not let tester clients start diagnostic bots', async () => {
+    const { c } = await joined(); c.operator = false;
+    await expect(c.startPracticeBots()).rejects.toThrow('operator');
+    expect(transport.join).toHaveBeenCalledTimes(1);
+  });
   it('keeps delta event and cue evidence available in the closed-session report', async () => {
     const { c, room } = await joined(); c.operator = false;
     const scene = phase2State(4, 'crossing');

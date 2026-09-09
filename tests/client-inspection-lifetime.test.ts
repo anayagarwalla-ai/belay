@@ -1,6 +1,7 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { getEventListeners } from 'node:events';
 import GateClient from '../client/GateClient';
+import { PracticeTeam } from '../client/practice-team';
 
 const effects = vi.hoisted(() => [] as (() => void | (() => void))[]);
 // Invoke the actual mount/cleanup effect with its real connection and inspection registration.
@@ -13,12 +14,20 @@ vi.mock('react', async original => ({ ...await original<typeof import('react')>(
 vi.mock('../components/ui/button', () => ({ Button: () => null }));
 vi.mock('../client/viewport', () => ({ createViewport: () => ({ canvas: { focus() {} }, dispose() {} }) }));
 
-afterEach(() => { effects.length = 0; vi.useRealTimers(); vi.unstubAllGlobals(); });
+afterEach(() => { effects.length = 0; vi.useRealTimers(); vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 const environment = () => {
   vi.useFakeTimers();
   vi.stubGlobal('window', new EventTarget()); vi.stubGlobal('document', new EventTarget());
 };
 const mount = () => { GateClient(); return effects.at(-1)!() as () => void; };
+
+it('stops browser practice on tab hiding and removes that handler at unmount', () => {
+  environment(); const stop = vi.spyOn(PracticeTeam.prototype, 'stop'), cleanup = mount();
+  Object.defineProperty(document, 'hidden', { value: true });
+  document.dispatchEvent(new Event('visibilitychange'));
+  expect(stop).toHaveBeenCalledWith('Practice bots stopped because the tab was hidden.');
+  cleanup(); stop.mockClear(); document.dispatchEvent(new Event('visibilitychange')); expect(stop).not.toHaveBeenCalled();
+});
 
 it('removes the disposed client debug API and its timers when the mounted view is cleaned up', () => {
   environment(); const cleanup = mount();

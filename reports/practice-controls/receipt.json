@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-09-09T02:14:21.963093+00:00",
+  "baseCommit": "494b67e400420e38730eedc383d8924145a2a43f",
+  "simulationServerAndPolicySourceUnchanged": true,
+  "fullSuite": {
+    "passed": 315,
+    "expectedFailures": 1,
+    "files": 33
+  },
+  "browserAssertions": "PASS",
+  "botWorkersLeftRunning": false,
+  "devPreview": "http://127.0.0.1:8787",
+  "sources": {
+    "client/GateClient.tsx": "1a8f041d7664abbae459ede88b57a0ec47b489020011aaa3c12587313f8e5647",
+    "client/connection.ts": "a4602378f99acfdc04b8491f0f121d47aa6a15f3519528e982a535e796c5bed1",
+    "client/practice-team.ts": "4c4f2da9711b720e3c4b93386cfb9e5bb17b21cfc2d49277764f9e832f3d98ee",
+    "app/globals.css": "7fae77644df3ced8844b0c8268010f7cd33a2fb412a63f3e99588aae2802c852",
+    "tuning.ts": "edcffa06641ff3e91f0dc6f65b381af3764e03121cc99dcddde662960d7a7ca7",
+    "tests/connection.test.ts": "eba9bb82c053748db0127500edb6b3fae885559e95d209b266251c1bf7869b7d",
+    "tests/client-inspection-lifetime.test.ts": "4969f277a7e44490a79e453a6a547e79f3eda0713b8e22b217b81db21caef17c",
+    "tests/practice-team.test.ts": "051340db365c123d1ad290d857aa8aa4cefab168e019c65236bd09f07eb04c64"
+  },
+  "artifacts": {
+    "evidence.log": "2b9f16d8dc0325c82ae4eac5f09b4c0b101b9d9a0c11af044e4281c8b024008d",
+    "initial-tests.log": "da2f5068b9a09c90ae5426b48bd518803b7bce53e330efeed7f8091e924ccbc4",
+    "bots-paused.png": "f135e86cd6ad7df8d38d7f4c317b019d0de4abf5c605fb25eeb52b08638ff04b",
+    "lint.log": "e2c09f83d1437bf0d17e070708882490477b8693341e3ad7ebc626e50de46ed0",
+    "arrival.png": "3aec80284026bdfbdee78fbeb837eebaa9167f639305f170ed7ecceda130a6c0",
+    "typecheck.log": "332ca5cdd1cce4a89252107f9619db6e237f3a287629bcfe353c6ab7352f9d2f",
+    "README.md": "cc5db6043c231ecc7d5a5dd99b20a2abde5328adb260e2d1cbdb33ebfaf63f59",
+    "tests.log": "069a86e360371065dce1a2368bb78487d3870e95645f2aac8a552dad41b5e3c0",
+    "browser-errors.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "hauling.png": "c26e6eac9aa377c0caa5d11efb5461a4909608791856ffe1a92339e1e8fd276a",
+    "browser.json": "29ee351e2a65e6be30f92c88af76d5d6bcfc5f046ccf0db0af4534982b3707b0",
+    "build.log": "a100db702f07558e846f342646915c46d9a15d25ab997821512d0e700cc0d2cd"
+  }
+}

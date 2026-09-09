@@ -1,0 +1,205 @@
+{
+  "afterHidden": {
+    "occupied": [
+      0
+    ],
+    "status": "Practice bots stopped because the tab was hidden."
+  },
+  "afterLeaveAndRejoin": {
+    "occupied": [
+      0
+    ],
+    "status": "Practice bots stopped because you left the rope."
+  },
+  "before": {
+    "paused": true,
+    "players": [
+      {
+        "ackSeq": 5477,
+        "brace": false,
+        "connected": true,
+        "id": 0,
+        "label": "Climber 1",
+        "position": {
+          "x": -2.4000000953674316,
+          "y": 0.4580000042915344,
+          "z": -0.800000011920929
+        }
+      },
+      {
+        "ackSeq": 1844,
+        "brace": false,
+        "connected": true,
+        "id": 1,
+        "label": "BOT 2",
+        "position": {
+          "x": -0.800000011920929,
+          "y": 0.4580000042915344,
+          "z": -0.800000011920929
+        }
+      },
+      {
+        "ackSeq": 1844,
+        "brace": false,
+        "connected": true,
+        "id": 2,
+        "label": "BOT 3",
+        "position": {
+          "x": 0.800000011920929,
+          "y": 0.4580000042915344,
+          "z": 0.699999988079071
+        }
+      },
+      {
+        "ackSeq": 1844,
+        "brace": false,
+        "connected": true,
+        "id": 3,
+        "label": "BOT 4",
+        "position": {
+          "x": 2.4000000953674316,
+          "y": 0.4580000042915344,
+          "z": -0.800000011920929
+        }
+      }
+    ],
+    "practice": "3 practice bots · cooperative · stop after 10 minutes",
+    "scene": "rescue",
+    "tick": 0
+  },
+  "clumsy": {
+    "occupied": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "status": "3 practice bots · clumsy · stop after 10 minutes"
+  },
+  "hauling": {
+    "paused": false,
+    "players": [
+      {
+        "ackSeq": 5633,
+        "brace": true,
+        "connected": true,
+        "id": 0,
+        "label": "Climber 1",
+        "position": {
+          "x": -2.02534818649292,
+          "y": 0.4540010094642639,
+          "z": -0.4253377616405487
+        }
+      },
+      {
+        "ackSeq": 2000,
+        "brace": true,
+        "connected": true,
+        "id": 1,
+        "label": "BOT 2",
+        "position": {
+          "x": -0.62901371717453,
+          "y": 0.4540010094642639,
+          "z": -0.7936909198760986
+        }
+      },
+      {
+        "ackSeq": 2000,
+        "brace": false,
+        "connected": true,
+        "id": 2,
+        "label": "BOT 3",
+        "position": {
+          "x": 0.8085043430328369,
+          "y": -2.301025867462158,
+          "z": 0.27900099754333496
+        }
+      },
+      {
+        "ackSeq": 2000,
+        "brace": true,
+        "connected": true,
+        "id": 3,
+        "label": "BOT 4",
+        "position": {
+          "x": 2.2319273948669434,
+          "y": 0.4540010094642639,
+          "z": -0.8006982803344727
+        }
+      }
+    ],
+    "practice": "3 practice bots · cooperative · stop after 10 minutes",
+    "scene": "rescue",
+    "tick": 75
+  },
+  "released": {
+    "paused": false,
+    "players": [
+      {
+        "ackSeq": 5650,
+        "brace": false,
+        "connected": true,
+        "id": 0,
+        "label": "Climber 1",
+        "position": {
+          "x": -2.0145022869110107,
+          "y": 0.4540010094642639,
+          "z": -0.41449859738349915
+        }
+      },
+      {
+        "ackSeq": 2017,
+        "brace": true,
+        "connected": true,
+        "id": 1,
+        "label": "BOT 2",
+        "position": {
+          "x": -0.6281920075416565,
+          "y": 0.4540010094642639,
+          "z": -0.8483818173408508
+        }
+      },
+      {
+        "ackSeq": 2017,
+        "brace": false,
+        "connected": true,
+        "id": 2,
+        "label": "BOT 3",
+        "position": {
+          "x": 0.8085353374481201,
+          "y": -2.251131534576416,
+          "z": 0.27900099754333496
+        }
+      },
+      {
+        "ackSeq": 2017,
+        "brace": true,
+        "connected": true,
+        "id": 3,
+        "label": "BOT 4",
+        "position": {
+          "x": 2.231105327606201,
+          "y": 0.4540010094642639,
+          "z": -0.8553681969642639
+        }
+      }
+    ],
+    "practice": "3 practice bots · cooperative · stop after 10 minutes",
+    "scene": "rescue",
+    "tick": 83
+  },
+  "stopped": {
+    "occupied": [
+      0
+    ],
+    "participants": {
+      "note": "Bot seats observed during this measurement window, including bots that have since left. Synthetic players never count as human playtest participants.",
+      "observedBotSeatIds": [
+        1,
+        2,
+        3
+      ]
+    },
+    "status": "Practice bots stopped."
+  }
+}

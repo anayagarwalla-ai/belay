@@ -9,6 +9,7 @@ import { registerInspectionTool } from './inspection-tool';
 import { controlHint, movementKeys, moveFromKeys } from './controls';
 import { OperatorControls } from './OperatorControls';
 import { IncidentEvidence } from './IncidentEvidence';
+import type { PracticeMode, PracticeStatus } from './practice-team';
 
 export default function GateClient() {
   const host = useRef<HTMLDivElement>(null);
@@ -23,6 +24,8 @@ export default function GateClient() {
   const [notice, setNotice] = useState('');
   const [viewError, setViewError] = useState('');
   const [busy, setBusy] = useState(false);
+  const [practiceMode, setPracticeMode] = useState<PracticeMode>('recovery');
+  const [practice, setPractice] = useState<PracticeStatus>({ state: 'idle', count: 0, message: 'Synthetic teammates for local practice.' });
 
   useEffect(() => {
     const connection = new BelayConnection(); connectionRef.current = connection;
@@ -30,6 +33,7 @@ export default function GateClient() {
     const unregisterInspection = registerInspectionTool(inspection);
     connection.onChange = () => {
       setStatus(connection.status); setLocalId(connection.localId); setOperator(connection.operator); setHasSession(connection.sessionNumber > 0);
+      setPractice(connection.practice.status);
       if (!connection.latest) setSnapshot(undefined);
     };
     let viewport: ReturnType<typeof createViewport> | undefined;
@@ -48,7 +52,7 @@ export default function GateClient() {
     };
     const up = (event: KeyboardEvent) => { if (movementKeys.includes(event.code)) { keys.delete(event.code); update(); } };
     const clear = () => { keys.clear(); connection.releaseInput(); };
-    const visibility = () => { if (document.hidden) clear(); };
+    const visibility = () => { if (document.hidden) { clear(); connection.practice.stop('Practice bots stopped because the tab was hidden.'); } };
     const focus = (event: FocusEvent) => {
       if (event.target instanceof HTMLElement && event.target.closest('button,input,textarea,select,summary')) clear();
     };
@@ -101,6 +105,18 @@ export default function GateClient() {
           : <Button className="gate-button" onClick={() => void connectionRef.current?.leave()}>Leave rope</Button>}</div>
     </section>
     {notice ? <p className="notice" role="alert">{notice}</p> : null}
+    {operator && connected && snapshot ? <section className="controls practice" aria-label="Practice teammates">
+      <div className="control-copy"><p>Try it with bots</p><output className="practice-status">{practice.message}</output>
+        <small>BOT labels mark synthetic players. Use real people for the playtest verdict. Hiding this tab stops its bots.</small></div>
+      <div className="actions"><label>Bot behavior <select value={practiceMode} disabled={busy || practice.state !== 'idle'} onChange={event => setPracticeMode(event.target.value as PracticeMode)}>
+        <option value="recovery">Cooperative</option><option value="bad">Clumsy</option>
+      </select></label>
+        {practice.state === 'idle' ? <Button className="gate-button" disabled={busy || scene === 'flat' || count >= snapshot.players.length}
+          onClick={() => void run(() => connectionRef.current!.startPracticeBots(practiceMode))}>Fill empty seats with bots</Button>
+          : <Button className="gate-button" onClick={() => connectionRef.current?.stopPracticeBots()}>{practice.state === 'starting' ? 'Cancel adding bots' : 'Stop practice bots'}</Button>}
+      </div>
+      {scene === 'flat' ? <small className="form-note">Load a rescue or crossing below to use practice teammates.</small> : null}
+    </section> : null}
     {operator && connected && snapshot ? <OperatorControls key={`${snapshot.epoch}:${snapshot.playerCount ?? snapshot.players.length}`} snapshot={snapshot} busy={busy}
       onLoad={options => run(() => connectionRef.current!.command('loadScene', options))}
       onCommand={(command, value) => run(() => connectionRef.current!.command(command, value))} /> : null}

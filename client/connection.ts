@@ -4,6 +4,7 @@ import { REST, type ClientConfig, type DebugCommand, type Move, type SceneOption
 import { Samples } from '../shared/stats';
 import { ClientEvidence } from './evidence';
 import { sameTopology } from './presentation';
+import { PracticeTeam, type PracticeMode } from './practice-team';
 
 export class BelayConnection {
   room?: Room;
@@ -15,6 +16,8 @@ export class BelayConnection {
   input: Move = { ...REST };
   sessionNumber = 0;
   readonly evidence = new ClientEvidence();
+  readonly practice = new PracticeTeam(() => ({ ready: this.acceptsMovement, id: this.localId, snapshot: this.latest }), () => this.onChange());
+  private joinPracticeRoom?: () => Promise<Room>;
   viewCounters: () => unknown = () => null;
   private seq = 0;
   private generation = 0;
@@ -34,6 +37,7 @@ export class BelayConnection {
   private joinedAt: number | null = null;
   private measurementsStartedAt = new Date().toISOString();
   private lastSession: { reason: string; state: Snapshot | null; network: ReturnType<BelayConnection['networkCounters']>; presentation: ReturnType<ClientEvidence['report']> } | null = null;
+  private observedBotSeats = new Set<number>();
   missedProbes = 0;
   receivedSnapshots = 0;
   onChange: () => void = () => {};
@@ -65,6 +69,7 @@ export class BelayConnection {
       if (generation !== this.generation || this.disposed) { void room.leave(false).catch(() => {}); return; }
       clearTimeout(this.joinDeadline); this.joinAbort = undefined;
       this.operator = config.operator; this.room = room; this.joinedAt = performance.now();
+      this.joinPracticeRoom = config.operator ? () => client.joinById(config.roomId, { token: config.token, bot: true }) : undefined;
       const current = () => this.room === room && generation === this.generation && !this.disposed;
       this.joinDeadline = setTimeout(() => { if (current() && !this.latest) this.detach('No game state arrived — try joining again'); }, TUNING.network.joinTimeoutMs);
       const identity = ({ id }: { id: number }) => {
@@ -92,6 +97,7 @@ export class BelayConnection {
           this.input = { ...REST }; this.onInputReset(); this.stalled = false; this.status = 'Connected'; this.onChange();
         }
         this.latest = snapshot; this.history.push({ at: now, state: snapshot });
+        for (const player of snapshot.players) if (player.connected && player.label.startsWith('BOT ')) this.observedBotSeats.add(player.id);
         this.evidence.receive(snapshot, this.localId, now);
         if (this.history.length > TUNING.network.snapshotHistory) this.history.shift();
         this.onSnapshot(snapshot);
@@ -149,6 +155,11 @@ export class BelayConnection {
       && performance.now() - this.lastSnapshotAt <= TUNING.network.staleSnapshotMs);
   }
   releaseInput() { this.input = { ...REST }; this.sendInput(); }
+  startPracticeBots(mode: PracticeMode = 'recovery') {
+    if (!this.operator || !this.joinPracticeRoom) return Promise.reject(new Error('Practice bots require a connected test operator.'));
+    return this.practice.start(mode, this.joinPracticeRoom);
+  }
+  stopPracticeBots() { this.practice.stop(); }
   async leave() {
     this.releaseInput();
     this.detach('Ready');
@@ -159,6 +170,7 @@ export class BelayConnection {
     this.evidence.reset();
   }
   private detach(reason: string) {
+    this.practice.stop('Practice bots stopped because you left the rope.'); this.joinPracticeRoom = undefined;
     const room = this.room;
     if (this.status !== 'Ready' || this.latest) this.lastSession = { reason, state: this.latest ? structuredClone(this.latest) : null, network: this.networkCounters(), presentation: this.evidence.report() };
     ++this.generation;
@@ -189,12 +201,15 @@ export class BelayConnection {
     });
   }
   resetMeasurements() {
+    this.observedBotSeats.clear();
     this.rtts.clear(); this.jitter.clear(); this.intervals.clear(); this.pings.clear();
     this.lastRtt = undefined; this.receivedSnapshots = 0; this.missedProbes = 0;
     this.measurementsStartedAt = new Date().toISOString();
   }
   networkCounters() {
     return { measurementStartedAt: this.measurementsStartedAt, sessionNumber: this.sessionNumber,
+      participants: { observedBotSeatIds: [...this.observedBotSeats].sort((a, b) => a - b),
+        note: 'Bot seats observed during this measurement window, including bots that have since left. Synthetic players never count as human playtest participants.' },
       sceneEpoch: this.latest?.epoch ?? null, rttMs: this.rtts.summary(), jitterSuccessiveRttDifferenceMs: this.jitter.summary(),
       snapshotIntervalMs: this.intervals.summary(), receivedSnapshots: this.receivedSnapshots,
       missedEchoProbes: this.missedProbes, packetLoss: null,
@@ -244,6 +259,8 @@ export class BelayConnection {
       stepTicks: (ticks: number) => this.command('stepTicks', ticks),
       pause: () => this.command('pause'), resume: () => this.command('resume'),
       serverCounters: () => this.command('counters'), tape: () => this.command('tape'),
+      startPracticeBots: (mode: PracticeMode = 'recovery') => this.startPracticeBots(mode),
+      stopPracticeBots: () => this.stopPracticeBots(),
       networkProfile: (profile?: { addedRttMs: number; jitterMs: number }) => this.networkProfile(profile),
       resetMeasurements: () => this.resetMeasurements(), captureReport: () => this.captureReport(),
       presentation: () => ({ view: this.viewCounters(), cues: this.evidence.report() }),

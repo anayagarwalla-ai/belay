@@ -11,14 +11,16 @@ npm run dev
 
 Wait for **BELAY local preview ready**, then open <http://127.0.0.1:8787> and join the test rope. WASD/arrows move relative to the camera; Space braces. In crossing/rescue, hold Space and a direction to take slow hauling steps. A fresh dev session starts a four-climber crossing with seed 1701, balanced family and 30 Hz authority. In **Operator scene controls**, choose the scene, team, family, seed and authority, then click **Reset and load scene**; selections alone do not apply. Reset preserves occupied seats and pause state, so reduce the team only after higher-numbered seats leave and click **Resume** if paused.
 
-For synthetic partners, join in the browser first, then run:
+To try it alone, join the browser rope and use **Try it with bots → Fill empty seats with bots**. Choose **Cooperative** for rescue practice or **Clumsy** for counterproductive movement. The operator's browser owns these labeled seats; **Stop practice bots**, leaving, hiding the tab, a stale/disconnected connection, or the ten-minute deadline closes them. Existing human seats stay occupied by their owners. Stop bots before reducing the team size. For a focused rescue, pause and load the rescue scene before adding bots, then resume. These are practice partners, not Solo Daily or human playtest evidence.
+
+The terminal helper is also available after joining in the browser:
 
 ```sh
 npm run bot:team -- --mode bad --seconds 120
 # Or use --mode recovery for scripted rescue partners.
 ```
 
-Every synthetic seat says BOT. Ctrl+C releases their seats; they also leave at the requested deadline. The team helper uses the current room's settings and rests in the flat scene; `npm run bot -- --mode bad --seconds 60` remains available for a single flat-ground bot. For a focused rescue, follow the paused setup in `PLAYTEST.md` so the fall does not start before partners are ready. Bots are setup tools and counterexamples, never human playtest evidence. A real partner can join a second browser or use the protected invitation procedure in `PLAYTEST.md`.
+Every synthetic seat says BOT. Ctrl+C releases terminal bots; they also leave at the requested deadline. The terminal helper uses the current room's settings and rests in the flat scene; `npm run bot -- --mode bad --seconds 60` remains available for a single flat-ground bot. Browser practice bots use the same public-state policies and rest during pause, flat scenes, and terminal results. Saved measurements retain observed bot seat IDs for their measurement window, including bots that have left. A real partner can join a second browser or use the protected invitation procedure in `PLAYTEST.md`.
 
 Save evidence before resetting. Stop bot terminals with Ctrl+C; stop local dev with Ctrl+C in its terminal or `npm run dev -- --stop` from this checkout. Invited-session teardown is in `RUNBOOK.md`.
 

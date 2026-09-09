@@ -108,6 +108,7 @@ export const TUNING = {
     httpTimeoutMs: 15000,
   },
   bot: {
+    practiceSeconds: 600, // Browser-owned practice seats expire after one run; no unattended bot teams.
     actionSeconds: 1.2, // Reproducibly change direction, occasionally counterproductively.
     braceChance: 0.22,
     idleChance: 0.12,

@@ -1,0 +1,56 @@
+npm notice run belay@0.1.0 test
+npm notice run vitest run --config vitest.config.ts
+
+ RUN  v5.0.0 /Users/anayagarwalla/Documents/ChatGPT/testastra
+
+ ❯ tests/local-load-diagnostic.test.ts (6 tests | 2 failed) 6522ms
+   ❯ bounded real-socket local load diagnostic (6)
+     × runs actual authority/client processes, reconciles raw offers and acceptance, then disposes every room 2294ms
+     × uses integrated Phase 2 scenes with every actual body/seat count from two through six 1513ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/local-load-diagnostic.test.ts > bounded real-socket local load diagnostic > runs actual authority/client processes, reconciles raw offers and acceptance, then disposes every room
+AssertionError: expected 'Only the test operator can add diagno…' to be null
+
+- Expected:
+null
+
++ Received:
+"Only the test operator can add diagnostic bots."
+
+ ❯ tests/local-load-diagnostic.test.ts:49:28
+     47|     const output = await directory(), plan = manifest('test-fixture', …
+     48|     const { result } = await runLocalLoad(plan, output);
+     49|     expect(result.failure).toBeNull(); expect(result.status).toBe('COM…
+       |                            ^
+     50|     expect(result.audit.problems).toEqual([]);
+     51|     expect(result.audit.observedSlots).toBe(plan.expectedScheduled);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/local-load-diagnostic.test.ts > bounded real-socket local load diagnostic > uses integrated Phase 2 scenes with every actual body/seat count from two through six
+AssertionError: expected 'Only the test operator can add diagno…' to be null
+
+- Expected:
+null
+
++ Received:
+"Only the test operator can add diagnostic bots."
+
+ ❯ tests/local-load-diagnostic.test.ts:105:28
+    103|     const output = await directory(), plan = manifest('test-fixture', …
+    104|     const { result } = await runLocalLoad(plan, output);
+    105|     expect(result.failure).toBeNull(); expect(result.audit.problems).t…
+       |                            ^
+    106|     expect(result.before?.rooms.map(room => room.playerCount).sort()).…
+    107|     expect(new Set(result.before?.rooms.map(room => room.scene))).toEq…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 32 passed (33)
+      Tests  2 failed | 312 passed | 1 expected fail (315)
+   Start at  19:04:59
+   Duration  74.20s (tests 99%, transform 1%, import 1%)
+
